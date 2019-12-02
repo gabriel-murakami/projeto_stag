@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>AppScorpion</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
+  <head>
+    <title>AppScorpion</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -18,12 +17,18 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<body>
-  <%= yield %>
-</body>
-
+  <body>
+  <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+    <%= yield %>
+  </body>
 </html>
+
