@@ -32,21 +32,3 @@
   </body>
 </html>
 
-<<<<<<< HEAD
-<p class="navbar-text float-right">
-<% if user_signed_in? %>
-  Logado como: <strong><%= current_user.email %></strong>.
-  <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Registrar-se", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-<ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-      <a class="nav-link" href="/ideas">Ideas</a>
-    </li>
-    ...
-  </ul>
-=======
->>>>>>> dbf2d6af79b9f0e8edd1dfae4e47e998ef9eeae0
