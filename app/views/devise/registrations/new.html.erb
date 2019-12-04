@@ -1,45 +1,70 @@
-<h2>Sign up</h2>
+<div class="cad-form">
+  <label class="std-font-grey" style="font-size:20px; text-align:center">Conte um pouco sobre vc ;)</label>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= render "devise/shared/error_messages", resource: resource %>
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col">
+        <p class="std-font-grey">Sou</p>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.select :pf_pj, pfpj, :class => "form-control" %><br />
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-center">
+      <div class="col">
+        <p class="std-font-grey">Meu nome é</p>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.text_field :nome, :class => "form-control", :placeholder => "Nome" %><br />
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.text_field :sobrenome, :class => "form-control", :placeholder => "Sobrenome" %><br />
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpf %><br />
+    <%= f.text_field :cpf, autofocus: true, maxlength: "14" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_emissao %><br />
+    <%= f.date_field :data_emissao, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+  <% end %>
 </div>
-
-<div class="field">
-  <%= f.label :pf_pj %><br />
-  <%= f.select :pf_pj, pfpj %>
-</div>
-
-<div class="field">
-  <%= f.label :cpf %><br />
-  <%= f.text_field :cpf, autofocus: true, maxlength: "14" %>
-</div>
-
-<div class="field">
-  <%= f.label :data_emissao %><br />
-  <%= f.date_field :data_emissao, autofocus: true %>
-</div>
-
-<div class="field">
-  <%= f.label :password %>
-  <% if @minimum_password_length %>
-  <em>(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %><br />
-  <%= f.password_field :password, autocomplete: "new-password" %>
-</div>
-
-<div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div>
-
-<div class="actions">
-  <%= f.submit "Sign up" %>
-</div>
-<% end %>
 
 <%= render "devise/shared/links" %>
 
@@ -60,5 +85,10 @@
     today = yyyy + '-' + mm + '-' + dd;
     $("#user_data_emissao").attr("max", today);
   })
+
+  $(document).ready(function () {
+    $('#user_pf_pj').attr("class", "form-control");
+  });
+
 
 </script>
