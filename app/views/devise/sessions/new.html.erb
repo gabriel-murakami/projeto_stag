@@ -1,39 +1,37 @@
-<h2>Log in</h2>
+<!--oi-->
+<div class="login-form">
+  <label class="std-font-grey" style="font-size:20px; text-align:center">Faça seu login</label>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control"%>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password, value: "Senha", :class => "std-font-grey "%>
+    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <button type="submit" class="btn btn-primary">Login</button>
+  <div class="field" style="margin:20px">
+    <%= f.check_box :remember_me, :class => "form-check-input"%>
+    <%= f.label :remember_me, value: "Mantenha-me conectado", :class => "std-font-grey-sm"%>
   </div>
+  <% end %>
+  </br>
+  <div class="actions container">
+    <div class="row">
+      <div class="col-md">
+        <button type="button" class="btn btn-link std-link"> Cancelar </button>
+      </div>
+      <div class="col-md">
+        <%= f.submit "Entrar", :class => "std-btn"%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>
 
-<% end %>
-<!-- <button class="btn btn-primary" id="clear">Clear inputs</button> -->
-<input type="reset" class="btn btn-primary" value="Cancelar"/>
-<%= render "devise/shared/links" %>
-
-<!-- <script>
-
-$(document).ready(function(){
-  $('#clear').click(function(){
-    $('input').val('');
-  })
-})
-
-</script> -->
 
