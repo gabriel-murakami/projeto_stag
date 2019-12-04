@@ -22,7 +22,7 @@
   <div class="actions container">
     <div class="row">
       <div class="col-md">
-        <button type="button" class="btn btn-link std-link"> Cancelar </button>
+        <button type="button" id="clear" class="btn btn-link std-link"> Cancelar </button>
       </div>
       <div class="col-md">
         <%= f.submit "Entrar", :class => "std-btn"%>
@@ -33,4 +33,12 @@
   <%= render "devise/shared/links" %>
 </div>
 
+<script>
 
+    $(document).ready(function(){
+      $('#clear').click(function(){
+        $('input').val('');
+      })
+    })
+    
+</script>
