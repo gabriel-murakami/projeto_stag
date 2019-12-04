@@ -9,6 +9,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :pf_pj %><br />
+    <%= f.select :pf_pj, pfpj %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpf %><br />
+    <%= f.text_field :cpf, autofocus: true, maxlength: "14" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_emissao %><br />
+    <%= f.date_field :data_emissao, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
