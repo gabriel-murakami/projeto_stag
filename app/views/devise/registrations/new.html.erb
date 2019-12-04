@@ -1,16 +1,131 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
+<div class="container cad-form" style="width: max-content;">
+  <label class="std-font-grey" style="font-size:20px; text-align:center">Conte um pouco sobre vc ;)</label>
+  <div class="card">
+    <div class="card-body">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4">
+          <p class="std-font-grey">Sou</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.select :pf_pj, pfpj, :class => "form-control" %><br />
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4">
+          <p class="std-font-grey">Meu nome é</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.text_field :nome, :class => "form-control", :placeholder => "Nome" %><br />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.text_field :sobrenome, :class => "form-control", :placeholder => "Sobrenome" %><br />
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4">
+          <p class="std-font-grey">Meu CPF é</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.text_field :cpf, :class => "form-control", :placeholder => "CPF" %><br />
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4">
+          <p class="std-font-grey">Documento Pessoal</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.text_field :documento, :class => "form-control", :placeholder => "Ex: RG" %><br />
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4">
+          <div class="form-group">
+            <%= f.text_field :orgao_emissor, :class => "form-control", :placeholder => "Órgão Emissor" %><br />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.select :estado_emissor, states, :class => "form-control" %><br />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.date_field :data_emissao, :class => "form-control" %><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Tela cadastro endereço-->
+<div class="container cad-form" style="width: max-content;">
+  <label class="std-font-grey" style="font-size:20px; text-align:center">Fale sobre o seu endereço</label>
+  <div class="card">
+    <div class="card-body">
+      <!--CEP-->
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <label class="std-font-grey" style="margin-top: 10px"> O endereço fica no CEP</label>
+        </div>
+        <div class="col-md-auto">
+          <%= f.text_field :cep, :class => "form-control", :placeholder => "CEP"%>
+        </div>
+      </div>
+      <!--Rua, número-->
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <label class="std-font-grey" style="margin-top: 10px">Na</label>
+        </div>
+        <div class="col-md-auto">
+          <%= f.text_field :logradouro, :class => "form-control", :placeholder => "rua, avenida"%>
+        </div>
+        <div class="col-md-auto">
+          <label class="std-font-grey" style="margin-top: 10px">, número</label>
+        </div>
+        <div class="col-md-auto">
+          <%= f.text_field :numero, :class => "form-control", :placeholder => "número, km"%>
+        </div>
+        <div class="col-md-auto">
+          <label class="std-font-grey" style="margin-top: 10px">,</label>
+        </div>
+      </div>
+      <!--Complemento-->
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <label class="std-font-grey" style="margin-top: 10px">complemento</label>
+        </div>
+        <div class="col-md-auto">
+          <%= f.text_field :complemento, :class => "form-control", :placeholder => "casa, apto."%>
+        </div>
+      </div>
+      <!--Bairro, cidade-->
+      <div class="row">
+      </div>
+      <!--Estado-->
+      <div class="row">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
 <div class="field">
   <%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
-
-<div class="field">
-  <%= f.label :pf_pj %><br />
-  <%= f.select :pf_pj, pfpj %>
 </div>
 
 <div class="field">
@@ -18,10 +133,6 @@
   <%= f.text_field :cpf, autofocus: true, maxlength: "14" %>
 </div>
 
-<div class="field">
-  <%= f.label :data_emissao %><br />
-  <%= f.date_field :data_emissao, autofocus: true %>
-</div>
 
 <div class="field">
   <%= f.label :password %>
@@ -34,7 +145,7 @@
 <div class="field">
   <%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div>
+</div> -->
 
 <div class="actions">
   <%= f.submit "Sign up" %>
@@ -60,5 +171,10 @@
     today = yyyy + '-' + mm + '-' + dd;
     $("#user_data_emissao").attr("max", today);
   })
+
+  $(document).ready(function () {
+    $('select').attr("class", "form-control");
+  });
+
 
 </script>
