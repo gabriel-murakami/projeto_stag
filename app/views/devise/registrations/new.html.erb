@@ -1,69 +1,108 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="container cad-form" style="width: max-content;">
+<div class="container cad-form" style="min-width: 30%; width: 45%;">
   <label class="std-font-grey" style="font-size:20px; text-align:center">Conte um pouco sobre vc ;)</label>
   <div class="card">
     <div class="card-body">
       <div class="row align-items-center justify-content-center">
-        <div class="col-4">
-          <p class="std-font-grey">Sou</p>
+        <div class="col-4" align="right">
+          <label class="std-font-grey" style="margin-top: 5px;">Sou</label>
         </div>
         <div class="col">
           <div class="form-group">
-            <%= f.select :pf_pj, pfpj, :class => "form-control" %><br />
+            <%= f.select :pf_pj, pfpj, :class => "form-control" %>
           </div>
         </div>
       </div>
-      <div class="row align-items-center justify-content-center">
-        <div class="col-4">
-          <p class="std-font-grey">Meu nome é</p>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <%= f.text_field :nome, :class => "form-control", :placeholder => "Nome" %><br />
+      <!-- PESSOA FISICA -->
+      <div id="pf">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+            <label class="std-font-grey" style="margin-top: 5px;">Meu nome é</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :nome, :class => "form-control", :placeholder => "Nome" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :sobrenome, :class => "form-control", :placeholder => "Sobrenome" %>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <div class="form-group">
-            <%= f.text_field :sobrenome, :class => "form-control", :placeholder => "Sobrenome" %><br />
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+            <label class="std-font-grey" style="margin-top: 5px;">Meu CPF é</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :cpf, :class => "form-control", :placeholder => "CPF" %>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+            <label class="std-font-grey" style="margin-top: 5px;">Documento Pessoal</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :documento, :class => "form-control", :placeholder => "Ex: RG" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :orgao_emissor, :class => "form-control", :placeholder => "Órgão Emissor" %>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+              <label class="std-font-grey" style="margin-top: 5px;">UF e Data de Emissão</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.select :estado_emissor, states, :class => "form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.date_field :data_emissao, :class => "form-control" %>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row align-items-center justify-content-center">
-        <div class="col-4">
-          <p class="std-font-grey">Meu CPF é</p>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <%= f.text_field :cpf, :class => "form-control", :placeholder => "CPF" %><br />
+      <!-- PESSOA JURIDICA -->
+      <div id="pj">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+            <label class="std-font-grey" style="margin-top: 5px;">Nome Fantasia</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :nome_fantasia, :class => "form-control", :placeholder => "Nome" %>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row align-items-center justify-content-center">
-        <div class="col-4">
-          <p class="std-font-grey">Documento Pessoal</p>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <%= f.text_field :documento, :class => "form-control", :placeholder => "Ex: RG" %><br />
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+            <label class="std-font-grey" style="margin-top: 5px;">Razão Social</label>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :razao_social, :class => "form-control", :placeholder => "Razão Social" %>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row align-items-center justify-content-center">
-        <div class="col-4">
-          <div class="form-group">
-            <%= f.text_field :orgao_emissor, :class => "form-control", :placeholder => "Órgão Emissor" %><br />
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+            <label class="std-font-grey" style="margin-top: 5px;">Com CNPJ</label>
           </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <%= f.select :estado_emissor, states, :class => "form-control" %><br />
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <%= f.date_field :data_emissao, :class => "form-control" %><br />
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :cnpj, :class => "form-control", :placeholder => "CNPJ" %>
+            </div>
           </div>
         </div>
       </div>
@@ -73,12 +112,12 @@
 
 <!-- 
 <div class="field">
-  <%= f.label :email %><br />
+  <%= f.label :email %>
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 </div>
 
 <div class="field">
-  <%= f.label :cpf %><br />
+  <%= f.label :cpf %>
   <%= f.text_field :cpf, autofocus: true, maxlength: "14" %>
 </div>
 
@@ -87,17 +126,18 @@
   <%= f.label :password %>
   <% if @minimum_password_length %>
   <em>(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %><br />
+  <% end %>
   <%= f.password_field :password, autocomplete: "new-password" %>
 </div>
 
 <div class="field">
-  <%= f.label :password_confirmation %><br />
+  <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
 </div> -->
 
 <div class="actions">
-  <%= f.submit "Sign up" %>
+    <%= f.submit " Cadastrar ", :class => "std-btn"%>
+    <a class="btn btn-link esp-link" href="/" >Cancelar</a>
 </div>
 <% end %>
 
@@ -124,6 +164,20 @@
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
+
+  $(document).ready(function () {
+    $('#pj').hide();
+    $('#pf').show();
+    $('#user_pf_pj').change(function () {
+      if ($('#user_pf_pj option:selected').val() == 'PF') {
+        $('#pj').hide();
+        $('#pf').show();
+      } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
+        $('#pf').hide();
+        $('#pj').show();
+      }
+    });
+  })
 
 
 </script>
