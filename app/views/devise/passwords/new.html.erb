@@ -1,19 +1,20 @@
-<h2 class= "std-font-grey-lg" >Esqueci minha senha </h2> 
+<h2 class= "std-font-grey-lg" >Problemas para acessar sua conta?</h2> 
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "Digite seu e-mail"%>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Enviar e-mail de verificação", :class => "std-btn", :style => "color: #f7f7f7ff" %>
   </div>
 <% end %>
 
-<%- if controller_name != 'sessions' %>
+<% if controller_name != 'sessions' %>
   <%= link_to "Voltar para login", new_session_path(resource_name), :class => "btn btn-link std-link-purple", :style => "color: #A24DC2FF" %><br />
 <% end %>
 
