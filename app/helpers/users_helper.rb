@@ -35,7 +35,6 @@ module UsersHelper
             ["São Paulo", "SP"],
             ["Sergipe", "SE"],
             ["Tocantins", "TO"],
-            ["Estrangeiro", "EX"]
         ]
     end
 end

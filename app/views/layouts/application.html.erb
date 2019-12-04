@@ -6,6 +6,8 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <link rel="stylesheet" type="text/css" href="../assets/stylesheets/main.css">
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -22,7 +24,10 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
+<body class="std-bg" style="margin:0px">
+  <nav class="navbar std-bg-purple">
+    <!--Símbolo-->
+  </nav>
   <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
   <% end %>
