@@ -2,7 +2,7 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 <div class="container">
 <!--Tela casdastro PF PJ-->
-<div id="card-cad" class="container cad-form" style="min-width: 30%; width: 45%;">
+<div class="container" style="max-width: 750px; padding: 25px;">
   <label class="std-font-grey" style="font-size:20px; text-align:center">Conte um pouco sobre vc ;)</label>
   <div class="card card-grey">
     <div class="card-body">
@@ -10,7 +10,7 @@
         <div class="col-4" align="right">
           <label class="std-font-grey" style="margin-top: 5px;">Sou</label>
         </div>
-        <div class="col">
+        <div class="col-8">
           <div class="form-group">
             <%= f.select :pf_pj, pfpj%>
           </div>
@@ -22,12 +22,12 @@
           <div class="col-4" align="right">
             <label class="std-font-grey" style="margin-top: 5px;">Meu nome é</label>
           </div>
-          <div class="col">
+          <div class="col-4">
             <div class="form-group">
               <%= f.text_field :nome, :class => "form-control-yellow form-control", :placeholder => "Nome" %>
             </div>
           </div>
-          <div class="col">
+          <div class="col-4">
             <div class="form-group">
               <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome" %>
             </div>
@@ -37,7 +37,7 @@
           <div class="col-4" align="right">
             <label class="std-font-grey" style="margin-top: 5px;">Meu CPF é</label>
           </div>
-          <div class="col">
+          <div class="col-8">
             <div class="form-group">
               <%= f.text_field :cpf, :class => "form-control-yellow form-control", :placeholder => "CPF" %>
             </div>
@@ -47,12 +47,12 @@
           <div class="col-4" align="right">
             <label class="std-font-grey" style="margin-top: 5px;">Documento Pessoal</label>
           </div>
-          <div class="col">
+          <div class="col-4">
             <div class="form-group">
               <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG" %>
             </div>
           </div>
-          <div class="col">
+          <div class="col-4">
             <div class="form-group">
               <%= f.text_field :orgao_emissor, :class => "form-control-yellow form-control", :placeholder => "Órgão Emissor" %>
             </div>
@@ -62,12 +62,12 @@
           <div class="col-4" align="right">
             <label class="std-font-grey" style="margin-top: 5px;">UF e Data de Emissão</label>
           </div>
-          <div class="col">
+          <div class="col-4">
             <div class="form-group">
               <%= f.select :estado_emissor, states%>
             </div>
           </div>
-          <div class="col">
+          <div class="col-4">
             <div class="form-group">
               <%= f.date_field :data_emissao, :class => "form-control" %>
             </div>
@@ -109,20 +109,22 @@
       </div>
       <!--Menu continuar-->
       </br></br>
-      <div class="actions row justify-content-md-center">
-          <div class="col-md-auto">
+      <div class="actions container">
+        <div class="row">
+          <div class="col">
             <a class="btn btn-link esp-link" href="/">Voltar</a>
           </div>
-          <div class="col-md-auto"></div>
-            <%= f.submit "Continuar", :class => "std-btn", :style => "margin-left: 100px"%>
+          <div class="col"></div>
+            <%= f.submit "Continuar", :class => "std-btn"%>
           </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!--Tela cadastro endereço-->
-<div class="container cad-form" style="width: max-content;">
+<div class="container" style="max-width: 750px; padding: 25px;">
   <label class="std-font-grey" style="font-size:20px; text-align:center">Fale sobre o seu endereço</label>
   <div class="card card-grey">
     <div class="card-body">
@@ -144,14 +146,14 @@
           <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida"%>
         </div>
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">, número</label>
+          <label class="std-font-grey-lg" style="margin-top: 15px">número</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km"%>
         </div>
-        <div class="col-md-auto">
+        <!--<div class="col-md-auto">
           <label class="std-font-grey-lg" style="margin-top: 15px">,</label>
-        </div>
+        </div>-->
       </div>
       <!--Complemento-->
       <div class="row justify-content-md-center">
@@ -161,9 +163,9 @@
         <div class="col-md-auto">
           <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto."%>
         </div>
-        <div class="col-md-auto">
+        <!--<div class="col-md-auto">
           <label class="std-font-grey-lg" style="margin-top: 15px">,</label>
-        </div>
+        </div>-->
       </div>
       <!--Bairro, cidade-->
       <div class="row justify-content-md-center">
@@ -174,14 +176,15 @@
           <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro"%>
         </div>
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">, em</label>
+          <label class="std-font-grey-lg" style="margin-top: 15px">em</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade"%>
         </div>
-        <div class="col-md-auto">
+        <!--<div class="col-md-auto">
           <label class="std-font-grey-lg" style="margin-top: 15px">,</label>
         </div>
+      -->
       </div>
       <!--Estado-->
       <div class="row justify-content-md-center">
