@@ -74,49 +74,73 @@
 <!--Tela cadastro endereço-->
 <div class="container cad-form" style="width: max-content;">
   <label class="std-font-grey" style="font-size:20px; text-align:center">Fale sobre o seu endereço</label>
-  <div class="card">
+  <div class="card card-grey">
     <div class="card-body">
       <!--CEP-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey" style="margin-top: 10px"> O endereço fica no CEP</label>
+          <label class="std-font-grey-lg" style="margin-top: 15px"> O endereço fica no CEP</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :cep, :class => "form-control", :placeholder => "CEP"%>
+          <%= f.text_field :cep, :class => "form-control-yellow form-control", :placeholder => "CEP"%>
         </div>
       </div>
       <!--Rua, número-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey" style="margin-top: 10px">Na</label>
+          <label class="std-font-grey-lg" style="margin-top: 15px">Na</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :logradouro, :class => "form-control", :placeholder => "rua, avenida"%>
+          <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida"%>
         </div>
         <div class="col-md-auto">
-          <label class="std-font-grey" style="margin-top: 10px">, número</label>
+          <label class="std-font-grey-lg" style="margin-top: 15px">, número</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :numero, :class => "form-control", :placeholder => "número, km"%>
+          <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km"%>
         </div>
         <div class="col-md-auto">
-          <label class="std-font-grey" style="margin-top: 10px">,</label>
+          <label class="std-font-grey-lg" style="margin-top: 15px">,</label>
         </div>
       </div>
       <!--Complemento-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey" style="margin-top: 10px">complemento</label>
+          <label class="std-font-grey-lg" style="margin-top: 15px">complemento</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :complemento, :class => "form-control", :placeholder => "casa, apto."%>
+          <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto."%>
+        </div>
+        <div class="col-md-auto">
+          <label class="std-font-grey-lg" style="margin-top: 15px">,</label>
         </div>
       </div>
       <!--Bairro, cidade-->
-      <div class="row">
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <label class="std-font-grey-lg" style="margin-top: 15px">bairro</label>
+        </div>
+        <div class="col-md-auto">
+          <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro"%>
+        </div>
+        <div class="col-md-auto">
+          <label class="std-font-grey-lg" style="margin-top: 15px">, em</label>
+        </div>
+        <div class="col-md-auto">
+          <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade"%>
+        </div>
+        <div class="col-md-auto">
+          <label class="std-font-grey-lg" style="margin-top: 15px">,</label>
+        </div>
       </div>
       <!--Estado-->
-      <div class="row">
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <label class="std-font-grey-lg" style="margin-top: 15px">no estado de</label>
+        </div>
+        <div class="col-md-auto">
+          <%= f.text_field :estado, :class => "form-control-yellow form-control", :placeholder => "estado"%>
+        </div>
       </div>
     </div>
   </div>
