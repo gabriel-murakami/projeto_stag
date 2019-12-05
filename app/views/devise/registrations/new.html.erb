@@ -147,9 +147,65 @@
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
 </div> -->
 
-<div class="actions">
-  <%= f.submit "Sign up" %>
-</div>
+<div class="container cad-form" style="width: max-content;">
+    <label class="std-font-grey" style="font-size:20px; text-align:center">Vamos manter sua conta segura</label>
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center" style="padding-left;: 0px">
+          <div class="col-4">
+            <p class="std-font-grey"></p>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" style="margin-top: 10px">
+            <p class="std-font-grey">O e-mail é</p>
+          </div>
+          <div class="col">                                                                                                                                            
+            <div class="form-group">
+              <%= f.text_field :nome, :class => "form-control", :placeholder => "exemplo@gmail.com" %><br />
+            </div>
+          </div>
+    
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4">
+            <p class="std-font-grey">Confirme o seu e-mail</p>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :cpf, :class => "form-control", :placeholder => "exemplo@gmail.com" %><br />
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" style="padding-right: 0px">
+            <p class="std-font-grey">Qual vai ser sua senha?</p>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.text_field :documento, :class => "form-control", :placeholder => "Senha" %><br />
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center" >
+            <div class="col-4" style="padding-right: 0px">
+              <p class="std-font-grey">Repita, por favor</p>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <%= f.text_field :documento, :class => "form-control", :placeholder => "Senha" %><br />
+              </div>
+            </div>
+          </div>
+          
+          <div class="col">
+              <!--Cadastrar-->
+              <%= f.submit "Cadastrar", :class => "std-btn"%>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
@@ -177,4 +233,5 @@
   });
 
 
-</script>s
+</script>
+

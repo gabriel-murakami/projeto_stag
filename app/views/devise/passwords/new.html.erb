@@ -4,7 +4,7 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field" >
-    <%= f.label :email, value: "E-mail", :class => "std-font-grey" %>
+    <%= f.label :email, :class => "std-font-grey" %>
     <%= f.email_field :email, autofocus: true, :class=> "form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
   </div></br>
   <div class="actions container " >
