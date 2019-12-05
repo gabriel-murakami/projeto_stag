@@ -11,7 +11,7 @@
         </div>
         <div class="col">
           <div class="form-group">
-            <%= f.select :pf_pj, pfpj, :class => "form-control" %>
+            <%= f.select :pf_pj, pfpj, :class => "form-control", autofocus: true  %>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
           </div>
           <div class="col">
             <div class="form-group">
-              <%= f.text_field :nome, :class => "form-control", :placeholder => "Nome" %>
+              <%= f.text_field :nome, autofocus: true, :class => "form-control", :placeholder => "Nome" %>
             </div>
           </div>
           <div class="col">
@@ -38,7 +38,7 @@
           </div>
           <div class="col">
             <div class="form-group">
-              <%= f.text_field :cpf, :class => "form-control", :placeholder => "CPF" %>
+              <%= f.text_field :cpf, :class => "form-control", :placeholder => "CPF", :maxlength => "14" %>
             </div>
           </div>
         </div>
@@ -178,19 +178,13 @@
           <label class="std-font-grey-lg" style="margin-top: 15px">no estado de</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :estado, :class => "form-control-yellow form-control", :placeholder => "estado"%>
+          <%= f.select :estado, states, :class => "form-control-yellow form-control", :placeholder => "estado"%>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 
-<div class="field">
-  <%= f.label :cpf %>
-  <%= f.text_field :cpf, autofocus: true, maxlength: "14" %>
-</div>
-
 <div class="field">
   <%= f.label :email %>
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -201,35 +195,31 @@
   <% if @minimum_password_length %>
   <em>(<%= @minimum_password_length %> characters minimum)</em>
   <% end %>
+  <br />
   <%= f.password_field :password, autocomplete: "new-password" %>
 </div>
 
 <div class="field">
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div> 
--->
+</div>
 
 <div class="actions">
   <%= f.submit " Cadastrar ", :class => "std-btn"%>
   <a class="btn btn-link esp-link" href="/">Cancelar</a>
 </div>
-<div class="field">
-  <%= f.label :email %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
 
-<div class="field">
-  <%= f.label :password %>
-  <% if @minimum_password_length %>
-  <em>(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %>
-  <%= f.password_field :password, autocomplete: "new-password" %>
-</div>
-
-<div class="field">
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="modal-header">
+        <p class="modal-title std-font-grey">CEP inválido</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <% end %>
@@ -238,6 +228,12 @@
 
 
 <script>
+
+  $(document).ready(function(){
+      $('#user_cpf').mask('000.000.000-00');
+      $('#user_cep').mask('00000-000');
+      $('#user_cnpj').mask('00.000.000/0000-00');
+  })
 
   $(document).ready(function () {
     var today = new Date();
@@ -259,12 +255,29 @@
   });
 
   $(document).ready(function () {
-    // $('#error_explanation').remove();
+    if ($('#user_pf_pj option:selected').val() == 'PF') {
+      $('#pj').hide();
+      $('#pf').show();
+    } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
+      $('#pf').hide();
+      $('#pj').show();
+    }
   });
 
+  //Altera cor do campo CPF se for um formato inválido
   $(document).ready(function () {
-    $('#pj').hide();
-    $('#pf').show();
+    $('#user_cpf').change(function () {
+      var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
+      if (!(filtrocpf.test($(this).val()))) {
+        $(this).attr('style', 'border-color: red');
+      } else {
+        $(this).attr('style', 'border-color: #586871');
+      }
+    })
+  })
+
+  //Troca entre o Form de PF e PJ
+  $(document).ready(function () {
     $('#user_pf_pj').change(function () {
       if ($('#user_pf_pj option:selected').val() == 'PF') {
         $('#pj').hide();
@@ -276,5 +289,73 @@
     });
   })
 
+  //Completar endereço via CEP
+  $(document).ready(function () {
+
+    function limpa_formulário_cep() {
+      // Limpa valores do formulário de cep.
+      $("#user_logradouro").val("");
+      $("#user_bairro").val("");
+      $("#user_cidade").val("");
+      $("#user_estado").val("");
+      $('#user_logradouro').attr("disabled", false).css("background-color", "transparent");
+      $('#user_bairro').attr("disabled", false).css("background-color", "transparent");
+      $('#user_cidade').attr("disabled", false).css("background-color", "transparent");
+      $('#user_estado').attr("disabled", false).css("background-color", "transparent");
+    }
+
+    //Quando o campo cep perde o foco.
+    $("#user_cep").blur(function () {
+
+      //Nova variável "cep" somente com dígitos.
+      var cep = $(this).val().replace(/\D/g, '');
+
+      //Verifica se campo cep possui valor informado.
+      if (cep != "") {
+
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+
+        //Valida o formato do CEP.
+        if (validacep.test(cep)) {
+
+          //Preenche os campos com "..." enquanto consulta webservice.
+          $("#user_logradouro").val("...");
+          $("#user_bairro").val("...");
+          $("#user_cidade").val("...");
+
+          //Consulta o webservice viacep.com.br/
+          $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+            if (!("erro" in dados)) {
+              //Atualiza os campos com os valores da consulta.
+              $("#user_logradouro").val(dados.logradouro);
+              $("#user_bairro").val(dados.bairro);
+              $("#user_cidade").val(dados.localidade);
+              $("#user_estado").val(dados.uf);
+              $('#user_logradouro').attr("disabled", true).css("color", "grey");
+              $('#user_bairro').attr("disabled", true).css("color", "grey");
+              $('#user_cidade').attr("disabled", true).css("color", "grey");
+              $('#user_estado').attr("disabled", true).css("color", "grey");
+            } //end if.
+            else {
+              //CEP pesquisado não foi encontrado.
+              limpa_formulário_cep();
+              alert("CEP não encontrado.");
+            }
+          });
+        } //end if.
+        else {
+          //cep é inválido.
+          limpa_formulário_cep();
+          alert("Formato de CEP inválido.");
+        }
+      } //end if.
+      else {
+        //cep sem valor, limpa formulário.
+        limpa_formulário_cep();
+      }
+    });
+  });
 
 </script>
