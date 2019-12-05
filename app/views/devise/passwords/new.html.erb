@@ -1,20 +1,31 @@
-<h2 class= "std-font-grey-lg" >Problemas para acessar sua conta?</h2> 
 
+<div class= "container cad-form" style="width: max-content;"> 
+<label class="std-font-grey" style="font-size:20px; text-align:center">Problemas para acessar a sua conta? </label></br>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "Digite seu e-mail"%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Enviar e-mail de verificação", :class => "std-btn", :style => "color: #f7f7f7ff" %>
+  <div class="field" >
+    <%= f.label :email, value: "E-mail", :class => "std-font-grey" %>
+    <%= f.email_field :email, autofocus: true, :class=> "form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
+  </div></br>
+  <div class="actions container " >
+    <%= f.submit "Enviar e-mail de verificação", :class => "std-btn", :style => "color: #f7f7f7ff; text-align:center" %>
   </div>
 <% end %>
+
+<div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="modal-header">
+          <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <% if controller_name != 'sessions' %>
-  <%= link_to "Voltar para login", new_session_path(resource_name), :class => "btn btn-link std-link-purple", :style => "color: #A24DC2FF" %><br />
+  <%= link_to "Voltar para login", new_session_path(resource_name), :class => "btn btn-link std-link-purple container", :style => "color: #A24DC2FF" %><br />
 <% end %>
-
+</div> 
