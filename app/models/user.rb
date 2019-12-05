@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # validates :cpf, format: { :with => /\d{3}\.\d{3}\.\d{3}\-\d{2}/ }, length: { :maximum => 14 }
+  validates_with ::ScorpValidator
+
   # validates :email, format: { :with => /\w\@gmail.com/ }
   # validates :nome, format: { :with => /\w+/ }
   # validates :sobrenome, format: { :with => /\w+?\s/ }

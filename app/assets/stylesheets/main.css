@@ -38,8 +38,19 @@
 	color: #586871;
 	text-decoration: underline;
 }
+.esp-link {
+	font-family:FelbridgeProLight, sans-serif;
+	color: #586871;
+	text-decoration: underline;
+}
 .std-link:hover {
 	font-family:FelbridgeProLight, sans-serif;
+	color: #f7bd45ff;
+	text-decoration: underline;
+}
+.esp-link:hover {
+	font-family:FelbridgeProLight, sans-serif;
+	background-color: transparent;
 	color: #f7bd45ff;
 	text-decoration: underline;
 }
@@ -71,7 +82,6 @@ input[type="text"]:focus,
 	outline: 0;
   	border-width: 0 0 1px;
 	border-color: #586871;
-	
 }
 .form-control-yellow::placeholder {
 	color: #f6af42ff
