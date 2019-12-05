@@ -106,3 +106,8 @@ input[type="text"]:focus,
 .col-md-auto {
 	padding: 5px;
 }
+
+.flip-2-hor-top-1 {
+	-webkit-animation: flip-2-hor-top-1 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: flip-2-hor-top-1 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}

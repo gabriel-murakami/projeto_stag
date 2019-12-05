@@ -1,7 +1,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="container cad-form" style="min-width: 30%; width: 45%;">
+<div id="card-cad" class="container cad-form" style="min-width: 30%; width: 45%;">
   <label class="std-font-grey" style="font-size:20px; text-align:center">Conte um pouco sobre vc ;)</label>
   <div class="card">
     <div class="card-body">
@@ -59,7 +59,7 @@
         </div>
         <div class="row align-items-center justify-content-center">
           <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">UF e Data de Emissão</label>
+            <label class="std-font-grey" style="margin-top: 5px;">UF e Data de Emissão</label>
           </div>
           <div class="col">
             <div class="form-group">
@@ -110,17 +110,16 @@
   </div>
 </div>
 
-<!-- 
-<div class="field">
-  <%= f.label :email %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
-
+<!--
 <div class="field">
   <%= f.label :cpf %>
   <%= f.text_field :cpf, autofocus: true, maxlength: "14" %>
 </div>
 
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
 
 <div class="field">
   <%= f.label :password %>
@@ -133,12 +132,31 @@
 <div class="field">
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div> -->
+</div> 
+-->
 
 <div class="actions">
-    <%= f.submit " Cadastrar ", :class => "std-btn"%>
-    <a class="btn btn-link esp-link" href="/" >Cancelar</a>
+  <%= f.submit " Cadastrar ", :class => "std-btn"%>
+  <a class="btn btn-link esp-link" href="/">Cancelar</a>
 </div>
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
+
+<div class="field">
+  <%= f.label :password %>
+  <% if @minimum_password_length %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %>
+  <%= f.password_field :password, autocomplete: "new-password" %>
+</div>
+
+<div class="field">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+</div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
@@ -163,6 +181,10 @@
 
   $(document).ready(function () {
     $('select').attr("class", "form-control");
+  });
+
+  $(document).ready(function () {
+    // $('#error_explanation').remove();
   });
 
   $(document).ready(function () {
