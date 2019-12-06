@@ -18,18 +18,18 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class="std-bg" style="margin:0px">
-  <nav class="navbar std-bg-purple">
-    <!--Símbolo-->
-
+  <nav class="navbar std-bg-purple" style="height: 60px; position: fixed; top: 0; z-index: 1000; width: 100%;">
     <%= image_tag "ScorpionLogo.png", :style => "width: 225px" %>
   </nav>
+  <br /><br /><br /><br />
   <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
   <% end %>
