@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#validação de documentos brasileiros
+gem 'brazilian_documents', '~> 0.1.4'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

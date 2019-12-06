@@ -5,12 +5,12 @@
   <!--E-mail-->
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control", :placeholder => "exemplo@gmail.com" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com" %>
   </div>
   <!--Senha-->
   <div class="field">
     <%= f.label :password, value: "Senha", :class => "std-font-grey "%>
-    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control" %>
+    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control std-form-control" %>
   </div>
   <!--Manter conectado-->
   <% if devise_mapping.rememberable? %>
@@ -62,13 +62,15 @@
 <% end %>
 
 <script>
-
-
   $(document).ready(function () {
     $('#clear').click(function () {
       $('#user_email').val('');
       $('#user_password').val('');
     })
   })
+<<<<<<< HEAD
 </script>
 
+=======
+</script>
+>>>>>>> fc6f9f709938a6e6beeb59d5491d0658b638f931

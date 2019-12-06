@@ -1,4 +1,9 @@
 /*Fontes padrão*/
+.std-font-grey-lg{
+	font-family: FelbridgeProLight, sans-serif;
+	color: #586871;
+	font-size: 18px;
+}
 .std-font-grey{
 	font-family: FelbridgeProLight, sans-serif;
 	color: #586871;
@@ -38,8 +43,19 @@
 	color: #586871;
 	text-decoration: underline;
 }
+.esp-link {
+	font-family:FelbridgeProLight, sans-serif;
+	color: #586871;
+	text-decoration: underline;
+}
 .std-link:hover {
 	font-family:FelbridgeProLight, sans-serif;
+	color: #f7bd45ff;
+	text-decoration: underline;
+}
+.esp-link:hover {
+	font-family:FelbridgeProLight, sans-serif;
+	background-color: transparent;
 	color: #f7bd45ff;
 	text-decoration: underline;
 }
@@ -52,15 +68,34 @@
 	background-color: transparent;
 }
 /*Textbox padrão*/
-.form-control {
+.std-form-control {
 	background: #f7f7f7ff;
 	border-color: transparent;
 	border-radius: 0;
 }
 input[type="text"]:focus,
-.form-control:focus {
+.std-form-control:focus {
 	background: #f7f7f7ff;
 	border-color: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.form-control-yellow {
+	background: #f7f7f7ff;
+	border-color: transparent;
+	border-radius: 0;
+	outline: 0;
+  	border-width: 0 0 1px;
+	border-color: #586871;
+}
+.form-control-yellow::placeholder {
+	color: #f6af42ff
+}
+input[type="text"]:focus,
+.form-control-yellow:focus {
+	background: white;
+	border-color: #f6af42ff;
+	color: #f6af42ff;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -95,4 +130,8 @@ input[type="text"]:focus,
 }
 .col-md-auto {
 	padding: 5px;
+}
+.card-grey {
+	background-color: transparent;
+	border: none;
 }
