@@ -8,6 +8,7 @@ module UsersHelper
 
     def states
         [
+            ["Selecione", ""],
             ["Acre", "AC"],
             ["Alagoas", "AL"],
             ["Amapá", "AP"],
