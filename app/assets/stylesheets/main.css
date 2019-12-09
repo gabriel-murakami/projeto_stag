@@ -9,11 +9,21 @@
 	color: #586871;
 	font-size: 16px;
 }
+.std-font-grey-md{
+	font-family: FelbridgeProLight, sans-serif;
+	color:#586871;
+	font-size: 18px;
+}
 .std-font-grey-sm{
 	font-family: FelbridgeProLight, sans-serif;
 	color: #586871;
 	font-size: 14px;
 }
+.std-font-grey-lg{
+	font-family: FelbridgeProLight, sans-serif;
+	color: #586871;
+	font-size: 20px;
+} 
 /*Botões padrão*/
 .std-btn {
 	background-color:#f6af42ff;
@@ -22,7 +32,7 @@
 	cursor:pointer;
 	color:#ffffff;
 	font-family:FelbridgeProLight, sans-serif;
-	font-size:14px;
+	font-size:16px;
 	padding:12px 24px;
 }
 .std-btn:hover {

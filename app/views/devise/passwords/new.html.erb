@@ -1,16 +1,43 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="login-form">
+  <div class="container card-form" style="width: max-content;">
+    <label class="std-font-grey" style="font-size:20px; text-align:center">Problemas para acessar a sua conta?
+    </label></br>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.label :email, :class => "std-font-grey" %>
+      <%= f.email_field :email, autofocus: true, :class=> "form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
+    </div></br>
+    <div class="actions container ">
+      <%= f.submit "Enviar e-mail de verificação", :class => "std-btn"%>
+    </div>
   </div>
+  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="modal-header">
+          <p class="modal-title std-font-grey"><%= alert %></p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+<% if alert %>
+<script>
+  $(document).ready(function () {
+    $('#myModal').modal({
+      show: true
+    })
+  });
+</script>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="row justify-content-center">
+<%= link_to "Voltar para login", new_session_path(resource_name), :class => "btn btn-link std-link-purple content-center", :style => "color: #A24DC2FF" %>
+</div>

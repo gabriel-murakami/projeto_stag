@@ -5,8 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates_with ::ScorpValidator
-
-  # validates :email, format: { :with => /\A[ˆ@\s]\@gmail.com/ }
+  validates :email, format: { :with => /\w\@gmail.com/ }
   # validates :nome, format: { :with => /\w+/ }
   # validates :sobrenome, format: { :with => /\w+?\s/ }
   # validates :documento, format: { :with => /\w+?\s/ }

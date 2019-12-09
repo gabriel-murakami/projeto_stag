@@ -36,11 +36,12 @@
   <!--Primeiro acesso, Esqueci a senha-->
   <%= render "devise/shared/links" %>
 
+  <!-- criar alerta para e-mail ou senha errados -->
   <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
     <div class="modal-dialog" role="document">
       <div class="modal-content" style="color: blueviolet;">
         <div class="modal-header">
-          <p class="modal-title std-font-grey"><%= alert %></p>
+          <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -49,8 +50,8 @@
     </div>
   </div>
 </div>
-
-<% if alert %>
+<!-- Se um campo na tela de login ou um e-mail não estiver no banco de dados, emite-se uma tela com o aviso -->
+<% if alert || notice  %>
 <script>
   $(document).ready(function () {
     $('#myModal').modal({
