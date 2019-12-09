@@ -88,6 +88,7 @@ input[type="text"]:focus,
 .form-control-yellow {
 	background: #f7f7f7ff;
 	border-color: transparent;
+	color: #f6af42ff;
 	border-radius: 0;
 	outline: 0;
   	border-width: 0 0 1px;

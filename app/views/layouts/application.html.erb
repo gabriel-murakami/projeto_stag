@@ -27,7 +27,30 @@
 
 <body class="std-bg" style="margin:0px">
   <nav class="navbar std-bg-purple" style="height: 60px; position: fixed; top: 0; z-index: 1000; width: 100%;">
-    <%= image_tag "ScorpionLogo.png", :style => "width: 225px" %>
+    <% if user_signed_in? %>
+    <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px"%></a>
+    <ul class="navbar-nav">
+      <div class="row">
+        <div class="col">
+          <li class="nav-item">
+            <w><%= current_user.nome %></w>
+          </li>
+        </div>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Edit", edit_user_registration_path, :style => "background-color: transparent; color: white;" %>
+          </li>
+        </div>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :style => "background-color: transparent; color: white;" %>
+          </li>
+        </div>
+      </div>
+    </ul>
+    <% else %>
+    <%= image_tag "ScorpionLogo.png", :style => "width: 225px"%>
+    <% end %>
   </nav>
   <br /><br /><br /><br />
   <% if notice %>
