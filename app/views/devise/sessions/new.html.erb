@@ -35,7 +35,7 @@
   <% end %>
   <!--Primeiro acesso, Esqueci a senha-->
   <%= render "devise/shared/links" %>
-
+  <!--Mensagem de erro-->
   <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
     <div class="modal-dialog" role="document">
       <div class="modal-content" style="color: blueviolet;">
@@ -49,7 +49,7 @@
     </div>
   </div>
 </div>
-
+<!--Ativar mensagem de erro-->
 <% if alert %>
 <script>
   $(document).ready(function () {
@@ -59,7 +59,7 @@
   });
 </script>
 <% end %>
-
+<!--Limpar Campos-->
 <script>
   $(document).ready(function () {
     $('#clear').click(function () {
