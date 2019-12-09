@@ -10,7 +10,7 @@
   <!--Senha-->
   <div class="field">
     <%= f.label :password, value: "Senha", :class => "std-font-grey "%>
-    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control std-form-control" %>
+    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control std-form-control"%>
   </div>
   <!--Manter conectado-->
   <% if devise_mapping.rememberable? %>
@@ -49,6 +49,7 @@
     </div>
   </div>
 </div>
+
 <!-- Se um campo na tela de login ou um e-mail não estiver no banco de dados, emite-se uma tela com o aviso -->
 <% if alert || notice  %>
 <script>
