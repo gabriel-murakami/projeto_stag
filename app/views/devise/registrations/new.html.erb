@@ -12,7 +12,7 @@
       <div class="card-body">
         <div class="row align-items-center justify-content-center">
           <div class="col-4" align="right">
-            <label class="std-font-grey" style="margin-top: 5px;">Sou</label>
+            <label class="std-font-grey-md" style="margin-top: 5px;">Sou</label>
           </div>
           <div class="col-8">
             <div class="form-group">
@@ -24,7 +24,7 @@
         <div id="pf">
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">Meu nome é</label>
+              <label class="std-font-grey-md" style="margin-top: 5px;">Meu nome é</label>
             </div>
             <div class="col-4">
               <div class="form-group">
@@ -39,7 +39,7 @@
           </div>
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">Meu CPF é</label>
+              <label class="std-font-grey-md" style="margin-top: 5px;">Meu CPF é</label>
             </div>
             <div class="col-8">
               <div class="form-group">
@@ -49,11 +49,11 @@
           </div>
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">Documento Pessoal</label>
+              <label class="std-font-grey-md" style="margin-top: 5px;">Documento Pessoal</label>
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4" %>
+                <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :type => "number" %>
               </div>
             </div>
             <div class="col-4">
@@ -64,7 +64,7 @@
           </div>
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">UF e Data de Emissão</label>
+              <label class="std-font-grey-md" style="margin-top: 5px;">UF e Data de Emissão</label>
             </div>
             <div class="col-4">
               <div class="form-group">
@@ -82,7 +82,7 @@
         <div id="pj">
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">Nome Fantasia</label>
+              <label class="std-font-grey-md" style="margin-top: 5px;">Nome Fantasia</label>
             </div>
             <div class="col">
               <div class="form-group">
@@ -92,7 +92,7 @@
           </div>
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">Razão Social</label>
+              <label class="std-font-grey-md" style="margin-top: 5px;">Razão Social</label>
             </div>
             <div class="col">
               <div class="form-group">
@@ -102,7 +102,7 @@
           </div>
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
-              <label class="std-font-grey" style="margin-top: 5px;">Com CNPJ</label>
+              <label class="std-font-grey-md" style="margin-top: 5px;">Com CNPJ</label>
             </div>
             <div class="col">
               <div class="form-group">
@@ -131,7 +131,7 @@
       <!--CEP-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px"> O endereço fica no CEP</label>
+          <label class="std-font-grey-md" style="margin-top: 15px"> O endereço fica no CEP</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :cep, :class => "form-control-yellow form-control", :placeholder => "CEP", :dataid => "1"%>
@@ -140,13 +140,13 @@
       <!--Rua, número-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">Na</label>
+          <label class="std-font-grey-md" style="margin-top: 15px">Na</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2"%>
         </div>
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">número</label>
+          <label class="std-font-grey-md" style="margin-top: 15px">número</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3"%>
@@ -155,7 +155,7 @@
       <!--Complemento-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">complemento</label>
+          <label class="std-font-grey-md" style="margin-top: 15px">complemento</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4"%>
@@ -164,13 +164,13 @@
       <!--Bairro, cidade-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">bairro</label>
+          <label class="std-font-grey-md" style="margin-top: 15px">bairro</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5"%>
         </div>
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">em</label>
+          <label class="std-font-grey-md" style="margin-top: 15px">em</label>
         </div>
         <div class="col-md-auto">
           <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6"%>
@@ -179,7 +179,7 @@
       <!--Estado-->
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
-          <label class="std-font-grey-lg" style="margin-top: 15px">no estado de</label>
+          <label class="std-font-grey-md" style="margin-top: 15px">no estado de</label>
         </div>
         <div class="col-md-auto" style="margin-top: 5px">
           <%= f.select :estado, states, :class => "form-control-yellow form-control", :placeholder => "estado", :dataid => "7"%>
@@ -214,6 +214,70 @@
   </div>
 </div>
 
+<!-- cadastro do e-mail e senha -->
+
+<div class="container cad-form" style="width: max-content;">
+    <label class="std-font-grey-md" style="font-size:20px; text-align:center">Vamos manter sua conta segura</label>
+    <div class="card card-grey">
+      <div class="card-body">
+        <div class="row align-items-center" style="padding-left: 0px">
+          <div class="col-4">
+            <p class="std-font-grey"></p>
+          </div>
+        </div>
+        <!-- início do preenchimento do e-mail -->
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right" style="margin-top: 10px">
+            <p class="std-font-grey-md" >O e-mail é</p>
+          </div>
+          <div class="col">                                                                                                                                            
+            <div class="form-group">
+              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
+            </div>
+          </div>
+            <!-- Confirmar e-mail -->
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right">
+            <p class="std-font-grey-md" >Confirme o seu e-mail</p>
+          </div>
+          <div class="col">
+            <div class="form-group">
+            <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
+            </div>
+          </div>
+        </div>
+        <!-- Digitar a sua senha -->
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4" align="right"style="padding-right: 0px">
+            <p class="std-font-grey-md" >Qual vai ser sua senha?</p>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.password_field :password, :class => "form-control-yellow form-control", :placeholder => "Senha" %><br />
+            </div>
+          </div>
+        </div>
+        <!-- Confirmar a sua senha -->
+        <div class="row align-items-center" >
+            <div class="col-4" align="right" style="padding-right: 0px">
+              <p class="std-font-grey-md" >Repita, por favor</p>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control", :placeholder => "Senha" %><br />
+              </div>
+            </div>
+          </div>
+          
+          <div class="col">
+              <!--Cadastrar-->
+              <%= f.submit "Cadastrar", :class => "std-btn"%>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 <!--Voltar para login-->
 <div class="row justify-content-center">

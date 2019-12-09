@@ -18,21 +18,44 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class="std-bg" style="margin:0px">
-  <nav class="navbar std-bg-purple">
-    <!--Símbolo-->
-
-    <%= image_tag "ScorpionLogo.png", :style => "width: 225px" %>
+  <nav class="navbar std-bg-purple" style="height: 60px; position: fixed; top: 0; z-index: 1000; width: 100%;">
+    <% if user_signed_in? %>
+    <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px"%></a>
+    <ul class="navbar-nav">
+      <div class="row">
+        <div class="col">
+          <li class="nav-item">
+            <w><%= current_user.nome %></w>
+          </li>
+        </div>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Edit", edit_user_registration_path, :style => "background-color: transparent; color: white;" %>
+          </li>
+        </div>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :style => "background-color: transparent; color: white;" %>
+          </li>
+        </div>
+      </div>
+    </ul>
+    <% else %>
+    <%= image_tag "ScorpionLogo.png", :style => "width: 225px"%>
+    <% end %>
   </nav>
+  <br /><br /><br /><br />
   <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
-  <% end %>
+  <% end %> -->
   <!-- <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
   <% end %> -->
