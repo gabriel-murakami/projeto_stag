@@ -1,6 +1,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
-<div class="progress" style="height: 5px">
+<div class="progress" style="height: 5px; position: fixed; top: 60px; z-index: 2; width: 100%;">
   <div class="progress-bar" role="progressbar" style="width: 33%; background-color: #f6af42ff;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 
