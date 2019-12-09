@@ -272,10 +272,6 @@
 </div>
 </div>
 <% end %>
-<!--Voltar para login-->
-<div class="row justify-content-center">
-  <%= link_to "Voltar para login", new_session_path(resource_name), :class => "btn btn-link std-link-purple", :style => "color: #a24dc2ff"%>
-</div>
 </div>
 
 <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
@@ -356,10 +352,6 @@
       $("#user_bairro").val("");
       $("#user_cidade").val("");
       $("#user_estado").val("");
-      $('#user_logradouro').attr("disabled", false).css("background-color", "transparent");
-      $('#user_bairro').attr("disabled", false).css("background-color", "transparent");
-      $('#user_cidade').attr("disabled", false).css("background-color", "transparent");
-      $('#user_estado').attr("disabled", false).css("background-color", "transparent");
     }
 
     //Quando o campo cep perde o foco.
@@ -391,10 +383,6 @@
               $("#user_bairro").val(dados.bairro);
               $("#user_cidade").val(dados.localidade);
               $("#user_estado").val(dados.uf);
-              $('#user_logradouro').attr("disabled", true).css("color", "grey");
-              $('#user_bairro').attr("disabled", true).css("color", "grey");
-              $('#user_cidade').attr("disabled", true).css("color", "grey");
-              $('#user_estado').attr("disabled", true).css("color", "grey");
             } //end if.
             else {
               //CEP pesquisado não foi encontrado.

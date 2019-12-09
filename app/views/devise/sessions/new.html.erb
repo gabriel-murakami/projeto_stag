@@ -28,7 +28,7 @@
       </div>
       <div class="col">
         <!--Entrar-->
-        <%= f.submit "Entrar", :class => "std-btn"%>
+        <%= f.submit "Entrar", :class => "std-btn", :id => "btn-entrar" %>
       </div>
     </div>
   </div>
@@ -65,6 +65,12 @@
     $('#clear').click(function () {
       $('#user_email').val('');
       $('#user_password').val('');
+    })
+  })
+
+  $(document).ready(function () {
+    $('#user_password').focusout(function () {
+      
     })
   })
 </script>

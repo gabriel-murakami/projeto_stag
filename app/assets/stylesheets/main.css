@@ -69,6 +69,12 @@
 	color: #623f99ff;
 	text-decoration: underline;
 }
+.std-link-white {
+	font-family:FelbridgeProLight, sans-serif;
+	color: white;
+	text-decoration: underline;
+	font-size: 14px;
+}
 .std-link-purple:hover {
 	background-color: transparent;
 }
