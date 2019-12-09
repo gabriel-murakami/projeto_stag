@@ -29,12 +29,12 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1"%>
+                <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2"%>
+                <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off"%>
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-8">
               <div class="form-group">
-                <%= f.text_field :cpf, :class => "form-control-yellow form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3"%>
+                <%= f.text_field :cpf, :class => "form-control-yellow form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off"%>
               </div>
             </div>
           </div>
@@ -54,12 +54,12 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :type => "number" %>
+                <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off"%>
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.text_field :orgao_emissor, :class => "form-control-yellow form-control", :placeholder => "Órgão Emissor", :dataid => "5"%>
+                <%= f.text_field :orgao_emissor, :class => "form-control-yellow form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off"%>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@
             </div>
             <div class="col">
               <div class="form-group">
-                <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1"%>
+                <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@
             </div>
             <div class="col">
               <div class="form-group">
-                <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2"%>
+                <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off"%>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@
             </div>
             <div class="col">
               <div class="form-group">
-                <%= f.text_field :cnpj, :class => "form-control-yellow form-control", :placeholder => "CNPJ", :dataid => "3"%>
+                <%= f.text_field :cnpj, :class => "form-control-yellow form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off"%>
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@
           <label class="std-font-grey-md" style="margin-top: 15px"> O endereço fica no CEP</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :cep, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "CEP", :dataid => "1"%>
+          <%= f.text_field :cep, :class => "form-control-yellow form-control", :placeholder => "CEP", :dataid => "1", :autocomplete => "off"%>
         </div>
       </div>
       <!--Rua, número-->
@@ -144,13 +144,13 @@
           <label class="std-font-grey-md" style="margin-top: 15px">Na</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2"%>
+          <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off"%>
         </div>
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">número</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3"%>
+          <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off"%>
         </div>
       </div>
       <!--Complemento-->
@@ -159,7 +159,7 @@
           <label class="std-font-grey-md" style="margin-top: 15px">complemento</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4"%>
+          <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off"%>
         </div>
       </div>
       <!--Bairro, cidade-->
@@ -168,13 +168,13 @@
           <label class="std-font-grey-md" style="margin-top: 15px">bairro</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5"%>
+          <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off"%>
         </div>
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">em</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6"%>
+          <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6", :autocomplete => "off"%>
         </div>
       </div>
       <!--Estado-->
@@ -182,8 +182,10 @@
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">no estado de</label>
         </div>
-        <div class="col-md-auto" style="margin-top: 5px">
-          <%= f.select :estado, states, :class => "form-control-yellow form-control", :placeholder => "estado", :dataid => "7"%>
+        <div class="form-group">
+          <div class="col-md-auto" style="margin-top: 5px">
+            <%= f.select :estado, states%>
+          </div>
         </div>
       </div>
       <!--Menu continuar-->
@@ -191,7 +193,7 @@
       <div class="actions container" style="max-width: 350px">
         <div class="row justify-content-center">
           <div class="col">
-            <a class="btn btn-link esp-link" id="btnBack1">Voltar</a>
+            <button type="button" id="btnBack1" class="btn btn-link std-link"> Voltar </button>
           </div>
           <div class="col"></div>
           <button class="std-btn" id="btnNext2" type="button"> Continuar </button>
@@ -203,34 +205,29 @@
 </div>
 
 <!--Cadastro E-mail e Senha -->
-<div id="cadastro3" class="container cad-form" style="width: max-content; padding: 25px;" hidden>
+<div id="cadastro3" class="container" style="max-width: 650px; padding: 25px;" hidden>
   <label class="std-font-grey-md" style="font-size:20px; text-align:center">Vamos manter sua conta segura</label>
   <div class="card card-grey">
     <div class="card-body">
-      <div class="row align-items-center" style="padding-left: 0px">
-        <div class="col-4">
-          <p class="std-font-grey"></p>
-        </div>
-      </div>
       <!--E-mail-->
       <div class="row align-items-center justify-content-center">
-        <div class="col-4" align="right" style="margin-top: 10px">
+        <div class="col-4" align="right" style="padding-right: 0px">
           <p class="std-font-grey-md">O e-mail é</p>
         </div>
         <div class="col">
           <div class="form-group">
-            <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
+            <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off"%><br />
           </div>
         </div>
       </div>
       <!--Confirmar E-mail -->
       <div class="row align-items-center justify-content-center">
-        <div class="col-4" align="right">
+        <div class="col-4" align="right" style="padding-right: 0px">
           <p class="std-font-grey-md">Confirme o seu e-mail</p>
         </div>
         <div class="col">
           <div class="form-group">
-            <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
+            <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "2", :autocomplete => "off"%><br />
           </div>
         </div>
       </div>
@@ -241,7 +238,7 @@
         </div>
         <div class="col">
           <div class="form-group">
-            <%= f.password_field :password, :class => "form-control-yellow form-control", :placeholder => "Senha" %><br />
+            <%= f.password_field :password, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "off"%><br />
           </div>
         </div>
       </div>
@@ -252,7 +249,7 @@
         </div>
         <div class="col">
           <div class="form-group">
-            <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control", :placeholder => "Senha" %><br />
+            <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "off"%><br />
           </div>
         </div>
       </div>
@@ -261,7 +258,7 @@
       <div class="actions container" style="max-width: 350px">
         <div class="row justify-content-center">
           <div class="col">
-            <a class="btn btn-link esp-link" id="btnBack2">Voltar</a>
+            <button type="button" id="btnBack2" class="btn btn-link std-link"> Voltar </button>
           </div>
           <div class="col"></div>
             <%= f.submit "Cadastrar", :class => "std-btn"%>
@@ -282,7 +279,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="color: blueviolet;">
       <div class="modal-header">
-        <p class="modal-title std-font-grey">CEP inválido</p>
+        <p class="modal-title std-font-grey">Há campos em branco.</p>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -302,7 +299,7 @@
   $(document).ready(function () {
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
+    var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
     if (dd < 10) {
       dd = '0' + dd
@@ -391,15 +388,10 @@
               $("#user_bairro").val(dados.bairro);
               $("#user_cidade").val(dados.localidade);
               $("#user_estado").val(dados.uf);
-              $('#user_logradouro').attr("disabled", true).css("color", "grey");
-              $('#user_bairro').attr("disabled", true).css("color", "grey");
-              $('#user_cidade').attr("disabled", true).css("color", "grey");
-              $('#user_estado').attr("disabled", true).css("color", "grey");
             } //end if.
             else {
               //CEP pesquisado não foi encontrado.
               limpa_formulário_cep();
-              alert("CEP não encontrado.");
             }
           });
         } //end if.
@@ -432,26 +424,39 @@
       $('#cadastro1').hide();
       $('#cadastro2').removeAttr('hidden');
       $('#cadastro2').show();
+      $('#user_cep').focus();
       $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
     });
     //Página Endereço
     $('#btnBack1').click(function () {
       $('#cadastro1').show();
       $('#cadastro2').hide();
+      $('#user_nome').focus();
       $('.progress-bar').css('width', 33 + '%').attr('aria-valuenow', 33);
     });
     $('#btnNext2').click(function () {
       $('#cadastro2').hide();
       $('#cadastro3').removeAttr('hidden');
       $('#cadastro3').show();
+      $('#user_email').focus();
       $('.progress-bar').css('width', 100 + '%').attr('aria-valuenow', 100);
+
+      //Verifica se há campos em branco
+      if ($("#cadastro2:input").filter(function () {
+      return $.trim($(this).val()).length == 0
+      }).length != 0)
+      {
+        $('#myModal').modal({
+        show: true
+        })
+      }
     });
     //Página E-mail Senha
     $('#btnBack2').click(function () {
       $('#cadastro2').show();
       $('#cadastro3').hide();
+      $('#user_cep').focus();
       $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
     });
-
   });
 </script>
