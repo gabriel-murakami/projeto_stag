@@ -9,5 +9,6 @@ class ScorpValidator < ActiveModel::Validator
                 record.errors[:cnpj] << 'CNPJ inválido'
             end
         end
+        
     end
 end

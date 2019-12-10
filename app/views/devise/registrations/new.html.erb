@@ -271,6 +271,12 @@
 <% end %>
 </div>
 
+<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign"></span>
+  <span class="sr-only">Error:</span>
+  Enter a valid email address
+</div>
+
 <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="color: blueviolet;">
@@ -285,6 +291,7 @@
 </div>
 
 <script>
+  $('input').tooltip({'trigger':'focus', 'title':'Password tooltip', 'data-placement':'right' });
   //Máscara
   $(document).ready(function () {
     $('#user_cpf').mask('000.000.000-00');
