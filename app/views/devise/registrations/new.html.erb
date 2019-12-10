@@ -203,13 +203,19 @@
   </div>
 </div>
 </div>
+<!-- cadastro do e-mail e senha -->
 
-<!--Cadastro E-mail e Senha -->
-<div id="cadastro3" class="container" style="max-width: 650px; padding: 25px;" hidden>
+<div class="container cad-form" style="width: max-content;">
   <label class="std-font-grey-md" style="font-size:20px; text-align:center">Vamos manter sua conta segura</label>
   <div class="card card-grey">
     <div class="card-body">
-      <!--E-mail-->
+      <div class="row align-items-center" style="padding-left: 0px">
+        <div class="col-4">
+          <p class="std-font-grey"></p>
+        </div>
+      </div>
+
+      <!-- início do preenchimento do e-mail -->
       <div class="row align-items-center justify-content-center">
         <div class="col-4" align="right" style="padding-right: 0px">
           <p class="std-font-grey-md">O e-mail é</p>
@@ -220,17 +226,18 @@
           </div>
         </div>
       </div>
-      <!--Confirmar E-mail -->
+
+      <!-- confirmação do email -->
       <div class="row align-items-center justify-content-center">
-        <div class="col-4" align="right" style="padding-right: 0px">
-          <p class="std-font-grey-md">Confirme o seu e-mail</p>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "2", :autocomplete => "off"%><br />
+          <div class="col-4" align="right" style="margin-top: 10px">
+            <p class="std-font-grey-md">Confirme seu email</p>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
+            </div>
           </div>
         </div>
-      </div>
       <!--Senha-->
       <div class="row align-items-center justify-content-center">
         <div class="col-4" align="right" style="padding-right: 0px">
@@ -264,9 +271,9 @@
             <%= f.submit "Cadastrar", :class => "std-btn"%>
         </div>
       </div>
+
     </div>
   </div>
-</div>
 </div>
 <% end %>
 </div>
