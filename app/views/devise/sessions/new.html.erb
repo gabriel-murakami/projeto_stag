@@ -28,7 +28,7 @@
       </div>
       <div class="col">
         <!--Entrar-->
-        <%= f.submit "Entrar", :class => "std-btn"%>
+        <%= f.button "Entrar", :id => "btn-entrar", :class => "std-btn", :type => "button" %>
       </div>
     </div>
   </div>
@@ -41,6 +41,44 @@
       <div class="modal-content" style="color: blueviolet;">
         <div class="modal-header">
           <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- model de senha em branco -->
+
+  <div id="modalSenha" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="modal-header">
+          <p class="modal-title std-font-grey">Preencha o campo de Senha</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalEmail" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="modal-header">
+          <p class="modal-title std-font-grey">Preencha o campo de Email</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalCampos" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="modal-header">
+          <p class="modal-title std-font-grey">Preencha os Campos</p>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -66,6 +104,34 @@
     $('#clear').click(function () {
       $('#user_email').val('');
       $('#user_password').val('');
+    })
+  })
+
+  // Validação do campo de senha caso esteja vazio 
+  $(document).ready(function () {
+    $('#btn-entrar').click(function () {
+      if ($('#user_email').val() != "" && $('#user_password').val() == "") {
+        $('#modalSenha').modal({
+          show: true
+        })
+        $('#user_password').css('border-color', 'red');
+      }
+      else if ($('#user_email').val() == "" && $('#user_password').val() == "") {
+        $('#modalCampos').modal({
+          show: true
+        })
+        $('#user_password').css('border-color', 'red');
+        $('#user_email').css('border-color', 'red');
+      }
+      else if ($('#user_email').val() == "" && $('#user_password').val() != "") {
+        $('#modalEmail').modal({
+          show: true
+        })
+        $('#user_email').css('border-color', 'red');
+      }
+      else {
+        document.getElementById('new_user').submit();
+      }
     })
   })
 </script>
