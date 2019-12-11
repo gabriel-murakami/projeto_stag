@@ -292,8 +292,7 @@
 </div>
 
 <script>
-  $('#alert').tooltip({ 'trigger': 'hover', 'title': 'Permitido apenas letras' });
-
+  $('input').tooltip({ 'trigger': 'focus', 'title': 'Password tooltip', 'data-placement': 'right' });
   //Máscara
   $(document).ready(function () {
     $('#user_cpf').mask('000.000.000-00');
@@ -329,7 +328,7 @@
   });
   //Altera cor do campo CPF se for um formato inválido
   $(document).ready(function () {
-    $('#user_cpf').change(function () {
+    $('#user_cpf').keyup(function () {
       var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
       if (!(filtrocpf.test($(this).val()))) {
         $(this).attr('style', 'border-color: red');
@@ -338,6 +337,46 @@
       }
     })
   });
+  $(document).ready(function () {
+    $('#user_nome').keyup(function () {
+      var filtronome = /\d/;
+      if ((filtronome.test($(this).val()))) {
+        $(this).attr('style', 'border-color: red');
+      } else {
+        $(this).attr('style', 'border-color: #586871');
+      }
+    })
+  })
+  $(document).ready(function () {
+    $('#user_sobrenome').keyup(function () {
+      var filtrosobrenome = /\d/;
+      if ((filtrosobrenome.test($(this).val()))) {
+        $(this).attr('style', 'border-color: red');
+      } else {
+        $(this).attr('style', 'border-color: #586871');
+      }
+    })
+  })
+  $(document).ready(function () {
+    $('#user_orgao_emissor').keyup(function () {
+      var filtroorgao = /\d/;
+      if ((filtroorgao.test($(this).val()))) {
+        $(this).attr('style', 'border-color: red');
+      } else {
+        $(this).attr('style', 'border-color: #586871');
+      }
+    })
+  })
+  $(document).ready(function () {
+    $('#user_documento').keyup(function () {
+      var filtroorgao = /\d/;
+      if (!(filtroorgao.test($(this).val()))) {
+        $(this).attr('style', 'border-color: red');
+      } else {
+        $(this).attr('style', 'border-color: #586871');
+      }
+    })
+  })
   //Troca entre o Form de PF e PJ
   $(document).ready(function () {
     $('#user_pf_pj').change(function () {
@@ -361,49 +400,45 @@
     }
 
     //Quando o campo cep perde o foco.
-    $("#user_cep").blur(function () {
+    $("#user_cep").keyup(function () {
+      if ($(this).val().length == 9) {
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
 
-      //Nova variável "cep" somente com dígitos.
-      var cep = $(this).val().replace(/\D/g, '');
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
 
-      //Verifica se campo cep possui valor informado.
-      if (cep != "") {
+          //Expressão regular para validar o CEP.
+          var validacep = /^[0-9]{8}$/;
 
-        //Expressão regular para validar o CEP.
-        var validacep = /^[0-9]{8}$/;
+          //Valida o formato do CEP.
+          if (validacep.test(cep)) {
 
-        //Valida o formato do CEP.
-        if (validacep.test(cep)) {
+            //Preenche os campos com "..." enquanto consulta webservice.
+            $("#user_logradouro").val("...");
+            $("#user_bairro").val("...");
+            $("#user_cidade").val("...");
 
-          //Preenche os campos com "..." enquanto consulta webservice.
-          $("#user_logradouro").val("...");
-          $("#user_bairro").val("...");
-          $("#user_cidade").val("...");
+            //Consulta o webservice viacep.com.br/
+            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
-          //Consulta o webservice viacep.com.br/
-          $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
-
-            if (!("erro" in dados)) {
-              //Atualiza os campos com os valores da consulta.
-              $("#user_logradouro").val(dados.logradouro);
-              $("#user_bairro").val(dados.bairro);
-              $("#user_cidade").val(dados.localidade);
-              $("#user_estado").val(dados.uf);
-            } //end if.
-            else {
-              //CEP pesquisado não foi encontrado.
-              limpa_formulário_cep();
-            }
-          });
+              if (!("erro" in dados)) {
+                //Atualiza os campos com os valores da consulta.
+                $("#user_logradouro").val(dados.logradouro);
+                $("#user_bairro").val(dados.bairro);
+                $("#user_cidade").val(dados.localidade);
+                $("#user_estado").val(dados.uf);
+                $("#user_cep").attr('style', 'border-color: #586871');
+              } //end if.
+              else {
+                //CEP pesquisado não foi encontrado.
+                limpa_formulário_cep();
+                $("#user_cep").css("border-color", "red");
+              }
+            });
+          } //end if.
         } //end if.
-        else {
-          //cep é inválido.
-          limpa_formulário_cep();
-          alert("Formato de CEP inválido.");
-        }
-      } //end if.
-      else {
-        //cep sem valor, limpa formulário.
+      } else {
         limpa_formulário_cep();
       }
     });

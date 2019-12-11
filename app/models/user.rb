@@ -6,16 +6,17 @@ class User < ApplicationRecord
 
   validates_with ::ScorpValidator
   validates :email, format: { :with => /\w\@gmail.com/ }
-  validates :nome, format: { :with => /\w+/ }
-  validates :sobrenome, format: { :with => /\w+?\s/ }
-  #validates :documento, format: { :with => /\w+?\s/ }
-  validates :orgao_emissor, format: { :with => /\w+/ }
-  validates :nome_fantasia, format: { :with => /\w+?\s/ }
-  validates :razao_social, format: { :with => /\w+?\s/ }
+  validates :nome, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }
+  validates :sobrenome, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }
+  # validates :documento, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }
+  validates :orgao_emissor, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }
+  validates :nome_fantasia, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }
+  validates :razao_social, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }
   validates :cnpj, format: { :with => /\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/ }, length: { :maximum => 18 }, uniqueness: true
+  validates :cpf, format: { :with => /\d{3}\.\d{3}\.\d{3}\-\d{2}/ }, length: { :maximum => 14 }, uniqueness: true
   validates :cep, format: { :with => /\d{5}\-\d{3}/ }, length: { :maximum => 9 } 
-  validates :logradouro, format: { :with => /\w+?\s/ }, length: { :maximum => 40 }
-  validates :bairro, format: { :with => /\w+?\s/ }, length: { :maximum => 30 }
-  validates :cidade, format: { :with => /\w+?\s/ }, length: { :maximum => 30 }
-  validates :complemento, format: { :with => /\w+?\s/ }, length: { :maximum => 10 }
+  validates :logradouro, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }, length: { :maximum => 40 }
+  validates :bairro, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }, length: { :maximum => 30 }
+  validates :cidade, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }, length: { :maximum => 30 }
+  validates :complemento, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }, length: { :maximum => 10 }
 end
