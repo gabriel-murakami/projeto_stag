@@ -29,7 +29,8 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                <!--<%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off%> 
+                <i class="material-icons" id="alert" style="color: #a94342" data-toggle="tooltip" data-placement="right">report_problem</i>-->
               </div>
             </div>
             <div class="col-4">
@@ -228,15 +229,15 @@
 
       <!-- confirmação do email -->
       <div class="row align-items-center justify-content-center">
-          <div class="col-4" align="right" style="margin-top: 10px">
-            <p class="std-font-grey-md">Confirme seu email</p>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
-            </div>
+        <div class="col-4" align="right" style="margin-top: 10px">
+          <p class="std-font-grey-md">Confirme seu email</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
           </div>
         </div>
+      </div>
       <!--Senha-->
       <div class="row align-items-center justify-content-center">
         <div class="col-4" align="right" style="padding-right: 0px">
@@ -267,20 +268,13 @@
             <button type="button" id="btnBack2" class="btn btn-link std-link"> Voltar </button>
           </div>
           <div class="col"></div>
-            <%= f.submit "Cadastrar", :class => "std-btn"%>
+          <%= f.submit "Cadastrar", :class => "std-btn"%>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 <% end %>
-</div>
-
-<div class="alert alert-danger" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign"></span>
-  <span class="sr-only">Error:</span>
-  Enter a valid email address
 </div>
 
 <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
@@ -297,7 +291,8 @@
 </div>
 
 <script>
-  $('input').tooltip({'trigger':'focus', 'title':'Password tooltip', 'data-placement':'right' });
+  $('#alert').tooltip({ 'trigger': 'hover', 'title': 'Permitido apenas letras' });
+
   //Máscara
   $(document).ready(function () {
     $('#user_cpf').mask('000.000.000-00');
@@ -448,11 +443,10 @@
 
       //Verifica se há campos em branco
       if ($("#cadastro2:input").filter(function () {
-      return $.trim($(this).val()).length == 0
-      }).length != 0)
-      {
+        return $.trim($(this).val()).length == 0
+      }).length != 0) {
         $('#myModal').modal({
-        show: true
+          show: true
         })
       }
     });

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, format: { :with => /\w\@gmail.com/ }
   validates :nome, format: { :with => /\w+/ }
   validates :sobrenome, format: { :with => /\w+?\s/ }
-  validates :documento, format: { :with => /\w+?\s/ }
+  #validates :documento, format: { :with => /\w+?\s/ }
   validates :orgao_emissor, format: { :with => /\w+/ }
   validates :nome_fantasia, format: { :with => /\w+?\s/ }
   validates :razao_social, format: { :with => /\w+?\s/ }

@@ -29,6 +29,12 @@
 	color: #586871;
 	font-size: 20px;
 } 
+.std-font-alert{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: #A94342;
+	font-size: 20px;
+} 
 /*Botões padrão*/
 .std-btn {
 	background-color:#f6af42ff;
@@ -146,4 +152,10 @@ input[type="text"]:focus,
 .card-grey {
 	background-color: transparent;
 	border: none;
+}
+/* Tooltip padrão */
+.tooltip-inner{
+	background-color: #a94342;
+	color: white;
+	opacity: 0.75;
 }
