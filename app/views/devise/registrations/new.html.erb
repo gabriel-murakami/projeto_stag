@@ -80,13 +80,13 @@
           </div>
         </div>
         <!--Pessoa jurídica-->
-        <div id="pj">
+        <div id="pj" style="display: none;">
           <div class="row align-items-center justify-content-center">
             <div class="col-4" align="right">
               <label class="std-font-grey-md" style="margin-top: 5px;">Nome Fantasia</label>
             </div>
             <div class="col">
-              <div class="form-group">
+              <div id="pj-field" class="form-group">
                 <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
               </div>
             </div>
@@ -321,7 +321,7 @@
       }
     });
   })
-  
+
   //Remove datas futuras para data de emissão
   $(document).ready(function () {
     var today = new Date();
@@ -339,15 +339,6 @@
   });
   $(document).ready(function () {
     $('select').attr("class", "form-control");
-  });
-  $(document).ready(function () {
-    if ($('#user_pf_pj option:selected').val() == 'PF') {
-      $('#pj').hide();
-      $('#pf').show();
-    } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
-      $('#pf').hide();
-      $('#pj').show();
-    }
   });
   //Altera cor do campo CPF se for um formato inválido
   $(document).ready(function () {
@@ -406,9 +397,18 @@
       if ($('#user_pf_pj option:selected').val() == 'PF') {
         $('#pj').hide();
         $('#pf').show();
+        $('#user_nome_fantasia').val('');
+        $('#user_razao_social').val('');
+        $('#user_cnpj').val('');
       } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
         $('#pf').hide();
         $('#pj').show();
+        $('#user_nome').val('');
+        $('#user_sobrenome').val('');
+        $('#user_cpf').val('');
+        $('#user_documento').val('');
+        $('#user_orgao_emissor').val('');
+        $('#user_estado').val('');
       }
     });
   })
@@ -517,4 +517,46 @@
       $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
     });
   });
+
+
+  // jQuery.validator.addMethod("cpf", function (value, element) {
+  //   value = jQuery.trim(value);
+
+  //   value = value.replace('.', '');
+  //   value = value.replace('.', '');
+  //   cpf = value.replace('-', '');
+  //   while (cpf.length < 11) cpf = "0" + cpf;
+  //   var expReg = /^0+$|^1+$|^2+$|^3+$|^4+$|^5+$|^6+$|^7+$|^8+$|^9+$/;
+  //   var a = [];
+  //   var b = new Number;
+  //   var c = 11;
+  //   for (i = 0; i < 11; i++) {
+  //     a[i] = cpf.charAt(i);
+  //     if (i < 9) b += (a[i] * --c);
+  //   }
+  //   if ((x = b % 11) < 2) { a[9] = 0 } else { a[9] = 11 - x }
+  //   b = 0;
+  //   c = 11;
+  //   for (y = 0; y < 10; y++) b += (a[y] * c--);
+  //   if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11 - x; }
+
+  //   var retorno = true;
+  //   if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) retorno = false;
+
+  //   return this.optional(element) || retorno;
+
+  // }, "Informe um CPF válido");
+
+
+  // $(document).ready(function () {
+
+  //   $("#meuForm").validate({
+  //     rules: {
+  //       user[cpf]: { cpf: true, required: true }
+  //     },
+  //     messages: {
+  //       user[cpf]: { cpf: 'CPF inválido' }
+  //     }
+  //   });
+  // });
 </script>
