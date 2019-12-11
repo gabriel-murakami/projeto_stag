@@ -29,7 +29,7 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off" %>
               </div>
             </div>
             <div class="col-4">
@@ -303,7 +303,25 @@
     $('#user_cpf').mask('000.000.000-00');
     $('#user_cep').mask('00000-000');
     $('#user_cnpj').mask('00.000.000/0000-00');
+    $('#user_documento').mask('0#');
   });
+
+  //Campos Nome e Sobrenome aceitando somente letras, acentos e espaços
+  $(document).ready(function () {
+    $("#user_nome").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
+    });
+    $("#user_sobrenome").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
+    });
+  })
+  
   //Remove datas futuras para data de emissão
   $(document).ready(function () {
     var today = new Date();
