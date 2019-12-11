@@ -29,12 +29,6 @@
 	color: #586871;
 	font-size: 20px;
 } 
-.std-font-alert{
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #A94342;
-	font-size: 20px;
-} 
 /*Botões padrão*/
 .std-btn {
 	background-color:#f6af42ff;
@@ -153,9 +147,17 @@ input[type="text"]:focus,
 	background-color: transparent;
 	border: none;
 }
+
+/* Input alerta */
+.input-alert {
+	color: #a94342; 
+	margin-top: 7px; 
+	margin-left: 3px
+}
+
 /* Tooltip padrão */
 .tooltip-inner{
-	background-color: #a94342;
 	color: white;
-	opacity: 0.75;
+	opacity: 0.50;
 }
+
