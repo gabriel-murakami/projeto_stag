@@ -147,3 +147,17 @@ input[type="text"]:focus,
 	background-color: transparent;
 	border: none;
 }
+
+/* Input alerta */
+.input-alert {
+	color: #a94342; 
+	margin-top: 7px; 
+	margin-left: 3px
+}
+
+/* Tooltip padrão */
+.tooltip-inner{
+	color: white;
+	opacity: 0.50;
+}
+
