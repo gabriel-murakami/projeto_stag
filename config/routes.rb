@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   scope "/home" do
-    get "/userlist", to: "home#list"
+    get "/list", to: "home#list"
     get "/success", to: "home#sucesso"
   end
 

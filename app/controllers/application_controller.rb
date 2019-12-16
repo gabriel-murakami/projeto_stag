@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
       '/users/sign_in'
     end
 
-    #Definir o direcionamento após o cadastro
-    # def after_sign_up_path_for(resource)
-    #     '/home/sucesso'
-    # end
+    # Definir o direcionamento após o cadastro
+    def after_sign_up_path_for(resource)
+        '/home/success'
+    end
 
     protected
 
