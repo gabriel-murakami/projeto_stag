@@ -4,5 +4,6 @@ class HomeController < ApplicationController
     end
 
     def sucesso
+        @user = User.last()
     end
 end

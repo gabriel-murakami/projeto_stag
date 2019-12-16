@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   scope "/home" do
     get "/userlist", to: "home#list"
+    get "/success", to: "home#sucesso"
   end
 
   root "home#home"

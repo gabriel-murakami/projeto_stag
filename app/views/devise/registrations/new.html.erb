@@ -301,7 +301,8 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <input id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com" type="email_field">
+              <input id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
+                type="email_field">
               <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
                 style="display:none">report_problem</i>
             </div>
@@ -442,25 +443,83 @@
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
+
   //Altera cor do campo CPF se for um formato inválido
+  // $(document).ready(function () {
+  //   $('#user_cpf').change(function () {
+  //     var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
+  //     if (!(filtrocpf.test($(this).val()))) {
+  //       $('#alertCPF').show()
+  //       $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Formato inválido' });
+  //       $(this).attr('style', 'border-color: #A94342;');
+  //     } else {
+  //       $('#alertCPF').hide();
+  //       $(this).attr('style', 'border-color: #586871');
+  //     }
+  //   })
+  // });
+
+
+  function TestaCPF(strCPF) {
+    strCPF = strCPF.replace(/[^0-9]/g, '');
+    var Soma;
+    var Resto;
+    Soma = 0;
+    if (strCPF == "00000000000") return false;
+
+    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF.substring(9, 10))) return false;
+
+    Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF.substring(10, 11))) return false;
+    return true;
+  }
+
   $(document).ready(function () {
-    $('#user_cpf').change(function () {
-      var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
-      if (!(filtrocpf.test($(this).val()))) {
-        $(this).attr('style', 'border-color: #A94342;');
-      } else {
-        $(this).attr('style', 'border-color: #586871');
+    $('#user_cpf').keyup(function () {
+      validateCPF();
+    })
+  })
+
+  function validateCPF() {
+    if ($('#user_cpf').val().replace(/^\s+|\s+$/g, "").length == 0) {
+      if ($('#alertCPF').is(':visible')) {
+        $('#alertCPF').attr('data-original-title', 'Campo em branco');
       }
-      if (mm < 10) {
-        mm = '0' + mm
+      else {
+        $('#alertCPF').show()
+        $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+        $('#user_cpf').attr('style', 'border-color: #A94342;');
       }
-      today = yyyy + '-' + mm + '-' + dd;
-      $("#user_data_emissao").attr("max", today);
-    });
-    $(document).ready(function () {
-      $('select').attr("class", "form-control");
-    });
-    $(document).ready(function () {
+    }
+    else {
+      if (TestaCPF($('#user_cpf').val())) {
+        $('#alertCPF').hide();
+        $('#user_cpf').attr('style', 'border-color: #586871');
+      }
+      else {
+        if ($('#alertCPF').is(':visible')) {
+          $('#alertCPF').attr('data-original-title', 'Formato inválido');
+        }
+        else {
+          $('#alertCPF').show()
+          $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Formato inválido' });
+          $('#user_cpf').attr('style', 'border-color: #A94342;');
+        }
+      }
+    }
+  }
+
+  //Troca entre o Form de PF e PJ
+  $(document).ready(function () {
+    $('#user_pf_pj').change(function () {
       if ($('#user_pf_pj option:selected').val() == 'PF') {
         $('#pj').hide();
         $('#pf').show();
@@ -681,7 +740,8 @@
         if ($('#user_pf_pj option:selected').val() == 'PF') {
           checkBlank($('#user_nome'), $('#alertNome'));
           checkBlank($('#user_sobrenome'), $('#alertSobrenome'));
-          checkBlank($('#user_cpf'), $('#alertCPF'));
+          // checkBlank($('#user_cpf'), $('#alertCPF'));
+          validateCPF();
           checkBlank($('#user_documento'), $('#alertDoc'));
           checkBlank($('#user_orgao_emissor'), $('#alertOrgEms'));
           checkBlank($('#user_estado_emissor'), $('#alertEstEms'));
@@ -693,7 +753,7 @@
           checkBlank($('#user_razao_social'), $('#alertRazSoc'));
           checkBlank($('#user_cnpj'), $('#alertCNPJ'));
         }
-        $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'CPF inválido' });
+        // $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'CPF inválido' });
       }
       //Página Endereço
       else if ($('#cadastro2').is(":visible")) {
