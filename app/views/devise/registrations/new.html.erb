@@ -7,7 +7,7 @@
 
 <div class="container">
   <!--Tela casdastro PF PJ-->
-  <div id="cadastro1" class="container" style="max-width: 750px; padding: 25px;">
+  <div id="cadastro1" class="container" style="max-width: 750px; padding: 25px;"><br>
     <label class="std-font-grey" style="font-size:20px; text-align:center">Conte um pouco sobre vc ;)</label>
     <div class="card card-grey">
       <div class="card-body">
@@ -228,15 +228,16 @@
 
       <!-- confirmação do email -->
       <div class="row align-items-center justify-content-center">
-          <div class="col-4" align="right" style="margin-top: 10px">
-            <p class="std-font-grey-md">Confirme seu email</p>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %><br />
-            </div>
+        <div class="col-4" align="right" style="margin-top: 10px">
+          <p class="std-font-grey-md">Confirme seu email</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <input type="email_field" id="email_confirmation" class="form-control-yellow form-control"
+              placeholder="exemplo@gmail.com"><br />
           </div>
         </div>
+      </div>
       <!--Senha-->
       <div class="row align-items-center justify-content-center">
         <div class="col-4" align="right" style="padding-right: 0px">
@@ -267,7 +268,7 @@
             <button type="button" id="btnBack2" class="btn btn-link std-link"> Voltar </button>
           </div>
           <div class="col"></div>
-            <%= f.submit "Cadastrar", :class => "std-btn"%>
+          <%= f.submit "Cadastrar", :id => "btnCadastro", :class => "std-btn"%>
         </div>
       </div>
 
@@ -275,12 +276,6 @@
   </div>
 </div>
 <% end %>
-</div>
-
-<div class="alert alert-danger" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign"></span>
-  <span class="sr-only">Error:</span>
-  Enter a valid email address
 </div>
 
 <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
@@ -296,55 +291,62 @@
   </div>
 </div>
 
-<script>
-  $('input').tooltip({'trigger':'focus', 'title':'Password tooltip', 'data-placement':'right' });
-  //Máscara
-  $(document).ready(function () {
-    $('#user_cpf').mask('000.000.000-00');
-    $('#user_cep').mask('00000-000');
-    $('#user_cnpj').mask('00.000.000/0000-00');
-  });
-  //Remove datas futuras para data de emissão
-  $(document).ready(function () {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = '0' + dd
-    }
-    if (mm < 10) {
-      mm = '0' + mm
-    }
-    today = yyyy + '-' + mm + '-' + dd;
-    $("#user_data_emissao").attr("max", today);
-  });
-  $(document).ready(function () {
-    $('select').attr("class", "form-control");
-  });
-  $(document).ready(function () {
-    if ($('#user_pf_pj option:selected').val() == 'PF') {
-      $('#pj').hide();
-      $('#pf').show();
-    } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
-      $('#pf').hide();
-      $('#pj').show();
-    }
-  });
-  //Altera cor do campo CPF se for um formato inválido
-  $(document).ready(function () {
-    $('#user_cpf').change(function () {
-      var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
-      if (!(filtrocpf.test($(this).val()))) {
-        $(this).attr('style', 'border-color: red');
-      } else {
-        $(this).attr('style', 'border-color: #586871');
+<div id="senhaInvalida" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="modal-header">
+        <p class="modal-title std-font-grey">Senhas não coincidem</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="emailInvalido" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="modal-header">
+          <p class="modal-title std-font-grey">E-mails não coincidem</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('input').tooltip({ 'trigger': 'focus', 'title': 'Password tooltip', 'data-placement': 'right' });
+    $('#btnCadastro').prop('disabled', true);
+
+    //Máscara
+    $(document).ready(function () {
+      $('#user_cpf').mask('000.000.000-00');
+      $('#user_cep').mask('00000-000');
+      $('#user_cnpj').mask('00.000.000/0000-00');
+      $('#user_documento').mask('00.000.000-0')
+    });
+
+    //Remove datas futuras para data de emissão
+    $(document).ready(function () {
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = '0' + dd
       }
-    })
-  });
-  //Troca entre o Form de PF e PJ
-  $(document).ready(function () {
-    $('#user_pf_pj').change(function () {
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = yyyy + '-' + mm + '-' + dd;
+      $("#user_data_emissao").attr("max", today);
+    });
+    $(document).ready(function () {
+      $('select').attr("class", "form-control");
+    });
+    $(document).ready(function () {
       if ($('#user_pf_pj option:selected').val() == 'PF') {
         $('#pj').hide();
         $('#pf').show();
@@ -353,115 +355,189 @@
         $('#pj').show();
       }
     });
-  })
-  //Completar endereço via CEP
-  $(document).ready(function () {
-    function limpa_formulário_cep() {
-      // Limpa valores do formulário de cep.
-      $("#user_logradouro").val("");
-      $("#user_bairro").val("");
-      $("#user_cidade").val("");
-      $("#user_estado").val("");
-    }
+    //Altera cor do campo CPF se for um formato inválido
+    $(document).ready(function () {
+      $('#user_cpf').change(function () {
+        var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
+        if (!(filtrocpf.test($(this).val()))) {
+          $(this).attr('style', 'border-color: red');
+        } else {
+          $(this).attr('style', 'border-color: #586871');
+        }
+      })
+    });
+    //Troca entre o Form de PF e PJ
+    $(document).ready(function () {
+      $('#user_pf_pj').change(function () {
+        if ($('#user_pf_pj option:selected').val() == 'PF') {
+          $('#pj').hide();
+          $('#pf').show();
+        } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
+          $('#pf').hide();
+          $('#pj').show();
+        }
+      });
+    })
+    //Completar endereço via CEP
+    $(document).ready(function () {
+      function limpa_formulário_cep() {
+        // Limpa valores do formulário de cep.
+        $("#user_logradouro").val("");
+        $("#user_bairro").val("");
+        $("#user_cidade").val("");
+        $("#user_estado").val("");
+      }
 
-    //Quando o campo cep perde o foco.
-    $("#user_cep").blur(function () {
+      //Quando o campo cep perde o foco.
+      $("#user_cep").blur(function () {
 
-      //Nova variável "cep" somente com dígitos.
-      var cep = $(this).val().replace(/\D/g, '');
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
 
-      //Verifica se campo cep possui valor informado.
-      if (cep != "") {
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
 
-        //Expressão regular para validar o CEP.
-        var validacep = /^[0-9]{8}$/;
+          //Expressão regular para validar o CEP.
+          var validacep = /^[0-9]{8}$/;
 
-        //Valida o formato do CEP.
-        if (validacep.test(cep)) {
+          //Valida o formato do CEP.
+          if (validacep.test(cep)) {
 
-          //Preenche os campos com "..." enquanto consulta webservice.
-          $("#user_logradouro").val("...");
-          $("#user_bairro").val("...");
-          $("#user_cidade").val("...");
+            //Preenche os campos com "..." enquanto consulta webservice.
+            $("#user_logradouro").val("...");
+            $("#user_bairro").val("...");
+            $("#user_cidade").val("...");
 
-          //Consulta o webservice viacep.com.br/
-          $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+            //Consulta o webservice viacep.com.br/
+            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
-            if (!("erro" in dados)) {
-              //Atualiza os campos com os valores da consulta.
-              $("#user_logradouro").val(dados.logradouro);
-              $("#user_bairro").val(dados.bairro);
-              $("#user_cidade").val(dados.localidade);
-              $("#user_estado").val(dados.uf);
-            } //end if.
-            else {
-              //CEP pesquisado não foi encontrado.
-              limpa_formulário_cep();
-            }
-          });
+              if (!("erro" in dados)) {
+                //Atualiza os campos com os valores da consulta.
+                $("#user_logradouro").val(dados.logradouro);
+                $("#user_bairro").val(dados.bairro);
+                $("#user_cidade").val(dados.localidade);
+                $("#user_estado").val(dados.uf);
+              } //end if.
+              else {
+                //CEP pesquisado não foi encontrado.
+                limpa_formulário_cep();
+              }
+            });
+          } //end if.
+          else {
+            //cep é inválido.
+            limpa_formulário_cep();
+            alert("Formato de CEP inválido.");
+          }
         } //end if.
         else {
-          //cep é inválido.
+          //cep sem valor, limpa formulário.
           limpa_formulário_cep();
-          alert("Formato de CEP inválido.");
         }
-      } //end if.
-      else {
-        //cep sem valor, limpa formulário.
-        limpa_formulário_cep();
+      });
+    });
+    //Vai para próximo text-field quando aperta Enter
+    $('input').keypress(function (event) {
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if (keycode == '13') {
+        event.preventDefault();
+        var $this = $(event.target);
+        var index = parseFloat($this.attr('dataid'));
+        $('[dataid="' + (index + 1).toString() + '"]').focus();
       }
     });
-  });
-  //Vai para próximo text-field quando aperta Enter
-  $('input').keypress(function (event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '13') {
-      event.preventDefault();
-      var $this = $(event.target);
-      var index = parseFloat($this.attr('dataid'));
-      $('[dataid="' + (index + 1).toString() + '"]').focus();
-    }
-  });
-  //Navegação cadastros
-  $(document).ready(function () {
-    //Página PF PJ
-    $('#btnNext1').click(function () {
-      $('#cadastro1').hide();
-      $('#cadastro2').removeAttr('hidden');
-      $('#cadastro2').show();
-      $('#user_cep').focus();
-      $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
-    });
-    //Página Endereço
-    $('#btnBack1').click(function () {
-      $('#cadastro1').show();
-      $('#cadastro2').hide();
-      $('#user_nome').focus();
-      $('.progress-bar').css('width', 33 + '%').attr('aria-valuenow', 33);
-    });
-    $('#btnNext2').click(function () {
-      $('#cadastro2').hide();
-      $('#cadastro3').removeAttr('hidden');
-      $('#cadastro3').show();
-      $('#user_email').focus();
-      $('.progress-bar').css('width', 100 + '%').attr('aria-valuenow', 100);
+    //Navegação cadastros
+    $(document).ready(function () {
+      //Página PF PJ
+      $('#btnNext1').click(function () {
+        $('#cadastro1').hide();
+        $('#cadastro2').removeAttr('hidden');
+        $('#cadastro2').show();
+        $('#user_cep').focus();
+        $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
+      });
+      //Página Endereço
+      $('#btnBack1').click(function () {
+        $('#cadastro1').show();
+        $('#cadastro2').hide();
+        $('#user_nome').focus();
+        $('.progress-bar').css('width', 33 + '%').attr('aria-valuenow', 33);
+      });
+      $('#btnNext2').click(function () {
+        $('#cadastro2').hide();
+        $('#cadastro3').removeAttr('hidden');
+        $('#cadastro3').show();
+        $('#user_email').focus();
+        $('.progress-bar').css('width', 100 + '%').attr('aria-valuenow', 100);
 
-      //Verifica se há campos em branco
-      if ($("#cadastro2:input").filter(function () {
-      return $.trim($(this).val()).length == 0
-      }).length != 0)
-      {
-        $('#myModal').modal({
-        show: true
-        })
+        //Verifica se há campos em branco
+        if ($("#cadastro2:input").filter(function () {
+          return $.trim($(this).val()).length == 0
+        }).length != 0) {
+          $('#myModal').modal({
+            show: true
+          })
+        }
+      });
+      //Página E-mail Senha
+      $('#btnBack2').click(function () {
+        $('#cadastro2').show();
+        $('#cadastro3').hide();
+        $('#user_cep').focus();
+        $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
+      });
+    });
+      // verifica se a os campos de e-mail estão iguais, retornando true ou false
+    function emailMatch() {
+      return $("#email_confirmation").val() === $("#user_email").val();
+    }
+      // verifica os campos de senha, retornando false ou true
+    function passwordMatch() {
+      return $("#user_password").val() === $("#user_password_confirmation").val();
+    }
+    
+      // função que obriga o campo de e-mail ter o formato de gmail.com usando regex
+    function emailIsGmail() {
+      var email = $('#user_email').val();
+
+      var emailRegex = new RegExp('^.+@gmail.com$');
+      return (email !== '' && emailRegex.test(email));
+    }
+      // uma única função verifica todas as validações e desabilita o botão cadastro até que tudo esteja certo
+    function buttonValidation() {
+      var emailMatchValidated = emailMatch(),
+          passwordMatchValidated = passwordMatch(),
+          emailIsGmailValidated = emailIsGmail();
+
+      if (emailMatchValidated && passwordMatchValidated && emailIsGmailValidated) {
+        $('#btnCadastro').prop('disabled', false);
+      } else {
+        $('#btnCadastro').prop('disabled', true);
+        $('.input-invalid').removeClass('input-invalid');
+
+        if (!emailMatchValidated || !emailIsGmailValidated) {
+          $('#email_confirmation').addClass('input-invalid');
+        }
+
+        if (!passwordMatchValidated) {
+          $('#user_password_confirmation').addClass('input-invalid');
+        }
+       
       }
+    }
+
+    $("#btnCadastro").click(function() {
+    if($("#user_password").val().length < 6) {
+        $('#user_password_confirmation').addClass('input-invalid');
+        $('#btnCadastro').prop('disabled', true);
+    } 
+    else {
+        $('#btnCadastro').submit();
+    }
     });
-    //Página E-mail Senha
-    $('#btnBack2').click(function () {
-      $('#cadastro2').show();
-      $('#cadastro3').hide();
-      $('#user_cep').focus();
-      $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
-    });
-  });
-</script>
+
+    $('#user_email').on('keyup', buttonValidation);
+    $("#email_confirmation").on('keyup', buttonValidation);
+    $("#user_password_confirmation").on('keyup', buttonValidation);
+    $("#user_password").on('keyup', buttonValidation);
+  </script>

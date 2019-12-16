@@ -109,8 +109,8 @@
 
   // Validação do campo de senha caso esteja vazio 
   $(document).ready(function () {
-    $('#btn-entrar').click(function () {
-      if ($('#user_email').val() != "" && $('#user_password').val() == "") {
+    $('#btn-entrar').click(function (e) {
+      if ($('#user_email').val() != "" && $('#user_email').val() == "") {
         $('#modalSenha').modal({
           show: true
         })
