@@ -1,9 +1,10 @@
 /*Fontes padrão*/
-.std-font-grey-lg{
+.title-font-purple{
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
-	color: #586871;
-	font-size: 18px;
+	text-align:center;
+	color: #623f99ff;
+	font-size: 20px;
 }
 .std-font-grey{
 	/*font-family: FelbridgeProLight, sans-serif;*/
@@ -158,6 +159,6 @@ input[type="text"]:focus,
 /* Tooltip padrão */
 .tooltip-inner{
 	color: white;
-	opacity: 0.50;
+	opacity: 0.75;
 }
 
