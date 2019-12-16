@@ -148,9 +148,16 @@ input[type="text"]:focus,
 	border: none;
 }
 
-.input-invalid {
-	border-color: red;
+/* Input alerta */
+.input-alert {
+	color: #a94342; 
+	margin-top: 7px; 
+	margin-left: 3px
 }
-.input-valid {
-	border-color: green;
+
+/* Tooltip padrão */
+.tooltip-inner{
+	color: white;
+	opacity: 0.50;
 }
+
