@@ -7,6 +7,33 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      #PF ou PJ
+      t.string :pf_pj, null: false, default: "" 
+      
+      #Dados para PF
+      t.string :nome, null: false, default: ""
+      t.string :sobrenome, null: false, default: ""
+      t.string :cpf, null: false, default: "", uniqueness: true
+      t.string :documento, null: false, default: ""
+      t.string :orgao_emissor, null: false, default: ""
+      t.string :estado_emissor, null: false, default: ""
+      t.date :data_emissao, null: false, default: -> { 'CURRENT_TIMESTAMP' }
+
+      # #Dados para PJ
+      t.string :nome_fantasia, null: false, default: ""
+      t.string :razao_social, null: false, default: ""
+      t.string :cnpj, null: false, default: "", uniqueness: true
+
+      # #Dados de Endereço
+      t.string :cep, null: false, default: ""
+      t.string :logradouro, null: false, default: ""
+      t.string :numero, null: false, default: ""
+      t.string :complemento, null: true, default: ""
+      t.string :bairro, null: false, default: ""
+      t.string :cidade, null: false, default: ""
+      t.string :estado, null: false, default: ""
+
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

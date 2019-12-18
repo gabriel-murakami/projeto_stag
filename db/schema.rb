@@ -15,6 +15,24 @@ ActiveRecord::Schema.define(version: 2019_12_02_151132) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "pf_pj", default: "", null: false
+    t.string "nome", default: "", null: false
+    t.string "sobrenome", default: "", null: false
+    t.string "cpf", default: "", null: false
+    t.string "documento", default: "", null: false
+    t.string "orgao_emissor", default: "", null: false
+    t.string "estado_emissor", default: "", null: false
+    t.date "data_emissao", null: false
+    t.string "nome_fantasia", default: "", null: false
+    t.string "razao_social", default: "", null: false
+    t.string "cnpj", default: "", null: false
+    t.string "cep", default: "", null: false
+    t.string "logradouro", default: "", null: false
+    t.string "numero", default: "", null: false
+    t.string "complemento", default: ""
+    t.string "bairro", default: "", null: false
+    t.string "cidade", default: "", null: false
+    t.string "estado", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

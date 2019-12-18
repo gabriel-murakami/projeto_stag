@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'devise'
+gem 'via_cep'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
@@ -23,6 +24,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+#validação de documentos brasileiros
+gem 'brazilian_documents', '~> 0.1.4'
+
+#mascara para jquery
+gem 'jquery-mask-plugin'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
