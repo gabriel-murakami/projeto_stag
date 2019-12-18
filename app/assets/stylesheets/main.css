@@ -161,3 +161,6 @@ input[type="text"]:focus,
 	opacity: 0.50;
 }
 
+/* #btnCadastrar:disabled {
+	background-color: #ccc;
+} */
