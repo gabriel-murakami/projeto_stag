@@ -5,7 +5,11 @@
   <!--E-mail-->
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
-    <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com" %>
+    <div class="input-group">
+      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com" %>
+      <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
+        style="display: none;">error</i>
+    </div>
   </div>
   <!--Senha-->
   <div class="field">
@@ -120,6 +124,22 @@
     $('#clear').click(function () {
       $('#user_email').val('');
       $('#user_password').val('');
+    })
+  })
+
+  $(document).ready(function () {
+    $('#user_email').change(function () {
+      var email = $(this).val();
+      var emailRegex = new RegExp('^.+@gmail.com$');
+      var emailRegex2 = new RegExp('^.+@+$');
+      if (!(emailRegex.test(email)) || !(emailRegex2.test)) {
+        $('#alertEmail').show()
+        $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Email inválido' });
+        $('#user_email').attr('style', 'border-bottom-color: #A94342;');
+      } else {
+        $('#alertEmail').hide();
+        $('#user_email').attr('style', 'border-color: transparent');
+      }
     })
   })
 
