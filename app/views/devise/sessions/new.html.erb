@@ -1,6 +1,6 @@
 <!--Tela login-->
 <div class="login-form">
-  <label class="std-font-grey" style="font-size:20px; text-align:center">Faça seu login</label>
+  <label class="title-font-purple" style="font-size:20px; text-align:center">Faça seu login</label>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <!--E-mail-->
   <div class="field">
@@ -37,13 +37,17 @@
   <%= render "devise/shared/links" %>
   <!--Mensagem de erro-->
   <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -51,37 +55,49 @@
   <!-- model de senha em branco -->
 
   <div id="modalSenha" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey">Preencha o campo de Senha</p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha o campo de Senha</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div id="modalEmail" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey">Preencha o campo de Email</p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha o campo de Email</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div id="modalCampos" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey">Preencha os Campos</p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha os campos</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
