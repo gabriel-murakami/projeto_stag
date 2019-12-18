@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       #Dados para PF
       t.string :nome, null: false, default: ""
       t.string :sobrenome, null: false, default: ""
-      t.string :cpf, null: false, default: ""
+      t.string :cpf, null: false, default: "", uniqueness: true
       t.string :documento, null: false, default: ""
       t.string :orgao_emissor, null: false, default: ""
       t.string :estado_emissor, null: false, default: ""
@@ -22,7 +22,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       # #Dados para PJ
       t.string :nome_fantasia, null: false, default: ""
       t.string :razao_social, null: false, default: ""
-      t.string :cnpj, null: false, default: ""
+      t.string :cnpj, null: false, default: "", uniqueness: true
 
       # #Dados de Endereço
       t.string :cep, null: false, default: ""
