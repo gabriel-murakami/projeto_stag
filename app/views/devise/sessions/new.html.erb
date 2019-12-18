@@ -5,12 +5,12 @@
   <!--E-mail-->
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
-    <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com" %>
+    <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %>
   </div>
   <!--Senha-->
   <div class="field">
     <%= f.label :password, value: "Senha", :class => "std-font-grey "%>
-    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control std-form-control"%>
+    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control-yellow form-control"%>
   </div>
   <!--Manter conectado-->
   <!-- <% if devise_mapping.rememberable? %>
@@ -63,7 +63,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <p class="modal-title std-font-grey">Preencha o campo de Senha</p>
+              <p class="modal-title std-font-grey">Preencha o campo de senha</p>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <p class="modal-title std-font-grey">Preencha o campo de Email</p>
+              <p class="modal-title std-font-grey">Preencha o campo de email</p>
             </div>
           </div>
         </div>
@@ -130,20 +130,20 @@
         $('#modalSenha').modal({
           show: true
         })
-        $('#user_password').css('border-color', 'red');
+        $('#user_password').css('border-color', '#A94342');
       }
       else if ($('#user_email').val() == "" && $('#user_password').val() == "") {
         $('#modalCampos').modal({
           show: true
         })
-        $('#user_password').css('border-color', 'red');
-        $('#user_email').css('border-color', 'red');
+        $('#user_password').css('border-color', '#A94342');
+        $('#user_email').css('border-color', '#A94342');
       }
       else if ($('#user_email').val() == "" && $('#user_password').val() != "") {
         $('#modalEmail').modal({
           show: true
         })
-        $('#user_email').css('border-color', 'red');
+        $('#user_email').css('border-color', '#A94342');
       }
       else {
         document.getElementById('new_user').submit();
