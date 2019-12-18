@@ -266,6 +266,7 @@
   </div>
 </div>
 </div>
+</br>
 <!-- cadastro do e-mail e senha -->
 <div id="cadastro3" class="container cad-form" style="width: max-content;" hidden>
   <label class="title-font-purple">Vamos manter sua conta segura</label></br>
@@ -302,7 +303,7 @@
           <div class="form-group">
             <div class="input-group">
               <input id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
-                type="email_field">
+                type="email_field" dataid = "2">
               <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -524,7 +525,7 @@
       $("#user_estado").val("");
     }
     //Quando o campo cep perde o foco.
-    $("#user_cep").blur(function () {
+    $("#user_cep").keyup(function () {
       //Nova variável "cep" somente com dígitos.
       var cep = $(this).val().replace(/\D/g, '');
       //Verifica se campo cep possui valor informado.
@@ -545,6 +546,8 @@
               $("#user_bairro").val(dados.bairro);
               $("#user_cidade").val(dados.localidade);
               $("#user_estado").val(dados.uf);
+              $('#alertCEP').hide();
+              $('#user_cep').attr('style', 'border-color: #586871;');
             } //end if.
             else {
               //CEP pesquisado não foi encontrado.
@@ -644,7 +647,8 @@
     });
     $('#btnNext2').click(function () {
       validateFields();
-      if ($('i').is(":visible") == false && continuarClicked || $('i').is(":visible").css({ 'color': '#f6af42ff' }) && continuarClicked) {
+
+      if ($('i').is(":visible") == false && continuarClicked || $('#alertCEP').attr('data-original-title') == 'CEP não encontrado' && $('i:visible').length == 1) {
         $('#cadastro2').hide();
         $('#cadastro3').removeAttr('hidden');
         $('#cadastro3').show();

@@ -5,6 +5,7 @@
 	text-align:center;
 	color: #623f99ff;
 	font-size: 20px;
+	margin-top: 5px;
 }
 .std-font-grey{
 	/*font-family: FelbridgeProLight, sans-serif;*/
@@ -154,6 +155,11 @@ input[type="text"]:focus,
 	color: #a94342; 
 	margin-top: 7px; 
 	margin-left: 3px
+}
+.icon-purple {
+	color: #623f99ff;
+	font-size: 30px;
+	margin-right: 20px;
 }
 
 /* Tooltip padrão */
