@@ -1,44 +1,153 @@
+<!--Tela login-->
 <div class="login-form">
-  <label class="std-font-grey" style="font-size:20px; text-align:center">Faça seu login</label>
+  <label class="title-font-purple" style="font-size:20px; text-align:center">Faça seu login</label>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+  <!--E-mail-->
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control"%>
+    <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com" %>
   </div>
-
+  <!--Senha-->
   <div class="field">
     <%= f.label :password, value: "Senha", :class => "std-font-grey "%>
-    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control" %>
+    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control-yellow form-control"%>
   </div>
-
-  <% if devise_mapping.rememberable? %>
+  <!--Manter conectado-->
+  <!-- <% if devise_mapping.rememberable? %>
   <div class="field" style="margin:20px">
     <%= f.check_box :remember_me, :class => "form-check-input"%>
     <%= f.label :remember_me, value: "Mantenha-me conectado", :class => "std-font-grey-sm"%>
   </div>
-  <% end %>
+  <% end %> -->
   </br>
   <div class="actions container">
     <div class="row">
-      <div class="col-md">
+      <div class="col">
+        <!--Cancelar-->
         <button type="button" id="clear" class="btn btn-link std-link"> Cancelar </button>
       </div>
-      <div class="col-md">
-        <%= f.submit "Entrar", :class => "std-btn"%>
+      <div class="col">
+        <!--Entrar-->
+        <%= f.button "Entrar", :id => "btn-entrar", :class => "std-btn", :type => "button" %>
       </div>
     </div>
   </div>
   <% end %>
+  <!--Primeiro acesso, Esqueci a senha-->
   <%= render "devise/shared/links" %>
+  <!--Mensagem de erro-->
+  <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- model de senha em branco -->
+
+  <div id="modalSenha" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha o campo de senha</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalEmail" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha o campo de email</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalCampos" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content" style="color: blueviolet;">
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha os campos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- Se um campo na tela de login ou um e-mail não estiver no banco de dados, emite-se uma tela com o aviso -->
+<% if alert || notice  %>
 <script>
-
-    $(document).ready(function(){
-      $('#clear').click(function(){
-        $('input').val('');
-      })
+  $(document).ready(function () {
+    $('#myModal').modal({
+      show: true
     })
-    
+  });
+</script>
+<% end %>
+<!--Limpar Campos-->
+<script>
+  $(document).ready(function () {
+    $('#clear').click(function () {
+      $('#user_email').val('');
+      $('#user_password').val('');
+    })
+  })
+
+  // Validação do campo de senha caso esteja vazio 
+  $(document).ready(function () {
+    $('#btn-entrar').click(function (e) {
+      if ($('#user_email').val() != "" && $('#user_email').val() == "") {
+        $('#modalSenha').modal({
+          show: true
+        })
+        $('#user_password').css('border-color', '#A94342');
+      }
+      else if ($('#user_email').val() == "" && $('#user_password').val() == "") {
+        $('#modalCampos').modal({
+          show: true
+        })
+        $('#user_password').css('border-color', '#A94342');
+        $('#user_email').css('border-color', '#A94342');
+      }
+      else if ($('#user_email').val() == "" && $('#user_password').val() != "") {
+        $('#modalEmail').modal({
+          show: true
+        })
+        $('#user_email').css('border-color', '#A94342');
+      }
+      else {
+        document.getElementById('new_user').submit();
+      }
+    })
+  })
 </script>

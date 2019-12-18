@@ -1,14 +1,36 @@
 /*Fontes padrão*/
+.title-font-purple{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	text-align:center;
+	color: #623f99ff;
+	font-size: 20px;
+	margin-top: 5px;
+}
 .std-font-grey{
-	font-family: FelbridgeProLight, sans-serif;
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
 	color: #586871;
 	font-size: 16px;
 }
+.std-font-grey-md{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color:#586871;
+	font-size: 18px;
+}
 .std-font-grey-sm{
-	font-family: FelbridgeProLight, sans-serif;
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
 	color: #586871;
 	font-size: 14px;
 }
+.std-font-grey-lg{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: #586871;
+	font-size: 20px;
+} 
 /*Botões padrão*/
 .std-btn {
 	background-color:#f6af42ff;
@@ -16,8 +38,9 @@
 	border-radius: 25px;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:FelbridgeProLight, sans-serif;
-	font-size:14px;
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	font-size:16px;
 	padding:12px 24px;
 }
 .std-btn:hover {
@@ -29,36 +52,76 @@
 }
 /*Links padrões*/
 .std-link {
-	font-family:FelbridgeProLight, sans-serif;
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: #586871;
+	text-decoration: underline;
+}
+.esp-link {
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
 	color: #586871;
 	text-decoration: underline;
 }
 .std-link:hover {
-	font-family:FelbridgeProLight, sans-serif;
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: #f7bd45ff;
+	text-decoration: underline;
+}
+.esp-link:hover {
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	background-color: transparent;
 	color: #f7bd45ff;
 	text-decoration: underline;
 }
 .std-link-purple {
-	font-family:FelbridgeProLight, sans-serif;
-	color: #a24dc2ff;
-	text-decoration: underline;
-}
-.std-link-purple:hover {
-	background-color: transparent;
-	font-family:FelbridgeProLight, sans-serif;
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
 	color: #623f99ff;
 	text-decoration: underline;
 }
+.std-link-white {
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: white;
+	text-decoration: underline;
+	font-size: 14px;
+}
+.std-link-purple:hover {
+	background-color: transparent;
+}
 /*Textbox padrão*/
-.form-control {
+.std-form-control {
 	background: #f7f7f7ff;
 	border-color: transparent;
 	border-radius: 0;
 }
 input[type="text"]:focus,
-.form-control:focus {
+.std-form-control:focus {
 	background: #f7f7f7ff;
 	border-color: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.form-control-yellow {
+	background: #f7f7f7ff;
+	border-color: transparent;
+	color: #f6af42ff;
+	border-radius: 0;
+	outline: 0;
+  	border-width: 0 0 1px;
+	border-color: #586871;
+}
+.form-control-yellow::placeholder {
+	color: #f6af42ff
+}
+input[type="text"]:focus,
+.form-control-yellow:focus {
+	background: white;
+	border-color: #f6af42ff;
+	color: #f6af42ff;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -80,3 +143,28 @@ input[type="text"]:focus,
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	padding: 30px;
 }
+
+/* Form de Cadastro */
+.card-grey {
+	background-color: transparent;
+	border: none;
+}
+
+/* Input alerta */
+.input-alert {
+	color: #a94342; 
+	margin-top: 7px; 
+	margin-left: 3px
+}
+.icon-purple {
+	color: #623f99ff;
+	font-size: 30px;
+	margin-right: 20px;
+}
+
+/* Tooltip padrão */
+.tooltip-inner{
+	color: white;
+	opacity: 0.75;
+}
+

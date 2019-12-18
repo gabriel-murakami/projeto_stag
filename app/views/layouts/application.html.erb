@@ -6,10 +6,10 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <link rel="stylesheet" type="text/css" href="../assets/stylesheets/main.css">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
@@ -19,21 +19,55 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class="std-bg" style="margin:0px">
-  <nav class="navbar std-bg-purple">
-    <!--Símbolo-->
+  <nav class="navbar std-bg-purple" style="height: 60px; position: fixed; top: 0; z-index: 1; width: 100%;">
+    <% if user_signed_in? %>
+    <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px"%></a>
+    <ul class="navbar-nav">
+      <div class="row">
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Edit", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+          </li>
+        </div>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+          </li>
+        </div>
+      </div>
+    </ul>
+    <% elsif request.fullpath == "/users/sign_in" %>
+      <%= image_tag "ScorpionLogo.png", :style => "width: 225px"%>
+    <% else %>
+    <%= image_tag "ScorpionLogo.png", :style => "width: 225px"%>
+      <ul class="navbar-nav">
+        <div class="row">
+          <div class="col">
+            <li class="nav-item">
+              <a href="/users/sign_in" class="btn btn-link std-link-white"
+                style="background-color: transparent; color: white;">Voltar
+                para o login</a>
+            </li>
+          </div>
+        </div>
+      </ul>
+    <% end %>
   </nav>
-  <% if notice %>
+  <br /><br /><br /><br />
+  <!-- <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
+  <% end %> -->
+  <!-- <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+  <% end %> -->
   <%= yield %>
 </body>
 
