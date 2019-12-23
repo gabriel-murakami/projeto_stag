@@ -30,7 +30,7 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "10" %>
+                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50" %>
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -39,7 +39,7 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off"%>
+                  <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
                   <i class="input-group-append input-alert material-icons" id="alertSobrenome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -67,7 +67,7 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off"%>
+                  <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "50" %>
                   <i class="input-group-append input-alert material-icons" id="alertDoc" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -116,7 +116,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                  <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
                   <i class="input-group-append input-alert material-icons" id="alertNomeFan" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -130,7 +130,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off"%>
+                  <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
                   <i class="input-group-append input-alert material-icons" id="alertRazSoc" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -187,9 +187,9 @@
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">Na</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-4">
           <div class="input-group">
-            <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off"%>
+            <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
             <i class="input-group-append input-alert material-icons" id="alertLogr" data-toggle="tooltip"
               style="display:none">error</i>
           </div>
@@ -197,9 +197,9 @@
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">número</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-3">
           <div class="input-group">
-            <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off"%>
+            <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off", :maxlength => "5"%>
             <i class="input-group-append input-alert material-icons" id="alertNum" data-toggle="tooltip"
               style="display:none">error</i>
           </div>
@@ -211,7 +211,7 @@
           <label class="std-font-grey-md" style="margin-top: 15px">complemento</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off"%>
+          <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off", :maxlength => "20"%>
         </div>
       </div>
       <!--Bairro, cidade-->
@@ -219,9 +219,9 @@
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">bairro</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-4">
           <div class="input-group">
-            <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off"%>
+            <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off", :maxlength => "50"%>
             <i class="input-group-append input-alert material-icons" id="alertBair" data-toggle="tooltip"
               style="display:none">error</i>
           </div>
@@ -229,9 +229,9 @@
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">em</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-4">
           <div class="input-group">
-            <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6", :autocomplete => "off"%>
+            <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6", :autocomplete => "off", :maxlength => "50"%>
             <i class="input-group-append input-alert material-icons" id="alertCid" data-toggle="tooltip"
               style="display:none">error</i>
           </div>
@@ -286,7 +286,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off"%><br />
+              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
               <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -302,7 +302,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <input id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
+              <input maxlength="50" id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
                 type="email_field" dataid = "2">
               <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
                 style="display:none">error</i>
@@ -384,6 +384,7 @@
     $('#user_cep').mask('00000-000');
     $('#user_cnpj').mask('00.000.000/0000-00');
     $('#user_documento').mask('0#');
+    $('#user_numero').mask('0#');
   });
 
   //Campos Nome e Sobrenome aceitando somente letras, acentos e espaços
@@ -902,5 +903,12 @@
         field.attr('style', 'border-color: #586871;');
       }
     }
+  });
+
+  //Desabilitar o ctrl-c no campo de Email
+  $(document).ready(function(){
+    $('body').bind('cut copy paste', function (e) {
+      e.preventDefault();
+    });
   });
 </script>
