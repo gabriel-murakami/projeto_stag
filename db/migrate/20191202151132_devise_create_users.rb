@@ -33,6 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :cidade, null: false, default: ""
       t.string :estado, null: false, default: ""
 
+      # Admin
+      t.boolean :admin, default: false
 
       ## Recoverable
       t.string   :reset_password_token
