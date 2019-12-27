@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_12_02_151132) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_151132) do
     t.string "documento", default: "", null: false
     t.string "orgao_emissor", default: "", null: false
     t.string "estado_emissor", default: "", null: false
-    t.date "data_emissao", null: false
+    t.date "data_emissao", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "nome_fantasia", default: "", null: false
     t.string "razao_social", default: "", null: false
     t.string "cnpj", default: "", null: false
