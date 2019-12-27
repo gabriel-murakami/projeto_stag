@@ -422,21 +422,7 @@
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
-
-  //Altera cor do campo CPF se for um formato inválido
-  // $(document).ready(function () {
-  //   $('#user_cpf').change(function () {
-  //     var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
-  //     if (!(filtrocpf.test($(this).val()))) {
-  //       $('#alertCPF').show()
-  //       $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Formato inválido' });
-  //       $(this).attr('style', 'border-color: #A94342;');
-  //     } else {
-  //       $('#alertCPF').hide();
-  //       $(this).attr('style', 'border-color: #586871');
-  //     }
-  //   })
-  // });
+  
 
   $(document).ready(function () {
     $('#user_cpf').keyup(function () {
@@ -748,7 +734,7 @@
       $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
       $('#user_password').attr('style', 'border-color: #A94342;');
     }
-    else if (passwordLength = true) {
+    else if (!passwordLength) {
         $('#alertPW').show();
         if ($('#alertPW').is(":visible"))
           $('#alertPW').attr('data-original-title', 'Senha muito curta').tooltip();
