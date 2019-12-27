@@ -1,16 +1,20 @@
 <!--Tela login-->
 <div class="login-form">
-  <label class="std-font-grey" style="font-size:20px; text-align:center">Faça seu login</label>
+  <label class="title-font-purple" style="font-size:20px; text-align:center">Faça seu login</label>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <!--E-mail-->
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
-    <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com" %>
+    <div class="input-group">
+      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com" %>
+      <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
+        style="display: none;">error</i>
+    </div>
   </div>
   <!--Senha-->
   <div class="field">
     <%= f.label :password, value: "Senha", :class => "std-font-grey "%>
-    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control std-form-control"%>
+    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control-yellow form-control"%>
   </div>
   <!--Manter conectado-->
   <!-- <% if devise_mapping.rememberable? %>
@@ -37,13 +41,17 @@
   <%= render "devise/shared/links" %>
   <!--Mensagem de erro-->
   <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey"><%= alert %><%= notice %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -51,37 +59,49 @@
   <!-- model de senha em branco -->
 
   <div id="modalSenha" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey">Preencha o campo de Senha</p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha o campo de senha</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div id="modalEmail" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey">Preencha o campo de Email</p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha o campo de email</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div id="modalCampos" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey">Preencha os Campos</p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="row">
+          <div class="col text-center">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <p class="modal-title std-font-grey">Preencha os campos</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -107,7 +127,21 @@
     })
   })
 
-  
+  $(document).ready(function () {
+    $('#user_email').change(function () {
+      var email = $(this).val();
+      var emailRegex = new RegExp('^.+@gmail.com$');
+      var emailRegex2 = new RegExp('^.+@+$');
+      if (!(emailRegex.test(email)) || !(emailRegex2.test)) {
+        $('#alertEmail').show()
+        $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Email inválido' });
+        $('#user_email').attr('style', 'border-bottom-color: #A94342;');
+      } else {
+        $('#alertEmail').hide();
+        $('#user_email').attr('style', 'border-color: transparent');
+      }
+    })
+  })
 
   // Validação do campo de senha caso esteja vazio 
   $(document).ready(function () {
@@ -116,20 +150,20 @@
         $('#modalSenha').modal({
           show: true
         })
-        $('#user_password').css('border-color', 'red');
+        $('#user_password').css('border-color', '#A94342');
       }
       else if ($('#user_email').val() == "" && $('#user_password').val() == "") {
         $('#modalCampos').modal({
           show: true
         })
-        $('#user_password').css('border-color', 'red');
-        $('#user_email').css('border-color', 'red');
+        $('#user_password').css('border-color', '#A94342');
+        $('#user_email').css('border-color', '#A94342');
       }
       else if ($('#user_email').val() == "" && $('#user_password').val() != "") {
         $('#modalEmail').modal({
           show: true
         })
-        $('#user_email').css('border-color', 'red');
+        $('#user_email').css('border-color', '#A94342');
       }
       else {
         document.getElementById('new_user').submit();

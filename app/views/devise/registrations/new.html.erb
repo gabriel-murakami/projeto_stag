@@ -7,8 +7,8 @@
 
 <div class="container">
   <!--Tela casdastro PF PJ-->
-  <div id="cadastro1" class="container" style="max-width: 750px; padding: 25px;"><br>
-    <label class="std-font-grey" style="font-size:20px; text-align:center">Conte um pouco sobre vc ;)</label>
+  <div id="cadastro1" class="container" style="max-width: 750px; padding: 25px;">
+    <label class="title-font-purple">Conte um pouco sobre vc ;)</label></br>
     <div class="card card-grey">
       <div class="card-body">
         <div class="row align-items-center justify-content-center">
@@ -33,16 +33,16 @@
                   <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
                 
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off"%>
+                  <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
                   <i class="input-group-append input-alert material-icons" id="alertSobrenome" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@
                 <div class="input-group">
                   <%= f.text_field :cpf, :class => "form-control-yellow form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off"%>
                   <i class="input-group-append input-alert material-icons" id="alertCPF" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -68,9 +68,9 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off"%>
+                  <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "50" %>
                   <i class="input-group-append input-alert material-icons" id="alertDoc" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="input-group">
                   <%= f.text_field :orgao_emissor, :class => "form-control-yellow form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off"%>
                   <i class="input-group-append input-alert material-icons" id="alertOrgEms" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@
                 <div class="input-group">
                   <%= f.select :estado_emissor, states%>
                   <i class="input-group-append input-alert material-icons" id="alertEstEms" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -102,7 +102,7 @@
                 <div class="input-group">
                   <%= f.date_field :data_emissao, :class => "form-control"%>
                   <i class="input-group-append input-alert material-icons" id="alertDatEms" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -117,9 +117,9 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                  <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
                   <i class="input-group-append input-alert material-icons" id="alertNomeFan" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -131,9 +131,9 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off"%>
+                  <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
                   <i class="input-group-append input-alert material-icons" id="alertRazSoc" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@
                 <div class="input-group">
                   <%= f.text_field :cnpj, :class => "form-control-yellow form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off"%>
                   <i class="input-group-append input-alert material-icons" id="alertCNPJ" data-toggle="tooltip"
-                    style="display:none">report_problem</i>
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
@@ -167,7 +167,7 @@
 
 <!--Tela cadastro endereço-->
 <div id="cadastro2" class="container" style="max-width: 750px; padding: 25px" hidden>
-  <label class="std-font-grey" style="font-size:20px; text-align:center">Fale sobre o seu endereço</label>
+  <label class="title-font-purple">Fale sobre o seu endereço</label></br>
   <div class="card card-grey">
     <div class="card-body">
       <!--CEP-->
@@ -179,7 +179,7 @@
           <div class="input-group">
             <%= f.text_field :cep, :class => "form-control-yellow form-control", :placeholder => "CEP", :dataid => "1", :autocomplete => "off"%>
             <i class="input-group-append input-alert material-icons" id="alertCEP" data-toggle="tooltip"
-              style="display:none">report_problem</i>
+              style="display:none">error</i>
           </div>
         </div>
       </div>
@@ -188,21 +188,21 @@
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">Na</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-4">
           <div class="input-group">
-            <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off"%>
+            <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
             <i class="input-group-append input-alert material-icons" id="alertLogr" data-toggle="tooltip"
-              style="display:none">report_problem</i>
+              style="display:none">error</i>
           </div>
         </div>
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">número</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-3">
           <div class="input-group">
-            <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off"%>
+            <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off", :maxlength => "5"%>
             <i class="input-group-append input-alert material-icons" id="alertNum" data-toggle="tooltip"
-              style="display:none">report_problem</i>
+              style="display:none">error</i>
           </div>
         </div>
       </div>
@@ -212,7 +212,7 @@
           <label class="std-font-grey-md" style="margin-top: 15px">complemento</label>
         </div>
         <div class="col-md-auto">
-          <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off"%>
+          <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off", :maxlength => "20"%>
         </div>
       </div>
       <!--Bairro, cidade-->
@@ -220,21 +220,21 @@
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">bairro</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-4">
           <div class="input-group">
-            <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off"%>
+            <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off", :maxlength => "50"%>
             <i class="input-group-append input-alert material-icons" id="alertBair" data-toggle="tooltip"
-              style="display:none">report_problem</i>
+              style="display:none">error</i>
           </div>
         </div>
         <div class="col-md-auto">
           <label class="std-font-grey-md" style="margin-top: 15px">em</label>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-4">
           <div class="input-group">
-            <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6", :autocomplete => "off"%>
+            <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6", :autocomplete => "off", :maxlength => "50"%>
             <i class="input-group-append input-alert material-icons" id="alertCid" data-toggle="tooltip"
-              style="display:none">report_problem</i>
+              style="display:none">error</i>
           </div>
         </div>
       </div>
@@ -248,7 +248,7 @@
             <div class="input-group">
               <%= f.select :estado, states%>
               <i class="input-group-append input-alert material-icons" id="alertEst" data-toggle="tooltip"
-                style="display:none">report_problem</i>
+                style="display:none">error</i>
             </div>
           </div>
         </div>
@@ -267,9 +267,10 @@
   </div>
 </div>
 </div>
+</br>
 <!-- cadastro do e-mail e senha -->
 <div id="cadastro3" class="container cad-form" style="width: max-content;" hidden>
-  <label class="std-font-grey-md" style="font-size:20px; text-align:center">Vamos manter sua conta segura</label>
+  <label class="title-font-purple">Vamos manter sua conta segura</label></br>
   <div class="card card-grey">
     <div class="card-body">
       <div class="row align-items-center" style="padding-left: 0px">
@@ -286,9 +287,9 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off"%><br />
+              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
               <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
-                style="display:none">report_problem</i>
+                style="display:none">error</i>
             </div>
           </div>
         </div>
@@ -302,10 +303,10 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <input id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
-                type="email_field">
+              <input maxlength="50" id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
+                type="email_field" dataid = "2">
               <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
-                style="display:none">report_problem</i>
+                style="display:none">error</i>
             </div>
           </div>
         </div>
@@ -320,7 +321,7 @@
             <div class="input-group">
               <%= f.password_field :password, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "off"%><br />
               <i class="input-group-append input-alert material-icons" id="alertPW" data-toggle="tooltip"
-                style="display:none">report_problem</i>
+                style="display:none">error</i>
             </div>
           </div>
         </div>
@@ -335,7 +336,7 @@
             <div class="input-group">
               <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "off"%><br />
               <i class="input-group-append input-alert material-icons" id="alertPWConf" data-toggle="tooltip"
-                style="display:none">report_problem</i>
+                style="display:none">error</i>
             </div>
           </div>
         </div>
@@ -361,27 +362,30 @@
 </div>
 
 <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content" style="color: blueviolet;">
-      <div class="modal-header">
-        <p class="modal-title std-font-grey">Há campos com erros</p>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Há campos com erro</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  $('input').tooltip({ 'trigger': 'focus', 'title': 'Password tooltip', 'data-placement': 'right' });
-  // $('#btnCadastrar').prop('disabled', true);
   //Máscara
   $(document).ready(function () {
     $('#user_cpf').mask('000.000.000-00');
     $('#user_cep').mask('00000-000');
     $('#user_cnpj').mask('00.000.000/0000-00');
     $('#user_documento').mask('0#');
+    $('#user_numero').mask('0#');
   });
 
   //Campos Nome e Sobrenome aceitando somente letras, acentos e espaços
@@ -419,6 +423,87 @@
     $('select').attr("class", "form-control");
   });
 
+  //Altera cor do campo CPF se for um formato inválido
+  // $(document).ready(function () {
+  //   $('#user_cpf').change(function () {
+  //     var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
+  //     if (!(filtrocpf.test($(this).val()))) {
+  //       $('#alertCPF').show()
+  //       $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Formato inválido' });
+  //       $(this).attr('style', 'border-color: #A94342;');
+  //     } else {
+  //       $('#alertCPF').hide();
+  //       $(this).attr('style', 'border-color: #586871');
+  //     }
+  //   })
+  // });
+
+  $(document).ready(function () {
+    $('#user_cpf').keyup(function () {
+      validateCPF();
+    })
+  })
+
+  $(document).ready(function () {
+    $('#user_cnpj').keyup(function () {
+      validateCNPJ();
+    })
+  })
+
+  function TestaCNPJ(cnpj) {
+
+    cnpj = cnpj.replace(/[^\d]+/g, '');
+
+    if (cnpj == '') return false;
+
+    if (cnpj.length != 14)
+      return false;
+
+    // Elimina CNPJs invalidos conhecidos
+    if (cnpj == "00000000000000" ||
+      cnpj == "11111111111111" ||
+      cnpj == "22222222222222" ||
+      cnpj == "33333333333333" ||
+      cnpj == "44444444444444" ||
+      cnpj == "55555555555555" ||
+      cnpj == "66666666666666" ||
+      cnpj == "77777777777777" ||
+      cnpj == "88888888888888" ||
+      cnpj == "99999999999999")
+      return false;
+
+    // Valida DVs
+    tamanho = cnpj.length - 2
+    numeros = cnpj.substring(0, tamanho);
+    digitos = cnpj.substring(tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+        pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(0))
+      return false;
+
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0, tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+        pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(1))
+      return false;
+
+    return true;
+
+  }
+
   function TestaCPF(strCPF) {
     strCPF = strCPF.replace(/[^0-9]/g, '');
     var Soma;
@@ -441,12 +526,6 @@
     return true;
   }
 
-  $(document).ready(function () {
-    $('#user_cpf').keyup(function () {
-      validateCPF();
-    })
-  })
-
   function validateCPF() {
     if ($('#user_cpf').val().replace(/^\s+|\s+$/g, "").length == 0) {
       if ($('#alertCPF').is(':visible')) {
@@ -465,12 +544,41 @@
       }
       else {
         if ($('#alertCPF').is(':visible')) {
-          $('#alertCPF').attr('data-original-title', 'Formato inválido');
+          $('#alertCPF').attr('data-original-title', 'CPF inválido');
         }
         else {
           $('#alertCPF').show()
-          $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Formato inválido' });
+          $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'CPF inválido' });
           $('#user_cpf').attr('style', 'border-color: #A94342;');
+        }
+      }
+    }
+  }
+
+  function validateCNPJ() {
+    if ($('#user_cnpj').val().replace(/^\s+|\s+$/g, "").length == 0) {
+      if ($('#alertCNPJ').is(':visible')) {
+        $('#alertCNPJ').attr('data-original-title', 'Campo em branco');
+      }
+      else {
+        $('#alertCNPJ').show()
+        $('#alertCNPJ').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+        $('#user_cnpj').attr('style', 'border-color: #A94342;');
+      }
+    }
+    else {
+      if (TestaCNPJ($('#user_cnpj').val())) {
+        $('#alertCNPJ').hide();
+        $('#user_cnpj').attr('style', 'border-color: #586871');
+      }
+      else {
+        if ($('#alertCNPJ').is(':visible')) {
+          $('#alertCNPJ').attr('data-original-title', 'CNPJ inválido');
+        }
+        else {
+          $('#alertCNPJ').show()
+          $('#alertCNPJ').tooltip({ 'trigger': 'hover', 'title': 'CNPJ inválido' });
+          $('#user_cnpj').attr('style', 'border-color: #A94342;');
         }
       }
     }
@@ -507,11 +615,11 @@
       $("#user_estado").val("");
     }
     //Quando o campo cep perde o foco.
-    $("#user_cep").blur(function () {
+    $("#user_cep").keyup(function () {
       //Nova variável "cep" somente com dígitos.
       var cep = $(this).val().replace(/\D/g, '');
       //Verifica se campo cep possui valor informado.
-      if (cep != "") {
+      if ($(this).val().replace(/^\s+|\s+$/g, "").length != 0) {
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;
         //Valida o formato do CEP.
@@ -528,10 +636,21 @@
               $("#user_bairro").val(dados.bairro);
               $("#user_cidade").val(dados.localidade);
               $("#user_estado").val(dados.uf);
+              $('#alertCEP').hide();
+              $('#user_cep').attr('style', 'border-color: #586871;');
             } //end if.
             else {
               //CEP pesquisado não foi encontrado.
               limpa_formulário_cep();
+              $('#alertCEP').show();
+
+              if ($('#alertCEP').is(":visible"))
+                $('#alertCEP').attr('data-original-title', 'CEP não encontrado').tooltip();
+              else
+                $('#alertCEP').tooltip({ 'trigger': 'hover', 'title': 'CEP não encontrado' });
+
+              $('#alertCEP').css({ 'color': '#f6af42ff' });
+              $('#user_cep').attr('style', 'border-color: #f6af42ff;');
             }
           });
         } //end if.
@@ -661,17 +780,18 @@
   //Navegação cadastros
   $(document).ready(function () {
     continuarClicked = false;
+    firstAccess = true;
 
     //Valida campos em tempo real
     $('input').keyup(function () {
       if (continuarClicked)
         validateFields();
     });
-    $('select').change(function () {
+    $('input').change(function () {
       if (continuarClicked)
         validateFields();
     });
-    $('input').change(function () {
+    $('select').change(function () {
       if (continuarClicked)
         validateFields();
     });
@@ -705,7 +825,7 @@
     $('#btnNext2').click(function () {
       validateFields();
 
-      if ($('i').is(":visible") == false && continuarClicked) {
+      if ($('i').is(":visible") == false && continuarClicked || $('#alertCEP').attr('data-original-title') == 'CEP não encontrado' && $('i:visible').length == 1) {
         $('#cadastro2').hide();
         $('#cadastro3').removeAttr('hidden');
         $('#cadastro3').show();
@@ -729,7 +849,6 @@
 
     $('#btnCadastrar').click(function () {
       validateFields();
-
       if ($('i').is(":visible") == false && continuarClicked) {
         console.log($("i:visible").length);
         $('#new_user').submit();
@@ -766,7 +885,7 @@
       }
       //Página Endereço
       else if ($('#cadastro2').is(":visible")) {
-        checkBlank($('#user_cep'), $('#alertCEP'));
+        //checkBlank($('#user_cep'), $('#alertCEP'));
         checkBlank($('#user_logradouro'), $('#alertLogr'));
         checkBlank($('#user_numero'), $('#alertNum'));
         checkBlank($('#user_bairro'), $('#alertBair'));
@@ -787,6 +906,7 @@
       if (field.val().replace(/^\s+|\s+$/g, "").length == 0) {
         alert.show();
         alert.tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+        alert.css({ 'color': '#a94342;' });
         field.attr('style', 'border-color: #A94342;');
       }
       else if (alert.is(":visible")) {
@@ -794,5 +914,12 @@
         field.attr('style', 'border-color: #586871;');
       }
     }
+  });
+
+  //Desabilitar o ctrl-c no campo de confirmação de Email
+  $(document).ready(function(){
+    $('#email_confirmation').bind('cut copy paste', function (e) {
+      e.preventDefault();
+    });
   });
 </script>
