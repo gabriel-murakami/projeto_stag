@@ -168,3 +168,21 @@ input[type="text"]:focus,
 	opacity: 0.75;
 }
 
+/* CSS Para Lista de Usuários */
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+	background-color: rgb(250, 241, 221);
+ }
+
+ /* .table-striped > thead > tr > th {
+	 border-top: none;
+	 border-left: 1px solid red;
+	 border-right: 1px solid red;
+ } */
+
+ .table-font-grey-md{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color:#3f3a3a;
+	font-size: 15px;
+}
+

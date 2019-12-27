@@ -35,7 +35,7 @@
         <% if current_user.admin &&  request.fullpath != "/home/list" %>
         <div class="col">
           <li class="nav-item">
-            <%= link_to "Editar", list_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+            <%= link_to "Usuários", list_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
           </li>
         </div>
         <% end %>

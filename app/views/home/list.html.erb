@@ -1,6 +1,11 @@
 <% if current_user.admin %>
-<div class="container-fluid">
-    <table class="table">
+<!-- <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+<div class="container-fluid std-font-grey">
+    <table class="table table-striped table-borderless" id="minhaTabela">
         <thead>
             <tr>
                 <th scope="col">Nome / Razão Social</th>
@@ -48,6 +53,31 @@
         <input style="color: white;" class="btn std-btn" type="button" value="Imprimir" onClick="window.print()" />
     </div>
 </form>
+
+<script>
+    $(document).ready(function(){
+        $('#minhaTabela').DataTable({
+            "paging": false,
+            "language": {
+                  "lengthMenu": "Mostrando _MENU_ registros por página",
+                  "zeroRecords": "Nada encontrado",
+                  "info": "Mostrando página _PAGE_ de _PAGES_",
+                  "infoEmpty": "Nenhum registro disponível",
+                  "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                  "search": "",
+              }
+          });
+    });
+
+    $(document).ready(function(){
+        $("[type='search']").addClass("form-control-yellow").attr("style", "width: 200px; height: 40px; padding-left: 10px; padding-right: 10px").attr("placeholder", "Pesquisar");
+        $('#minhaTabela_info').hide();
+        $("[aria-label]").css("color", "purple");
+        $("td").addClass("table-font-grey-md");
+    })
+</script>
+  
+
 <% else %>
 <div class="container-fluid" style="width: 80%; padding-top: 80px;">
     <div class="row">
