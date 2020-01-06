@@ -4,7 +4,12 @@
 <%= render "devise/shared/error_messages", resource: resource %> -->
 
 
-<label class="title-font-purple">Editar Cadastro</label></br>
+ 
+
+
+
+
+<label class="title-font-purple">Aqui vc atualiza as informações do seu cadastro ;)</label></br>
 <div class="card card-grey">
   <div class="card-body">
     <div class="row align-items-center" style="padding-left: 0px">
@@ -15,318 +20,357 @@
     <!-- collapse -->
     <p>
      <a class="title-font-purple" style="width: max-content; text-align: center;" data-toggle="collapse" href="#collapseExample_1"  aria-expanded="false" aria-controls="collapseExample_1">
-       <div class="title-font-purple" style= "text-align: center;" >
-         <img src="images/seta.png"  width="30px" height="30px" align="center" >
-        
+       <div class="title-font-purple" style= "text-align: center" >
          <div class="row align-items-center justify-content-center">
  
        </div>
-       Quer atualizar seus Dados Pessoais?
+       Atualizar meus Dados Pessoais
      </a>
    </p>
    <div class="collapse" id="collapseExample_1">
-     <div class="card card-body">
-       <div id="pf">
-         <div class="row align-items-center justify-content-center">
-           <div class="col-4" align="right">
-             <label class="std-font-grey-md" style="margin-top: 5px;">Nome</label>
-           </div>
-           <div class="col-4">
-             <div class="form-group">
-               <div class="input-group">
-                 <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50" %>
-                 <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
-                   style="display:none">error</i>
-               </div>
-             </div>
-           </div>
-           <div class="col-4">
-             <div class="form-group">
-               <div class="input-group">
-                 <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
-                 <i class="input-group-append input-alert material-icons" id="alertSobrenome" data-toggle="tooltip"
-                   style="display:none">error</i>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="row align-items-center justify-content-center">
-           <div class="col-4" align="right">
-             <label class="std-font-grey-md" style="margin-top: 5px;">CPF</label>
-           </div>
-           <div class="col-8">
-             <div class="form-group">
-               <div class="input-group">
-                 <%= f.text_field :cpf,  :class => "form-control-yellow form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off"%>
-                 <i class="input-group-append input-alert material-icons" id="alertCPF" data-toggle="tooltip"
-                   style="display:none">error</i>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="row align-items-center justify-content-center">
-           <div class="col-4" align="right">
-             <label class="std-font-grey-md" style="margin-top: 5px;">Documento Pessoal</label>
-           </div>
-           <div class="col-4">
-             <div class="form-group">
-               <div class="input-group">
-                 <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "50" %>
-                 <i class="input-group-append input-alert material-icons" id="alertDoc" data-toggle="tooltip"
-                   style="display:none">error</i>
-               </div>
-             </div>
-           </div>
-           <div class="col-4">
-             <div class="form-group">
-               <div class="input-group">
-                 <%= f.text_field :orgao_emissor, :class => "form-control-yellow form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off"%>
-                 <i class="input-group-append input-alert material-icons" id="alertOrgEms" data-toggle="tooltip"
-                   style="display:none">error</i>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="row align-items-center justify-content-center">
-           <div class="col-4" align="right">
-             <label class="std-font-grey-md" style="margin-top: 5px;">UF e Data de Emissão</label>
-           </div>
-           <div class="col-4">
-             <div class="form-group">
-               <div class="input-group">
-                 <%= f.select :estado_emissor, states%>
-                 <i class="input-group-append input-alert material-icons" id="alertEstEms" data-toggle="tooltip"
-                   style="display:none">error</i>
-               </div>
-             </div>
-           </div>
-           <div class="col-4">
-             <div class="form-group">
-               <div class="input-group">
-                 <%= f.date_field :data_emissao, :class => "form-control"%>
-                 <i class="input-group-append input-alert material-icons" id="alertDatEms" data-toggle="tooltip"
-                   style="display:none">error</i>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div></br></br>
-       <!--  campo para editar o PJ -->
-     <div id="pj" style="display: none;">
-       <div class="row align-items-center justify-content-center">
-         <div class="col-4" align="right">
-           <label class="std-font-grey-md" style="margin-top: 5px;">Nome Fantasia</label>
-         </div>
-         <div class="col">
-           <div class="form-group">
-             <div class="input-group">
-               <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
-               <i class="input-group-append input-alert material-icons" id="alertNomeFan" data-toggle="tooltip"
-                 style="display:none">error</i>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="row align-items-center justify-content-center">
-         <div class="col-4" align="right">
-           <label class="std-font-grey-md" style="margin-top: 5px;">Razão Social</label>
-         </div>
-         <div class="col">
-           <div class="form-group">
-             <div class="input-group">
-               <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
-               <i class="input-group-append input-alert material-icons" id="alertRazSoc" data-toggle="tooltip"
-                 style="display:none">error</i>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="row align-items-center justify-content-center">
-         <div class="col-4" align="right">
-           <label class="std-font-grey-md" style="margin-top: 5px;">Com CNPJ</label>
-         </div>
-         <div class="col">
-           <div class="form-group">
-             <div class="input-group">
-               <%= f.text_field :cnpj, :class => "form-control-yellow form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off"%>
-               <i class="input-group-append input-alert material-icons" id="alertCNPJ" data-toggle="tooltip"
-                 style="display:none">error</i>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-     </div>
-   </div>
-    </br></br>
+    <div class="container">
+      <!--Tela casdastro PF PJ-->
+      <div id="cadastro1" class="container" style="max-width: 750px; padding: 25px;">
+        <div class="card card-grey">
+          <div class="card-body">
+            <% if current_user.pf_pj == "PF" %>
+            <!--Pessoa física-->
+            <div id="pf">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-4" align="right">
+                  <label class="std-font-grey-md" style="margin-top: 5px;">Meu nome é</label>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                    
+                      <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :sobrenome, :class => "form-control-yellow form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
+                      <i class="input-group-append input-alert material-icons" id="alertSobrenome" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center justify-content-center">
+                <div class="col-4" align="right">
+                  <label class="std-font-grey-md" style="margin-top: 5px;">Meu CPF é</label>
+                </div>
+                <div class="col-8">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :cpf, :class => "form-control-yellow form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off", :disabled => "desabled"%>
+                      <i class="input-group-append input-alert material-icons" id="alertCPF" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center justify-content-center">
+                <div class="col-4" align="right">
+                  <label class="std-font-grey-md" style="margin-top: 5px;">Documento Pessoal</label>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :documento, :class => "form-control-yellow form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "50" %>
+                      <i class="input-group-append input-alert material-icons" id="alertDoc" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :orgao_emissor, :class => "form-control-yellow form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off"%>
+                      <i class="input-group-append input-alert material-icons" id="alertOrgEms" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center justify-content-center">
+                <div class="col-4" align="right">
+                  <label class="std-font-grey-md" style="margin-top: 5px;">UF e Data de Emissão</label>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.select :estado_emissor, states%>
+                      <i class="input-group-append input-alert material-icons" id="alertEstEms" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.date_field :data_emissao, :class => "form-control"%>
+                      <i class="input-group-append input-alert material-icons" id="alertDatEms" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <% elsif current_user.pf_pj == "PJ" %>
+            <!--Pessoa jurídica-->
+            <div id="pj" style="display: none;">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-4" align="right">
+                  <label class="std-font-grey-md" style="margin-top: 5px;">Nome Fantasia</label>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :nome_fantasia, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
+                      <i class="input-group-append input-alert material-icons" id="alertNomeFan" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center justify-content-center">
+                <div class="col-4" align="right">
+                  <label class="std-font-grey-md" style="margin-top: 5px;">Razão Social</label>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :razao_social, :class => "form-control-yellow form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
+                      <i class="input-group-append input-alert material-icons" id="alertRazSoc" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center justify-content-center">
+                <div class="col-4" align="right">
+                  <label class="std-font-grey-md" style="margin-top: 5px;">Com CNPJ</label>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <%= f.text_field :cnpj, :class => "form-control-yellow form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
+                      <i class="input-group-append input-alert material-icons" id="alertCNPJ" data-toggle="tooltip"
+                        style="display:none">error</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+   
 <!-- CAMPO DE ENDEREÇO -->
     <p>
-     <a class="title-font-purple" style="width: max-content;" data-toggle="collapse" href="#collapseExample_2" role="button" aria-expanded="false" aria-controls="collapseExample_2">
-       Quer atualizar seu endereco?
+    </div>
+
+    <a class="title-font-purple" style="width: max-content;" data-toggle="collapse" href="#collapseExample_2" role="button" aria-expanded="false" aria-controls="collapseExample_2">
+       Atualizar meu endereco
      </a>
    </p>
    <div class="collapse" id="collapseExample_2">
-     <div class="card card-body">
-       <!-- Campo do Endereço -->
-      <div class="row justify-content-md-center">
-       <div class="col-md-auto">
-         <label class="std-font-grey-md" style="margin-top: 15px"> O endereço fica no CEP</label>
-       </div>
-       <div class="col-md-auto">
-         <div class="input-group">
-           <%= f.text_field :cep, :class => "form-control-yellow form-control", :placeholder => "CEP", :dataid => "1", :autocomplete => "off"%>
-           <i class="input-group-append input-alert material-icons" id="alertCEP" data-toggle="tooltip"
-             style="display:none">error</i>
-         </div>
-       </div>
-     </div>
-     <!--Rua, número-->
-     <div class="row justify-content-md-center">
-       <div class="col-md-auto">
-         <label class="std-font-grey-md" style="margin-top: 15px">Na</label>
-       </div>
-       <div class="col-md-4">
-         <div class="input-group">
-           <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
-           <i class="input-group-append input-alert material-icons" id="alertLogr" data-toggle="tooltip"
-             style="display:none">error</i>
-         </div>
-       </div>
-       <div class="col-md-auto">
-         <label class="std-font-grey-md" style="margin-top: 15px">número</label>
-       </div>
-       <div class="col-md-3">
-         <div class="input-group">
-           <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off", :maxlength => "5"%>
-           <i class="input-group-append input-alert material-icons" id="alertNum" data-toggle="tooltip"
-             style="display:none">error</i>
-         </div>
-       </div>
-     </div>
-     <!--Complemento-->
-     <div class="row justify-content-md-center">
-       <div class="col-md-auto">
-         <label class="std-font-grey-md" style="margin-top: 15px">complemento</label>
-       </div>
-       <div class="col-md-auto">
-         <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off", :maxlength => "20"%>
-       </div>
-     </div>
-     <!--Bairro, cidade-->
-     <div class="row justify-content-md-center">
-       <div class="col-md-auto">
-         <label class="std-font-grey-md" style="margin-top: 15px">bairro</label>
-       </div>
-       <div class="col-md-4">
-         <div class="input-group">
-           <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off", :maxlength => "50"%>
-           <i class="input-group-append input-alert material-icons" id="alertBair" data-toggle="tooltip"
-             style="display:none">error</i>
-         </div>
-       </div>
-       <div class="col-md-auto">
-         <label class="std-font-grey-md" style="margin-top: 15px">em</label>
-       </div>
-       <div class="col-md-4">
-         <div class="input-group">
-           <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6", :autocomplete => "off", :maxlength => "50"%>
-           <i class="input-group-append input-alert material-icons" id="alertCid" data-toggle="tooltip"
-             style="display:none">error</i>
-         </div>
-       </div>
-     </div>
-     <!--Estado-->
-     <div class="row justify-content-md-center">
-       <div class="col-md-auto">
-         <label class="std-font-grey-md" style="margin-top: 15px">no estado de</label>
-       </div>
-       <div class="form-group">
-         <div class="col-md-auto" style="margin-top: 5px">
-           <div class="input-group">
-             <%= f.select :estado, states%>
-             <i class="input-group-append input-alert material-icons" id="alertEst" data-toggle="tooltip"
-               style="display:none">error</i>
-           </div>
-         </div>
-       </div>
-     </div></br></br></br></br>
- 
-</div>
-</div> </br></br>
-  
- 
-<p>
+   
+    <div class="card card-grey">
+      <div class="card-body">
+        <!--CEP-->
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <label class="std-font-grey-md" style="margin-top: 15px"> O endereço fica no CEP</label>
+          </div>
+          <div class="col-md-auto">
+            <div class="input-group">
+              <%= f.text_field :cep, :class => "form-control-yellow form-control", :placeholder => "CEP", :dataid => "1", :autocomplete => "off"%>
+              <i class="input-group-append input-alert material-icons" id="alertCEP" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+        </div>
+        <!--Rua, número-->
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <label class="std-font-grey-md" style="margin-top: 15px">Na</label>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <%= f.text_field :logradouro, :class => "form-control-yellow form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
+              <i class="input-group-append input-alert material-icons" id="alertLogr" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+          <div class="col-md-auto">
+            <label class="std-font-grey-md" style="margin-top: 15px">número</label>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <%= f.text_field :numero, :class => "form-control-yellow form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off", :maxlength => "5"%>
+              <i class="input-group-append input-alert material-icons" id="alertNum" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+        </div>
+        <!--Complemento-->
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <label class="std-font-grey-md" style="margin-top: 15px">complemento</label>
+          </div>
+          <div class="col-md-auto">
+            <%= f.text_field :complemento, :class => "form-control-yellow form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off", :maxlength => "20"%>
+          </div>
+        </div>
+        <!--Bairro, cidade-->
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <label class="std-font-grey-md" style="margin-top: 15px">bairro</label>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <%= f.text_field :bairro, :class => "form-control-yellow form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off", :maxlength => "50"%>
+              <i class="input-group-append input-alert material-icons" id="alertBair" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+          <div class="col-md-auto">
+            <label class="std-font-grey-md" style="margin-top: 15px">em</label>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+              <%= f.text_field :cidade, :class => "form-control-yellow form-control", :placeholder => "cidade", :dataid => "6", :autocomplete => "off", :maxlength => "50"%>
+              <i class="input-group-append input-alert material-icons" id="alertCid" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+        </div>
+        <!--Estado-->
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <label class="std-font-grey-md" style="margin-top: 15px">no estado de</label>
+          </div>
+          <div class="form-group">
+            <div class="col-md-auto" style="margin-top: 5px">
+              <div class="input-group">
+                <%= f.select :estado, states%>
+                <i class="input-group-append input-alert material-icons" id="alertEst" data-toggle="tooltip"
+                  style="display:none">error</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </br>
+
+  <p>
  <a class="title-font-purple" style="width: max-content;" data-toggle="collapse" href="#collapseExample_3" role="button" aria-expanded="false" aria-controls="collapseExample_3">
-   Quer atualizar seu e-mail ou senha?
+   Atualizar meu e-mail ou minha senha
  </a>
 </p>
 <div class="collapse" id="collapseExample_3">
- <div class="card card-body">
-   <div class="row align-items-center justify-content-center">
-     <div class="col-4" align="right" style="padding-right: 0px">
-       <p class="std-font-grey-md">E-mail</p>
-     </div>
-     <div class="col">
-       <div class="form-group">
-         <div class="input-group">
-           <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
-           <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
-             style="display:none">error</i>
-         </div>
-       </div>
-     </div>
-     </div>
-   
-   <!-- confirmação do email -->
-   <div class="row align-items-center justify-content-center">
-    <div class="col-4" align="right" style="margin-top: 10px">
-      <p class="std-font-grey-md">Confirmação do seu email</p>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <div class="input-group">
-          <input maxlength="50" id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
-            type="email_field" dataid = "2">
-          <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
-            style="display:none">error</i>
+  <div class="card card-grey">
+    <div class="card-body">
+      <div class="row align-items-center" style="padding-left: 0px">
+        <div class="col-4">
+          <p class="std-font-grey"></p>
+        </div>
+      </div>
+
+      <!-- início do preenchimento do e-mail -->
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4" align="right" style="padding-right: 0px">
+          <p class="std-font-grey-md">O e-mail é</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <div class="input-group">
+              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
+              <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- confirmação do email -->
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4" align="right" style="margin-top: 10px">
+          <p class="std-font-grey-md">Confirme seu email</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <div class="input-group">
+              <input maxlength="50" id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
+                type="email_field" dataid = "2">
+              <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Senha-->
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4" align="right" style="padding-right: 0px">
+          <p class="std-font-grey-md">Qual vai ser sua senha?</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <div class="input-group">
+              <%= f.password_field :password, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "off"%><br />
+              <i class="input-group-append input-alert material-icons" id="alertPW" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Confirmar Senha-->
+      <div class="row align-items-center">
+        <div class="col-4" align="right" style="padding-right: 0px">
+          <p class="std-font-grey-md">Repita, por favor</p>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <div class="input-group">
+              <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "off"%><br />
+              <i class="input-group-append input-alert material-icons" id="alertPWConf" data-toggle="tooltip"
+                style="display:none">error</i>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-   </div>
-   <!--Senha-->
-   <div class="row align-items-center justify-content-center">
-    <div class="col-4" align="right" style="padding-right: 0px">
-      <p class="std-font-grey-md">Senha?</p>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <div class="input-group">
-          <%= f.password_field :password, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "new-password"%><br />
-          <i class="input-group-append input-alert material-icons" id="alertPW" data-toggle="tooltip"
-            style="display:none">error</i>
-        </div>
-      </div>
-    </div>
-   </div>
-   <!--Confirmar Senha-->
-   <div class="row align-items-center">
-    <div class="col-4" align="right" style="padding-right: 0px">
-      <p class="std-font-grey-md">Repita, por favor</p>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <div class="input-group">
-          <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "new-password"%><br />
-          <i class="input-group-append input-alert material-icons" id="alertPWConf" data-toggle="tooltip"
-            style="display:none">error</i>
-        </div>
-      </div>
-    </div>
-   </div>
- </div>
+  </div>
 </div>
- 
-<br /><br /><br />
+
+<div id="cancelaModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Tem certeza que deseja cancelar?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 //Máscara
 $(document).ready(function () {
@@ -352,11 +396,7 @@ $(document).ready(function () {
   });
 });
  
-$(document).ready(function() {
-  $("#cpf").click(function (){
-       // desabilitando o campo
- $('#cpf').attr("disabled", true);
-  });
+
  $(document).ready(function () {
    function limpa_formulário_cep() {
      // Limpa valores do formulário de cep.
@@ -437,12 +477,19 @@ $(document).ready(function() {
    return (email !== '' && emailRegex.test(email));
  }
  // funcão que proíbe o copia e cola no campo de e-mail
- $('body').bind('copy',function(e) {
+ $('#user_password').bind('copy',function(e) {
    e.preventDefault(); return false; });
  
- $('body').bind('paste',function(e) {
+ $('#user_password_confirmation').bind('paste',function(e) {
    e.preventDefault(); return false; });
+
+// Botão cancelar
  
+$('#Cancelar').click(function () {
+ 
+        $('#cancelaModal').modal({ show: true });
+      
+    });
  // uma única função verifica todas as validações e desabilita o botão cadastro até que tudo esteja certo
  function buttonValidation() {
    var emailMatchValidated = emailMatch();
@@ -511,9 +558,6 @@ $(document).ready(function() {
 
 
 
-
-
-
 <!-- <div class="field">
   <%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -568,4 +612,4 @@ $(document).ready(function() {
   <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 </p> -->
 
-<%= link_to "Cancelar", :back %>
+ <%= link_to "Cancelar", :back %>
