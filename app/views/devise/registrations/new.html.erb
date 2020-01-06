@@ -30,7 +30,8 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50" %>
+                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50"%>
+                
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -443,7 +444,6 @@
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
-
   //Verifica validade quando CPF e CNPJ são alterados
   $(document).ready(function () {
     $('#user_cpf').keyup(function () {
@@ -686,13 +686,13 @@
   function passwordMatch() {
     return $("#user_password").val() === $("#user_password_confirmation").val();
   }
-  //Obriga o campo de e-mail ter o formato de gmail
   function emailIsGmail() {
     var email = $('#user_email').val();
 
     var emailRegex = new RegExp('^.+@gmail.com$');
     return (email !== '' && emailRegex.test(email));
   }
+
   //Valida e-mail
   function validateEmail() {
     if (emailIsGmail() == false) {
