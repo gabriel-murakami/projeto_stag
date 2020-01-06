@@ -30,7 +30,8 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50" %>
+                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50"%>
+                
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -443,7 +444,6 @@
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
-
   //Verifica validade quando CPF e CNPJ são alterados
   $(document).ready(function () {
     $('#user_cpf').keyup(function () {
@@ -465,10 +465,8 @@
 
     for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
-
     if ((Resto == 10) || (Resto == 11)) Resto = 0;
     if (Resto != parseInt(strCPF.substring(9, 10))) return false;
-
     Soma = 0;
     for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
     Resto = (Soma * 10) % 11;
@@ -686,6 +684,7 @@
   function passwordMatch() {
     return $("#user_password").val() === $("#user_password_confirmation").val();
   }
+
   //Obriga o campo de e-mail ter o formato de gmail
   function emailIsGmail() {
     var email = $('#user_email').val();

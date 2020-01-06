@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   get "/home/sucesso"
 
+
   get "/home/sucesso_senha"
-  
+
   devise_scope :user do
     post '/checkemail', to: 'registrations#emailcheck'
     post '/checkcpf', to: 'registrations#cpfcheck'
