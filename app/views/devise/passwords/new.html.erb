@@ -1,39 +1,65 @@
 <div class="login-form">
-  <div class="container card-form" style="width: max-content;">
-    <label class="std-font-grey" style="font-size:20px; text-align:center">Problemas para acessar a sua conta?
-    </label></br>
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-      <%= f.label :email, :class => "std-font-grey" %>
-      <%= f.email_field :email, autofocus: true, :class=> "form-control std-form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
-    </div></br>
-    <div class="actions container ">
-      <%= f.submit "Enviar e-mail de verificação", :class => "std-btn"%>
+  <label class="title-font-purple" style="font-size:20px; text-align:center">Problemas para acessar a sua conta?</label>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :email, :class => "std-font-grey" %>
+    <div class="input-group">
+      <%= f.email_field :email, autofocus: true, :class=> "form-control-yellow form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
+      <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
+        style="display: none;">error</i>
     </div>
   </div>
+  </br>
+  <div class="actions container ">
+    <%= f.submit "Enviar e-mail de verificação", :class => "std-btn", :id => "btn-enviar" %>
+  </div>
   <% end %>
+</div>
 
-  <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey"><%= alert %></p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+<div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Há campos com erro</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<% if alert %>
 <script>
   $(document).ready(function () {
-    $('#myModal').modal({
-      show: true
-    })
+    $('#btn-enviar').click(function () {
+      if ($('i').is(":visible") == true) {
+        $('#myModal').modal({ show: true });
+      }
+      else {
+        $('#new_user').submit();
+      }
+    });
   });
+
+  $(document).ready(function () {
+    $('#user_email').keyup(function () {
+      $.post('/checkemail?email=' + $("#user_email").val(), function (data) {
+        if (!data) {
+          $('#alertEmail').show();
+          if ($('#alertEmail').is(":visible"))
+            $('#alertEmail').attr('data-original-title', 'Email não encontrado').tooltip();
+          else
+            $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Email não encontrado' });
+        }
+        else
+          $('#alertEmail').hide();
+          $('#alertEmail').attr('style', 'border-color: #586871;');
+      });
+    })
+  })
 </script>
-<% end %>
