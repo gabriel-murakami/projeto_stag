@@ -30,7 +30,8 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50" %>
+                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50"%>
+                
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -421,21 +422,7 @@
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
-
-  //Altera cor do campo CPF se for um formato inválido
-  // $(document).ready(function () {
-  //   $('#user_cpf').change(function () {
-  //     var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
-  //     if (!(filtrocpf.test($(this).val()))) {
-  //       $('#alertCPF').show()
-  //       $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Formato inválido' });
-  //       $(this).attr('style', 'border-color: #A94342;');
-  //     } else {
-  //       $('#alertCPF').hide();
-  //       $(this).attr('style', 'border-color: #586871');
-  //     }
-  //   })
-  // });
+  
 
   $(document).ready(function () {
     $('#user_cpf').keyup(function () {
@@ -684,6 +671,9 @@
     if ($("#user_password").val().length > 6) {
       return true
     }
+    else {
+      return false
+    }
   }
   // função que obriga o campo de e-mail ter o formato de gmail.com usando regex
   function emailIsGmail() {
@@ -692,6 +682,13 @@
     var emailRegex = new RegExp('^.+@gmail.com$');
     return (email !== '' && emailRegex.test(email));
   }
+  // funcão que proíbe o copia e cola no campo de e-mail
+  $('body').bind('copy',function(e) { 
+    e.preventDefault(); return false; }); 
+
+  $('body').bind('paste',function(e) { 
+    e.preventDefault(); return false; });
+
   // uma única função verifica todas as validações e desabilita o botão cadastro até que tudo esteja certo
   function buttonValidation() {
     var emailMatchValidated = emailMatch();
