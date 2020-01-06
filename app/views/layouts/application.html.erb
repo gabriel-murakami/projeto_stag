@@ -32,14 +32,21 @@
     <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px"%></a>
     <ul class="navbar-nav">
       <div class="row">
+        <% if current_user.admin &&  request.fullpath != "/home/list" %>
         <div class="col">
           <li class="nav-item">
-            <%= link_to "Edit", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+            <%= link_to "Usuários", list_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+          </li>
+        </div>
+        <% end %>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Perfil", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
           </li>
         </div>
         <div class="col">
           <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
           </li>
         </div>
       </div>

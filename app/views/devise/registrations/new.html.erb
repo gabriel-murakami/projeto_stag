@@ -907,9 +907,9 @@
     }
   });
 
-  //Desabilitar o ctrl-c no campo de Email
-  $(document).ready(function () {
-    $('body').bind('cut copy paste', function (e) {
+  //Desabilitar o ctrl-c no campo de confirmação de Email
+  $(document).ready(function(){
+    $('#email_confirmation').bind('cut copy paste', function (e) {
       e.preventDefault();
     });
   });
