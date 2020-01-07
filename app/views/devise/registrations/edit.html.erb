@@ -21,6 +21,7 @@
           <div class="card card-grey">
             <div class="card-body">
               <!--Pessoa física-->
+              <% if current_user.pf_pj == "PF" %>
               <div id="pf">
                 <div class="row align-items-center justify-content-center">
                   <div class="col-4" align="right">
@@ -52,7 +53,7 @@
                   <div class="col-8">
                     <div class="form-group">
                       <div class="input-group">
-                        <%= f.text_field :cpf, :class => "form-control-yellow form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off"%>
+                        <%= f.text_field :cpf, :class => "form-control-yellow form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
                         <i class="input-group-append input-alert material-icons" id="alertCPF" data-toggle="tooltip"
                           style="display:none">error</i>
                       </div>
@@ -106,8 +107,11 @@
                   </div>
                 </div>
               </div>
+              <% end %>
+              
               <!--Pessoa jurídica-->
-              <div id="pj" style="display: none;">
+              <% if current_user.pf_pj == "PJ" %>
+              <div id="pj">
                 <div class="row align-items-center justify-content-center">
                   <div class="col-4" align="right">
                     <label class="std-font-grey-md" style="margin-top: 5px;">Nome Fantasia</label>
@@ -143,7 +147,7 @@
                   <div class="col">
                     <div class="form-group">
                       <div class="input-group">
-                        <%= f.text_field :cnpj, :class => "form-control-yellow form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off"%>
+                        <%= f.text_field :cnpj, :class => "form-control-yellow form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
                         <i class="input-group-append input-alert material-icons" id="alertCNPJ" data-toggle="tooltip"
                           style="display:none">error</i>
                       </div>
@@ -151,13 +155,16 @@
                   </div>
                 </div>
               </div>
+              <% end %>
+
             </div>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   </div>
   </br>
+  
 
   <!--Editar cadastro endereço-->
   <div class="container">
