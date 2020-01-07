@@ -31,6 +31,9 @@
 	color: #586871;
 	font-size: 20px;
 } 
+.std-font-yellow {
+	color: #f6af42ff;
+}
 /*Botões padrão*/
 .std-btn {
 	background-color:#f6af42ff;

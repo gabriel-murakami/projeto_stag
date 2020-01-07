@@ -39,11 +39,20 @@
           </li>
         </div>
         <% end %>
+        <% if request.fullpath != "/users/edit" %>
         <div class="col">
           <li class="nav-item">
-            <%= link_to "Perfil", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+            <%= link_to "editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
           </li>
         </div>
+        <% end %>
+        <% if request.fullpath == "/users/edit" %>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Voltar", :back, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+          </li>
+        </div>
+        <% end %>
         <div class="col">
           <li class="nav-item">
             <%= link_to "Sair", destroy_user_session_path, method: :delete, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
