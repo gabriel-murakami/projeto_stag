@@ -95,6 +95,18 @@
 .std-link-purple:hover {
 	background-color: transparent;
 }
+.red-link {
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: #586871;
+	text-decoration: underline;
+}
+.red-link:hover {
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: #a94342; 
+	text-decoration: underline;
+}
 /*Textbox padrão*/
 .std-form-control {
 	background: #f7f7f7ff;
