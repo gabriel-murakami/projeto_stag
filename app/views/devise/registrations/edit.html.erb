@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %> -->
 
-<label class="title-font-purple" style="padding:25px;">Aqui você atualiza as informações de seu cadastro ;)</label></br>
+<label class="title-font-purple" style="padding:25px;">Aqui, você atualiza o seu cadastro ;)</label></br>
 <div class="card card-grey">
   <div class="card-body">
     <div class=container>
@@ -108,7 +108,7 @@
                 </div>
               </div>
               <% end %>
-              
+
               <!--Pessoa jurídica-->
               <% if current_user.pf_pj == "PJ" %>
               <div id="pj">
@@ -159,12 +159,12 @@
 
             </div>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
   </div>
   </br>
-  
+
 
   <!--Editar cadastro endereço-->
   <div class="container">
@@ -358,178 +358,190 @@
       </div>
     </div>
   </div>
+</div>
+<!--Botões atualizar e deletar-->
+<div class="actions container" style="max-width: 400px; margin-top: 75px;">
+  <div class="row justify-content-center">
+    <div class="col">
+      <button type="button" id="btnBack2" class="btn btn-link red-link"> Deletar sua conta </button>
+    </div>
+    <div class="col">
+      <button class="std-btn" type="button"> Atualizar </button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    //Altera estilo collapse
+<script>
+  //Altera estilo collapse
 
-    //Collapse 1
-    $('#collapseExample_1').on('shown.bs.collapse', function () {
-      //Collapse aberto
-      $('#atualiza-pessoal').attr('style', 'color: #623f99ff;');
-      $('#arrow-down1').hide();
-      $('#arrow-up1').show();
-      $('#arrow-up1').removeAttr('hidden');
+  //Collapse 1
+  $('#collapseExample_1').on('shown.bs.collapse', function () {
+    //Collapse aberto
+    $('#atualiza-pessoal').attr('style', 'color: #623f99ff;');
+    $('#arrow-down1').hide();
+    $('#arrow-up1').show();
+    $('#arrow-up1').removeAttr('hidden');
+  });
+
+  $('#collapseExample_1').on('hidden.bs.collapse', function () {
+    //Collapse fechado
+    $('#atualiza-pessoal').attr('style', 'color: #586871;');
+    $('#arrow-up1').hide();
+    $('#arrow-down1').show();
+  });
+
+  //Collapse 2
+  $('#collapseExample_2').on('shown.bs.collapse', function () {
+    //Collapse aberto
+    $('#atualiza-endereco').attr('style', 'color: #623f99ff;');
+    $('#arrow-down2').hide();
+    $('#arrow-up2').show();
+    $('#arrow-up2').removeAttr('hidden');
+  });
+
+  $('#collapseExample_2').on('hidden.bs.collapse', function () {
+    //Collapse fechado
+    $('#atualiza-endereco').attr('style', 'color: #586871;');
+    $('#arrow-up2').hide();
+    $('#arrow-down2').show();
+  });
+
+  //Collapse 3
+  $('#collapseExample_3').on('shown.bs.collapse', function () {
+    //Collapse aberto
+    $('#atualiza-email').attr('style', 'color: #623f99ff;');
+    $('#arrow-down3').hide();
+    $('#arrow-up3').show();
+    $('#arrow-up3').removeAttr('hidden');
+  });
+
+  $('#collapseExample_3').on('hidden.bs.collapse', function () {
+    //Collapse fechado
+    $('#atualiza-email').attr('style', 'color: #586871;');
+    $('#arrow-up3').hide();
+    $('#arrow-down3').show();
+  });
+
+  //Máscara
+  $(document).ready(function () {
+    $('#user_cpf').mask('000.000.000-00');
+    $('#user_cep').mask('00000-000');
+    $('#user_cnpj').mask('00.000.000/0000-00');
+    $('#user_documento').mask('0#');
+    $('#user_numero').mask('0#');
+  });
+  //Campos Nome e Sobrenome aceitando somente letras, acentos e espaços
+  $(document).ready(function () {
+    $("#user_nome").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀ ÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
     });
-
-    $('#collapseExample_1').on('hidden.bs.collapse', function () {
-      //Collapse fechado
-      $('#atualiza-pessoal').attr('style', 'color: #586871;');
-      $('#arrow-up1').hide();
-      $('#arrow-down1').show();
+    $("#user_sobrenome").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀ ÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
     });
+  });
 
-    //Collapse 2
-    $('#collapseExample_2').on('shown.bs.collapse', function () {
-      //Collapse aberto
-      $('#atualiza-endereco').attr('style', 'color: #623f99ff;');
-      $('#arrow-down2').hide();
-      $('#arrow-up2').show();
-      $('#arrow-up2').removeAttr('hidden');
-    });
-
-    $('#collapseExample_2').on('hidden.bs.collapse', function () {
-      //Collapse fechado
-      $('#atualiza-endereco').attr('style', 'color: #586871;');
-      $('#arrow-up2').hide();
-      $('#arrow-down2').show();
-    });
-
-    //Collapse 3
-    $('#collapseExample_3').on('shown.bs.collapse', function () {
-      //Collapse aberto
-      $('#atualiza-email').attr('style', 'color: #623f99ff;');
-      $('#arrow-down3').hide();
-      $('#arrow-up3').show();
-      $('#arrow-up3').removeAttr('hidden');
-    });
-
-    $('#collapseExample_3').on('hidden.bs.collapse', function () {
-      //Collapse fechado
-      $('#atualiza-email').attr('style', 'color: #586871;');
-      $('#arrow-up3').hide();
-      $('#arrow-down3').show();
-    });
-
-    //Máscara
-    $(document).ready(function () {
-      $('#user_cpf').mask('000.000.000-00');
-      $('#user_cep').mask('00000-000');
-      $('#user_cnpj').mask('00.000.000/0000-00');
-      $('#user_documento').mask('0#');
-      $('#user_numero').mask('0#');
-    });
-    //Campos Nome e Sobrenome aceitando somente letras, acentos e espaços
-    $(document).ready(function () {
-      $("#user_nome").on("input", function () {
-        var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀ ÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
-        if (this.value.match(regexp)) {
-          $(this).val(this.value.replace(regexp, ''));
-        }
-      });
-      $("#user_sobrenome").on("input", function () {
-        var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀ ÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
-        if (this.value.match(regexp)) {
-          $(this).val(this.value.replace(regexp, ''));
-        }
-      });
-    });
-
-    function emailMatch() {
-      return $("#email_confirmation").val() === $("#user_email").val();
+  function emailMatch() {
+    return $("#email_confirmation").val() === $("#user_email").val();
+  }
+  // verifica os campos de senha, retornando false ou true
+  function passwordMatch() {
+    return $("#user_password").val() === $("#user_password_confirmation").val();
+  }
+  // verifica o campo senha para garantir o tamanho mínimo
+  function passwordLength() {
+    if ($("#user_password").val().length > 6) {
+      return true
     }
-    // verifica os campos de senha, retornando false ou true
-    function passwordMatch() {
-      return $("#user_password").val() === $("#user_password_confirmation").val();
+    else {
+      return false
     }
-    // verifica o campo senha para garantir o tamanho mínimo
-    function passwordLength() {
-      if ($("#user_password").val().length > 6) {
-        return true
-      }
-      else {
-        return false
-      }
+  }
+  // função que obriga o campo de e-mail ter o formato de gmail.com usando regex
+  function emailIsGmail() {
+    var email = $('#user_email').val();
+
+    var emailRegex = new RegExp('^.+@gmail.com$');
+    return (email !== '' && emailRegex.test(email));
+  }
+  // funcão que proíbe o copia e cola no campo de e-mail
+  $('body').bind('copy', function (e) {
+    e.preventDefault(); return false;
+  });
+
+  $('body').bind('paste', function (e) {
+    e.preventDefault(); return false;
+  });
+
+  // uma única função verifica todas as validações e desabilita o botão cadastro até que tudo esteja certo
+  function buttonValidation() {
+    var emailMatchValidated = emailMatch();
+    var passwordMatchValidated = passwordMatch();
+    var emailIsGmailValidated = emailIsGmail();
+    var passwordLengthValidated = passwordLength();
+
+    if (!emailMatchValidated) {
+      $('#alertEmailConf').show();
+      if ($('#alertEmailConf').is(":visible"))
+        $('#alertEmailConf').attr('data-original-title', 'Os emais estão diferentes').tooltip();
+      else
+        $('#alertEmailConf').tooltip({ 'trigger': 'hover', 'title': 'Os emais estão diferentes' });
     }
-    // função que obriga o campo de e-mail ter o formato de gmail.com usando regex
-    function emailIsGmail() {
-      var email = $('#user_email').val();
-
-      var emailRegex = new RegExp('^.+@gmail.com$');
-      return (email !== '' && emailRegex.test(email));
-    }
-    // funcão que proíbe o copia e cola no campo de e-mail
-    $('body').bind('copy', function (e) {
-      e.preventDefault(); return false;
-    });
-
-    $('body').bind('paste', function (e) {
-      e.preventDefault(); return false;
-    });
-
-    // uma única função verifica todas as validações e desabilita o botão cadastro até que tudo esteja certo
-    function buttonValidation() {
-      var emailMatchValidated = emailMatch();
-      var passwordMatchValidated = passwordMatch();
-      var emailIsGmailValidated = emailIsGmail();
-      var passwordLengthValidated = passwordLength();
-
-      if (!emailMatchValidated) {
-        $('#alertEmailConf').show();
-        if ($('#alertEmailConf').is(":visible"))
-          $('#alertEmailConf').attr('data-original-title', 'Os emais estão diferentes').tooltip();
-        else
-          $('#alertEmailConf').tooltip({ 'trigger': 'hover', 'title': 'Os emais estão diferentes' });
-      }
-      else {
-        $('#alertEmailConf').hide();
-      }
-
-      if (!emailIsGmailValidated) {
-        $('#alertEmail').show();
-        if ($('#alertEmail').is(":visible"))
-          $('#alertEmail').attr('data-original-title', 'O email deve ser gmail').tooltip();
-        else
-          $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'O email deve ser gmail' });
-      }
-      else {
-        $('#alertEmail').hide();
-      }
-
-      if (!passwordMatchValidated) {
-        $('#alertPWConf').show();
-        if ($('#alertPWConf').is(":visible"))
-          $('#alertPWConf').attr('data-original-title', 'As senhas estão diferentes').tooltip();
-        else
-          $('#alertPWConf').tooltip({ 'trigger': 'hover', 'title': 'As senhas estão diferentes' });
-      }
-      else {
-        $('#alertPWConf').hide();
-      }
-
-      if ($('#user_password').val().replace(/^\s+|\s+$/g, "").length == 0) {
-        $('#alertPW').show();
-        $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
-        $('#user_password').attr('style', 'border-color: #A94342;');
-      }
-      else if (!passwordLength) {
-        $('#alertPW').show();
-        if ($('#alertPW').is(":visible"))
-          $('#alertPW').attr('data-original-title', 'Senha muito curta').tooltip();
-        else
-          $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Senha muito curta' });
-      }
-
-      else {
-        $('#alertPW').hide();
-      }
+    else {
+      $('#alertEmailConf').hide();
     }
 
-    $('#user_email').on('keyup', buttonValidation);
-    $("#email_confirmation").on('keyup', buttonValidation);
-    $("#user_password_confirmation").on('keyup', buttonValidation);
-    $("#user_password").on('keyup', buttonValidation);
-  </script>
-  <!--
+    if (!emailIsGmailValidated) {
+      $('#alertEmail').show();
+      if ($('#alertEmail').is(":visible"))
+        $('#alertEmail').attr('data-original-title', 'O email deve ser gmail').tooltip();
+      else
+        $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'O email deve ser gmail' });
+    }
+    else {
+      $('#alertEmail').hide();
+    }
+
+    if (!passwordMatchValidated) {
+      $('#alertPWConf').show();
+      if ($('#alertPWConf').is(":visible"))
+        $('#alertPWConf').attr('data-original-title', 'As senhas estão diferentes').tooltip();
+      else
+        $('#alertPWConf').tooltip({ 'trigger': 'hover', 'title': 'As senhas estão diferentes' });
+    }
+    else {
+      $('#alertPWConf').hide();
+    }
+
+    if ($('#user_password').val().replace(/^\s+|\s+$/g, "").length == 0) {
+      $('#alertPW').show();
+      $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+      $('#user_password').attr('style', 'border-color: #A94342;');
+    }
+    else if (!passwordLength) {
+      $('#alertPW').show();
+      if ($('#alertPW').is(":visible"))
+        $('#alertPW').attr('data-original-title', 'Senha muito curta').tooltip();
+      else
+        $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Senha muito curta' });
+    }
+
+    else {
+      $('#alertPW').hide();
+    }
+  }
+
+  $('#user_email').on('keyup', buttonValidation);
+  $("#email_confirmation").on('keyup', buttonValidation);
+  $("#user_password_confirmation").on('keyup', buttonValidation);
+  $("#user_password").on('keyup', buttonValidation);
+</script>
+<!--
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -584,4 +596,4 @@
     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
   </p>
 -->
-  <%= link_to "Cancelar", :back %>
+<%= link_to "Cancelar", :back %>
