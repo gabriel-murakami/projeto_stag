@@ -350,11 +350,9 @@
           </div>
           <div class="col">
             <button class="std-btn" id="btnCadastrar" type="button"> Cadastrar </button>
-            <!-- <%= f.submit "Cadastrar", :class => "std-btn"%> -->
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -667,16 +665,6 @@
       }
     });
   });
-  //Vai para próximo text-field quando aperta Enter
-  $('input').keypress(function (event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '13') {
-      event.preventDefault();
-      var $this = $(event.target);
-      var index = parseFloat($this.attr('dataid'));
-      $('[dataid="' + (index + 1).toString() + '"]').focus();
-    }
-  });
 
   //Verifica se a os campos de e-mail estão iguais
   function emailMatch() {
@@ -780,6 +768,7 @@
       $('[dataid="' + (index + 1).toString() + '"]').focus();
     }
   });
+
   //Navegação cadastros
   $(document).ready(function () {
     continuarClicked = false;

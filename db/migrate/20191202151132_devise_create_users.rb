@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :documento, null: false, default: ""
       t.string :orgao_emissor, null: false, default: ""
       t.string :estado_emissor, null: false, default: ""
-      t.date :data_emissao, null: false, default: -> { 'CURRENT_TIMESTAMP' }
+      t.date :data_emissao, null: true, default: -> { 'CURRENT_TIMESTAMP' }
 
       # #Dados para PJ
       t.string :nome_fantasia, null: false, default: ""
