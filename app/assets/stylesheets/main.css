@@ -34,6 +34,10 @@
 .std-font-yellow {
 	color: #f6af42ff;
 }
+.std-font-yellow-md {
+	color: #f6af42ff;
+	font-size: 18px;
+}
 /*Botões padrão*/
 .std-btn {
 	background-color:#f6af42ff;
@@ -140,6 +144,26 @@ input[type="text"]:focus,
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
+.form-control-edit {
+	background: rgb(250, 241, 221);
+	border-color: transparent;
+	color: #f6af42ff;
+	border-radius: 0;
+	outline: 0;
+  	border-width: 0 0 1px;
+	border-color: #586871;
+}
+.form-control-edit::placeholder {
+	color: #f6af42ff
+}
+input[type="text"]:focus,
+.form-control-edit:focus {
+	background: white;
+	border-color: #f6af42ff;
+	color: #f6af42ff;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
 /*Backgrounds padrão*/
 .std-bg {
 	background-color:#f7f7f7ff;
@@ -200,4 +224,21 @@ input[type="text"]:focus,
 	color:#3f3a3a;
 	font-size: 15px;
 }
+/* CSS para editar */
+.bg-light-yellow{
+	background-color: rgb(250, 241, 221);
+	border: none;
+	border-radius: 25px;
+}
+.bg-light-yellow:hover{
+	background-color:#f7d486;
+	border: none;
+	border-radius: 25px;
+}
+.bg-light-yellow-static{
+	background-color: rgb(250, 241, 221);
+	border: none;
+	border-radius: 25px;
+}
+
 
