@@ -42,14 +42,15 @@
         <% if request.fullpath != "/users/edit" %>
         <div class="col">
           <li class="nav-item">
-            <%= link_to "editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+            <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
           </li>
         </div>
         <% end %>
         <% if request.fullpath == "/users/edit" %>
         <div class="col">
-          <li class="nav-item">
-            <%= link_to "Voltar", :back, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+            <li class="nav-item">
+              <button id= "btnVoltar" class="btn btn-link std-link-white" type="link" style="background-color: transparent; color: white;" >Voltar
+              </button>
           </li>
         </div>
         <% end %>
@@ -78,13 +79,35 @@
     <% end %>
   </nav>
   <br /><br /><br /><br />
-  <!-- <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-  <% end %> -->
-  <!-- <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-  <% end %> -->
   <%= yield %>
+    <!-- Modal que confirma o 'voltar' -->
+    <div id="modalVoltar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="color: blueviolet;">
+          <div class="row">
+            <div class="col text-center">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <p class="modal-title std-font-grey">Você tem certeza que deseja cancelar?</p>
+              </div>
+              <div class="actions container" >
+                <div class="row justify-content-center">
+                  <button style="margin-right: 2px;" type="button" class="btn btn-danger" data-dismiss="modal" > Não </button>
+                  <%= link_to "Sim", :back, :class=> "btn btn-success", :style => "margin-left: 4px" %>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    $('#btnVoltar').click(function () {
+      $('#modalVoltar').modal({ show: true });
+    });
+    </script>
 </body>
 
 </html>

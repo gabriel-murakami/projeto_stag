@@ -1,7 +1,7 @@
-<!-- <h2> <%= resource_name.to_s.humanize %></h2>
+<!-- <h2> <%= resource_name.to_s.humanize %></h2> -->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<%= render "devise/shared/error_messages", resource: resource %> -->
+<!-- <%= render "devise/shared/error_messages", resource: resource %> -->
 
 <label class="title-font-purple" style="padding:25px;">Aqui, você atualiza o seu cadastro ;)</label></br>
 <div class="card card-grey">
@@ -163,7 +163,7 @@
       </div>
     </div>
   </div>
-  </br>
+  </br></br>
 
 
   <!--Editar cadastro endereço-->
@@ -268,7 +268,7 @@
       </div>
     </div>
   </div>
-  </br></br>
+  </br></br></br>
 
   <!--Editar cadastro e-mail e senha-->
   <div class="container">
@@ -363,15 +363,65 @@
 <div class="actions container" style="max-width: 400px; margin-top: 75px;">
   <div class="row justify-content-center">
     <div class="col">
-      <button type="button" id="btnBack2" class="btn btn-link red-link"> Deletar sua conta </button>
+      <button class="btn btn-link red-link" type="button" id="btnBack2">Deletar sua conta</button>
     </div>
     <div class="col">
-      <button class="std-btn" type="button"> Atualizar </button>
+      <button class="std-btn" type="button" id="btnCadastrar"> Atualizar </button>
+    </div>
+  </div>
+</div>
+
+<div id="modalDeletar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Você tem certeza que deseja excluir o usuário?</p>
+          </div>
+          <div class="actions container" >
+            <div class="row justify-content-center">
+              <button style="margin-right: 2px;" type="button" class="btn btn-danger" data-dismiss="modal" > Não </button>
+              <%= button_to "Sim", registration_path(resource_name),  method: :delete, :class=> "btn btn-success", :style => "margin-left: 2px" %>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalAtualizar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div
+           class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Você confirma as alterações?</p>
+          </div>
+          <div class="actions container" >
+            <div class="row justify-content-center">
+              <button style="margin-right: 2px;" type="button" class="btn btn-danger" data-dismiss="modal" > Não </button>
+              <%= button_to "Sim", registration_path(resource_name),  method: :put, :class=> "btn btn-success", :style => "margin-left: 2px" %>
+              </div>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
+  function submitForm (){
+    $('#edit_user').submit();
+  }
   //Altera estilo collapse
 
   //Collapse 1
@@ -540,9 +590,19 @@
   $("#email_confirmation").on('keyup', buttonValidation);
   $("#user_password_confirmation").on('keyup', buttonValidation);
   $("#user_password").on('keyup', buttonValidation);
+
+  // Pop-up de confirmação
+  $('#btnBack2').click(function () {
+        $('#modalDeletar').modal({ show: true });
+    });
+
+
+  $('#btnCadastrar').click(function () {
+        $('#modalAtualizar').modal({ show: true });
+    });
 </script>
-<!--
-  <div class="field">
+
+  <!-- <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -595,9 +655,5 @@
   <p>Unhappy?
     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
   </p>
--->
-<<<<<<< HEAD
-   <!-- <%= link_to "Cancelar", :back %> -->
-=======
-<%= link_to "Cancelar", :back %>
->>>>>>> 474ea7a3ddbb6f901568c07cc66cefe3c07055cb
+
+<%= link_to "Cancelar", :back %> -->
