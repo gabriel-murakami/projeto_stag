@@ -6,7 +6,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
       <%= f.label :email, :class => "std-font-grey" %>
-      <%= f.email_field :email, autofocus: true, :class=> "form-control std-form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
+      <%= f.email_field :email, autofocus: true, :class=> "form-control std-form-control", autocomplete: "email", :placeholder => "Digite seu e-mail", :maxlength => "50"%>
     </div></br>
     <div class="actions container ">
       <%= f.submit "Enviar e-mail de verificação", :class => "std-btn"%>

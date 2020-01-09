@@ -23,7 +23,7 @@
               <div class="col-4">
                 <div class="form-group">
                   <div class="input-group">
-                    <%= f.text_field :nome, autofocus: true, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                    <%= f.text_field :nome, autofocus: true, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50"%>
                     <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                       style="display:none">error</i>
                   </div>
@@ -69,7 +69,7 @@
               <div class="col-4">
                 <div class="form-group">
                   <div class="input-group">
-                    <%= f.text_field :orgao_emissor, :class => "form-control-edit form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off"%>
+                    <%= f.text_field :orgao_emissor, :class => "form-control-edit form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off", :maxlength => "10"%>
                     <i class="input-group-append input-alert material-icons" id="alertOrgEms" data-toggle="tooltip"
                       style="display:none">error</i>
                   </div>
@@ -401,13 +401,13 @@
           </div>
           <!--Confirmar Senha atual-->
           <div class="row d-flex justify-content-center">
-              <div class="form-group">
-                <div class="input-group">
-                  <%= f.password_field :current_password, :id => "form-control form-control-yellow",:class => "form-control form-control-yellow", :style => "background: white", :placeholder => "Senha Atual", :dataid => "3", :autocomplete => "off"%><br />
-                  <i class="input-group-append input-alert material-icons" id="alertCurrentPW" data-toggle="tooltip"
-                    style="display:none">error</i>
-                </div>
+            <div class="form-group">
+              <div class="input-group">
+                <%= f.password_field :current_password, :id => "form-control form-control-yellow", :id=> "123", :class => "form-control form-control-yellow", :style => "background: white", :placeholder => "Senha Atual", :dataid => "3", :autocomplete => "off"%><br />
+                <i class="input-group-append input-alert material-icons" id="alertCurrentPW" data-toggle="tooltip"
+                  style="display:none">error</i>
               </div>
+            </div>
           </div>
           <div class="actions container" style="margin-top: 20px">
             <div class="row justify-content-center">
@@ -416,11 +416,11 @@
               <%= button_to "Confirmar", registration_path(resource_name), :id => "btnUpdate", :type => "button", :class => "btn btn-success", :style => "margin-left: 10px" %>
             </div>
           </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <!--Modal de exclusão de usuários-->
@@ -431,7 +431,7 @@
         <div class="col text-center">
           <div class="modal-body">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-              <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
             </button>
             <p class="modal-title std-font-grey">Você tem certeza que deseja excluir o usuário?</p>
           </div>
@@ -441,6 +441,23 @@
               </button>
               <%= button_to "Sim", registration_path(resource_name), method: :delete, :class=> "btn btn-success", :style => "margin-left: 2px" %>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalMudança" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Não houve alterações</p>
           </div>
         </div>
       </div>
@@ -620,7 +637,7 @@
     var emailRegex = new RegExp('^.+@gmail.com$');
     return (email !== '' && emailRegex.test(email));
   }
-
+      
   //Valida e-mail
   function validateEmail() {
     if (emailIsGmail() == false) {
@@ -775,61 +792,4 @@
   });
 </script>
 
-<!--
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :pf_pj %><br />
-    <%= f.select :pf_pj, pfpj %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cpf %><br />
-    <%= f.text_field :cpf, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :data_emissao %><br />
-    <%= f.date_field :data_emissao, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-    <br />
-    <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-  <% end %>
-
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy?
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-  </p>
-<<<<<<< HEAD
-
-<%= link_to "Cancelar", :back %> -->
-
+<% end%> 
