@@ -6,7 +6,9 @@
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
     <div class="input-group">
+
       <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com", :maxlength => "50" %>
+
       <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
         style="display: none;">error</i>
     </div>
