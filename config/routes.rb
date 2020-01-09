@@ -3,12 +3,16 @@ Rails.application.routes.draw do
 
   scope "/home" do
     get "/list", to: "home#list"
+    get "/assistencias", to: "home#assistencias"
+    get "/sinistro", to: "home#sinistro"
+    get "/yousefriends", to: "home#yousefriends"
   end
 
   get "/home/sucesso"
 
 
   get "/home/sucesso_senha"
+
 
   devise_scope :user do
     post '/checkemail', to: 'registrations#emailcheck'
