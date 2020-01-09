@@ -55,28 +55,28 @@
 </form>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('#minhaTabela').DataTable({
             "paging": false,
             "language": {
-                  "lengthMenu": "Mostrando _MENU_ registros por página",
-                  "zeroRecords": "Nada encontrado",
-                  "info": "Mostrando página _PAGE_ de _PAGES_",
-                  "infoEmpty": "Nenhum registro disponível",
-                  "infoFiltered": "(filtrado de _MAX_ registros no total)",
-                  "search": "",
-              }
-          });
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                "search": "",
+            }
+        });
     });
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $("[type='search']").addClass("form-control-yellow").attr("style", "width: 200px; height: 40px; padding-left: 10px; padding-right: 10px").attr("placeholder", "Pesquisar");
         $('#minhaTabela_info').hide();
         $("[aria-label]").css("color", "purple");
         $("td").addClass("table-font-grey-md");
     })
 </script>
-  
+
 
 <% else %>
 <div class="container-fluid" style="width: 80%; padding-top: 80px;">

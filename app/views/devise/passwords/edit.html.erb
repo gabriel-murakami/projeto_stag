@@ -60,18 +60,37 @@
     </div>
   </div>
 </div>
+<div id="myModal2" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Preencha todos os campos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('#btn-alterar').click(function () {
-    if ($('i').is(":visible") == true) {
-      $('#myModal').modal({ show: true });
-    }
-    else {
-      $('#new_user').submit();
-    }
-  });
+      if ($('i').is(":visible") == true) {
+        $('#myModal').modal({ show: true });
+      }
+      else if($('#user_password').val() == "" || $('#user_password_confirmation').val() == ""){
+        $('#myModal2').modal({ show: true });
+      }
+      else {
+        $('#new_user').submit();
+      }
+    });
   })
 
 
