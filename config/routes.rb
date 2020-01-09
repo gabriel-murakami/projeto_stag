@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   scope "/home" do
     get "/list", to: "home#list"
+    get "/assistencias", to: "home#assistencias"
+    get "/sinistro", to: "home#sinistro"
+    get "/yousefriends", to: "home#yousefriends"
   end
 
   devise_scope :user do

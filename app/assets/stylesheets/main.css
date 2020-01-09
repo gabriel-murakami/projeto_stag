@@ -1,188 +1,204 @@
 /*Fontes padrão*/
-.title-font-purple{
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	text-align:center;
-	color: #623f99ff;
-	font-size: 20px;
-	margin-top: 5px;
+.title-font-purple {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  text-align: center;
+  color: #623f99ff;
+  font-size: 20px;
+  margin-top: 5px;
 }
-.std-font-grey{
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #586871;
-	font-size: 16px;
+.std-font-grey {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  font-size: 16px;
 }
-.std-font-grey-md{
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color:#586871;
-	font-size: 18px;
+.std-font-grey-md {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  font-size: 18px;
 }
-.std-font-grey-sm{
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #586871;
-	font-size: 14px;
+.std-font-grey-sm {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  font-size: 14px;
 }
-.std-font-grey-lg{
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #586871;
-	font-size: 20px;
-} 
+.std-font-grey-lg {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  font-size: 20px;
+}
 /*Botões padrão*/
 .std-btn {
-	background-color:#f6af42ff;
-	border: none;
-	border-radius: 25px;
-	cursor:pointer;
-	color:#ffffff;
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	font-size:16px;
-	padding:12px 24px;
+  background-color: #f6af42ff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: #ffffff;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  font-size: 16px;
+  padding: 12px 24px;
 }
 .std-btn:hover {
-	background-color:#f7bd45ff;
+  background-color: #f7bd45ff;
 }
 .std-btn:focus {
-	border: none;
-	outline: none;
+  border: none;
+  outline: none;
 }
 /*Links padrões*/
 .std-link {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #586871;
-	text-decoration: underline;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  text-decoration: underline;
 }
 .esp-link {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #586871;
-	text-decoration: underline;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  text-decoration: underline;
 }
 .std-link:hover {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #f7bd45ff;
-	text-decoration: underline;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #f7bd45ff;
+  text-decoration: underline;
 }
 .esp-link:hover {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	background-color: transparent;
-	color: #f7bd45ff;
-	text-decoration: underline;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  background-color: transparent;
+  color: #f7bd45ff;
+  text-decoration: underline;
 }
 .std-link-purple {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #623f99ff;
-	text-decoration: underline;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #623f99ff;
+  text-decoration: underline;
 }
 .std-link-white {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: white;
-	text-decoration: underline;
-	font-size: 14px;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: white;
+  text-decoration: underline;
+  font-size: 14px;
 }
 .std-link-purple:hover {
-	background-color: transparent;
+  background-color: transparent;
 }
 /*Textbox padrão*/
 .std-form-control {
-	background: #f7f7f7ff;
-	border-color: transparent;
-	border-radius: 0;
+  background: #f7f7f7ff;
+  border-color: transparent;
+  border-radius: 0;
 }
 input[type="text"]:focus,
 .std-form-control:focus {
-	background: #f7f7f7ff;
-	border-color: transparent;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+  background: #f7f7f7ff;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .form-control-yellow {
-	background: #f7f7f7ff;
-	border-color: transparent;
-	color: #f6af42ff;
-	border-radius: 0;
-	outline: 0;
-  	border-width: 0 0 1px;
-	border-color: #586871;
+  background: #f7f7f7ff;
+  border-color: transparent;
+  color: #f6af42ff;
+  border-radius: 0;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #586871;
 }
 .form-control-yellow::placeholder {
-	color: #f6af42ff
+  color: #f6af42ff;
 }
 input[type="text"]:focus,
 .form-control-yellow:focus {
-	background: white;
-	border-color: #f6af42ff;
-	color: #f6af42ff;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+  background: white;
+  border-color: #f6af42ff;
+  color: #f6af42ff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 /*Backgrounds padrão*/
 .std-bg {
-	background-color:#f7f7f7ff;
+  background-color: #f7f7f7ff;
 }
 .std-bg-purple {
-	background-color: #623f99ff;
+  background-color: #8537b0;
 }
 /*Form de login*/
 .login-form {
-	width: 370px;
-	margin: 50px auto;
+  width: 370px;
+  margin: 50px auto;
 }
 .login-form form {
-	margin-bottom: 15px;
-	background: white;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	padding: 30px;
+  margin-bottom: 15px;
+  background: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
 
 /* Form de Cadastro */
 .card-grey {
-	background-color: transparent;
-	border: none;
+  background-color: transparent;
+  border: none;
 }
 
 /* Input alerta */
 .input-alert {
-	color: #a94342; 
-	margin-top: 7px; 
-	margin-left: 3px
+  color: #a94342;
+  margin-top: 7px;
+  margin-left: 3px;
 }
 .icon-purple {
-	color: #623f99ff;
-	font-size: 30px;
-	margin-right: 20px;
+  color: #623f99ff;
+  font-size: 30px;
+  margin-right: 20px;
 }
 
 /* Tooltip padrão */
-.tooltip-inner{
-	color: white;
-	opacity: 0.75;
+.tooltip-inner {
+  color: white;
+  opacity: 0.75;
 }
 
 /* CSS Para Lista de Usuários */
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-	background-color: rgb(250, 241, 221);
- }
+.table-striped > tbody > tr:nth-child(2n + 1) > td,
+.table-striped > tbody > tr:nth-child(2n + 1) > th {
+  background-color: rgb(250, 241, 221);
+}
 
- /* .table-striped > thead > tr > th {
+/* .table-striped > thead > tr > th {
 	 border-top: none;
 	 border-left: 1px solid red;
 	 border-right: 1px solid red;
  } */
 
- .table-font-grey-md{
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color:#3f3a3a;
-	font-size: 15px;
+.table-font-grey-md {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #3f3a3a;
+  font-size: 15px;
 }
 
+/* Animista */
+.pulsate-fwd {
+  animation: pulsate-fwd 1s ease-in-out infinite both;
+}
+@keyframes pulsate-fwd {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
