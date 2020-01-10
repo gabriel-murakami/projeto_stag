@@ -48,18 +48,17 @@
           </li>
         </div>
         <% end %>
-        <% if request.fullpath != "/users/edit" %>
-        <div class="col">
-          <li class="nav-item">
-            <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
-          </li>
-        </div>
-        <% end %>
-        <% if request.fullpath == "/users/edit" %>
+        <% if request.fullpath == "/users/edit" or request.fullpath == "/users" %>
         <div class="col">
             <li class="nav-item">
               <button id= "btnVoltar" class="btn btn-link std-link-white" type="link" style="background-color: transparent; color: white;" >Voltar
               </button>
+          </li>
+        </div>
+        <% else %>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
           </li>
         </div>
         <% end %>
@@ -117,7 +116,7 @@
       </div>
     </div>
   </div>
-  <% if notice == "Senha alterada com sucesso :)" or notice == "Novo Scorpion cadastrado com sucesso!"%>
+  <% if notice == "Senha alterada com sucesso :)" or notice == "Novo Scorpion cadastrado com sucesso!" or notice ==  "Sua conta foi atualizada com sucesso!" %>
   <script>
     $('#modalEditSenha').modal({ show: true });
   </script>
@@ -142,7 +141,7 @@
               <div class="actions container" >
                 <div class="row justify-content-center">
                   <button style="margin-right: 2px;" type="button" class="btn btn-danger" data-dismiss="modal" > Não </button>
-                  <%= link_to "Sim", :back, :class=> "btn btn-success", :style => "margin-left: 4px; color: white" %>
+                  <%= link_to "Sim", root_path, :class=> "btn btn-success", :style => "margin-left: 4px; color: white" %>
                 </div>
             </div>
             </div>
