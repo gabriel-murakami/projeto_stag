@@ -350,11 +350,9 @@
           </div>
           <div class="col">
             <button class="std-btn" id="btnCadastrar" type="button"> Cadastrar </button>
-            <!-- <%= f.submit "Cadastrar", :class => "std-btn"%> -->
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -465,8 +463,10 @@
 
     for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
+
     if ((Resto == 10) || (Resto == 11)) Resto = 0;
     if (Resto != parseInt(strCPF.substring(9, 10))) return false;
+
     Soma = 0;
     for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
     Resto = (Soma * 10) % 11;
@@ -489,7 +489,6 @@
     }
     else {
       //Checa se CPF já existe
-      console.log(TestaCPF($('#user_cpf').val()));
       $.post('/checkcpf?cpf=' + $("#user_cpf").val(), function (data) {
         if (data) {
           $('#alertCPF').show();
@@ -665,16 +664,6 @@
       }
     });
   });
-  //Vai para próximo text-field quando aperta Enter
-  $('input').keypress(function (event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '13') {
-      event.preventDefault();
-      var $this = $(event.target);
-      var index = parseFloat($this.attr('dataid'));
-      $('[dataid="' + (index + 1).toString() + '"]').focus();
-    }
-  });
 
   //Verifica se a os campos de e-mail estão iguais
   function emailMatch() {
@@ -685,13 +674,13 @@
     return $("#user_password").val() === $("#user_password_confirmation").val();
   }
 
-  //Obriga o campo de e-mail ter o formato de gmail
   function emailIsGmail() {
     var email = $('#user_email').val();
 
     var emailRegex = new RegExp('^.+@gmail.com$');
     return (email !== '' && emailRegex.test(email));
   }
+
   //Valida e-mail
   function validateEmail() {
     if (emailIsGmail() == false) {
@@ -779,6 +768,7 @@
       $('[dataid="' + (index + 1).toString() + '"]').focus();
     }
   });
+
   //Navegação cadastros
   $(document).ready(function () {
     continuarClicked = false;
@@ -852,7 +842,6 @@
     $('#btnCadastrar').click(function () {
       validateFields();
       if ($('i').is(":visible") == false && continuarClicked) {
-        console.log($("i:visible").length);
         $('#new_user').submit();
       }
       else {
