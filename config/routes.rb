@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", passwords: "passwords" }
 
   scope "/home" do
     get "/list", to: "home#list"
+    get "/assistencias", to: "home#assistencias"
+    get "/sinistro", to: "home#sinistro"
+    get "/yousefriends", to: "home#yousefriends"
   end
 
-  get "/home/sucesso"
+  devise_scope :user do
+    post '/checkemail', to: 'registrations#emailcheck'
+    post '/checkcpf', to: 'registrations#cpfcheck'
+    post '/checkcnpj', to: 'registrations#cnpjcheck'
+  end 
 
   devise_scope :user do
     post '/checkemail', to: 'registrations#emailcheck'

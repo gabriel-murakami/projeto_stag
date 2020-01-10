@@ -46,6 +46,23 @@
 <% end %>
 <% end %>
 
+<div id="modalMudança" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Não houve alterações</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   //Click em deletar
   $("#btnDelete").click(function () {
@@ -231,7 +248,7 @@
     var emailRegex = new RegExp('^.+@gmail.com$');
     return (email !== '' && emailRegex.test(email));
   }
-
+      
   //Valida e-mail
   function validateEmail() {
     if (emailIsGmail() == false) {
