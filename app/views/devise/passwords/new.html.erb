@@ -1,12 +1,16 @@
 <div class="login-form">
-  <label class="title-font-purple" style="font-size:20px; text-align:center">Problemas para acessar a sua conta?</label>
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <div class="field">
-    <%= f.label :email, :class => "std-font-grey" %>
-    <div class="input-group">
-      <%= f.email_field :email, autofocus: true, :class=> "form-control-yellow form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
-      <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
-        style="display: none;">error</i>
+
+  <div class="container card-form" style="width: max-content;">
+    <label class="std-font-grey" style="font-size:20px; text-align:center">Problemas para acessar a sua conta?
+    </label></br>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.label :email, :class => "std-font-grey" %>
+      <%= f.email_field :email, autofocus: true, :class=> "form-control std-form-control", autocomplete: "email", :placeholder => "Digite seu e-mail", :maxlength => "50"%>
+    </div></br>
+    <div class="actions container ">
+      <%= f.submit "Enviar e-mail de verificação", :class => "std-btn"%>
     </div>
   </div>
   </br>
