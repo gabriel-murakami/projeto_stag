@@ -197,7 +197,6 @@ input[type="text"]:focus,
 	background-color: transparent;
 	border: none;
 }
-
 /* Input alerta */
 .input-alert {
 	color: #a94342; 
@@ -209,24 +208,15 @@ input[type="text"]:focus,
 	font-size: 30px;
 	margin-right: 20px;
 }
-
 /* Tooltip padrão */
 .tooltip-inner{
 	color: white;
 	opacity: 0.75;
 }
-
 /* CSS Para Lista de Usuários */
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
 	background-color: rgb(250, 241, 221);
  }
-
- /* .table-striped > thead > tr > th {
-	 border-top: none;
-	 border-left: 1px solid red;
-	 border-right: 1px solid red;
- } */
-
  .table-font-grey-md{
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
@@ -254,4 +244,10 @@ input[type="text"]:focus,
 	border-radius: 25px;
 	border-color: #f7d486;
 	background-color: rgb(250, 241, 221);
+}
+.current-password-input-error{
+	border-color: #a94342;
+}
+.current-password-input-error::placeholder {
+	color: #a94342;
 }
