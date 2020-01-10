@@ -1,157 +1,154 @@
 <div class="card card-grey">
-  <div class="card-body">
-    <div id="bg-collapse1" class="container bg-light-yellow" style="max-width: 600px;">
-      <a class="std-font-grey-md"
-        style="width: max-content; text-align: center; text-decoration: none; background-color: transparent;"
-        data-toggle="collapse" href="#collapseExample_1" aria-expanded="false" aria-controls="collapseExample_1">
-        <div id="atualiza-pessoal" onclick="changeLinkColor1()" class="std-font-grey-md"
-          style="text-decoration: none; padding: 20px;">Editar meus Dados Pessoais</div>
-      </a>
-      <div class="collapse" id="collapseExample_1">
-        <!--Tela casdastro PF PJ-->
-        <div id="cadastro1" class="container" style="max-width: 750px; margin-top: 10px;">
-          <!--Pessoa física-->
-          <% if current_user.pf_pj == "PF" %>
-          <div id="pf">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-4" align="right">
-                <label class="std-font-grey-md" style="margin-top: 5px;">Meu nome é</label>
-              </div>
-              <div class="col-4">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :nome, autofocus: true, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
-                    <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :sobrenome, :class => "form-control-edit form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
-                    <i class="input-group-append input-alert material-icons" id="alertSobrenome" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
+  <div id="bg-collapse1" class="container bg-light-yellow" style="max-width: 600px;">
+    <a class="std-font-grey-md"
+      style="width: max-content; text-align: center; text-decoration: none; background-color: transparent;"
+      data-toggle="collapse" href="#collapseExample_1" aria-expanded="false" aria-controls="collapseExample_1">
+      <div id="atualiza-pessoal" onclick="changeLinkColor1()" class="std-font-grey-md"
+        style="text-decoration: none; padding: 20px;">Editar meus Dados Pessoais</div>
+    </a>
+    <div class="collapse" id="collapseExample_1">
+      <!--Tela casdastro PF PJ-->
+      <div id="cadastro1" class="container" style="max-width: 750px; margin-top: 10px;">
+        <!--Pessoa física-->
+        <% if current_user.pf_pj == "PF" %>
+        <div id="pf">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-4" align="right">
+              <label class="std-font-grey-md" style="margin-top: 5px;">Meu nome é</label>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :nome, autofocus: true, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                  <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
-            <div class="row align-items-center justify-content-center">
-              <div class="col-4" align="right">
-                <label class="std-font-grey-md" style="margin-top: 5px;">Meu CPF é</label>
-              </div>
-              <div class="col-8">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :cpf, :class => "form-control-edit form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
-                    <i class="input-group-append input-alert material-icons" id="alertCPF" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row align-items-center justify-content-center">
-              <div class="col-4" align="right">
-                <label class="std-font-grey-md" style="margin-top: 5px;">Documento Pessoal</label>
-              </div>
-              <div class="col-4">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :documento, :class => "form-control-edit form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "50" %>
-                    <i class="input-group-append input-alert material-icons" id="alertDoc" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :orgao_emissor, :class => "form-control-edit form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off"%>
-                    <i class="input-group-append input-alert material-icons" id="alertOrgEms" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row align-items-center justify-content-center">
-              <div class="col-4" align="right">
-                <label class="std-font-grey-md" style="margin-top: 5px;">UF e Data de Emissão</label>
-              </div>
-              <div class="col-4">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.select :estado_emissor, states, :class => "form-control"%>
-                    <i class="input-group-append input-alert material-icons" id="alertEstEms" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.date_field :data_emissao, :class => "form-control"%>
-                    <i class="input-group-append input-alert material-icons" id="alertDatEms" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
+            <div class="col-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :sobrenome, :class => "form-control-edit form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
+                  <i class="input-group-append input-alert material-icons" id="alertSobrenome" data-toggle="tooltip"
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
           </div>
-          <% end %>
-          <!--Pessoa jurídica-->
-          <% if current_user.pf_pj == "PJ" %>
-          <div id="pj">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-4" align="right">
-                <label class="std-font-grey-md" style="margin-top: 5px;">Nome Fantasia</label>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :nome_fantasia, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
-                    <i class="input-group-append input-alert material-icons" id="alertNomeFan" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
-                </div>
-              </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-4" align="right">
+              <label class="std-font-grey-md" style="margin-top: 5px;">Meu CPF é</label>
             </div>
-            <div class="row align-items-center justify-content-center">
-              <div class="col-4" align="right">
-                <label class="std-font-grey-md" style="margin-top: 5px;">Razão Social</label>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :razao_social, :class => "form-control-edit form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
-                    <i class="input-group-append input-alert material-icons" id="alertRazSoc" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row align-items-center justify-content-center">
-              <div class="col-4" align="right">
-                <label class="std-font-grey-md" style="margin-top: 5px;">Com CNPJ</label>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <div class="input-group">
-                    <%= f.text_field :cnpj, :class => "form-control-edit form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
-                    <i class="input-group-append input-alert material-icons" id="alertCNPJ" data-toggle="tooltip"
-                      style="display:none">error</i>
-                  </div>
+            <div class="col-8">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :cpf, :class => "form-control-edit form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
+                  <i class="input-group-append input-alert material-icons" id="alertCPF" data-toggle="tooltip"
+                    style="display:none">error</i>
                 </div>
               </div>
             </div>
           </div>
-          <% end %>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-4" align="right">
+              <label class="std-font-grey-md" style="margin-top: 5px;">Documento Pessoal</label>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :documento, :class => "form-control-edit form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "50" %>
+                  <i class="input-group-append input-alert material-icons" id="alertDoc" data-toggle="tooltip"
+                    style="display:none">error</i>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :orgao_emissor, :class => "form-control-edit form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off"%>
+                  <i class="input-group-append input-alert material-icons" id="alertOrgEms" data-toggle="tooltip"
+                    style="display:none">error</i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-4" align="right">
+              <label class="std-font-grey-md" style="margin-top: 5px;">UF e Data de Emissão</label>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.select :estado_emissor, states, :class => "form-control"%>
+                  <i class="input-group-append input-alert material-icons" id="alertEstEms" data-toggle="tooltip"
+                    style="display:none">error</i>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.date_field :data_emissao, :class => "form-control"%>
+                  <i class="input-group-append input-alert material-icons" id="alertDatEms" data-toggle="tooltip"
+                    style="display:none">error</i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <% end %>
+        <!--Pessoa jurídica-->
+        <% if current_user.pf_pj == "PJ" %>
+        <div id="pj">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-4" align="right">
+              <label class="std-font-grey-md" style="margin-top: 5px;">Nome Fantasia</label>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :nome_fantasia, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
+                  <i class="input-group-append input-alert material-icons" id="alertNomeFan" data-toggle="tooltip"
+                    style="display:none">error</i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-4" align="right">
+              <label class="std-font-grey-md" style="margin-top: 5px;">Razão Social</label>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :razao_social, :class => "form-control-edit form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
+                  <i class="input-group-append input-alert material-icons" id="alertRazSoc" data-toggle="tooltip"
+                    style="display:none">error</i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-4" align="right">
+              <label class="std-font-grey-md" style="margin-top: 5px;">Com CNPJ</label>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :cnpj, :class => "form-control-edit form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
+                  <i class="input-group-append input-alert material-icons" id="alertCNPJ" data-toggle="tooltip"
+                    style="display:none">error</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
-
   <!--Editar cadastro endereço-->
-  <div id="bg-collapse2" class="container bg-light-yellow" style="max-width: 600px;">
+  <div id="bg-collapse2" class="container bg-light-yellow" style="max-width: 600px; margin-top: 20px;">
     <a class="std-font-grey-md"
       style="width: max-content; text-align: center; text-decoration: none; background-color: transparent;"
       data-toggle="collapse" href="#collapseExample_2" aria-expanded="false" aria-controls="collapseExample_2">
