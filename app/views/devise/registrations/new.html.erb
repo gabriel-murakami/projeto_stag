@@ -489,7 +489,6 @@
     }
     else {
       //Checa se CPF já existe
-      console.log(TestaCPF($('#user_cpf').val()));
       $.post('/checkcpf?cpf=' + $("#user_cpf").val(), function (data) {
         if (data) {
           $('#alertCPF').show();
@@ -842,7 +841,6 @@
     $('#btnCadastrar').click(function () {
       validateFields();
       if ($('i').is(":visible") == false && continuarClicked) {
-        console.log($("i:visible").length);
         $('#new_user').submit();
       }
       else {

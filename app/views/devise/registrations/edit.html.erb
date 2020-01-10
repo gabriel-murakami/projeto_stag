@@ -1,4 +1,5 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
 
 <label class="title-font-purple" style="padding:25px;">Aqui, você edita o seu cadastro ;)</label></br>
 <div class="card card-grey">
@@ -360,16 +361,27 @@
 </div>
 </div>
 
-<!--Botões atualizar e deletar-->
-<div class="actions container" style="max-width: 600px; margin-top: 75px;">
-  <div class="row ">
-    <div class="col justify-content-center">
-      <button type="button" id="btnDelete" class="btn btn-link red-link"> Deletar sua conta </button>
-    </div>
-    <div class="col justify-content-center">
-      <button class="std-btn" type="button" id="btnEdit"> Editar </button>
-    </div>
+<!--Confirmar senha atual e botão atualizar-->
+<div class="actions container edit-form">
+  <div class="row justify-content-center">
+    <p class="std-font-grey-md ">Confirme sua senha atual e salve as alterações</p>
   </div>
+  <div class="row justify-content-center">
+    <%= f.password_field :current_password, :class => "form-control form-control-edit", :style => "max-width: 250px", :placeholder => "Senha Atual", :dataid => "3", :autocomplete => "off"%><br />
+    <i class="input-group-append input-alert material-icons" id="alertCurrentPW" data-toggle="tooltip"
+      style="display:none">error</i>
+  </div>
+  <div class="row justify-content-center">
+    <!--<button class="std-btn" type="submit" method="Update" id="btnEdit" style="margin-top: 30px"> Salvar alterações </button>
+    <%= button_to "Salvar alterações", registration_path(resource_name), :type => "button", :class => "std-btn", :style => "margin-top: 30px" %>-->
+    <%= f.button "Salvar alterações", :id => "btn-edit", :class => "std-btn", :type => "button" %>
+  </div>
+</div>
+</div>
+
+<!--Deletar conta-->
+<div class="row d-flex justify-content-center" style="margin-top: 75px">
+  <button type="button" id="btnDelete" class="btn btn-link red-link"> Deletar sua conta </button>
 </div>
 
 <!--Modal erro-->
@@ -390,39 +402,6 @@
   </div>
 </div>
 
-<!--Modal de confirmação de alterações-->
-<div id="modalAtualizar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content" style="color: blueviolet;">
-      <div class="row">
-        <div class="col text-center">
-          <div class="modal-body">
-            <p class="modal-title std-font-grey">Digite sua senha atual e confirme as alterações</p>
-          </div>
-          <!--Confirmar Senha atual-->
-          <div class="row d-flex justify-content-center">
-              <div class="form-group">
-                <div class="input-group">
-                  <%= f.password_field :current_password, :id => "form-control form-control-yellow",:class => "form-control form-control-yellow", :style => "background: white", :placeholder => "Senha Atual", :dataid => "3", :autocomplete => "off"%><br />
-                  <i class="input-group-append input-alert material-icons" id="alertCurrentPW" data-toggle="tooltip"
-                    style="display:none">error</i>
-                </div>
-              </div>
-          </div>
-          <div class="actions container" style="margin-top: 20px">
-            <div class="row justify-content-center">
-              <button style="margin-right: 10px;" type="button" class="btn btn-danger" data-dismiss="modal"> Cancelar
-              </button>
-              <%= button_to "Confirmar", registration_path(resource_name), :id => "btnUpdate", :type => "button", :class => "btn btn-success", :style => "margin-left: 10px" %>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!--Modal de exclusão de usuários-->
 <div id="modalDeletar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
   <div class="modal-dialog modal-sm" role="document">
@@ -430,15 +409,13 @@
       <div class="row">
         <div class="col text-center">
           <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-              <span aria-hidden="true">&times;</span>
-            </button>
             <p class="modal-title std-font-grey">Você tem certeza que deseja excluir o usuário?</p>
           </div>
           <div class="actions container">
             <div class="row justify-content-center">
               <button style="margin-right: 2px;" type="button" class="btn btn-danger" data-dismiss="modal"> Não
               </button>
+              <!--<%= f.button "Sim", :id => "btn-delete-confirm", :class => "std-btn", :type => "button" %>-->
               <%= button_to "Sim", registration_path(resource_name), method: :delete, :class=> "btn btn-success", :style => "margin-left: 2px" %>
             </div>
           </div>
@@ -448,7 +425,55 @@
   </div>
 </div>
 
+<!--Mensagem de erro-->
+<div id="errorModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div id="errorModalBody" class="modal-body">
+            <button type="button" id="close-error" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey" id="errorAlert"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  //Click em editar
+  $('#btn-edit').click(function (e) {
+    e.preventDefault();
+
+    if ($('i').is(":visible")) {
+      $('#myModal').modal({ show: true });
+    }
+    else {  
+      if ($('#error_explanation').length >= 1) {
+        $('#errorModal').modal({ show: true });
+        var message_error = $('#error_explanation').find('li').text();
+        // if (message_error == "Current password can't be blank") {
+        //   message_error = "Confirme sua senha atual antes de salvar";
+        // }
+        // if (message_error == "Current password is invalid") {
+        //   message_error = "Senha atual inválida";
+        // }
+        $("#errorAlert").html(message_error);
+      }
+      else {
+        document.getElementById('edit_user').submit();  
+      }
+    }
+  });
+  
+  //Click em deletar
+  $("#btnDelete").click(function () {
+    $("#modalDeletar").modal({ show: true });
+  });
+
   //Altera cor do link do collapse
   var collapseOpen1 = false;
   var collapseOpen2 = false;
@@ -699,10 +724,6 @@
     }
   });
 
-  $("#btnDelete").click(function () {
-    $("#modalDeletar").modal({ show: true });
-  });
-
   //Validação de campos
   $(document).ready(function () {
     $('input').keyup(function () {
@@ -713,18 +734,6 @@
     });
     $('select').change(function () {
       validateFields();
-    });
-    //Click em editar
-    $('#btnEdit').click(function () {
-      if ($('i').is(":visible")) {
-        $('#myModal').modal({ show: true });
-      }
-      else {
-        $("#modalAtualizar").modal({ show: true });
-      }
-    });
-    //Click em atualizar
-    $('#btnUpdate').click(function () {
     });
 
     //Validações
@@ -751,17 +760,13 @@
     }
     //Checa campos vazios
     function checkBlank(field, alert) {
-      console.log("oi");
-      console.log(field.val());
       if (field.val().replace(/^\s+|\s+$/g, "").length == 0) {
-        console.log("ta em branco");
         alert.show();
         alert.tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
         alert.css({ 'color': '#a94342;' });
         field.attr('style', 'border-color: #A94342;');
       }
       else if (alert.is(":visible")) {
-        console.log("escondeu");
         alert.hide();
         field.attr('style', 'border-color: #586871;');
       }
@@ -831,5 +836,4 @@
   </p>
 <<<<<<< HEAD
 -->
-   <!-- <%= link_to "Cancelar", :back %> -->
-
+<!-- <%= link_to "Cancelar", :back %> -->
