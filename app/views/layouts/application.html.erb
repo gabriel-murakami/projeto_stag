@@ -36,9 +36,10 @@
 </head>
 
 <body class="std-bg" style="margin:0px">
-  <nav class="navbar std-bg-purple" style="height: 60px; position: fixed; top: 0; z-index: 1; width: 100%;">
+  <nav id="scorpion-navbar" class="navbar std-bg-purple"
+    style="height: 60px; position: fixed; top: 0; z-index: 1; width: 100%;">
     <% if user_signed_in? %>
-    <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px"%></a>
+    <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px;"%></a>
     <ul class="navbar-nav">
       <div class="row">
         <% if current_user.admin &&  request.fullpath != "/home/list" %>
@@ -122,6 +123,16 @@
     $('#modalEditSenha').modal({ show: true });
   </script>
   <% end %>
+
+  <% if request.fullpath == '/' or request.fullpath == '/home/yousefriends' or request.fullpath == '/home/sinistro' or request.fullpath == '/home/assistencias' %>
+  <script>
+    $(document).ready(function () {
+      $('#scorpion-navbar').removeClass('std-bg-purple').addClass('std-bg-white');
+      $('.nav-item').find('a').removeClass('std-link-white').attr('style', 'color: #623f99ff; background-color: transparent; font-size: 14px;');
+    })
+  </script>
+  <% end %>
+
   <!-- <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
   <% end %> -->
