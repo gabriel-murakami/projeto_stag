@@ -2,7 +2,7 @@
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
-<div style="margin-top: 40px;" class="container-fluid std-font-grey">
+<div align="center" style="margin-top: 40px; max-width: auto;" class="container-fluid std-font-grey">
     <table class="table table-striped table-borderless" id="minhaTabela">
         <thead>
             <tr>
@@ -42,23 +42,23 @@
             <% end %>
             <% end %>
         </tbody>
+        <form>
+            <div class="text-left" style="position: absolute; bottom: 30px; left: 20px;">
+                <a href="/" class="btn std-btn">
+                    <z style="color: white;">Voltar<z>
+                </a>
+            </div>
+            <div class="text-right" style="position: absolute; bottom: 30px; right: 20px;">
+                <button id="btn-export-excel" style="color: white;" class="btn std-btn" type="button">Excel</button>
+                <button id="btn-export-pdf" style="color: white;" class="btn std-btn" type="button">PDF</button>
+            </div>
+        </form>
     </table>
 </div>
-<form>
-    <div class="text-left" style="position: absolute; bottom: 30px; left: 20px;">
-        <a href="/" class="btn std-btn">
-            <z style="color: white;">Voltar<z>
-        </a>
-    </div>
-    <div class="text-right" style="position: absolute; bottom: 30px; right: 20px;">
-        <button id="btn-export-excel" style="color: white;" class="btn std-btn" type="button">Excel</button>
-        <button id="btn-export-pdf" style="color: white;" class="btn std-btn" type="button">PDF</button>
-    </div>
-</form>
 
 <script>
-    $(document).ready(function(){
-        $('*').ready(function(){
+    $(document).ready(function () {
+        $('*').ready(function () {
             $('div.dt-buttons').hide();
         })
     })
