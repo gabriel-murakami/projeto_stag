@@ -36,9 +36,10 @@
 </head>
 
 <body class="std-bg" style="margin:0px">
-  <nav class="navbar std-bg-purple" style="height: 60px; position: fixed; top: 0; z-index: 1; width: 100%;">
+  <nav id="scorpion-navbar" class="navbar std-bg-purple"
+    style="height: 60px; position: fixed; top: 0; z-index: 1; width: 100%;">
     <% if user_signed_in? %>
-    <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px"%></a>
+    <a style="background-color: transparent;" href="/"><%= image_tag "ScorpionLogo.png", :style => "width: 225px;"%></a>
     <ul class="navbar-nav">
       <div class="row">
         <% if current_user.admin &&  request.fullpath != "/home/list" %>
@@ -48,18 +49,17 @@
           </li>
         </div>
         <% end %>
-        <% if request.fullpath != "/users/edit" %>
-        <div class="col">
-          <li class="nav-item">
-            <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
-          </li>
-        </div>
-        <% end %>
-        <% if request.fullpath == "/users/edit" %>
+        <% if request.fullpath == "/users/edit" or request.fullpath == "/users" %>
         <div class="col">
             <li class="nav-item">
               <button id= "btnVoltar" class="btn btn-link std-link-white" type="link" style="background-color: transparent; color: white;" >Voltar
               </button>
+          </li>
+        </div>
+        <% else %>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
           </li>
         </div>
         <% end %>
@@ -117,11 +117,21 @@
       </div>
     </div>
   </div>
-  <% if notice == "Senha alterada com sucesso :)" or notice == "Novo Scorpion cadastrado com sucesso!"%>
+  <% if notice == "Senha alterada com sucesso :)" or notice == "Novo Scorpion cadastrado com sucesso!" or notice ==  "Sua conta foi atualizada com sucesso!" %>
   <script>
     $('#modalEditSenha').modal({ show: true });
   </script>
   <% end %>
+
+  <% if request.fullpath == '/' or request.fullpath == '/home/yousefriends' or request.fullpath == '/home/sinistro' or request.fullpath == '/home/assistencias' %>
+  <script>
+    $(document).ready(function () {
+      $('#scorpion-navbar').removeClass('std-bg-purple').addClass('std-bg-white');
+      $('.nav-item').find('a').removeClass('std-link-white').attr('style', 'color: #623f99ff; background-color: transparent; font-size: 14px;');
+    })
+  </script>
+  <% end %>
+
   <!-- <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
   <% end %> -->
