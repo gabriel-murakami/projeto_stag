@@ -1,0 +1,20 @@
+<div id="modalDeletar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body" style="margin-top:10px">
+            <p class="std-font-grey">Você tem certeza que deseja excluir o usuário?</p>
+          </div>
+          <div class="actions container" style="margin-top:10px">
+            <div class="row justify-content-center">
+              <button style="margin-right: 15px; width: 100px;" type="button" class="btn btn-danger" data-dismiss="modal"> Não
+              </button>
+              <%= button_to "Sim", registration_path(resource_name), method: :delete, :class=> "btn btn-success", :style => "margin-left: 15px; width: 100px" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

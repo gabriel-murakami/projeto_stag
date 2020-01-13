@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.7'
 #validação de documentos brasileiros
 gem 'brazilian_documents', '~> 0.1.4'
 
+#Gem para mailer
+gem 'dotenv-rails'
+
 #mascara para jquery
 gem 'jquery-mask-plugin'
 

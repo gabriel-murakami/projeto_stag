@@ -1,9 +1,10 @@
-class HomeController < ApplicationController
+class HomeController < ApplicationController    
+    
     def list
-        @users = User.all
-    end
-
-    def sucesso
-        @user = User.last()
+        if current_user.admin == true
+            @users = User.all
+        else
+            redirect_to root_path
+        end
     end
 end

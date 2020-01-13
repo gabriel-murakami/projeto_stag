@@ -18,4 +18,22 @@ class User < ApplicationRecord
   # validates :bairro, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }, length: { :maximum => 30 }
   # validates :cidade, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }, length: { :maximum => 30 }
   # validates :complemento, format: { :with => /[a-zA-Z\u00C0-\u00FF ]+/i }, length: { :maximum => 10 }
+
+  def self.searchEmail(email)
+    if email
+        where('email = ?',email).first
+    end
+  end
+
+  def self.searchCPF(cpf)
+    if cpf
+        where('cpf = ?',cpf).first
+    end
+  end
+
+  def self.searchCNPJ(cnpj)
+    if cnpj
+        where('cnpj = ?',cnpj).first
+    end
+  end
 end

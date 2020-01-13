@@ -1,8 +1,8 @@
 # SQLite. Versions 3.8.0 and up are supported.
-#   gem install postgresql
+# gem install postgresql
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'postgresql'
+# gem 'postgresql'
 #
 default: &default
   adapter: postgresql

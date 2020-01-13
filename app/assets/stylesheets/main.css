@@ -1,4 +1,5 @@
 /*Fontes padrão*/
+
 .title-font-purple{
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
@@ -31,82 +32,123 @@
 	color: #586871;
 	font-size: 20px;
 } 
+.std-font-yellow {
+	color: #f6af42ff;
+}
+.std-font-yellow-md {
+	color: #f6af42ff;
+	font-size: 18px;
+
+}
 /*Botões padrão*/
 .std-btn {
-	background-color:#f6af42ff;
-	border: none;
-	border-radius: 25px;
-	cursor:pointer;
-	color:#ffffff;
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	font-size:16px;
-	padding:12px 24px;
+  background-color: #f6af42ff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: #ffffff;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  font-size: 16px;
+  padding: 12px 24px;
 }
 .std-btn:hover {
-	background-color:#f7bd45ff;
+  background-color: #f7bd45ff;
 }
 .std-btn:focus {
-	border: none;
-	outline: none;
+  border: none;
+  outline: none;
 }
 /*Links padrões*/
 .std-link {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #586871;
-	text-decoration: underline;
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  text-decoration: underline;
 }
 .esp-link {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #586871;
+  text-decoration: underline;
+}
+.std-link:hover {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #f7bd45ff;
+  text-decoration: underline;
+}
+.esp-link:hover {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  background-color: transparent;
+  color: #f7bd45ff;
+  text-decoration: underline;
+}
+.std-link-purple {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #623f99ff;
+  text-decoration: underline;
+  font-size: 14px;
+}
+.std-link-white {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: white;
+  text-decoration: underline;
+  font-size: 14px;
+}
+.std-link-purple:hover {
+  background-color: transparent;
+}
+.red-link {
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
 	color: #586871;
 	text-decoration: underline;
 }
-.std-link:hover {
+.red-link:hover {
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
-	color: #f7bd45ff;
+	color: #a94342; 
 	text-decoration: underline;
-}
-.esp-link:hover {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	background-color: transparent;
-	color: #f7bd45ff;
-	text-decoration: underline;
-}
-.std-link-purple {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: #623f99ff;
-	text-decoration: underline;
-}
-.std-link-white {
-	/*font-family: FelbridgeProLight, sans-serif;*/
-	font-family: Futura;
-	color: white;
-	text-decoration: underline;
-	font-size: 14px;
-}
-.std-link-purple:hover {
-	background-color: transparent;
 }
 /*Textbox padrão*/
 .std-form-control {
-	background: #f7f7f7ff;
-	border-color: transparent;
-	border-radius: 0;
+  background: #f7f7f7ff;
+  border-color: transparent;
+  border-radius: 0;
 }
 input[type="text"]:focus,
 .std-form-control:focus {
-	background: #f7f7f7ff;
-	border-color: transparent;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+  background: #f7f7f7ff;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .form-control-yellow {
-	background: #f7f7f7ff;
+  background: #f7f7f7ff;
+  border-color: transparent;
+  color: #f6af42ff;
+  border-radius: 0;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #586871;
+}
+.form-control-yellow::placeholder {
+  color: #f6af42ff;
+}
+input[type="text"]:focus,
+.form-control-yellow:focus {
+  background: white;
+  border-color: #f6af42ff;
+  color: #f6af42ff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control-edit {
+	background: rgb(250, 241, 221);
 	border-color: transparent;
 	color: #f6af42ff;
 	border-radius: 0;
@@ -114,11 +156,11 @@ input[type="text"]:focus,
   	border-width: 0 0 1px;
 	border-color: #586871;
 }
-.form-control-yellow::placeholder {
+.form-control-edit::placeholder {
 	color: #f6af42ff
 }
 input[type="text"]:focus,
-.form-control-yellow:focus {
+.form-control-edit:focus {
 	background: white;
 	border-color: #f6af42ff;
 	color: #f6af42ff;
@@ -127,44 +169,149 @@ input[type="text"]:focus,
 }
 /*Backgrounds padrão*/
 .std-bg {
-	background-color:#f7f7f7ff;
+  background-color: #f7f7f7ff;
 }
 .std-bg-purple {
-	background-color: #623f99ff;
+  background-color: #8537b0;
+}
+.std-bg-white {
+  background-color: white;
 }
 /*Form de login*/
 .login-form {
-	width: 370px;
-	margin: 50px auto;
+  width: 370px;
+  margin: 50px auto;
 }
 .login-form form {
-	margin-bottom: 15px;
-	background: white;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	padding: 30px;
+  margin-bottom: 15px;
+  background: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
-
+.edit-form {
+	margin-top: 50px;
+	max-width: 600px;
+	padding: 20px;
+	border: solid;
+	border-width: 2px;
+	border-radius: 25px;
+	border-color: #f7d486;
+	background-color: rgb(250, 241, 221);
+}
 /* Form de Cadastro */
 .card-grey {
-	background-color: transparent;
-	border: none;
+  background-color: transparent;
+  border: none;
 }
-
 /* Input alerta */
 .input-alert {
-	color: #a94342; 
-	margin-top: 7px; 
-	margin-left: 3px
+  color: #a94342;
+  margin-top: 7px;
+  margin-left: 3px;
 }
 .icon-purple {
-	color: #623f99ff;
-	font-size: 30px;
-	margin-right: 20px;
+  color: #623f99ff;
+  font-size: 30px;
+  margin-right: 20px;
 }
-
 /* Tooltip padrão */
-.tooltip-inner{
-	color: white;
-	opacity: 0.75;
+.tooltip-inner {
+  color: white;
+  opacity: 0.75;
+}
+/* CSS Para Lista de Usuários */
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+	background-color: rgb(250, 241, 221);
+ }
+ .table-font-grey-md{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color:#3f3a3a;
+	font-size: 15px;
+ }
+
+.table-striped > tbody > tr:nth-child(2n + 1) > td,
+.table-striped > tbody > tr:nth-child(2n + 1) > th {
+  background-color: rgb(250, 241, 221);
 }
 
+.table-font-grey-md {
+  /*font-family: FelbridgeProLight, sans-serif;*/
+  font-family: Futura;
+  color: #3f3a3a;
+  font-size: 15px;
+}
+/* CSS para editar */
+.bg-light-yellow{
+	border: solid;
+	border-width: 2px;
+	border-radius: 25px;
+	border-color: #f7d486;
+	background-color: rgb(250, 241, 221);
+}
+.bg-light-yellow:hover{
+	border: solid;
+	border-width: 2px;
+	border-radius: 25px;
+	border-color: #f7d486;
+	background-color: #f7d486;
+}
+.bg-light-yellow-static{
+	border: solid;
+	border-width: 2px;
+	border-radius: 25px;
+	border-color: #f7d486;
+	background-color: rgb(250, 241, 221);
+}
+.current-password-input-error{
+	border-color: #a94342;
+}
+.current-password-input-error::placeholder {
+	color: #a94342;
+}
+/* Animista */
+.pulsate-fwd {
+  animation: pulsate-fwd 1s ease-in-out infinite both;
+}
+@keyframes pulsate-fwd {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.text-pop-up-top {
+  animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes text-pop-up-top {
+  0% {
+    transform: translateY(0);
+    transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    transform: translateY(-50px);
+    transform-origin: 50% 50%;
+    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc,
+      0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.text-shadow-pop-tl {
+	animation: text-shadow-pop-tl 0.6s both;
+}
+@keyframes text-shadow-pop-tl {
+	0% {
+	  text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+	  transform: translateX(0) translateY(0);
+	}
+	100% {
+	  text-shadow: -1px -1px #555555, -2px -2px #555555, -3px -3px #555555, -4px -4px #555555, -5px -5px #555555, -6px -6px #555555, -7px -7px #555555, -8px -8px #555555;
+	  transform: translateX(8px) translateY(8px);
+	}
+  }
