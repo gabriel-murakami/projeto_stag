@@ -46,23 +46,6 @@
 <% end %>
 <% end %>
 
-<div id="modalMudança" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content" style="color: blueviolet;">
-      <div class="row">
-        <div class="col text-center">
-          <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <p class="modal-title std-font-grey">Não houve alterações</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
   //Click em deletar
   $("#btnDelete").click(function () {
@@ -72,7 +55,7 @@
   $(document).ready(function () {
     if ($('#error_explanation').length >= 1) {
       $('#errorModal').modal({ show: true });
-      $('#current_password').attr('class', 'current-password-input-error form-control form-control-edit');
+      $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
     }
   });
 
@@ -210,12 +193,13 @@
               $("#user_estado").val(dados.uf);
               $('#alertCEP').hide();
               $('#user_cep').attr('style', 'border-color: #586871;');
+              $('#alertEst').hide();
+              $('#user_estado').attr('style', 'border-color: #586871;');
             }
             else {
               //CEP pesquisado não foi encontrado.
               limpa_formulário_cep();
               $('#alertCEP').show();
-
               if ($('#alertCEP').is(":visible"))
                 $('#alertCEP').attr('data-original-title', 'CEP não encontrado').tooltip();
               else
@@ -316,7 +300,7 @@
   $("#user_password").on('keyup', validatePasswordConf);
   $("#user_password_confirmation").on('keyup', validatePasswordConf);
 
-  //Vai para próximo text-field quando aperta Enter
+ //Vai para próximo text-field quando aperta Enter
   $('input').keypress(function (event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if (keycode == '13') {
@@ -354,7 +338,6 @@
         checkBlank($('#user_razao_social'), $('#alertRazSoc'));
         checkBlank($('#user_cnpj'), $('#alertCNPJ'));
       }
-
       checkBlank($('#user_logradouro'), $('#alertLogr'));
       checkBlank($('#user_numero'), $('#alertNum'));
       checkBlank($('#user_bairro'), $('#alertBair'));
