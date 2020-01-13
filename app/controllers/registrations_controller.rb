@@ -18,6 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
         respond_to do |format|
         format.json {render :json => @user.present?}
         end
+
     end
 
 end
