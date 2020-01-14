@@ -1,19 +1,75 @@
-<div class="row justify-content-center" style="font-family: Futura; color: #602F9F; margin-top: 40px;" align="center"> 
-    <div class="col">
-        <h1>Sinistro</h1>
+<div class="container-fluid"
+    style="background-image: url('/assets/carro_youse.jpg'); border-radius: 0 0 100px 100px; font-family: Futura; max-height: 700px; background-size: cover;">
+    <div id="texto1" style="display: none;" class="row">
+        <div id="text" style="margin-top: 120px; margin-bottom: 150px; margin-left: 240px;" class="col">
+            <h1 style="color: white; text-shadow: 3px 3px gray; font-size: 70px;">Bem-vindo ao</h1>
+            <h1 style="color: white; text-shadow: 3px 3px gray; font-size: 70px;">Sinistro</h1>
+            <br>
+            <h3 style="color: white; text-shadow: 3px 3px gray; font-size: 30px;">Sinistro é quando você</h3>
+            <h3 style="color: white; text-shadow: 3px 3px gray; font-size: 30px;">aciona uma cobertura ao seu</h3>
+            <h3 style="color: white; text-shadow: 3px 3px gray; font-size: 30px;">seguro. Bater seu carro, por</h3>
+            <h3 style="color: white; text-shadow: 3px 3px gray; font-size: 30px;">exemplo, te dá uma cobertura</h3>
+            <h3 style="color: white; text-shadow: 3px 3px gray; font-size: 30px;">de colisão.</h3>
+
+        </div>
+    </div>
+    <div class="row" align="center" style="position: relative; bottom: 100px;">
+        <div class="col">
+            <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+        </div>
+    </div>
+    <div class="row" align="center" style="position: relative; bottom: 100px;">
+        <div class="col">
+            <a href="#friends_content" style="text-decoration: none; background-color: transparent;"><i
+                    id="trigger_friends" href="#friends_content" class="material-icons pulsate-fwd"
+                    style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+        </div>
+    </div>
+</div></br></br></br></br>
+
+<div>
+    <h2 color="#2f3941" class="row justify-content-center">
+        Um Seguro Auto online fácil de contratar</h2>
+    <div spacing="[object Object]" class="col">
+        <p color="#535f68" class="row justify-content-center" ></p>
+        <h3 style="color: gray;  font-size: 20px;">Aqui, dá pra fazer tudo 100% online sempre que precisar.</h3>
+        <h3 style="color: gray;  font-size: 20px;">Você personaliza, contrata e aciona o seu seguro de carro direto pelo aplicativo</h3>
+        
+    </div>
+</div></br></br>
+
+<div spacing="[object Object]" class="View__StyledView-sc-1kmgy0v-0 khfKSb">
+    <div class="Grid__Container-sc-17lvs6z-0 bJjaWi">
+        <div class="Grid__ColumnsContainer-sc-17lvs6z-1 dbzrSy">
+            <div class="Grid__StyledColumn-sc-17lvs6z-2 bNWQkC">
+            </div>
+            <div size="6" class="Grid__StyledColumn-sc-17lvs6z-2 bMJFbl">
+                <div class="Card-sc-8uurdt-0 dPdDkk"></div>
+                <div class="Video__Wrapper-f2smtm-0 ezpZzP">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/qGXWbp6ebGg" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+                    picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div spacing="[object Object]" class="View__StyledView-sc-1kmgy0v-0 iVohcR">
+                <p class="Text__StyledText-f782i4-0 gjpiIV" color="#2f3941">
+                    <div id="123" style="margin-top: 120px; margin-bottom: 150px; margin-left: 240px;" class="col">
+                        <h1 style="color: white; text-shadow: 3px 3px gray; font-size: 30px;">Porque escolher o Seguro</h1>
+                        <h1 style="color: white; text-shadow: 3px 3px gray; font-size: 30px;">Auto da Youse?</h1>
+                        <br>
+                    
+                    </div>
+                </p>
+            </div>
+        </div>
+        <div class="Grid__StyledColumn-sc-17lvs6z-2 bNWQkC"></div>
     </div>
 </div>
-<div class="row justify-content-center" style="font-family: Futura;" align="center"> 
-    <div class="col">
-        <p>Algum conteúdo</p>
-    </div>
-</div>
-<div class="row justify-content-center" style="font-family: Futura; color: #602F9F;" align="center"> 
-    <div class="col">
-        <h1>Outros</h1>
-    </div>
-</div>
-<div id="produtos" style="font-family: Futura;" class="row justify-content-center" align="center">
+
+<!-- Sinistro -->
+<div id="friends_content" style="font-family: Futura; margin-top: 100px; display: none;"
+    class="row justify-content-center" align="center">
     <div class="col">
         <%= image_tag "guincho.png", :style => "width: 300px"%><br><br>
         <a href="/home/assistencias" class="btn std-btn">
@@ -21,9 +77,51 @@
         </a>
     </div>
     <div class="col">
-        <%= image_tag "friends.png", :style => "width: 300px"%><br><br>
-        <a href="/home/yousefriends" class="btn std-btn">
-            <z style="color: white;">Youse Friends<z>
+        <%= image_tag "sinistro.png", :style => "width: 300px"%><br><br>
+        <a href="/home/sinistro" class="btn std-btn">
+            <z style="color: white;">Sinistro<z>
         </a>
     </div>
 </div>
+
+<!-- Outros Serviços -->
+<div id="outros_servicos" style="display: none;">
+    <div id="outros_titulo" class="row justify-content-center"
+        style="font-family: Futura; color: #602F9F; margin-top: 100px;" align="center">
+        <div class="col">
+            <h1>Outros</h1>
+        </div>
+    </div>
+    <div id="produtos" style="font-family: Futura;" class="row justify-content-center" align="center">
+        <div class="col">
+            <%= image_tag "guincho.png", :style => "width: 300px"%><br><br>
+            <a href="/home/assistencias" class="btn std-btn">
+                <z style="color: white;">Assistências<z>
+            </a>
+        </div>
+        <div class="col">
+            <%= image_tag "sinistro.png", :style => "width: 300px"%><br><br>
+            <a href="/home/sinistro" class="btn std-btn">
+                <z style="color: white;">Sinistro<z>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#texto1').slideDown(1000);
+        $('#friends_car_img').slideDown(1000);
+        $('#trigger_friends').fadeIn(2000);
+        $('#saibamais').fadeIn(2000);
+        $('#trigger_friends[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            $('#friends_content').show();
+            $('#container_prod').attr('style', 'margin-top: 100px; margin-bottom: 120px;');
+            var id = $(this).attr('href'),
+                targetOffset = $(id).offset().top;
+            $('html, body').animate({
+                scrollTop: targetOffset - 100
+            }, 1000);
+        });
+    })
+</script>
