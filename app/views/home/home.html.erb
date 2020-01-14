@@ -62,19 +62,24 @@
 </script> -->
 
 <div class="container-fluid"
-    style="background: linear-gradient(#602F9F, rgb(158, 83, 187)); border-radius: 0 0 100px 100px; font-family: Futura;">
-    <div id="texto1" style="display: none;" class="row">
-        <div id="text" style="margin-top: 120px; margin-bottom: 140px; margin-left: 240px;" class="col">
+    style="min-width:900px; background: linear-gradient(#602F9F, rgb(158, 83, 187)); border-radius: 0 0 100px 100px; font-family: Futura;">
+    
+    <div id="texto1" style="display:none; padding-top: 100px" class="row content-margin justify-content-end">
+        <div class="col-md-6" style="padding-left: 100px;">
             <h1 style="color: #f6af42ff; text-shadow: 3px 3px gray; font-size: 65px;">Seguro Auto do</h1>
             <h1 style="color: #f6af42ff; text-shadow: 3px 3px gray; font-size: 65px;">seu jeito</h1>
             <br>
-            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">Seu carro seguro com a Youse pra curtir a</h5>
-            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">vida numa boa. Você personaliza as</h5>
-            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">coberturas e assistências do seu Seguro</h5>
-            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">Auto online e paga só pelo que escolhe.</h5>
+            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">Seu carro seguro com a Youse pra
+                curtir a</h5>
+            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">vida numa boa. Você personaliza as
+            </h5>
+            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">coberturas e assistências do seu
+                Seguro</h5>
+            <h5 style="color: white; text-shadow: 3px 3px gray; font-size: 25px;">Auto online e paga só pelo que
+                escolhe.</h5>
         </div>
-        <div id="fiestaimg" style="margin-top: 150px; margin-right: 150px; display: none;" class="col">
-            <%= image_tag "fiesta.png", :style => "width: 400px"%>
+        <div class="col-md-6" style="padding-top: 50px">
+            <%= image_tag "fiesta.png", :id => "img-responsive",:style => "width: 400px"%>
         </div>
     </div>
     <div class="row" align="center" style="position: relative; bottom: 10px;">
@@ -84,15 +89,18 @@
     </div>
     <div class="row" align="center" style="position: relative; bottom: 10px;">
         <div class="col">
-            <a href="#produtos" style="text-decoration: none; background-color: transparent;"><i id="triggerprod" href="#produtos" class="material-icons pulsate-fwd"
-                style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+            <a href="#produtos" style="text-decoration: none; background-color: transparent;"><i id="triggerprod"
+                    href="#produtos" class="material-icons pulsate-fwd"
+                    style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
         </div>
     </div>
 </div>
 <br>
-<div id="container_prod" style="margin-top: 0px; margin-bottom: 0px;" class="container-fluid"
+<div id="container_prod" style="min-width: 750px; margin-top: 0px; margin-bottom: 0px;" class="container-fluid"
     style="font-family: Futura;">
-    <div id="prodtitulo" class="row justify-content-center" style="display: none; font-family: Futura; padding-bottom: 100px; color: #602F9F;" align="center"> 
+    <div class="align-items-center justify-content-center content-margin">
+    <div id="prodtitulo" class="row justify-content-center"
+        style="display: none; font-family: Futura; padding-bottom: 100px; color: #602F9F;" align="center">
         <div class="col">
             <h1>Alguns Serviços</h1>
         </div>
@@ -118,6 +126,7 @@
         </div>
     </div>
 </div>
+</div>
 
 <% end %>
 <script>
@@ -126,7 +135,7 @@
         $('#fiestaimg').slideDown(1000);
         $('#triggerprod').fadeIn(2000);
         $('#saibamais').fadeIn(2000);
-    })
+    });
 
     $(document).ready(function () {
         $('#triggerprod[href^="#"]').on('click', function (e) {
@@ -141,5 +150,22 @@
                 scrollTop: targetOffset - 100
             }, 1000);
         });
-    })
+    });
+    //Responsividade
+    $(document).ready(function () {
+        if ($('#scorpion-navbar').width() < 1000) {
+            $('#img-responsive').hide();
+        }
+        else {
+            $('#img-responsive').show();
+        }
+    });
+    $(window).resize(function () {
+        if ($('#scorpion-navbar').width() < 1000) {
+            $('#img-responsive').hide();
+        }
+        else {
+            $('#img-responsive').show();
+        }
+    });
 </script>
