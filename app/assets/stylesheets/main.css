@@ -1,5 +1,9 @@
 /*Fontes padrão*/
 
+@media only screen and (max-device-width: 900px) {
+   /* .menu { width:100%; } */
+}
+
 .title-font-purple{
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
@@ -319,7 +323,6 @@ input[type="text"]:focus,
 	  transform: translateX(8px) translateY(8px);
 	}
   }
-
 /*Página de conteúdo*/
 .content-margin {
   margin-top: 0px;
