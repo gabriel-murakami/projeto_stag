@@ -5,9 +5,9 @@
     aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 
-<div class="container">
+<div class="container" >
   <!--Tela casdastro PF PJ-->
-  <div id="cadastro1" class="container" style="max-width: 750px; padding: 25px;">
+  <div id="cadastro1" class="container" style="max-width: 750px; min-width: 500px; padding: 25px;">
     <label class="title-font-purple">Conte um pouco sobre vc ;)</label></br>
     <div class="card card-grey">
       <div class="card-body">
@@ -166,7 +166,7 @@
 </div>
 
 <!--Tela cadastro endereço-->
-<div id="cadastro2" class="container" style="max-width: 750px; padding: 25px" hidden>
+<div id="cadastro2" class="container" style="max-width: 750px; min-width: 500px; padding: 25px" hidden>
   <label class="title-font-purple">Fale sobre o seu endereço</label></br>
   <div class="card card-grey">
     <div class="card-body">
@@ -269,7 +269,7 @@
 </div>
 </br>
 <!-- cadastro do e-mail e senha -->
-<div id="cadastro3" class="container cad-form" style="width: max-content;" hidden>
+<div id="cadastro3" class="container cad-form" style="width: max-content; min-width: 500px;" hidden>
   <label class="title-font-purple">Vamos manter sua conta segura</label></br>
   <div class="card card-grey">
     <div class="card-body">
@@ -471,10 +471,6 @@
       strCPF == "99999999999" )
     return false;
 
-    //CPF Admin
-    if (strCPF == "12312312312")
-    return true;
-
     for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
 
@@ -551,10 +547,6 @@
       cnpj == "88888888888888" ||
       cnpj == "99999999999999")
       return false;
-
-    //CNPJ Admin
-    if (cnpj == "12312312312312")
-      return true;
 
     // Valida DVs
     tamanho = cnpj.length - 2

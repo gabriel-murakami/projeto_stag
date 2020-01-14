@@ -2,6 +2,7 @@
 
 <%= render "devise/shared/error_messages", resource: resource %>
 
+<div style="min-width: 400px">
 <label class="title-font-purple" style="padding:25px; margin-bottom: 25px;">Aqui, você edita o seu cadastro ;)</label>
 
 <!--Editar dados pessoais-->
@@ -17,6 +18,7 @@
 
 <!--Deletar conta-->
 <%= render 'delete_account' %>
+</div>
 
 <!--Modal erro-->
 <%= render 'error_modal' %>
@@ -33,15 +35,15 @@
     count: resource.errors.count,
     resource: resource.class.model_name.human.downcase) %>
   </h2>
-    <% resource.errors.full_messages.each do |message| %>
-    <p class="std-font-grey">
-      <% if message == "Current password is invalid"%>
-      Senha atual é inválida
-      <% elsif message == "Current password can't be blank"%>
-      Senha atual não pode estar em branco
-      <% end %>
-    </p>
+  <% resource.errors.full_messages.each do |message| %>
+  <p class="std-font-grey">
+    <% if message == "Current password is invalid"%>
+    Senha atual é inválida
+    <% elsif message == "Current password can't be blank"%>
+    Senha atual não pode estar em branco
     <% end %>
+  </p>
+  <% end %>
 </div>
 <% end %>
 <% end %>
@@ -51,11 +53,30 @@
   $("#btnDelete").click(function () {
     $("#modalDeletar").modal({ show: true });
   });
-  //Error modal
+  /*Error modal
   $(document).ready(function () {
-    if ($('#error_explanation').length >= 1) {
-      $('#errorModal').modal({ show: true });
-      $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+    if ($('i').is(":visible") == false) {
+      if ($('#error_explanation').length >= 1) {
+        $('#errorModal').modal({ show: true });
+        $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+      }
+    }
+    else {
+      console.log("oi");
+      $('#myModal').modal({ show: true });
+    }
+  });*/
+
+  $('#btn-salvar').click(function () {
+    //validateFields();
+    if ($('i').is(":visible") == false) {
+      if ($('#error_explanation').length >= 1) {
+        $('#errorModal').modal({ show: true });
+        $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+      }
+    }
+    else {
+      $('#myModal').modal({ show: true });
     }
   });
 
@@ -232,7 +253,7 @@
     var emailRegex = new RegExp('^.+@gmail.com$');
     return (email !== '' && emailRegex.test(email));
   }
-      
+
   //Valida e-mail
   function validateEmail() {
     if (emailIsGmail() == false) {
@@ -300,7 +321,7 @@
   $("#user_password").on('keyup', validatePasswordConf);
   $("#user_password_confirmation").on('keyup', validatePasswordConf);
 
- //Vai para próximo text-field quando aperta Enter
+  //Vai para próximo text-field quando aperta Enter
   $('input').keypress(function (event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if (keycode == '13') {
