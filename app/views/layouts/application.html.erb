@@ -6,11 +6,9 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <!-- Links e Scripts para o Bootstrap e JQuery -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -21,6 +19,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
     integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
 
+  <!-- Link para o Material Design do Google -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <!-- Scripts e Links do DataTables -->
   <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
@@ -30,11 +31,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
+<!-- Navbar da Aplicação -->
 <body class="std-bg" style="margin:0px">
   <nav id="scorpion-navbar" class="navbar std-navbar"
     style="height: 60px; position: fixed; top: 0; z-index: 1; width: 100%;">
@@ -134,6 +137,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Verifica os alertas para carregar o modal de sucesso somente para mensagens específicas -->
   <% if notice == "Senha alterada com sucesso :)" or notice == "Novo Scorpion cadastrado com sucesso!" or notice ==  "Sua conta foi atualizada com sucesso!" %>
   <script>
     $('#modalEditSenha').modal({ show: true });
@@ -141,6 +146,7 @@
   <% end %>
 
 
+  <!-- Altera a cor da Navbar para as páginas de conteúdo -->
   <% if request.fullpath == '/' or request.fullpath == '/home/yousefriends' or request.fullpath == '/home/sinistro' or request.fullpath == '/home/assistencias' %>
   <script>
     $(document).ready(function () {
@@ -151,10 +157,6 @@
     });
   </script>
   <% end %>
-
-  <!-- <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-  <% end %> -->
 
   <%= yield %>
 
@@ -182,6 +184,7 @@
       </div>
     </div>
   </div>
+  
   <script>
     $('#btnVoltar').click(function () {
       $('#modalVoltar').modal({ show: true });

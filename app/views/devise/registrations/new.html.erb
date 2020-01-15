@@ -445,9 +445,12 @@
     today = yyyy + '-' + mm + '-' + dd;
     $("#user_data_emissao").attr("max", today);
   });
+  
+  //Transforma todos os selects em form-control
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
+  
   //Verifica validade quando CPF e CNPJ são alterados
   $(document).ready(function () {
     $('#user_cpf').keyup(function () {
