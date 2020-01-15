@@ -143,6 +143,7 @@ input[type="text"]:focus,
 .form-control-yellow::placeholder {
   color: #f6af42ff;
 }
+
 input[type="text"]:focus,
 .form-control-yellow:focus {
   background: white;
