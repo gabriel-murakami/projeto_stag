@@ -54,14 +54,29 @@
           </li>
         </div>
         <% end %>
-        <% if request.fullpath == "/users/edit" or request.fullpath == "/users" %>
+        <% if request.fullpath == "/users/edit" or request.fullpath == "/users" or request.fullpath == "/home/list" %>
+        <% if request.fullpath == "/home/list" %>
         <div class="col">
           <li class="nav-item">
-            <button id="btnVoltar" class="btn btn-link std-link-white" type="link"
+            <a href="/" class="btn btn-link std-link-white" type="link"
               style="background-color: transparent; color: white;">Voltar
-            </button>
+            </a>
           </li>
         </div>
+        <div class="col">
+          <li class="nav-item">
+            <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
+          </li>
+        </div>
+        <% else %>
+        <div class="col">
+        <li class="nav-item">
+          <button id="btnVoltar" class="btn btn-link std-link-white" type="link"
+            style="background-color: transparent; color: white;">Voltar
+          </button>
+        </li>
+      </div>
+        <% end %>
         <% else %>
         <div class="col">
           <li class="nav-item">

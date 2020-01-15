@@ -47,6 +47,12 @@
 
 <script>
 
+  $('body').keypress(function(e){
+    if(e.which == 13){
+      $('#btn-intermed').trigger('click');
+    }
+  });
+
   $(document).ready(function () {
 
     //Se houver erros na tela, é mostrado o modal "Há campos com erro"
@@ -59,25 +65,19 @@
         $('#myModal').modal({ show: true });
       }
     })
-  })
+  });
 
   //Click em deletar
   $("#btnDelete").click(function () {
     $("#modalDeletar").modal({ show: true });
   });
-  /*Error modal
+  //Error modal
   $(document).ready(function () {
-    if ($('i').is(":visible") == false) {
-      if ($('#error_explanation').length >= 1) {
-        $('#errorModal').modal({ show: true });
-        $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
-      }
+    if ($('#error_explanation').length >= 1) {
+      $('#errorModal').modal({ show: true });
+      $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
     }
-    else {
-      console.log("oi");
-      $('#myModal').modal({ show: true });
-    }
-  });*/
+  });
 
   $('#btn-salvar').click(function () {
     //validateFields();
@@ -168,6 +168,12 @@
     });
     $("#user_sobrenome").on("input", function () {
       var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀ ÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
+    });
+    $("#user_orgao_emissor").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/;
       if (this.value.match(regexp)) {
         $(this).val(this.value.replace(regexp, ''));
       }
