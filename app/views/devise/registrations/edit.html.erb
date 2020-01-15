@@ -2,7 +2,7 @@
 
 <%= render "devise/shared/error_messages", resource: resource %>
 
-
+<div style="min-width: 400px">
 <label class="title-font-purple" style="padding:25px; margin-bottom: 25px;">Aqui, você edita o seu cadastro ;)</label>
 
 <!--Editar dados pessoais-->
@@ -19,6 +19,7 @@
 
 <!--Deletar conta-->
 <%= render 'delete_account' %>
+</div>
 
 
 <!--Modal erro-->
@@ -64,11 +65,30 @@
   $("#btnDelete").click(function () {
     $("#modalDeletar").modal({ show: true });
   });
-  //Error modal
+  /*Error modal
   $(document).ready(function () {
-    if ($('#error_explanation').length >= 1) {
-      $('#errorModal').modal({ show: true });
-      $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+    if ($('i').is(":visible") == false) {
+      if ($('#error_explanation').length >= 1) {
+        $('#errorModal').modal({ show: true });
+        $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+      }
+    }
+    else {
+      console.log("oi");
+      $('#myModal').modal({ show: true });
+    }
+  });*/
+
+  $('#btn-salvar').click(function () {
+    //validateFields();
+    if ($('i').is(":visible") == false) {
+      if ($('#error_explanation').length >= 1) {
+        $('#errorModal').modal({ show: true });
+        $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+      }
+    }
+    else {
+      $('#myModal').modal({ show: true });
     }
   });
 
