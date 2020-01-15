@@ -287,7 +287,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <%= f.email_field :email, :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
+              <%= f.email_field :email, :class => "validate-class form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
               <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -303,7 +303,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <input maxlength="50" id="email_confirmation" class="form-control-yellow form-control"
+              <input maxlength="50" id="email_confirmation" class="validate-class form-control-yellow form-control"
                 placeholder="exemplo@gmail.com" type="email_field" dataid="2" autocomplete="off">
               <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
                 style="display:none">error</i>
@@ -319,7 +319,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <%= f.password_field :password, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "off"%><br />
+              <%= f.password_field :password, :class => "validate-class form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "off"%><br />
               <i class="input-group-append input-alert material-icons" id="alertPW" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -334,7 +334,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "off"%><br />
+              <%= f.password_field :password_confirmation, :class => "validate-class form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "off"%><br />
               <i class="input-group-append input-alert material-icons" id="alertPWConf" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -687,23 +687,30 @@
 
   //Verifica se a os campos de e-mail estão iguais
   function emailMatch() {
-    return $("#email_confirmation").val() === $("#user_email").val();
+    return $("#email_confirmation").val() == $("#user_email").val();
   }
   //Verifica os campos de senha
   function passwordMatch() {
-    return $("#user_password").val() === $("#user_password_confirmation").val();
+    return $("#user_password").val() == $("#user_password_confirmation").val();
   }
 
   function emailIsGmail() {
     var email = $('#user_email').val();
 
     var emailRegex = new RegExp('^.+@gmail.com$');
-    return (email !== '' && emailRegex.test(email));
+    return (email != '' && emailRegex.test(email));
   }
 
   //Valida e-mail
   function validateEmail() {
-    if (emailIsGmail() == false) {
+    if ($('#user_email').val().replace(/^\s+|\s+$/g, "").length == 0)
+    {
+      if ($('#alertEmail').is(":visible"))
+        $('#alertEmail').attr('data-original-title', 'Campo em branco').tooltip();
+      else
+        $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+    }
+    else if (emailIsGmail() == false) {
       $('#alertEmail').show();
       if ($('#alertEmail').is(":visible"))
         $('#alertEmail').attr('data-original-title', 'O email deve ser gmail').tooltip();
@@ -720,9 +727,10 @@
           else
             $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Este e-mail está em uso' });
         }
-        else
+        else {
           $('#alertEmail').hide();
           $('#user_email').attr('style', 'border-color: #586871;');
+        }
       });
     }
   }
@@ -742,10 +750,12 @@
   function validatePassword() {
     if ($('#user_password').val().replace(/^\s+|\s+$/g, "").length == 0) {
       $('#alertPW').show();
-      $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
-      $('#user_password').attr('style', 'border-color: #A94342;');
+      if ($('#alertPW').is(":visible"))
+        $('#alertPW').attr('data-original-title', 'Campo em branco').tooltip();
+      else
+        $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
     }
-    else if ($("#user_password").val().length < 6) {
+    else if ($("#user_password").val().length < 6 && $("#user_password").val().length > 0) {
       $('#alertPW').show();
       if ($('#alertPW').is(":visible"))
         $('#alertPW').attr('data-original-title', 'Senha muito curta').tooltip();
@@ -774,9 +784,11 @@
   $('#user_email').on('keyup', validateEmail);
   $('#user_email').on('keyup', validateEmailConf);
   $("#email_confirmation").on('keyup', validateEmailConf);
+  $("#email_confirmation").on('keyup', validateEmail);
   $("#user_password").on('keyup', validatePassword);
   $("#user_password").on('keyup', validatePasswordConf);
   $("#user_password_confirmation").on('keyup', validatePasswordConf);
+  $("#user_password_confirmation").on('keyup', validatePassword);
 
   //Vai para próximo text-field quando aperta Enter
   // $('input').keypress(function (event) {
@@ -808,22 +820,17 @@
         validateFields();
     });
 
-    //Página PF PJ
-
-    $('body').keypress(function(e){
-      if(e.which == 13){
-          if($('#cadastro1').is(':visible')){
-            $('#btnNext1').trigger('click');
-          }
-          else if($('#cadastro2').is(':visible')){
-            $('#btnNext2').trigger('click');
-          }
-          else if($('#cadastro3').is(':visible')){
-            $('#btnCadastrar').trigger('click');
-          }
-       }
+    $('.validate-class').keyup(function () {
+      if (continuarClicked)
+      {
+        validateEmail();
+        validateEmailConf();
+        validatePassword();
+        validatePasswordConf();
+      }
     });
 
+    //Página PF PJ
     $('#btnNext1').click(function () {
       validateFields();
 
@@ -875,6 +882,7 @@
     });
 
     $('#btnCadastrar').click(function () {
+      validateEmail();
       validateFields();
       if ($('i').is(":visible") == false && continuarClicked) {
         $('#new_user').submit();
@@ -913,11 +921,6 @@
         checkBlank($('#user_bairro'), $('#alertBair'));
         checkBlank($('#user_cidade'), $('#alertCid'));
         checkBlank($('#user_estado'), $('#alertEst'));
-      }
-      //Página E-mail e senha
-      else if($('#cadastro3').is(":visible")) {
-        checkBlank($('#user_email'), $('#alertEmail'));
-        checkBlank($('#user_password'), $('#alertPW'));
       }
     }
     //Checa campos vazios

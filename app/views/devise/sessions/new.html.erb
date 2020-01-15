@@ -6,9 +6,7 @@
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
     <div class="input-group">
-
-      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com", :maxlength => "50"%>
-
+      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :maxlength => "50"%>
       <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
         style="display: none;">error</i>
     </div>
@@ -124,7 +122,7 @@
   })
 
   $(document).ready(function () {
-    $('#user_email').change(function () {
+    $('#user_email').keyup(function () {
       var email = $(this).val();
       var emailRegex = new RegExp('^.+@gmail.com$');
       var emailRegex2 = new RegExp('^.+@+$');
@@ -141,8 +139,8 @@
 
   // Validação do campo de senha caso esteja vazio 
   $(document).ready(function () {
-    $('#btn-entrar').click(function (e) {
-      if ($('#user_email').val() != "" && $('#user_email').val() == "") {
+    $('#btn-entrar').click(function () {
+      if ($('#user_email').val() != "" && $('#user_password').val() == "") {
         $('#modalSenha').modal({
           show: true
         })
@@ -168,9 +166,9 @@
   })
 
   //Logar Apertando Enter
-  $('#new_user').keypress(function(e){
+  $('*').keypress(function(e){
       if(e.which == 13){
-           $(this).closest('form').submit();
+           $('#btn-entrar').trigger('click');
        }
   });
 </script>

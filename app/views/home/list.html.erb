@@ -1,7 +1,7 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
-<div class="table-responsive-md" style="margin-top: 80px;">
-    <table class="table table-striped table-borderless" id="minhaTabela">
-
+<div class="container-fluid" style="margin-top: 30px; min-width: 700px;">
+    <table style="width: 100%;" class="table table-striped table-borderless" id="minhaTabela">
         <thead>
             <tr>
                 <th hidden scope="col">ID</th>
@@ -123,6 +123,7 @@
         // $('#minhaTabela_info').hide();
         $("[aria-label]").css("color", "purple");
         $("td").addClass("table-font-grey-md");
+
         $('#minhaTabela_previous').hide();
         $('#minhaTabela_next').hide();
     })
