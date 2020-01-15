@@ -154,7 +154,7 @@ input[type="text"]:focus,
 }
 .form-control-edit {
 	background: rgb(250, 241, 221);
-	border-color: transparent;`
+	border-color: transparent;
 	color: #f6af42ff;
 	border-radius: 0;
 	outline: 0;
