@@ -36,7 +36,7 @@
   <% end %>
 </div>
 
-<!-- Modais de  -->
+<!-- Modais de Erros -->
 <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content" style="color: blueviolet;">
@@ -72,6 +72,7 @@
 
 <script>
 
+  // Verfica se existem erros na tela, senão submete o formulário
   $(document).ready(function () {
     $('#btn-alterar').click(function () {
       if ($('i').is(":visible") == true) {
@@ -86,7 +87,7 @@
     });
   })
 
-
+  // Apaga os campos password e password_confirmation
   $(document).ready(function () {
     $('#clear').click(function () {
       $('#user_password_confirmation').val('');
@@ -94,6 +95,7 @@
     })
   })
 
+  //Verifica se os campos password e passwrod_confirmation são iguais
   $(document).ready(function () {
     $('#user_password_confirmation').keyup(function () {
       var confirmacao = $(this).val();
@@ -108,6 +110,7 @@
     })
   })
 
+  //Verifica tamanho do campo password
   $(document).ready(function () {
     $('#user_password').keyup(function () {
       var senha = $(this).val();

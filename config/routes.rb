@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations", passwords: "passwords" }
 
+  # Define as rotas do HomeController
   scope "/home" do
     get "/list", to: "home#list"
     get "/assistencias", to: "home#assistencias"
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
     get "/yousefriends", to: "home#yousefriends"
   end
 
+  # Definie as rotas dos validadores em tempo real de email, cpf e cnpj
   devise_scope :user do
     post '/checkemail', to: 'registrations#emailcheck'
     post '/checkcpf', to: 'registrations#cpfcheck'
