@@ -1,71 +1,78 @@
-<div style="min-width: 500px">
-<div class="container-fluid justify-content-center"
-    style="background: linear-gradient(#602F9F, rgb(158, 83, 187)); border-radius: 0 0 100px 100px; font-family: Futura;">
-    <div id="texto1" style="display:none; padding-top: 100px" class="row">
-        <div class="col-lg-6" align="center">
-            <h1 style="color: #f6af42ff; font-size: 65px;">Seguro Auto do</h1>
-            <h1 style="color: #f6af42ff; font-size: 65px;">seu jeito</h1>
-            <br>
-            <h5 style="color: white; font-size: 25px;">Seu carro seguro com a Youse pra
-                curtir a</h5>
-            <h5 style="color: white; font-size: 25px;">vida numa boa. Você personaliza as
-            </h5>
-            <h5 style="color: white; font-size: 25px;">coberturas e assistências do seu
-                Seguro</h5>
-            <h5 style="color: white; font-size: 25px;">Auto online e paga só pelo que
-                escolhe.</h5>
+<div style="min-width: 750px">
+    <div class="container-fluid"
+        style="background: linear-gradient(#602F9F, rgb(158, 83, 187)); max-height: 725px; border-radius: 0 0 100px 100px; font-family: Futura;">
+        <div id="texto1" style="display:none; padding-top: 100px" class="row">
+            <div class="col-lg-6" style="margin-bottom: 150px" align="center">
+                <h1 style="color: #f6af42ff; font-size: 65px;">Seguro Auto do</h1>
+                <h1 style="color: #f6af42ff; font-size: 65px;">seu jeito</h1>
+                <br>
+                <h5 style="color: white; font-size: 25px;">Seu carro seguro com a Youse pra
+                    curtir a</h5>
+                <h5 style="color: white; font-size: 25px;">vida numa boa. Você personaliza as
+                </h5>
+                <h5 style="color: white; font-size: 25px;">coberturas e assistências do seu
+                    Seguro</h5>
+                <h5 style="color: white; font-size: 25px;">Auto online e paga só pelo que
+                    escolhe.</h5>
+            </div>
+            <div class="col-lg-6" align="center" style="padding-top: 50px; padding-bottom: 100px;">
+                <%= image_tag "fiesta.png", :id => "img-responsive",:style => "width: 400px"%>
+            </div>
         </div>
-        <div class="col-lg-6" align="center" style="padding-top: 50px; padding-bottom: 100px;">
-            <%= image_tag "fiesta.png", :id => "img-responsive",:style => "width: 400px"%>
+        <div style="margin-bottom: 75px;">
+            <div class="row" align="center" style="position: relative; bottom: 10px;">
+                <div class="col">
+                    <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+                </div>
+            </div>
+            <div class="row" align="center" style="position: relative; bottom: 10px;">
+                <div class="col">
+                    <a href="#produtos" style="text-decoration: none; background-color: transparent;"><i
+                            id="triggerprod" href="#produtos" class="material-icons pulsate-fwd"
+                            style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row" align="center" style="position: relative; bottom: 10px;">
-        <div class="col">
-            <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
-        </div>
-    </div>
-    <div class="row" align="center" style="position: relative; bottom: 10px;">
-        <div class="col">
-            <a href="#produtos" style="text-decoration: none; background-color: transparent;"><i id="triggerprod"
-                    href="#produtos" class="material-icons pulsate-fwd"
-                    style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+    <br>
+    <div id="container_prod" style="min-width: 900px;" class="container-fluid" style="font-family: Futura;">
+        <div class="align-items-center">
+            <div id="prodtitulo" class="row justify-content-center"
+                style="display: none; font-family: Futura; color: #602F9F;" align="center">
+                <div class="col">
+                    <h1>Alguns Serviços</h1>
+                </div>
+            </div>
+            <div id="produtos" style="display: none; font-family: Futura;" class="row justify-content-center"
+                align="center">
+                <div class="col-lg-4">
+                    <%= image_tag "guincho.png", :style => "width: 300px; padding: 20px"%><br><br>
+                    <a href="/home/assistencias" class="btn std-btn">
+                        <z style="color: white;">Assistências<z>
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <%= image_tag "sinistro.png", :style => "width: 300px; padding: 20px"%><br><br>
+                    <a href="/home/sinistro" class="btn std-btn">
+                        <z style="color: white;">Sinistro<z>
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <%= image_tag "friends.png", :style => "width: 300px; padding: 20px"%><br><br>
+                    <a href="/home/yousefriends" class="btn std-btn">
+                        <z style="color: white;">Youse Friends<z>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<br>
-<div id="container_prod" style="min-width: 900px;" class="container-fluid"
-    style="font-family: Futura;">
-    <div class="align-items-center">
-    <div id="prodtitulo" class="row justify-content-center"
-        style="display: none; font-family: Futura; color: #602F9F;" align="center">
-        <div class="col">
-            <h1>Alguns Serviços</h1>
-        </div>
-    </div>
-    <div id="produtos" style="display: none; font-family: Futura;" class="row justify-content-center" align="center">
-        <div class="col-lg-4">
-            <%= image_tag "guincho.png", :style => "width: 300px; padding: 20px"%><br><br>
-            <a href="/home/assistencias" class="btn std-btn">
-                <z style="color: white;">Assistências<z>
-            </a>
-        </div>
-        <div class="col-lg-4">
-            <%= image_tag "sinistro.png", :style => "width: 300px; padding: 20px"%><br><br>
-            <a href="/home/sinistro" class="btn std-btn">
-                <z style="color: white;">Sinistro<z>
-            </a>
-        </div>
-        <div class="col-lg-4">
-            <%= image_tag "friends.png", :style => "width: 300px; padding: 20px"%><br><br>
-            <a href="/home/yousefriends" class="btn std-btn">
-                <z style="color: white;">Youse Friends<z>
-            </a>
-        </div>
+<div id="scorpion_footer" style="font-family: Futura; display: none; background-color: #EFEFEF;" class="row"
+    align="center">
+    <div class="col" align="center" style="margin-top: 10px; margin-bottom: 10px;">
+        <h3 style="color: gray; font-size: 20px;"><b>Scorpion App</b></h3>
     </div>
 </div>
-</div>
-</div>
-
 <script>
     $(document).ready(function () {
         $('#texto1').slideDown(1000);
@@ -79,7 +86,8 @@
             e.preventDefault();
             $('#produtos').show();
             $('#prodtitulo').show();
-            $('#container_prod').attr('style', 'margin-top: 100px; margin-bottom: 120px;');
+            $('#scorpion_footer').show();
+            $('#container_prod').attr('style', 'margin-bottom: 120px;');
             var id = $(this).attr('href'),
                 targetOffset = $(id).offset().top;
 
