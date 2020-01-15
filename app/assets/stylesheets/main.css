@@ -172,7 +172,11 @@ input[type="text"]:focus,
   background-color: #f7f7f7ff;
 }
 .std-bg-purple {
-  background-color: #8537b0;
+  background-color: #623f99ff;
+}
+.std-navbar {
+  background-color: #623f99ff;
+  box-shadow: 0 0 15px 0.5px;
 }
 .std-bg-white {
   background-color: white;
@@ -315,5 +319,11 @@ input[type="text"]:focus,
 	  transform: translateX(8px) translateY(8px);
 	}
   }
-
-
+/*Página de conteúdo*/
+.content-margin {
+  margin-top: 0px;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-bottom: 150px;
+  min-width: 750px;
+}
