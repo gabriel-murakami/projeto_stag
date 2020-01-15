@@ -43,6 +43,5 @@ class ScorpValidator < ActiveModel::Validator
             record.estado_emissor = ""
             record.data_emissao = "0000-00-00"
         end
-        
     end
 end

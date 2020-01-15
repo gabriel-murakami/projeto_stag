@@ -5,9 +5,9 @@
     aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 
-<div class="container">
+<div class="container" >
   <!--Tela casdastro PF PJ-->
-  <div id="cadastro1" class="container" style="max-width: 750px; padding: 25px;">
+  <div id="cadastro1" class="container" style="max-width: 750px; min-width: 500px; padding: 25px;">
     <label class="title-font-purple">Conte um pouco sobre vc ;)</label></br>
     <div class="card card-grey">
       <div class="card-body">
@@ -30,7 +30,8 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50" %>
+                  <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50"%>
+                
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -165,7 +166,7 @@
 </div>
 
 <!--Tela cadastro endereço-->
-<div id="cadastro2" class="container" style="max-width: 750px; padding: 25px" hidden>
+<div id="cadastro2" class="container" style="max-width: 750px; min-width: 500px; padding: 25px" hidden>
   <label class="title-font-purple">Fale sobre o seu endereço</label></br>
   <div class="card card-grey">
     <div class="card-body">
@@ -268,7 +269,7 @@
 </div>
 </br>
 <!-- cadastro do e-mail e senha -->
-<div id="cadastro3" class="container cad-form" style="width: max-content;" hidden>
+<div id="cadastro3" class="container cad-form" style="width: max-content; min-width: 500px;" hidden>
   <label class="title-font-purple">Vamos manter sua conta segura</label></br>
   <div class="card card-grey">
     <div class="card-body">
@@ -302,8 +303,8 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <input maxlength="50" id="email_confirmation" class="form-control-yellow form-control" placeholder="exemplo@gmail.com"
-                type="email_field" dataid = "2">
+              <input maxlength="50" id="email_confirmation" class="form-control-yellow form-control"
+                placeholder="exemplo@gmail.com" type="email_field" dataid="2" autocomplete="off">
               <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -349,11 +350,9 @@
           </div>
           <div class="col">
             <button class="std-btn" id="btnCadastrar" type="button"> Cadastrar </button>
-            <!-- <%= f.submit "Cadastrar", :class => "std-btn"%> -->
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -403,6 +402,28 @@
     });
   })
 
+  //Troca entre o Form de PF e PJ
+  $(document).ready(function () {
+    $('#user_pf_pj').change(function () {
+      if ($('#user_pf_pj option:selected').val() == 'PF') {
+        $('#pj').hide();
+        $('#pf').show();
+        $('#user_nome_fantasia').val('');
+        $('#user_razao_social').val('');
+        $('#user_cnpj').val('');
+      } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
+        $('#pf').hide();
+        $('#pj').show();
+        $('#user_nome').val('');
+        $('#user_sobrenome').val('');
+        $('#user_cpf').val('');
+        $('#user_documento').val('');
+        $('#user_orgao_emissor').val('');
+        $('#user_estado').val('');
+      }
+    });
+  })
+
   //Remove datas futuras para data de emissão
   $(document).ready(function () {
     var today = new Date();
@@ -421,43 +442,99 @@
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
-
-  //Altera cor do campo CPF se for um formato inválido
-  // $(document).ready(function () {
-  //   $('#user_cpf').change(function () {
-  //     var filtrocpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
-  //     if (!(filtrocpf.test($(this).val()))) {
-  //       $('#alertCPF').show()
-  //       $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Formato inválido' });
-  //       $(this).attr('style', 'border-color: #A94342;');
-  //     } else {
-  //       $('#alertCPF').hide();
-  //       $(this).attr('style', 'border-color: #586871');
-  //     }
-  //   })
-  // });
-
+  //Verifica validade quando CPF e CNPJ são alterados
   $(document).ready(function () {
     $('#user_cpf').keyup(function () {
       validateCPF();
     })
   })
-
   $(document).ready(function () {
     $('#user_cnpj').keyup(function () {
       validateCNPJ();
     })
   })
+  //Validação de CPF
+  function TestaCPF(strCPF) {
+    strCPF = strCPF.replace(/[^0-9]/g, '');
+    var Soma;
+    var Resto;
+    Soma = 0;
+    if (strCPF == "00000000000" ||
+      strCPF == "11111111111" ||
+      strCPF == "22222222222" ||
+      strCPF == "33333333333" ||
+      strCPF == "44444444444" ||
+      strCPF == "55555555555" ||
+      strCPF == "66666666666" ||
+      strCPF == "77777777777" ||
+      strCPF == "88888888888" ||
+      strCPF == "99999999999" )
+    return false;
 
+    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF.substring(9, 10))) return false;
+
+    Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF.substring(10, 11))) return false;
+    return true;
+  }
+
+  function validateCPF() {
+    if ($('#user_cpf').val().replace(/^\s+|\s+$/g, "").length == 0) {
+      if ($('#alertCPF').is(':visible')) {
+        $('#alertCPF').attr('data-original-title', 'Campo em branco');
+      }
+      else {
+        $('#alertCPF').show();
+        $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+        $('#user_cpf').attr('style', 'border-color: #A94342;');
+      }
+    }
+    else {
+      //Checa se CPF já existe
+      $.post('/checkcpf?cpf=' + $("#user_cpf").val(), function (data) {
+        if (data) {
+          $('#alertCPF').show();
+          if ($('#alertCPF').is(":visible"))
+            $('#alertCPF').attr('data-original-title', 'Este CPF está em uso').tooltip();
+          else {
+            $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Este CPF está em uso' });
+          }
+        }
+        //Checa se CPF é válido
+        else if (TestaCPF($('#user_cpf').val()) == false) {
+          if ($('#alertCPF').is(':visible')) {
+            $('#alertCPF').attr('data-original-title', 'CPF inválido');
+          }
+          else {
+            $('#alertCPF').show();
+            $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'CPF inválido' });
+            $('#user_cpf').attr('style', 'border-color: #A94342;');
+          }
+        }
+        else {
+          $('#alertCPF').hide();
+          $('#user_cpf').attr('style', 'border-color: #586871');
+        }
+      });
+    }
+  }
+
+  //Validação de CNPJ
   function TestaCNPJ(cnpj) {
-
     cnpj = cnpj.replace(/[^\d]+/g, '');
 
     if (cnpj == '') return false;
 
     if (cnpj.length != 14)
       return false;
-
     // Elimina CNPJs invalidos conhecidos
     if (cnpj == "00000000000000" ||
       cnpj == "11111111111111" ||
@@ -500,58 +577,6 @@
       return false;
 
     return true;
-
-  }
-
-  function TestaCPF(strCPF) {
-    strCPF = strCPF.replace(/[^0-9]/g, '');
-    var Soma;
-    var Resto;
-    Soma = 0;
-    if (strCPF == "00000000000") return false;
-
-    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
-    Resto = (Soma * 10) % 11;
-
-    if ((Resto == 10) || (Resto == 11)) Resto = 0;
-    if (Resto != parseInt(strCPF.substring(9, 10))) return false;
-
-    Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
-    Resto = (Soma * 10) % 11;
-
-    if ((Resto == 10) || (Resto == 11)) Resto = 0;
-    if (Resto != parseInt(strCPF.substring(10, 11))) return false;
-    return true;
-  }
-
-  function validateCPF() {
-    if ($('#user_cpf').val().replace(/^\s+|\s+$/g, "").length == 0) {
-      if ($('#alertCPF').is(':visible')) {
-        $('#alertCPF').attr('data-original-title', 'Campo em branco');
-      }
-      else {
-        $('#alertCPF').show()
-        $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
-        $('#user_cpf').attr('style', 'border-color: #A94342;');
-      }
-    }
-    else {
-      if (TestaCPF($('#user_cpf').val())) {
-        $('#alertCPF').hide();
-        $('#user_cpf').attr('style', 'border-color: #586871');
-      }
-      else {
-        if ($('#alertCPF').is(':visible')) {
-          $('#alertCPF').attr('data-original-title', 'CPF inválido');
-        }
-        else {
-          $('#alertCPF').show()
-          $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'CPF inválido' });
-          $('#user_cpf').attr('style', 'border-color: #A94342;');
-        }
-      }
-    }
   }
 
   function validateCNPJ() {
@@ -566,44 +591,34 @@
       }
     }
     else {
-      if (TestaCNPJ($('#user_cnpj').val())) {
-        $('#alertCNPJ').hide();
-        $('#user_cnpj').attr('style', 'border-color: #586871');
-      }
-      else {
-        if ($('#alertCNPJ').is(':visible')) {
-          $('#alertCNPJ').attr('data-original-title', 'CNPJ inválido');
+      //Checa se CNPJ já existe
+      $.post('/checkcnpj?cnpj=' + $("#user_cnpj").val(), function (data) {
+        if (data) {
+          $('#alertCNPJ').show();
+          if ($('#alertCNPJ').is(":visible"))
+            $('#alertCNPJ').attr('data-original-title', 'Este CNPJ está em uso').tooltip();
+          else {
+            $('#alertCNPJ').tooltip({ 'trigger': 'hover', 'title': 'Este CNPJ está em uso' });
+          }
+        }
+        else if (TestaCNPJ($('#user_cnpj').val()) == false) {
+          if ($('#alertCNPJ').is(':visible')) {
+            $('#alertCNPJ').attr('data-original-title', 'CNPJ inválido');
+          }
+          else {
+            $('#alertCNPJ').show()
+            $('#alertCNPJ').tooltip({ 'trigger': 'hover', 'title': 'CNPJ inválido' });
+            $('#user_cnpj').attr('style', 'border-color: #A94342;');
+          }
         }
         else {
-          $('#alertCNPJ').show()
-          $('#alertCNPJ').tooltip({ 'trigger': 'hover', 'title': 'CNPJ inválido' });
-          $('#user_cnpj').attr('style', 'border-color: #A94342;');
+          $('#alertCNPJ').hide();
+          $('#user_cnpj').attr('style', 'border-color: #586871');
         }
-      }
+      });
     }
   }
 
-  //Troca entre o Form de PF e PJ
-  $(document).ready(function () {
-    $('#user_pf_pj').change(function () {
-      if ($('#user_pf_pj option:selected').val() == 'PF') {
-        $('#pj').hide();
-        $('#pf').show();
-        $('#user_nome_fantasia').val('');
-        $('#user_razao_social').val('');
-        $('#user_cnpj').val('');
-      } else if ($('#user_pf_pj option:selected').val() == 'PJ') {
-        $('#pf').hide();
-        $('#pj').show();
-        $('#user_nome').val('');
-        $('#user_sobrenome').val('');
-        $('#user_cpf').val('');
-        $('#user_documento').val('');
-        $('#user_orgao_emissor').val('');
-        $('#user_estado').val('');
-      }
-    });
-  })
   //Completar endereço via CEP
   $(document).ready(function () {
     function limpa_formulário_cep() {
@@ -637,7 +652,7 @@
               $("#user_estado").val(dados.uf);
               $('#alertCEP').hide();
               $('#user_cep').attr('style', 'border-color: #586871;');
-            } //end if.
+            } 
             else {
               //CEP pesquisado não foi encontrado.
               limpa_formulário_cep();
@@ -652,7 +667,7 @@
               $('#user_cep').attr('style', 'border-color: #f6af42ff;');
             }
           });
-        } //end if.
+        } 
         else {
           //cep sem valor, limpa formulário.
           limpa_formulário_cep();
@@ -660,57 +675,26 @@
       }
     });
   });
-  //Vai para próximo text-field quando aperta Enter
-  $('input').keypress(function (event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '13') {
-      event.preventDefault();
-      var $this = $(event.target);
-      var index = parseFloat($this.attr('dataid'));
-      $('[dataid="' + (index + 1).toString() + '"]').focus();
-    }
-  });
 
-  // verifica se a os campos de e-mail estão iguais, retornando true ou false
+  //Verifica se a os campos de e-mail estão iguais
   function emailMatch() {
     return $("#email_confirmation").val() === $("#user_email").val();
   }
-  // verifica os campos de senha, retornando false ou true
+  //Verifica os campos de senha
   function passwordMatch() {
     return $("#user_password").val() === $("#user_password_confirmation").val();
   }
-  // verifica o campo senha para garantir o tamanho mínimo 
-  function passwordLength() {
-    if ($("#user_password").val().length > 6) {
-      return true
-    }
-  }
-  // função que obriga o campo de e-mail ter o formato de gmail.com usando regex
+
   function emailIsGmail() {
     var email = $('#user_email').val();
 
     var emailRegex = new RegExp('^.+@gmail.com$');
     return (email !== '' && emailRegex.test(email));
   }
-  // uma única função verifica todas as validações e desabilita o botão cadastro até que tudo esteja certo
-  function buttonValidation() {
-    var emailMatchValidated = emailMatch();
-    var passwordMatchValidated = passwordMatch();
-    var emailIsGmailValidated = emailIsGmail();
-    var passwordLengthValidated = passwordLength();
 
-    if (!emailMatchValidated) {
-      $('#alertEmailConf').show();
-      if ($('#alertEmailConf').is(":visible"))
-        $('#alertEmailConf').attr('data-original-title', 'Os emais estão diferentes').tooltip();
-      else
-        $('#alertEmailConf').tooltip({ 'trigger': 'hover', 'title': 'Os emais estão diferentes' });
-    }
-    else {
-      $('#alertEmailConf').hide();
-    }
-
-    if (!emailIsGmailValidated) {
+  //Valida e-mail
+  function validateEmail() {
+    if (emailIsGmail() == false) {
       $('#alertEmail').show();
       if ($('#alertEmail').is(":visible"))
         $('#alertEmail').attr('data-original-title', 'O email deve ser gmail').tooltip();
@@ -718,10 +702,54 @@
         $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'O email deve ser gmail' });
     }
     else {
-      $('#alertEmail').hide();
+      //Checa se e-mail já existe
+      $.post('/checkemail?email=' + $("#user_email").val(), function (data) {
+        if (data) {
+          $('#alertEmail').show();
+          if ($('#alertEmail').is(":visible"))
+            $('#alertEmail').attr('data-original-title', 'Este e-mail está em uso').tooltip();
+          else
+            $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Este e-mail está em uso' });
+        }
+        else
+          $('#alertEmail').hide();
+          $('#user_email').attr('style', 'border-color: #586871;');
+      });
     }
-
-    if (!passwordMatchValidated) {
+  }
+  function validateEmailConf() {
+    if (emailMatch() == false) {
+      $('#alertEmailConf').show();
+      if ($('#alertEmailConf').is(":visible"))
+        $('#alertEmailConf').attr('data-original-title', 'Os emails estão diferentes').tooltip();
+      else
+        $('#alertEmailConf').tooltip({ 'trigger': 'hover', 'title': 'Os emails estão diferentes' });
+    }
+    else {
+      $('#alertEmailConf').hide();
+      $('#email_confirmation').attr('style', 'border-color: #586871;');
+    }
+  }
+  function validatePassword() {
+    if ($('#user_password').val().replace(/^\s+|\s+$/g, "").length == 0) {
+      $('#alertPW').show();
+      $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+      $('#user_password').attr('style', 'border-color: #A94342;');
+    }
+    else if ($("#user_password").val().length < 6) {
+      $('#alertPW').show();
+      if ($('#alertPW').is(":visible"))
+        $('#alertPW').attr('data-original-title', 'Senha muito curta').tooltip();
+      else
+        $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Senha muito curta' });
+    }
+    else {
+      $('#alertPW').hide();
+      $('#user_password').attr('style', 'border-color: #586871;');
+    }
+  }
+  function validatePasswordConf() {
+    if (passwordMatch() == false) {
       $('#alertPWConf').show();
       if ($('#alertPWConf').is(":visible"))
         $('#alertPWConf').attr('data-original-title', 'As senhas estão diferentes').tooltip();
@@ -730,31 +758,16 @@
     }
     else {
       $('#alertPWConf').hide();
-    }
-
-    if ($('#user_password').val().replace(/^\s+|\s+$/g, "").length == 0) {
-      $('#alertPW').show();
-      $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
-      $('#user_password').attr('style', 'border-color: #A94342;');
-    }
-    else if (!passwordLength) {
-        $('#alertPW').show();
-        if ($('#alertPW').is(":visible"))
-          $('#alertPW').attr('data-original-title', 'Senha muito curta').tooltip();
-        else
-          $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Senha muito curta' });     
-    }
-    
-    else
-    {
-      $('#alertPW').hide();
+      $('#user_password_confirmation').attr('style', 'border-color: #586871;');
     }
   }
 
-  $('#user_email').on('keyup', buttonValidation);
-  $("#email_confirmation").on('keyup', buttonValidation);
-  $("#user_password_confirmation").on('keyup', buttonValidation);
-  $("#user_password").on('keyup', buttonValidation);
+  $('#user_email').on('keyup', validateEmail);
+  $('#user_email').on('keyup', validateEmailConf);
+  $("#email_confirmation").on('keyup', validateEmailConf);
+  $("#user_password").on('keyup', validatePassword);
+  $("#user_password").on('keyup', validatePasswordConf);
+  $("#user_password_confirmation").on('keyup', validatePasswordConf);
 
   //Vai para próximo text-field quando aperta Enter
   $('input').keypress(function (event) {
@@ -766,6 +779,7 @@
       $('[dataid="' + (index + 1).toString() + '"]').focus();
     }
   });
+
   //Navegação cadastros
   $(document).ready(function () {
     continuarClicked = false;
@@ -839,7 +853,6 @@
     $('#btnCadastrar').click(function () {
       validateFields();
       if ($('i').is(":visible") == false && continuarClicked) {
-        console.log($("i:visible").length);
         $('#new_user').submit();
       }
       else {
@@ -857,8 +870,6 @@
         if ($('#user_pf_pj option:selected').val() == 'PF') {
           checkBlank($('#user_nome'), $('#alertNome'));
           checkBlank($('#user_sobrenome'), $('#alertSobrenome'));
-          // checkBlank($('#user_cpf'), $('#alertCPF'));
-          validateCPF();
           checkBlank($('#user_documento'), $('#alertDoc'));
           checkBlank($('#user_orgao_emissor'), $('#alertOrgEms'));
           checkBlank($('#user_estado_emissor'), $('#alertEstEms'));
@@ -870,24 +881,14 @@
           checkBlank($('#user_razao_social'), $('#alertRazSoc'));
           checkBlank($('#user_cnpj'), $('#alertCNPJ'));
         }
-        // $('#alertCPF').tooltip({ 'trigger': 'hover', 'title': 'CPF inválido' });
       }
       //Página Endereço
       else if ($('#cadastro2').is(":visible")) {
-        //checkBlank($('#user_cep'), $('#alertCEP'));
         checkBlank($('#user_logradouro'), $('#alertLogr'));
         checkBlank($('#user_numero'), $('#alertNum'));
         checkBlank($('#user_bairro'), $('#alertBair'));
         checkBlank($('#user_cidade'), $('#alertCid'));
         checkBlank($('#user_estado'), $('#alertEst'));
-      }
-      //Página E-mail Senha
-      else if ($('#cadastro3').is(":visible")) {
-        buttonValidation();
-        /*checkBlank($('#user_email'), $('#alertEmail'));
-        checkBlank($('#email_confirmation'), $('#alertEmailConf'));
-        checkBlank($('#user_password'), $('#alertPW'));
-        checkBlank($('#user_password_confirmation'), $('#alertPWConf'));*/
       }
     }
     //Checa campos vazios
@@ -905,9 +906,9 @@
     }
   });
 
-  //Desabilitar o ctrl-c no campo de Email
+  //Desabilitar o ctrl-c no campo de confirmação de Email
   $(document).ready(function(){
-    $('body').bind('cut copy paste', function (e) {
+    $('#email_confirmation').bind('cut copy paste', function (e) {
       e.preventDefault();
     });
   });

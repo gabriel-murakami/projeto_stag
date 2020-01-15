@@ -1,22 +1,119 @@
-<div class="container-fluid">
-    <table class="table">
+<!-- <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+
+<div class="table-responsive-md" style="margin-top: 80px;">
+    <table class="table table-striped table-borderless" id="minhaTabela">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Login</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
+                <th hidden scope="col">ID</th>
+                <th scope="col">Nome / Razão Social</th>
+                <th scope="col">Email</th>
+                <th scope="col">CPF / CNPJ</th>
+                <th scope="col">Perfil</th>
             </tr>
         </thead>
         <tbody>
             <% @users.each do |u| %>
+            <% if u.pf_pj == "PF" %>
             <tr>
-                <th scope="row"><%= u.id %></th>
+                <td hidden scope="row"><%= u.id %></td>
+                <td scope="row"><%= u.nome %> <%= u.sobrenome %></td>
                 <td><%= u.email %></td>
-                <td><%= u.nome %></td>
-                <td><%= u.sobrenome %></td>
+                <td><%= u.cpf %></td>
+                <% if u.admin %>
+                <td>Admin</td>
+                <% else %>
+                <td>Membro</td>
+                <% end %>
+            </tr>
+            <% elsif u.pf_pj == "PJ" %>
+            <tr>
+                <td hidden scope="row"><%= u.id %></td>
+                <td scope="row"><%= u.razao_social %></td>
+                <td><%= u.email %></td>
+                <td><%= u.cnpj %></td>
+                <% if u.admin %>
+                <td>Admin</td>
+                <% else %>
+                <td>Membro</td>
+                <% end %>
             </tr>
             <% end %>
+            <% end %>
         </tbody>
+        <form>
+            <div class="text-left" style="position: absolute; top: 70px; left: 20px;">
+                <a href="/" class="btn std-btn">
+                    <z style="color: white;">Voltar<z>
+                </a>
+            </div>
+            <div class="text-right" style="position: absolute; top: 70px; right: 20px;">
+                <button id="btn-export-excel" style="color: white;" class="btn std-btn" type="button">Excel</button>
+                <button id="btn-export-pdf" style="color: white;" class="btn std-btn" type="button">PDF</button>
+            </div>
+        </form>
     </table>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('*').ready(function () {
+            $('div.dt-buttons').hide();
+        })
+    })
+
+    $(document).ready(function () {
+        $('#btn-export-excel').click(function () {
+            $('.buttons-excel').trigger('click');
+        })
+        $('#btn-export-pdf').click(function () {
+            $('.buttons-pdf').trigger('click');
+        })
+    })
+    $(document).ready(function () {
+        $('#minhaTabela').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'pdf'
+            ],
+            "order": [0, 'asc'],
+            "paging": false,
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                "search": "",
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $("[type='search']").addClass("form-control-yellow").attr("style", "width: 200px; height: 40px; padding-left: 10px; padding-right: 10px").attr("placeholder", "Pesquisar");
+        $('#minhaTabela_info').hide();
+        $("[aria-label]").css("color", "purple");
+        $("td").addClass("table-font-grey-md");
+    })
+</script>
+
+<!-- Tela de Acecesso negado -->
+<!-- <div class="container-fluid" style="width: 80%; padding-top: 80px;">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-center"><i class="material-icons align-middle"
+                    style="color: red; font-size: 60px;">highlight_off</i></h3>
+            <h3 class="text-center std-font-grey" style="padding-top: 20px; font-size: 26px;">Opa! Restrição de Perfil
+            </h3>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 100px;">
+        <div class="col text-center">
+            <a href="/" class="btn std-btn">
+                <z style="color: white;">Ir ao Site<z>
+            </a>
+        </div>
+    </div>
+</div> -->
