@@ -1,131 +1,211 @@
-<div class="container-fluid"
-    style="background-image: url('/assets/sinistro_cel.jpg'); border-radius: 0 0 100px 100px; font-family: Futura; max-height: 700px; background-size: cover;">
-    <div id="texto1" style="display: none;" class="row">
-        <div id="text" style="margin-top: 120px; margin-bottom: 150px; margin-left: 240px;" class="col">
-            <h1 style="color: white; font-size: 70px;">Bem-vindo ao</h1>
-            <h1 style="color: white; font-size: 70px;">sinistro do Seguro</h1>
-            <h1 style="color: white; font-size: 70px;">Auto Youse</h1>
-            <br>
-            <h3 style="color: white; font-size: 30px;">As coberturas do Seguro Auto Youse deixam</h3>
-            <h3 style="color: white; font-size: 30px;">você e o seu carro sempre protegidos.</h3>
+<div style="min-width: 750px">
+    <div class="container-fluid"
+        style="background-image: url('/assets/sinistro_cel.jpg'); max-height: 725px; background-size: cover; border-radius: 0 0 100px 100px; font-family: Futura;">
+        <div id="texto1" style="display: none;" class="row">
+            <div id="text-title" style="margin-top: 150px; margin-bottom: 150px; margin-left: 150px;" class="col"
+                align="left">
+                <h1 style="color: white; font-size: 70px;">Bem-vindo ao</h1>
+                <h1 style="color: white; font-size: 70px;">sinistro do Seguro</h1>
+                <h1 style="color: white; font-size: 70px;">Auto Youse</h1>
+                <br>
+                <h3 style="color: white; font-size: 30px;">As coberturas do Seguro Auto Youse deixam</h3>
+                <h3 style="color: white; font-size: 30px;">você e o seu carro sempre protegidos.</h3>
+            </div>
+        </div>
+        <div class="row" align="center" style="position: relative; bottom: 10px;">
+            <div class="col">
+                <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+            </div>
+        </div>
 
+        <div class="row" align="center" style="position: relative; bottom: 100px;">
+            <div class="col">
+                <a href="#sinistro_content_1" style="text-decoration: none; background-color: transparent;"><i
+                        id="trigger_sinistro" href="#sinistro_content_1" class="material-icons pulsate-fwd"
+                        style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+            </div>
         </div>
     </div>
-    <div class="row" align="center" style="position: relative; bottom: 100px;">
-        <div class="col">
-            <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+    <div>
+        <!-- Conteúdo -->
+        <div id="sinistro_content_1"
+            style="font-family: Futura; margin-top: 100px; display: none; background-color: #EFEFEF;" class="row"
+            align="center">
+            <div class="col-xl-7 content-text" align="left">
+                <h1 style="color: #602F9F; font-size: 55px;">Bateu o carro? Veja por onde</h1>
+                <h1 style="color: #602F9F; font-size: 55px;">acionar o seu sinistro</h1>
+                <br>
+                <h3 style="color: gray; font-size: 20px;">Vc pode fazer isso pelo nosso <b>aplicativo ou</b></h3>
+                <h3 style="color: gray; font-size: 20px;"><b>pelo telefone 0800 730 9901.</b> Assim que você</h3>
+                <h3 style="color: gray; font-size: 20px;">avisar a gente, você receberá um protocolo e</h3>
+                <h3 style="color: gray; font-size: 20px;">um número de sinistro para acompanhar todo o processo.</h3>
+            </div>
+            <div class="col-xl-5 content-img" align="center">
+                <%= image_tag "gol_batido.png", :style => "width: 500px"%>
+            </div>
+        </div>
+        <div id="sinistro_content_2" style="font-family: Futura; display: none; background-color: white;" class="row"
+            align="center">
+            <div id="img-1" class="col-xl-5 content-img" align="center">
+                <%= image_tag "personagem_erro.png", :style => "width: 600px"%>
+            </div>
+            <div class="col-xl-7 content-text" align="right">
+                <h1 style="color: #602F9F; font-size: 60px;">O que oferecemos</h1>
+                <h1 style="color: #602F9F; font-size: 60px;">de assistências</h1>
+                <h1 style="color: #602F9F; font-size: 60px;">para <b>você</b>?</h1>
+                <br>
+                <h3 style="color: gray; font-size: 20px;">Possuímos as seguintes assistencias:
+                </h3>
+                <h3 style="color: gray; font-size: 20px;">Automóvel, Carro Reserva, Chaveiro,
+                </h3>
+                <h3 style="color: gray; font-size: 20px;">Faróis, lanternas e retrovisores,
+                    <h3 style="color: gray; font-size: 20px;">Reparos Completos, Serviço de leva e traz,
+                    </h3>
+                    <h3 style="color: gray; font-size: 20px;">Serviço de histórico veicular, Lavagem
+                    </h3>
+                    <h3 style="color: gray; font-size: 20px;">e Higienização, Assistências à Bike,
+                    </h3>
+                    <h3 style="color: gray; font-size: 20px;">Motorista Youse, Restituição de IPVA,
+                    </h3>
+                    <h3 style="color: gray; font-size: 20px;">Reparos simples e Vidros.
+                    </h3>
+            </div>
+            <div id="img-2" class="col-xl-5 content-img" align="center">
+                <%= image_tag "personagem_erro.png", :style => "width: 600px"%>
+            </div>
+        </div>
+
+        <div id="sinistro_content_3" style="font-family: Futura; display: none; background-color: #EFEFEF;" class="row"
+            align="center">
+            <div class="col-xl-7 content-text" align="left">
+                <h1 style="color: #602F9F; font-size: 50px;">Como posso acompanhar o</h1>
+                <h1 style="color: #602F9F; font-size: 50px;">status do meu sinistro</h1>
+                <h1 style="color: #602F9F; font-size: 50px;">do Seguro Auto?</h1>
+                <br>
+                <h3 style="color: gray; font-size: 20px;">A gente te avisa tudo por e-mail, SMS e também </h3>
+                <h3 style="color: gray; font-size: 20px;">pelo aplicativo. Mas se você ficar com alguma</h3>
+                <h3 style="color: gray; font-size: 20px;">dúvida, pode falar com nosso Time de Ajuda</h3>
+                <h3 style="color: gray; font-size: 20px;">pelo <b>chat do aplicativo</b>, pelas <b>redes sociais</b>
+                </h3>
+                <h3 style="color: gray; font-size: 20px;">ou pelos telefones <b>3003 5770</b> (capitais e regiões
+                    metropolitanas)</h3>
+                <h3 style="color: gray; font-size: 20px;">ou <b>0800 730 9901</b> (demais localidades).</h3>
+            </div>
+            <div class="col-xl-5 content-img" align="center">
+                <%= image_tag "canais_atendimento.png", :style => "width: 400px"%>
+            </div>
+        </div>
+
+        <div id="outros_servicos" style="display: none; margin-bottom: 150px;">
+            <div id="outros_titulo" class="row justify-content-center"
+                style="font-family: Futura; color: #602F9F; margin-top: 100px;" align="center">
+                <div class="col">
+                    <h1>Outros Serviços</h1>
+                </div>
+            </div>
+            <div id="produtos" style="font-family: Futura;" class="row justify-content-center" align="center">
+                <div class="col">
+                    <%= image_tag "guincho.png", :style => "width: 300px"%><br><br>
+                    <a href="/home/assistencias" class="btn std-btn">
+                        <z style="color: white;">Assistências<z>
+                    </a>
+                </div>
+                <div class="col">
+                    <%= image_tag "friends.png", :style => "width: 300px"%><br><br>
+                    <a href="/home/yousefriends" class="btn std-btn">
+                        <z style="color: white;">Youse Friends<z>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="scorpion_footer" style="font-family: Futura; display: none; background-color: #EFEFEF;"
+            class="row justify-content-left" align="center">
+            <div class="col" align="center" style="margin-top: 10px; margin-bottom: 10px;">
+                <h3 style="color: gray; font-size: 20px;"><b>Scorpion App</b></h3>
+            </div>
         </div>
     </div>
-    <div class="row" align="center" style="position: relative; bottom: 100px;">
-        <div class="col">
-            <a href="#sinistro_content_1" style="text-decoration: none; background-color: transparent;"><i
-                    id="trigger_sinistro" href="#sinistro_content_1" class="material-icons pulsate-fwd"
-                    style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
-        </div>
-    </div>
-</div>
+    <script>
+        $(document).ready(function () {
+            $('#texto1').slideDown(1000);
+            $('#friends_car_img').slideDown(1000);
+            $('#trigger_sinistro').fadeIn(2000);
+            $('#saibamais').fadeIn(2000);
 
-<div id="sinistro_content_1" style="font-family: Futura; margin-top: 100px; display: none; background-color: #EFEFEF;"
-    class="row justify-content-left" align="center">
-    <div class="col" align="left" style="margin-left: 240px; margin-top: 100px; margin-bottom: 100px;">
-        <h1 style="color: #602F9F; font-size: 55px;">Bateu o carro? Veja por onde</h1>
-        <h1 style="color: #602F9F; font-size: 55px;">acionar o seu sinistro</h1>
-        <br>
-        <h3 style="color: gray; font-size: 20px;">Vc pode fazer isso pelo nosso <b>aplicativo ou</b></h3>
-        <h3 style="color: gray; font-size: 20px;"><b>pelo telefone 0800 730 9901.</b> Assim que você</h3>
-        <h3 style="color: gray; font-size: 20px;">avisar a gente, você receberá um protocolo e</h3>
-        <h3 style="color: gray; font-size: 20px;">um número de sinistro para acompanhar todo o processo.</h3>
-    </div>
-    <div class="col" style="margin-right: 200px; margin-top: 120px; margin-bottom: 50px;">
-        <%= image_tag "gol_batido.png", :style => "width: 500px"%>
-    </div>
-</div>
-<div id="sinistro_content_2" style="font-family: Futura; display: none;"
-    class="row justify-content-left" align="center">
-    <div class="col" style="margin-left: 30px; margin-top: 100px; margin-bottom: 50px;">
-        <%= image_tag "personagem_erro.png", :style => "width: 600px"%>
-    </div>
-    <div class="col" align="right" style="margin-right: 260px; margin-top: 100px; margin-bottom: 100px;">
-        <h1 style="color: #602F9F; font-size: 55px;">O meu sinistro do Seguro</h1>
-        <h1 style="color: #602F9F; font-size: 55px;">Auto pode ser negado?</h1>
-        <br>
-        <h3 style="color: gray; font-size: 20px;">Existem alguns casos em que o sinistro é</h3>
-        <h3 style="color: gray; font-size: 20px;">reprovado. Isso pode acontecer por alguns</h3>
-        <h3 style="color: gray; font-size: 20px;">motivos como inconsistência nos documentos</h3>
-        <h3 style="color: gray; font-size: 20px;">apresentados ou até mesmo por falta de cobertura.</h3>
-    </div>
-</div>
-<div id="sinistro_content_3" style="font-family: Futura; display: none; background-color: #EFEFEF;"
-    class="row justify-content-left" align="center">
-    <div class="col" align="left" style="margin-left: 240px; margin-top: 100px; margin-bottom: 100px;">
-        <h1 style="color: #602F9F; font-size: 50px;">Como posso acompanhar o</h1>
-        <h1 style="color: #602F9F; font-size: 50px;">status do meu sinistro</h1>
-        <h1 style="color: #602F9F; font-size: 50px;">do Seguro Auto?</h1>
-        <br>
-        <h3 style="color: gray; font-size: 20px;">A gente te avisa tudo por e-mail, SMS e também </h3>
-        <h3 style="color: gray; font-size: 20px;">pelo aplicativo. Mas se você ficar com alguma</h3>
-        <h3 style="color: gray; font-size: 20px;">dúvida, pode falar com nosso Time de Ajuda</h3>
-        <h3 style="color: gray; font-size: 20px;">pelo <b>chat do aplicativo</b>, pelas <b>redes sociais</b></h3>
-        <h3 style="color: gray; font-size: 20px;">ou pelos telefones <b>3003 5770</b> (capitais e regiões metropolitanas)</h3>
-        <h3 style="color: gray; font-size: 20px;">ou <b>0800 730 9901</b> (demais localidades).</h3>
-    </div>
-    <div class="col" style="margin-right: 100px; margin-top: 150px; margin-bottom: 50px;">
-        <%= image_tag "canais_atendimento.png", :style => "width: 400px"%>
-    </div>
-</div>
+            $('#trigger_sinistro[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                $('#sinistro_content_1').show();
+                $('#sinistro_content_2').show();
+                $('#sinistro_content_3').show();
+                $('#outros_servicos').show();
+                $('#scorpion_footer').show();
+                $('#container_prod').attr('style', 'margin-top: 100px; margin-bottom: 120px;');
+                var id = $(this).attr('href'),
+                    targetOffset = $(id).offset().top;
 
-<!-- Outros Serviços -->
-<div id="outros_servicos" style="display: none; margin-bottom: 150px;">
-    <div id="outros_titulo" class="row justify-content-center"
-        style="font-family: Futura; color: #602F9F; margin-top: 100px;" align="center">
-        <div class="col">
-            <h1>Outros Serviços</h1>
-        </div>
-    </div>
-    <div id="produtos" style="font-family: Futura;" class="row justify-content-center" align="center">
-        <div class="col">
-            <%= image_tag "guincho.png", :style => "width: 300px"%><br><br>
-            <a href="/home/assistencias" class="btn std-btn">
-                <z style="color: white;">Assistências<z>
-            </a>
-        </div>
-        <div class="col">
-            <%= image_tag "friends.png", :style => "width: 300px"%><br><br>
-            <a href="/home/yousefriends" class="btn std-btn">
-                <z style="color: white;">Youse Friends<z>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div id="scorpion_footer" style="font-family: Futura; display: none; background-color: #EFEFEF;"
-    class="row justify-content-left" align="center">
-    <div class="col" align="center" style="margin-top: 10px; margin-bottom: 10px;">
-        <h3 style="color: gray; font-size: 20px;"><b>Scorpion App</b></h3>
-    </div>
-</div>
-              
-<script>
-    $(document).ready(function () {
-        $('#texto1').slideDown(1000);
-        $('#friends_car_img').slideDown(1000);
-        $('#trigger_sinistro').fadeIn(2000);
-        $('#saibamais').fadeIn(2000);
-
-        $('#trigger_sinistro[href^="#"]').on('click', function (e) {
-            e.preventDefault();
-            $('#sinistro_content_1').show();
-            $('#sinistro_content_2').show();
-            $('#sinistro_content_3').show();
-            $('#outros_servicos').show();
-            $('#scorpion_footer').show();
-            $('#container_prod').attr('style', 'margin-top: 100px; margin-bottom: 120px;');
-            var id = $(this).attr('href'),
-                targetOffset = $(id).offset().top;
-
-            $('html, body').animate({
-                scrollTop: targetOffset - 100
-            }, 1000);
+                $('html, body').animate({
+                    scrollTop: targetOffset - 100
+                }, 1000);
+            });
+        })
+        //Muda formatação para responsividade
+        //Título
+        $(document).ready(function () {
+            if ($('#scorpion-navbar').width() < 1000) {
+                $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px;');
+                $('#text-title').attr('align', 'center');
+            }
+            else {
+                $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px; margin-left: 150px;');
+                $('#text-title').attr('align', 'left');
+            }
         });
-    })
-</script>
+        $(window).resize(function () {
+            if ($('#scorpion-navbar').width() < 1000) {
+                $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px;');
+                $('#text-title').attr('align', 'center');
+            }
+            else {
+                $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px; margin-left: 150px;');
+                $('#text-title').attr('align', 'left');
+            }
+        });
+        //Campos de conteúdo
+        $(document).ready(function () {
+            if ($('#scorpion-navbar').width() < 1168) {
+                $('.content-text').attr('style', 'margin-top: 75px;');
+                $('.content-text').attr('align', 'center');
+                $('.content-img').attr('style', 'margin-bottom: 100px; margin-top: 50px');
+                $('.content-img').attr('align', 'center');
+                $('#img-1').hide();
+                $('#img-2').show();
+            }
+            else {
+                $('.content-text').attr('style', 'padding: 75px; padding-left: 200px');
+                $('.content-text').attr('align', 'left');
+                $('.content-img').attr('style', 'padding-top: 100px');
+                $('.content-img').attr('align', 'center');
+                $('#img-2').hide();
+                $('#img-1').show();
+            }
+        });
+        $(window).resize(function () {
+            if ($('#scorpion-navbar').width() < 1168) {
+                $('.content-text').attr('style', 'margin-top: 75px;');
+                $('.content-text').attr('align', 'center');
+                $('.content-img').attr('style', 'margin-bottom: 100px; margin-top: 50px');
+                $('.content-img').attr('align', 'center');
+                $('#img-1').hide();
+                $('#img-2').show();
+            }
+            else {
+                $('.content-text').attr('style', 'padding: 75px; padding-left: 200px');
+                $('.content-text').attr('align', 'left');
+                $('.content-img').attr('style', 'padding-top: 100px');
+                $('.content-img').attr('align', 'center');
+                $('#img-2').hide();
+                $('#img-1').show();
+            }
+        });
+    </script>

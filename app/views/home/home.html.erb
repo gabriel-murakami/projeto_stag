@@ -60,11 +60,11 @@
         interval: 5000
     })
 </script> -->
-<div style="min-width: 500px">
+<div style="min-width: 750px">
     <div class="container-fluid"
-        style="background: linear-gradient(#602F9F, rgb(158, 83, 187)); border-radius: 0 0 100px 100px; font-family: Futura;">
+        style="background: linear-gradient(#602F9F, rgb(158, 83, 187)); max-height: 725px; border-radius: 0 0 100px 100px; font-family: Futura;">
         <div id="texto1" style="display:none; padding-top: 100px" class="row">
-            <div class="col-lg-6" align="center">
+            <div class="col-lg-6" style="margin-bottom: 150px" align="center">
                 <h1 style="color: #f6af42ff; font-size: 65px;">Seguro Auto do</h1>
                 <h1 style="color: #f6af42ff; font-size: 65px;">seu jeito</h1>
                 <br>
@@ -81,16 +81,18 @@
                 <%= image_tag "fiesta.png", :id => "img-responsive",:style => "width: 400px"%>
             </div>
         </div>
-        <div class="row" align="center" style="position: relative; bottom: 10px;">
-            <div class="col">
-                <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+        <div style="margin-bottom: 75px;">
+            <div class="row" align="center" style="position: relative; bottom: 10px;">
+                <div class="col">
+                    <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+                </div>
             </div>
-        </div>
-        <div class="row" align="center" style="position: relative; bottom: 10px;">
-            <div class="col">
-                <a href="#produtos" style="text-decoration: none; background-color: transparent;"><i id="triggerprod"
-                        href="#produtos" class="material-icons pulsate-fwd"
-                        style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+            <div class="row" align="center" style="position: relative; bottom: 10px;">
+                <div class="col">
+                    <a href="#produtos" style="text-decoration: none; background-color: transparent;"><i
+                            id="triggerprod" href="#produtos" class="material-icons pulsate-fwd"
+                            style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -127,7 +129,12 @@
         </div>
     </div>
 </div>
-
+<div id="scorpion_footer" style="font-family: Futura; display: none; background-color: #EFEFEF;" class="row"
+    align="center">
+    <div class="col" align="center" style="margin-top: 10px; margin-bottom: 10px;">
+        <h3 style="color: gray; font-size: 20px;"><b>Scorpion App</b></h3>
+    </div>
+</div>
 <% end %>
 <script>
     $(document).ready(function () {
@@ -142,7 +149,8 @@
             e.preventDefault();
             $('#produtos').show();
             $('#prodtitulo').show();
-            $('#container_prod').attr('style', 'margin-top: 100px; margin-bottom: 120px;');
+            $('#scorpion_footer').show();
+            $('#container_prod').attr('style', 'margin-bottom: 120px;');
             var id = $(this).attr('href'),
                 targetOffset = $(id).offset().top;
 
