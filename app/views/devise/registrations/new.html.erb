@@ -776,15 +776,15 @@
   $("#user_password_confirmation").on('keyup', validatePasswordConf);
 
   //Vai para próximo text-field quando aperta Enter
-  $('input').keypress(function (event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '13') {
-      event.preventDefault();
-      var $this = $(event.target);
-      var index = parseFloat($this.attr('dataid'));
-      $('[dataid="' + (index + 1).toString() + '"]').focus();
-    }
-  });
+  // $('input').keypress(function (event) {
+  //   var keycode = (event.keyCode ? event.keyCode : event.which);
+  //   if (keycode == '13') {
+  //     event.preventDefault();
+  //     var $this = $(event.target);
+  //     var index = parseFloat($this.attr('dataid'));
+  //     $('[dataid="' + (index + 1).toString() + '"]').focus();
+  //   }
+  // });
 
   //Navegação cadastros
   $(document).ready(function () {
@@ -806,6 +806,21 @@
     });
 
     //Página PF PJ
+
+    $('body').keypress(function(e){
+      if(e.which == 13){
+          if($('#cadastro1').is(':visible')){
+            $('#btnNext1').trigger('click');
+          }
+          else if($('#cadastro2').is(':visible')){
+            $('#btnNext2').trigger('click');
+          }
+          else if($('#cadastro3').is(':visible')){
+            $('#btnCadastrar').trigger('click');
+          }
+       }
+    });
+
     $('#btnNext1').click(function () {
       validateFields();
 
@@ -897,7 +912,7 @@
         checkBlank($('#user_estado'), $('#alertEst'));
       }
       //Página E-mail e senha
-      else if ($('#cadastro3').is(":visible")) {
+      else if($('#cadastro3').is(":visible")) {
         checkBlank($('#user_email'), $('#alertEmail'));
         checkBlank($('#user_password'), $('#alertPW'));
       }
