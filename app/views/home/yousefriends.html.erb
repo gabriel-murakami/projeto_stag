@@ -1,118 +1,123 @@
-<div class="container-fluid"
-    style="background-image: url('/assets/friends2.jpg'); border-radius: 0 0 100px 100px; font-family: Futura; max-height: 800px;">
-    <div id="texto1" style="display: none;" class="row">
-        <div id="text" style="margin-top: 120px; margin-bottom: 150px; margin-left: 240px;" class="col">
-            <h1 style="color: white; font-size: 70px;">Bem-vindo ao</h1>
-            <h1 style="color: white; font-size: 70px;">Youse Friends</h1>
-            <br>
-            <h3 style="color: white; font-size: 30px;">O programa de recompensa</h3>
-            <h3 style="color: white; font-size: 30px;">pra quem tem um Seguro</h3>
-            <h3 style="color: white; font-size: 30px;">Auto Youse</h3>
+<div style="min-width: 750px">
+    <div class="container-fluid"
+        style="background-image: url('/assets/friends2.jpg'); max-height: 725px; background-size: cover; border-radius: 0 0 100px 100px; font-family: Futura;">
+        <div id="texto1" style="display: none;" class="row">
+            <div id="text-title" style="margin-top: 150px; margin-bottom: 150px; margin-left: 150px;" class="col"
+                align="left">
+                <h1 style="color: white; font-size: 70px;">Bem-vindo ao</h1>
+                <h1 style="color: white; font-size: 70px;">Youse Friends</h1>
+                <br>
+                <h3 style="color: white; font-size: 30px;">O programa de recompensa</h3>
+                <h3 style="color: white; font-size: 30px;">pra quem tem um Seguro</h3>
+                <h3 style="color: white; font-size: 30px;">Auto Youse</h3>
+            </div>
         </div>
-        <!-- <div id="friends_car_img" style="margin-top: 100px; margin-right: 150px; display: none;" class="col">
-            <%= image_tag "friends.png", :style => "width: 400px"%>
-        </div> -->
-    </div>
-    <div class="row" align="center" style="position: relative; bottom: 10px;">
-        <div class="col">
-            <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+        <div class="row" align="center" style="position: relative; bottom: 10px;">
+            <div class="col">
+                <h4 id="saibamais" style="display: none; color: white;">Saiba mais informações</h4>
+            </div>
+        </div>
+        <div class="row" align="center" style="position: relative; bottom: 10px;">
+            <div class="col">
+                <a href="#friends_content" style="text-decoration: none; background-color: transparent;"><i
+                        id="trigger_friends" href="#friends_content_1" class="material-icons pulsate-fwd"
+                        style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+            </div>
         </div>
     </div>
-    <div class="row" align="center" style="position: relative; bottom: 10px;">
-        <div class="col">
-            <a href="#friends_content" style="text-decoration: none; background-color: transparent;"><i
-                    id="trigger_friends" href="#friends_content_1" class="material-icons pulsate-fwd"
-                    style="color: #f6af42ff; font-size: 70px;">expand_more</i></a>
+    <div>
+        <!-- Conteúdo -->
+        <div id="friends_content_1"
+            style="font-family: Futura; margin-top: 100px; display: none; background-color: #EFEFEF;" class="row"
+            align="center">
+            <div class="col-xl-7 content-text" align="left">
+                <h1 style="color: #602F9F; font-size: 60px;">Crie ou participe</h1>
+                <h1 style="color: #602F9F; font-size: 60px;">de um grupo</h1>
+                <br>
+                <h3 style="color: gray; font-size: 20px;">Vc pode criar o seu grupo e chamar outros
+                </h3>
+                <h3 style="color: gray; font-size: 20px;">Yousers, ou entrar em um que já existe.
+                </h3>
+                <h3 style="color: gray; font-size: 20px;">Com pelo menos 2 pessoas, o grupo</h3>
+                <h3 style="color: gray; font-size: 20px;">começa a acumular pontos. <b>Quanto +</b></h3>
+                <h3 style="color: gray; font-size: 20px;"><b>amigos, + pontos.</b></h3>
+            </div>
+            <div class="col-xl-5 content-img" align="center">
+                <%= image_tag "friends_personagens.png", :style => "width: 300px"%>
+            </div>
+        </div>
+        <div id="friends_content_2" style="font-family: Futura; display: none; background-color: white;" class="row"
+            align="center">
+            <div id="img-1" class="col-xl-5 content-img" align="center">
+                <%= image_tag "friends_pontos.png", :style => "width: 700px"%>
+            </div>
+            <div class="col-xl-7 content-text" align="right">
+                <h1 style="color: #602F9F; font-size: 60px;">Troque seus</h1>
+                <h1 style="color: #602F9F; font-size: 60px;">pontos pela</h1>
+                <h1 style="color: #602F9F; font-size: 60px;">remcompensa em <b>dinheiro</b></h1>
+                <br>
+                <h3 style="color: gray; font-size: 20px;">Todo mês você ganha pontos. Depois de
+                </h3>
+                <h3 style="color: gray; font-size: 20px;">12 meses, pode trocar a pontuação por
+                </h3>
+                <h3 style="color: gray; font-size: 20px;">dinheiro na sua conta bancária e gastar</h3>
+                <h3 style="color: gray; font-size: 20px;">como quiser. <b>1 ponto vale R$ 1,00.</b></h3>
+            </div>
+            <div id="img-2" class="col-xl-5 content-img" align="center">
+                <%= image_tag "friends_pontos.png", :style => "width: 700px"%>
+            </div>
+        </div>
+
+        <div id="friends_content_3" style="font-family: Futura; display: none; background-color: #EFEFEF;" class="row"
+            align="center">
+            <div class="col-xl-7 content-text" align="left">
+                <h1 style="color: #602F9F; font-size: 60px;">Contribua para</h1>
+                <h1 style="color: #602F9F; font-size: 60px;">um trânsito</h1>
+                <h1 style="color: #602F9F; font-size: 60px;">melhor</h1>
+                <br>
+                <h3 style="color: gray; font-size: 20px;">A ideia é tornar o trânsito mais seguro. Se</h3>
+                <h3 style="color: gray; font-size: 20px;">alguém do grupo usar uma cobertura do</h3>
+                <h3 style="color: gray; font-size: 20px;">Seguro Auto, a pontuação do grupo</h3>
+                <h3 style="color: gray; font-size: 20px;">diminui. Por isso, vale incentivar a galera a</h3>
+                <h3 style="color: gray; font-size: 20px;">dirigir numa boa.</h3>
+            </div>
+            <div class="col-xl-5 content-img" align="center">
+                <%= image_tag "friends_gol.png", :style => "width: 400px"%>
+            </div>
+        </div>
+
+        <!-- Outros Serviços -->
+        <div id="outros_servicos" style="display: none; margin-bottom: 150px;">
+            <div id="outros_titulo" class="row justify-content-center"
+                style="font-family: Futura; color: #602F9F; margin-top: 100px;" align="center">
+                <div class="col">
+                    <h1>Outros Serviços</h1>
+                </div>
+            </div>
+            <div id="produtos" style="font-family: Futura;" class="row justify-content-center" align="center">
+                <div class="col">
+                    <%= image_tag "guincho.png", :style => "width: 300px"%><br><br>
+                    <a href="/home/assistencias" class="btn std-btn">
+                        <z style="color: white;">Assistências<z>
+                    </a>
+                </div>
+                <div class="col">
+                    <%= image_tag "sinistro.png", :style => "width: 300px"%><br><br>
+                    <a href="/home/sinistro" class="btn std-btn">
+                        <z style="color: white;">Sinistro<z>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="scorpion_footer" style="font-family: Futura; display: none; background-color: #EFEFEF;"
+        class="row justify-content-left" align="center">
+        <div class="col" align="center" style="margin-top: 10px; margin-bottom: 10px;">
+            <h3 style="color: gray; font-size: 20px;"><b>Scorpion App</b></h3>
         </div>
     </div>
 </div>
 
-<!-- Youse Friends -->
-<div id="friends_content_1" style="font-family: Futura; margin-top: 100px; display: none; background-color: #EFEFEF;"
-    class="row justify-content-left" align="center">
-    <div class="col" align="left" style="margin-left: 240px; margin-top: 100px; margin-bottom: 100px;">
-        <h1 style="color: #602F9F; font-size: 60px;">Crie ou participe</h1>
-        <h1 style="color: #602F9F; font-size: 60px;">de um grupo</h1>
-        <br>
-        <h3 style="color: gray; font-size: 20px;">Vc pode criar o seu grupo e chamar outros
-        </h3>
-        <h3 style="color: gray; font-size: 20px;">Yousers, ou entrar em um que já existe.
-        </h3>
-        <h3 style="color: gray; font-size: 20px;">Com pelo menos 2 pessoas, o grupo</h3>
-        <h3 style="color: gray; font-size: 20px;">começa a acumular pontos. <b>Quanto +</b></h3>
-        <h3 style="color: gray; font-size: 20px;"><b>amigos, + pontos.</b></h3>
-    </div>
-    <div class="col" style="margin-right: 200px; margin-top: 70px; margin-bottom: 50px;">
-        <%= image_tag "friends_personagens.png", :style => "width: 300px"%>
-    </div>
-</div>
-<div id="friends_content_2" style="font-family: Futura; display: none;"
-    class="row justify-content-left" align="center">
-    <div class="col" style="margin-left: 30px; margin-top: 120px; margin-bottom: 50px;">
-        <%= image_tag "friends_pontos.png", :style => "width: 700px"%>
-    </div>
-    <div class="col" align="right" style="margin-right: 260px; margin-top: 100px; margin-bottom: 100px;">
-        <h1 style="color: #602F9F; font-size: 60px;">Troque seus</h1>
-        <h1 style="color: #602F9F; font-size: 60px;">pontos pela</h1>
-        <h1 style="color: #602F9F; font-size: 60px;">remcompensa em <b>dinheiro</b></h1>
-        <br>
-        <h3 style="color: gray; font-size: 20px;">Todo mês você ganha pontos. Depois de
-        </h3>
-        <h3 style="color: gray; font-size: 20px;">12 meses, pode trocar a pontuação por
-        </h3>
-        <h3 style="color: gray; font-size: 20px;">dinheiro na sua conta bancária e gastar</h3>
-        <h3 style="color: gray; font-size: 20px;">como quiser. <b>1 ponto vale R$ 1,00.</b></h3>
-    </div>
-</div>
-<div id="friends_content_3" style="font-family: Futura; display: none; background-color: #EFEFEF;"
-    class="row justify-content-left" align="center">
-    <div class="col" align="left" style="margin-left: 240px; margin-top: 100px; margin-bottom: 100px;">
-        <h1 style="color: #602F9F; font-size: 60px;">Contribua para</h1>
-        <h1 style="color: #602F9F; font-size: 60px;">um trânsito</h1>
-        <h1 style="color: #602F9F; font-size: 60px;">melhor</h1>
-        <br>
-        <h3 style="color: gray; font-size: 20px;">A ideia é tornar o trânsito mais seguro. Se</h3>
-        <h3 style="color: gray; font-size: 20px;">alguém do grupo usar uma cobertura do</h3>
-        <h3 style="color: gray; font-size: 20px;">Seguro Auto, a pontuação do grupo</h3>
-        <h3 style="color: gray; font-size: 20px;">diminui. Por isso, vale incentivar a galera a</h3>
-        <h3 style="color: gray; font-size: 20px;">dirigir numa boa.</h3>
-    </div>
-    <div class="col" style="margin-right: 200px; margin-top: 130px; margin-bottom: 50px;">
-        <%= image_tag "friends_gol.png", :style => "width: 400px"%>
-    </div>
-</div>
-
-<!-- Outros Serviços -->
-<div id="outros_servicos" style="display: none; margin-bottom: 150px;">
-    <div id="outros_titulo" class="row justify-content-center"
-        style="font-family: Futura; color: #602F9F; margin-top: 100px;" align="center">
-        <div class="col">
-            <h1>Outros Serviços</h1>
-        </div>
-    </div>
-    <div id="produtos" style="font-family: Futura;" class="row justify-content-center" align="center">
-        <div class="col">
-            <%= image_tag "guincho.png", :style => "width: 300px"%><br><br>
-            <a href="/home/assistencias" class="btn std-btn">
-                <z style="color: white;">Assistências<z>
-            </a>
-        </div>
-        <div class="col">
-            <%= image_tag "sinistro.png", :style => "width: 300px"%><br><br>
-            <a href="/home/sinistro" class="btn std-btn">
-                <z style="color: white;">Sinistro<z>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div id="scorpion_footer" style="font-family: Futura; display: none; background-color: #EFEFEF;"
-    class="row justify-content-left" align="center">
-    <div class="col" align="center" style="margin-top: 10px; margin-bottom: 10px;">
-        <h3 style="color: gray; font-size: 20px;"><b>Scorpion App</b></h3>
-    </div>
-</div>
-              
 <script>
     $(document).ready(function () {
         $('#texto1').slideDown(1000);
@@ -136,4 +141,64 @@
             }, 1000);
         });
     })
+
+    //Muda formatação para responsividade
+    //Título
+    $(document).ready(function () {
+        if ($('#scorpion-navbar').width() < 1000) {
+            $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px;');
+            $('#text-title').attr('align', 'center');
+        }
+        else {
+            $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px; margin-left: 150px;');
+            $('#text-title').attr('align', 'left');
+        }
+    });
+    $(window).resize(function () {
+        if ($('#scorpion-navbar').width() < 1000) {
+            $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px;');
+            $('#text-title').attr('align', 'center');
+        }
+        else {
+            $('#text-title').attr('style', 'margin-top: 150px; margin-bottom: 125px; margin-left: 150px;');
+            $('#text-title').attr('align', 'left');
+        }
+    });
+    //Campos de conteúdo
+    $(document).ready(function () {
+        if ($('#scorpion-navbar').width() < 1168) {
+            $('.content-text').attr('style', 'margin-top: 75px;');
+            $('.content-text').attr('align', 'center');
+            $('.content-img').attr('style', 'margin-bottom: 100px; margin-top: 50px');
+            $('.content-img').attr('align', 'center');
+            $('#img-1').hide();
+            $('#img-2').show();
+        }
+        else {
+            $('.content-text').attr('style', 'padding: 75px; padding-left: 200px');
+            $('.content-text').attr('align', 'left');
+            $('.content-img').attr('style', 'padding-top: 100px');
+            $('.content-img').attr('align', 'center');
+            $('#img-2').hide();
+            $('#img-1').show();
+        }
+    });
+    $(window).resize(function () {
+        if ($('#scorpion-navbar').width() < 1168) {
+            $('.content-text').attr('style', 'margin-top: 75px;');
+            $('.content-text').attr('align', 'center');
+            $('.content-img').attr('style', 'margin-bottom: 100px; margin-top: 50px');
+            $('.content-img').attr('align', 'center');
+            $('#img-1').hide();
+            $('#img-2').show();
+        }
+        else {
+            $('.content-text').attr('style', 'padding: 75px; padding-left: 200px');
+            $('.content-text').attr('align', 'left');
+            $('.content-img').attr('style', 'padding-top: 100px');
+            $('.content-img').attr('align', 'center');
+            $('#img-2').hide();
+            $('#img-1').show();
+        }
+    });
 </script>
