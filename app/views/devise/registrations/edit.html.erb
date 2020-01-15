@@ -172,6 +172,12 @@
         $(this).val(this.value.replace(regexp, ''));
       }
     });
+    $("#user_orgao_emissor").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
+    });
   });
 
   //Remove datas futuras para data de emissão
