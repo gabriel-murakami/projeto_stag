@@ -896,6 +896,11 @@
         checkBlank($('#user_cidade'), $('#alertCid'));
         checkBlank($('#user_estado'), $('#alertEst'));
       }
+      //Página E-mail e senha
+      else if ($('#cadastro3').is(":visible")) {
+        checkBlank($('#user_email'), $('#alertEmail'));
+        checkBlank($('#user_password'), $('#alertPW'));
+      }
     }
     //Checa campos vazios
     function checkBlank(field, alert) {
