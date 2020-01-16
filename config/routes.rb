@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # Definie as rotas dos validadores em tempo real de email, cpf e cnpj
   devise_scope :user do
     post '/checkemail', to: 'registrations#emailcheck'
+    post '/checkemailedit', to: 'registrations#emailcheckedit'
     post '/checkcpf', to: 'registrations#cpfcheck'
     post '/checkcnpj', to: 'registrations#cnpjcheck'
   end 

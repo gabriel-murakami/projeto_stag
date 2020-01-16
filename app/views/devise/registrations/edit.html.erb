@@ -275,7 +275,13 @@
 
   //Valida e-mail
   function validateEmail() {
-    if (emailIsGmail() == false) {
+    if ($('#user_email').val().replace(/^\s+|\s+$/g, "").length == 0) {
+      if ($('#alertEmail').is(":visible"))
+        $('#alertEmail').attr('data-original-title', 'Campo em branco').tooltip();
+      else
+        $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+    }
+    else if (emailIsGmail() == false) {
       $('#alertEmail').show();
       if ($('#alertEmail').is(":visible"))
         $('#alertEmail').attr('data-original-title', 'O email deve ser gmail').tooltip();
@@ -283,8 +289,20 @@
         $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'O email deve ser gmail' });
     }
     else {
-      $('#alertEmail').hide();
-      $('#user_email').attr('style', 'border-color: #586871;');
+      //Checa se e-mail já existe
+      $.post('/checkemailedit?email=' + $("#user_email").val(), function (data) {
+        if (data) {
+          $('#alertEmail').show();
+          if ($('#alertEmail').is(":visible"))
+            $('#alertEmail').attr('data-original-title', 'Este e-mail está em uso').tooltip();
+          else
+            $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Este e-mail está em uso' });
+        }
+        else {
+          $('#alertEmail').hide();
+          $('#user_email').attr('style', 'border-color: #586871;');
+        }
+      });
     }
   }
 

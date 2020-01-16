@@ -1,5 +1,16 @@
 class RegistrationsController < Devise::RegistrationsController
-    def emailcheck
+    def emailcheckedit()
+        @user = User.searchEmail(params[:email])
+        puts @user
+        if current_user.email == @user.email
+            @user = nil
+        end
+        respond_to do |format|
+        format.json {render :json => @user.present?}
+        end
+    end
+
+    def emailcheck()
         @user = User.searchEmail(params[:email])
         respond_to do |format|
         format.json {render :json => @user.present?}
@@ -18,7 +29,6 @@ class RegistrationsController < Devise::RegistrationsController
         respond_to do |format|
         format.json {render :json => @user.present?}
         end
-
     end
 
 end

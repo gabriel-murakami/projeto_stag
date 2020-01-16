@@ -378,19 +378,16 @@
 
 <script>
 
-  $('body').keypress(function (e) {
-    if (e.which == 13) {
-      if ($('#pf').is(':visible') || $('#pj').is(':visible')) {
-        $('#btnNext1').trigger('click');
-      }
-      else if ($('#cadastro2').is(':visible')) {
-        $('#btnNext2').trigger('click');
-      }
-      else if ($('#cadastro3').is(':visible')) {
-        $('#btnCadastrar').trigger('click');
-      }
-    }
-  });
+  // $('body').keypress(function (e) {
+  //   if (e.which == 13) {
+  //     if ($('#pf').is(':visible') || $('#pj').is(':visible')) {
+  //       $('#btnNext1').trigger('click');
+  //     }
+  //     else if ($('#cadastro2').is(':visible')) {
+  //       $('#btnNext2').trigger('click');
+  //     }
+  //   }
+  // });
 
   //Máscara
   $(document).ready(function () {
@@ -804,16 +801,6 @@
   $("#user_password_confirmation").on('keyup', validatePasswordConf);
   $("#user_password_confirmation").on('keyup', validatePassword);
 
-  //Vai para próximo text-field quando aperta Enter
-  // $('input').keypress(function (event) {
-  //   var keycode = (event.keyCode ? event.keyCode : event.which);
-  //   if (keycode == '13') {
-  //     event.preventDefault();
-  //     var $this = $(event.target);
-  //     var index = parseFloat($this.attr('dataid'));
-  //     $('[dataid="' + (index + 1).toString() + '"]').focus();
-  //   }
-  // });
 
   //Navegação cadastros
   $(document).ready(function () {
@@ -935,6 +922,11 @@
         checkBlank($('#user_bairro'), $('#alertBair'));
         checkBlank($('#user_cidade'), $('#alertCid'));
         checkBlank($('#user_estado'), $('#alertEst'));
+      }
+      //Página Endereço
+      else if ($('#cadastro3').is(":visible")) {
+        checkBlank($('#user_email'), $('#alertEmail'));
+        checkBlank($('#user_password'), $('#alertPW'));
       }
     }
     //Checa campos vazios
