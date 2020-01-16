@@ -5,7 +5,7 @@
     aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 
-<div class="container" >
+<div class="container">
   <!--Tela casdastro PF PJ-->
   <div id="cadastro1" class="container" style="max-width: 750px; min-width: 500px; padding: 25px;">
     <label class="title-font-purple">Conte um pouco sobre vc ;)</label></br>
@@ -31,7 +31,7 @@
               <div class="form-group">
                 <div class="input-group">
                   <%= f.text_field :nome, autofocus: true, :class => "form-control-yellow form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50"%>
-                
+
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -377,6 +377,21 @@
 </div>
 
 <script>
+
+  $('body').keypress(function (e) {
+    if (e.which == 13) {
+      if ($('#pf').is(':visible') || $('#pj').is(':visible')) {
+        $('#btnNext1').trigger('click');
+      }
+      else if ($('#cadastro2').is(':visible')) {
+        $('#btnNext2').trigger('click');
+      }
+      else if ($('#cadastro3').is(':visible')) {
+        $('#btnCadastrar').trigger('click');
+      }
+    }
+  });
+
   //Máscara
   $(document).ready(function () {
     $('#user_cpf').mask('000.000.000-00');
@@ -445,12 +460,12 @@
     today = yyyy + '-' + mm + '-' + dd;
     $("#user_data_emissao").attr("max", today);
   });
-  
+
   //Transforma todos os selects em form-control
   $(document).ready(function () {
     $('select').attr("class", "form-control");
   });
-  
+
   //Verifica validade quando CPF e CNPJ são alterados
   $(document).ready(function () {
     $('#user_cpf').keyup(function () {
@@ -477,8 +492,8 @@
       strCPF == "66666666666" ||
       strCPF == "77777777777" ||
       strCPF == "88888888888" ||
-      strCPF == "99999999999" )
-    return false;
+      strCPF == "99999999999")
+      return false;
 
     for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
@@ -661,7 +676,7 @@
               $("#user_estado").val(dados.uf);
               $('#alertCEP').hide();
               $('#user_cep').attr('style', 'border-color: #586871;');
-            } 
+            }
             else {
               //CEP pesquisado não foi encontrado.
               limpa_formulário_cep();
@@ -676,7 +691,7 @@
               $('#user_cep').attr('style', 'border-color: #f6af42ff;');
             }
           });
-        } 
+        }
         else {
           //cep sem valor, limpa formulário.
           limpa_formulário_cep();
@@ -703,8 +718,7 @@
 
   //Valida e-mail
   function validateEmail() {
-    if ($('#user_email').val().replace(/^\s+|\s+$/g, "").length == 0)
-    {
+    if ($('#user_email').val().replace(/^\s+|\s+$/g, "").length == 0) {
       if ($('#alertEmail').is(":visible"))
         $('#alertEmail').attr('data-original-title', 'Campo em branco').tooltip();
       else
@@ -821,8 +835,7 @@
     });
 
     $('.validate-class').keyup(function () {
-      if (continuarClicked)
-      {
+      if (continuarClicked) {
         validateEmail();
         validateEmailConf();
         validatePassword();
@@ -837,10 +850,11 @@
       if ($('i').is(":visible") == false && continuarClicked) {
         $('#cadastro1').hide();
         $('#cadastro2').removeAttr('hidden');
-        $('#cadastro2').show();
-        $('#user_cep').focus();
-        $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
         continuarClicked = false;
+        $('#user_cep').focus();
+        $('#cadastro2').show();
+        $('.progress-bar').css('width', 66 + '%').attr('aria-valuenow', 66);
+        
       }
       else {
         $('#myModal').modal({ show: true });
@@ -939,7 +953,7 @@
   });
 
   //Desabilitar o ctrl-c no campo de confirmação de Email
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('#email_confirmation').bind('cut copy paste', function (e) {
       e.preventDefault();
     });

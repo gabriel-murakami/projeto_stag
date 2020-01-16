@@ -4,7 +4,7 @@
   <div class="field">
     <%= f.label :email, :class => "std-font-grey" %>
     <div class="input-group">
-      <%= f.email_field :email, autofocus: true, :class=> "form-control-yellow form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
+      <%= f.email_field :email, :class=> "form-control-yellow form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
       <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
         style="display: none;">error</i>
     </div>
@@ -53,13 +53,14 @@
 
 <script>
 
+
   //Verifica se há erros, senão submete o formulário
   $(document).ready(function () {
     $('#btn-enviar').click(function () {
       if ($('i').is(":visible") == true) {
         $('#myModal').modal({ show: true });
       }
-      else if($('#user_email').val() == ""){
+      else if ($('#user_email').val() == "") {
         $('#myModal2').modal({ show: true });
       }
       else {
@@ -70,8 +71,9 @@
 
   //Verifica se os campo está em branco e se o email está cadastrado
   $(document).ready(function () {
+    $('#user_email').focus();
     $('#user_email').keyup(function () {
-      if ($(this).val() == "") {
+      if ($(this).val().replace(/^\s+|\s+$/g, "").length == 0) {
         $('#alertEmail').show();
         if ($('#alertEmail').is(":visible"))
           $('#alertEmail').attr('data-original-title', 'Campo em branco').tooltip();
