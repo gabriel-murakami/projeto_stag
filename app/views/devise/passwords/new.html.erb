@@ -50,9 +50,23 @@
     </div>
   </div>
 </div>
-
 <script>
 
+  //Enviar ao apertar Enter
+  $('*').keypress(function (e) {
+    if (e.which == 13) {
+      $('#btn-enviar').trigger('click');
+    }
+  });
+
+  //Desabilita Enter para submeter
+  $(document).on("keypress", 'form', function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+      e.preventDefault();
+      return false;
+    }
+  });
 
   //Verifica se há erros, senão submete o formulário
   $(document).ready(function () {
@@ -60,7 +74,7 @@
       if ($('i').is(":visible") == true) {
         $('#myModal').modal({ show: true });
       }
-      else if ($('#user_email').val() == "") {
+      else if ($('#user_email').val().replace(/^\s+|\s+$/g, "").length == 0) {
         $('#myModal2').modal({ show: true });
       }
       else {
