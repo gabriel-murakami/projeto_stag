@@ -63,7 +63,6 @@
     </div>
 </div>
 
-
 <script>
     $(document).ready(function () {
         $('*').ready(function () {
@@ -106,7 +105,7 @@
             }
         }).page.info();
 
-        if (table.recordsTotal <= 10 || table.recordsDisplay <= 10) {
+        if(table.recordsTotal <= 10 || table.recordsDisplay <= 10){
             $('#btn-ant').hide();
             $('#btn-prox').hide();
         }
@@ -137,7 +136,6 @@
         $('#minhaTabela_previous').hide();
         $('#minhaTabela_next').hide();
     })
-
     $(document).ready(function () {
         if ($('#scorpion-navbar').width() < 500) {
             $('#btn-print').hide();

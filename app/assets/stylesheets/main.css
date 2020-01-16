@@ -180,7 +180,6 @@ input[type="text"]:focus,
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 .form-control-edit {
 	background: rgb(250, 241, 221);
 	border-color: transparent;
@@ -264,7 +263,7 @@ input[type="text"]:focus,
   /*color:#3f3a3a;*/
   color: #f6af42ff;
 	font-size: 16px;
- }
+}
 
 .table-striped > tbody > tr:nth-child(2n + 1) > td,
 .table-striped > tbody > tr:nth-child(2n + 1) > th {
@@ -280,7 +279,6 @@ input[type="text"]:focus,
 	color:#3f3a3a;
 	font-size: 16px;
  }
-
 
 /* CSS para editar */
 .bg-light-yellow{
