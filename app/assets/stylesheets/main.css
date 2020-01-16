@@ -50,6 +50,34 @@
 	font-size: 18px;
 
 }
+/*Fonte editar*/
+.std-font-edit-md{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color:#3f3a3a;
+	font-size: 18px;
+}
+.std-font-edit-md:hover{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+  color: #f6af42ff;
+	font-size: 18px;
+}
+
+.std-font-white{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+  color: white;
+	font-size: 18px;
+}
+.title-font-white{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	text-align:center;
+	color: white;
+	font-size: 20px;
+	margin-top: 5px;
+}
 /*Botões padrão*/
 .std-btn {
   background-color: #f6af42ff;
@@ -113,9 +141,10 @@
   background-color: transparent;
 }
 .red-link {
+
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
-	color: #586871;
+	color: #a94342; 
 	text-decoration: underline;
 }
 .red-link:hover {
@@ -181,7 +210,7 @@ input[type="text"]:focus,
   box-shadow: none;
 }
 .form-control-edit {
-	background: rgb(250, 241, 221);
+	background: rgb(252, 247, 238);
 	border-color: transparent;
 	color: #f6af42ff;
 	border-radius: 0;
@@ -233,7 +262,7 @@ input[type="text"]:focus,
 	border-width: 2px;
 	border-radius: 25px;
 	border-color: #f7d486;
-	background-color: rgb(250, 241, 221);
+	background-color: rgb(252, 247, 238);
 }
 /* Form de Cadastro */
 .card-grey {
@@ -282,25 +311,10 @@ input[type="text"]:focus,
 
 /* CSS para editar */
 .bg-light-yellow{
-	border: solid;
+	border-bottom: solid;
 	border-width: 2px;
-	border-radius: 25px;
 	border-color: #f7d486;
-	background-color: rgb(250, 241, 221);
-}
-.bg-light-yellow:hover{
-	border: solid;
-	border-width: 2px;
-	border-radius: 25px;
-	border-color: #f7d486;
-	background-color: #f7d486;
-}
-.bg-light-yellow-static{
-	border: solid;
-	border-width: 2px;
-	border-radius: 25px;
-	border-color: #f7d486;
-	background-color: rgb(250, 241, 221);
+  background-color: rgba(255, 255, 255, 0.8)!important;
 }
 .current-password-input-error{
 	border-color: #a94342;
@@ -362,4 +376,19 @@ input[type="text"]:focus,
   margin-right: 75px;
   margin-bottom: 150px;
   min-width: 1000px;
+}
+@keyframes text-shadow-pop-tl {
+	0% {
+	  text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+	  transform: translateX(0) translateY(0);
+	}
+	100% {
+	  text-shadow: -1px -1px #555555, -2px -2px #555555, -3px -3px #555555, -4px -4px #555555, -5px -5px #555555, -6px -6px #555555, -7px -7px #555555, -8px -8px #555555;
+	  transform: translateX(8px) translateY(8px);
+	}
+  }
+
+html, body {
+  margin: 0;
+  height: 100%;
 }

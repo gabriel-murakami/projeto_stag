@@ -63,6 +63,9 @@
             </a>
           </li>
         </div>
+        <% end %>
+        <% if request.fullpath == "/users/edit" or request.fullpath == "/users" or request.fullpath == "/home/list" %>
+        <% if request.fullpath == "/home/list" %>
         <div class="col">
           <li class="nav-item">
             <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
@@ -159,7 +162,7 @@
   <% end %>
 
   <%= yield %>
-
+  
     <!-- Modal que confirma o 'voltar' -->
     <div id="modalVoltar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
       <div class="modal-dialog modal-sm" role="document">
@@ -184,7 +187,14 @@
       </div>
     </div>
   </div>
-  
+
+  </div>
+
+  <% if request.fullpath == '/users/edit' || request.fullpath == '/users'%>
+  <script>
+    $('body').attr('style', 'background-image: url("/assets/Img_5.jpg"); margin:0px; background-attachment: fixed; background-size: cover; background-position: center center; background-repeat: no-repeat;');
+  </script>
+  <% end %>
   <script>
     $('#btnVoltar').click(function () {
       $('#modalVoltar').modal({ show: true });
@@ -207,6 +217,7 @@
       }
     });
   </script>
+
 </body>
 
 </html>

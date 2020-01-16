@@ -3,7 +3,7 @@
     <a class="std-font-grey-md"
       style="width: max-content; text-align: center; text-decoration: none; background-color: transparent;"
       data-toggle="collapse" href="#collapseExample_1" aria-expanded="false" aria-controls="collapseExample_1">
-      <div id="atualiza-pessoal" onclick="changeLinkColor1()" class="std-font-grey-md"
+      <div id="atualiza-pessoal" onclick="changeLinkColor1()" class="std-font-edit-md"
         style="text-decoration: none; padding: 20px;">Editar meus Dados Pessoais</div>
     </a>
     <div class="collapse" id="collapseExample_1">
@@ -19,7 +19,7 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome, autofocus: true, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
+                  <%= f.text_field :nome, autofocus: true, :class => "form-control-white form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off"%>
                   <i class="input-group-append input-alert material-icons" id="alertNome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -28,7 +28,7 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :sobrenome, :class => "form-control-edit form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
+                  <%= f.text_field :sobrenome, :class => "form-control-white form-control", :placeholder => "Sobrenome", :dataid => "2", :autocomplete => "off", :maxlength => "50" %>
                   <i class="input-group-append input-alert material-icons" id="alertSobrenome" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -42,7 +42,7 @@
             <div class="col-8">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :cpf, :class => "form-control-edit form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
+                  <%= f.text_field :cpf, :class => "form-control-white form-control", :placeholder => "CPF", :maxlength => "14", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
                   <i class="input-group-append input-alert material-icons" id="alertCPF" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -56,7 +56,7 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :documento, :class => "form-control-edit form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "9" %>
+                  <%= f.text_field :documento, :class => "form-control-white form-control", :placeholder => "Ex: RG", :dataid => "4", :autocomplete => "off", :maxlength => "9" %>
                   <i class="input-group-append input-alert material-icons" id="alertDoc" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -65,7 +65,7 @@
             <div class="col-4">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :orgao_emissor, :class => "form-control-edit form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off", :maxlength => "15"%>
+                  <%= f.text_field :orgao_emissor, :class => "form-control-white form-control", :placeholder => "Órgão Emissor", :dataid => "5", :autocomplete => "off", :maxlength => "15"%>
                   <i class="input-group-append input-alert material-icons" id="alertOrgEms" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -107,7 +107,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :nome_fantasia, :class => "form-control-edit form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
+                  <%= f.text_field :nome_fantasia, :class => "form-control-white form-control", :placeholder => "Nome", :dataid => "1", :autocomplete => "off", :maxlength => "50", :style => "width: 50%"%>
                   <i class="input-group-append input-alert material-icons" id="alertNomeFan" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -121,7 +121,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :razao_social, :class => "form-control-edit form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
+                  <%= f.text_field :razao_social, :class => "form-control-white form-control", :placeholder => "Razão Social", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
                   <i class="input-group-append input-alert material-icons" id="alertRazSoc" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -135,7 +135,7 @@
             <div class="col">
               <div class="form-group">
                 <div class="input-group">
-                  <%= f.text_field :cnpj, :class => "form-control-edit form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
+                  <%= f.text_field :cnpj, :class => "form-control-white form-control", :placeholder => "CNPJ", :dataid => "3", :autocomplete => "off", :disabled => "disabled"%>
                   <i class="input-group-append input-alert material-icons" id="alertCNPJ" data-toggle="tooltip"
                     style="display:none">error</i>
                 </div>
@@ -148,15 +148,15 @@
     </div>
   </div>
   <!--Editar cadastro endereço-->
-  <div id="bg-collapse2" class="container bg-light-yellow" style="max-width: 600px; margin-top: 20px;">
+  <div id="bg-collapse2" class="container bg-light-yellow" style="max-width: 600px;">
     <a class="std-font-grey-md"
       style="width: max-content; text-align: center; text-decoration: none; background-color: transparent;"
       data-toggle="collapse" href="#collapseExample_2" aria-expanded="false" aria-controls="collapseExample_2">
-      <div id="atualiza-endereco" onclick="changeLinkColor2()" class="std-font-grey-md"
+      <div id="atualiza-endereco" onclick="changeLinkColor2()" class="std-font-edit-md"
         style="text-decoration: none; padding: 20px;">Editar meu Endereço</div>
     </a>
     <div class="collapse" id="collapseExample_2">
-      <div id="cadastro2" class="container" style="max-width: 750px; margin-top: 10px;">
+      <div id="cadastro2" class="container" style="max-width: 750px;">
         <!--CEP-->
         <div class="row justify-content-md-center">
           <div class="col-md-auto">
@@ -164,7 +164,7 @@
           </div>
           <div class="col-md-auto">
             <div class="input-group">
-              <%= f.text_field :cep, :class => "form-control-edit form-control", :placeholder => "CEP", :dataid => "1", :autocomplete => "off"%>
+              <%= f.text_field :cep, :class => "form-control-white form-control", :placeholder => "CEP", :dataid => "1", :autocomplete => "off"%>
               <i class="input-group-append input-alert material-icons" id="alertCEP" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -177,7 +177,7 @@
           </div>
           <div class="col-md-4">
             <div class="input-group">
-              <%= f.text_field :logradouro, :class => "form-control-edit form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
+              <%= f.text_field :logradouro, :class => "form-control-white form-control", :placeholder => "rua, avenida", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
               <i class="input-group-append input-alert material-icons" id="alertLogr" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -187,7 +187,7 @@
           </div>
           <div class="col-md-3">
             <div class="input-group">
-              <%= f.text_field :numero, :class => "form-control-edit form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off", :maxlength => "5"%>
+              <%= f.text_field :numero, :class => "form-control-white form-control", :placeholder => "número, km", :dataid => "3", :autocomplete => "off", :maxlength => "5"%>
               <i class="input-group-append input-alert material-icons" id="alertNum" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -199,7 +199,7 @@
             <label class="std-font-grey-md" style="margin-top: 15px">complemento</label>
           </div>
           <div class="col-md-auto">
-            <%= f.text_field :complemento, :class => "form-control-edit form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off", :maxlength => "20"%>
+            <%= f.text_field :complemento, :class => "form-control-white form-control", :placeholder => "casa, apto.", :dataid => "4", :autocomplete => "off", :maxlength => "20"%>
           </div>
         </div>
         <!--Bairro, cidade-->
@@ -209,7 +209,7 @@
           </div>
           <div class="col-md-4">
             <div class="input-group">
-              <%= f.text_field :bairro, :class => "form-control-edit form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off", :maxlength => "50"%>
+              <%= f.text_field :bairro, :class => "form-control-white form-control", :placeholder => "bairro", :dataid => "5", :autocomplete => "off", :maxlength => "50"%>
               <i class="input-group-append input-alert material-icons" id="alertBair" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -219,7 +219,7 @@
           </div>
           <div class="col-md-4">
             <div class="input-group">
-              <%= f.text_field :cidade, :class => "form-control-edit form-control", :placeholder => "cidade", :dataid => "6", :maxlength => "50"%>
+              <%= f.text_field :cidade, :class => "form-control-white form-control", :placeholder => "cidade", :dataid => "6", :maxlength => "50"%>
               <i class="input-group-append input-alert material-icons" id="alertCid" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -243,13 +243,12 @@
       </div>
     </div>
   </div>
-  </br>
   <!--Editar cadastro e-mail-->
   <div id="bg-collapse3" class="container bg-light-yellow" style="max-width: 600px;">
     <a class="std-font-grey-md"
       style="width: max-content; text-align: center; text-decoration: none; background-color: transparent;"
       data-toggle="collapse" href="#collapseExample_3" aria-expanded="false" aria-controls="collapseExample_3">
-      <div id="atualiza-email" onclick="changeLinkColor3()" class="std-font-grey-md"
+      <div id="atualiza-email" onclick="changeLinkColor3()" class="std-font-edit-md"
         style="text-decoration: none; padding: 20px;">Editar meu E-mail</div>
     </a>
     <div class="collapse" id="collapseExample_3">
@@ -266,7 +265,7 @@
           <div class="col">
             <div class="form-group">
               <div class="input-group">
-                <%= f.email_field :email, :class => "form-control-edit form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
+                <%= f.email_field :email, :class => "form-control-white form-control", :placeholder => "exemplo@gmail.com", :dataid => "1", :autocomplete => "off", :maxlength => "50"%><br />
                 <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
                   style="display:none">error</i>
               </div>
@@ -280,7 +279,7 @@
           <div class="col">
             <div class="form-group">
               <div class="input-group">
-                <%= f.email_field :email, :id => "email_confirmation", :class => "form-control-edit form-control", :placeholder => "exemplo@gmail.com", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
+                <%= f.email_field :email, :id => "email_confirmation", :class => "form-control-white form-control", :placeholder => "exemplo@gmail.com", :dataid => "2", :autocomplete => "off", :maxlength => "50"%>
                 <i class="input-group-append input-alert material-icons" id="alertEmailConf" data-toggle="tooltip"
                   style="display:none">error</i>
               </div>
@@ -291,4 +290,3 @@
     </div>
   </div>
 </div>
-</br>
