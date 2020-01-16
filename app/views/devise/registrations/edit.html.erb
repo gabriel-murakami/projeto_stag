@@ -4,7 +4,7 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div style="min-width: 400px">
-<label class="title-font-purple" style="padding:25px; margin-bottom: 25px;">Aqui, você edita o seu cadastro ;)</label>
+<label class="title-font-white" style="padding:25px; margin-bottom: 25px;">Aqui, você edita o seu cadastro ;)</label>
 
 <!--Editar dados pessoais-->
 <%= render 'personal_data', f: f %>
@@ -15,13 +15,11 @@
 <!--Confirmar senha atual e botão atualizar-->
 <%= render 'password_confirmation', f: f %>
 
-
 <% end %>
 
 <!--Deletar conta-->
 <%= render 'delete_account' %>
 </div>
-
 
 <!--Modal erro-->
 <%= render 'error_modal' %>
@@ -92,65 +90,6 @@
       $('#myModal').modal({ show: true });
     }
   });
-
-  //Altera cor do link do collapse
-  var collapseOpen1 = false;
-  var collapseOpen2 = false;
-  var collapseOpen3 = false;
-  var collapseOpen4 = false;
-
-  //Collapse 1
-  function changeLinkColor1() {
-    if (collapseOpen1) {
-      $('#atualiza-pessoal').attr('class', 'std-font-grey-md');
-      $('#bg-collapse1').attr('class', 'container bg-light-yellow');
-      collapseOpen1 = false;
-    }
-    else {
-      $('#atualiza-pessoal').attr('class', 'std-font-yellow-md');
-      $('#bg-collapse1').attr('class', 'container bg-light-yellow-static');
-      collapseOpen1 = true;
-    }
-  }
-  //Collapse 2
-  function changeLinkColor2() {
-    if (collapseOpen2) {
-      $('#atualiza-endereco').attr('class', 'std-font-grey-md');
-      $('#bg-collapse2').attr('class', 'container bg-light-yellow');
-      collapseOpen2 = false;
-    }
-    else {
-      $('#atualiza-endereco').attr('class', 'std-font-yellow-md');
-      $('#bg-collapse2').attr('class', 'container bg-light-yellow-static');
-      collapseOpen2 = true;
-    }
-  }
-  //Collapse 3
-  function changeLinkColor3() {
-    if (collapseOpen3) {
-      $('#atualiza-email').attr('class', 'std-font-grey-md');
-      $('#bg-collapse3').attr('class', 'container bg-light-yellow');
-      collapseOpen3 = false;
-    }
-    else {
-      $('#atualiza-email').attr('class', 'std-font-yellow-md');
-      $('#bg-collapse3').attr('class', 'container bg-light-yellow-static');
-      collapseOpen3 = true;
-    }
-  }
-  //Collapse 4
-  function changeLinkColor4() {
-    if (collapseOpen4) {
-      $('#atualiza-senha').attr('class', 'std-font-grey-md');
-      $('#bg-collapse4').attr('class', 'container bg-light-yellow');
-      collapseOpen4 = false;
-    }
-    else {
-      $('#atualiza-senha').attr('class', 'std-font-yellow-md');
-      $('#bg-collapse4').attr('class', 'container bg-light-yellow-static');
-      collapseOpen4 = true;
-    }
-  }
 
   //Máscara
   $(document).ready(function () {
