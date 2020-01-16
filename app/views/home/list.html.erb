@@ -1,22 +1,155 @@
-<div class="container-fluid">
-    <table class="table">
-        <thead>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+<form>
+    <div class="container-fluid" align="right"
+        style="background: white; padding-top: 10px; padding-bottom: 10px; position: fixed; z-index: 10; box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);">
+        <div class="row">
+            <div id="container-search" class="col" style="padding-top: 3px" align="left"></div>
+            <div class="col" id="btn-print">
+                <button id="btn-export-excel" style="color: white; " class="btn std-btn" type="button">Excel</button>
+                <button id="btn-export-pdf" style="color: white;" class="btn std-btn" type="button">PDF</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid" style="margin-top: 90px; min-width: 700px;">
+    <table style="width: 100%;" class="table table-striped table-borderless" id="minhaTabela">
+        <thead style="width: 100%;">
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Login</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
+                <th hidden scope="col">ID</th>
+                <th scope="col">Nome / Razão Social</th>
+                <th scope="col">Email</th>
+                <th scope="col">CPF / CNPJ</th>
+                <th scope="col">Perfil</th>
             </tr>
         </thead>
         <tbody>
             <% @users.each do |u| %>
+            <% if u.pf_pj == "PF" %>
             <tr>
-                <th scope="row"><%= u.id %></th>
+                <td hidden scope="row"><%= u.id %></td>
+                <td scope="row"><%= u.nome %> <%= u.sobrenome %></td>
                 <td><%= u.email %></td>
-                <td><%= u.nome %></td>
-                <td><%= u.sobrenome %></td>
+                <td><%= u.cpf %></td>
+                <% if u.admin %>
+                <td>Admin</td>
+                <% else %>
+                <td>Membro</td>
+                <% end %>
+            </tr>
+            <% elsif u.pf_pj == "PJ" %>
+            <tr>
+                <td hidden scope="row"><%= u.id %></td>
+                <td scope="row"><%= u.razao_social %></td>
+                <td><%= u.email %></td>
+                <td><%= u.cnpj %></td>
+                <% if u.admin %>
+                <td>Admin</td>
+                <% else %>
+                <td>Membro</td>
+                <% end %>
             </tr>
             <% end %>
+            <% end %>
         </tbody>
+
     </table>
+    <div align="center">
+        <button id="btn-ant" class="btn btn-link std-link" type="button" style="background-color: transparent;">‹
+            Anterior</button>
+        <button id="btn-prox" class="btn btn-link std-link" type="button" style="background-color: transparent;">Próxima
+            ›</button>
+    </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('*').ready(function () {
+            $('div.dt-buttons').hide();
+        })
+    })
+
+    $(document).ready(function () {
+        var table = $('#minhaTabela').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'pdf'
+            ],
+            "order": [0, 'asc'],
+            "paging": true,
+            "pagingType": "simple",
+            "pageLength": 10,
+            "info": true,
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado",
+                "info": "Página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                "search": "",
+                paginate: {
+                    first: '',
+                    previous: '',
+                    next: '',
+                    last: ''
+                },
+                aria: {
+                    paginate: {
+                        first: '',
+                        previous: '',
+                        next: '',
+                        last: ''
+                    }
+                }
+            }
+        }).page.info();
+
+        if(table.recordsTotal <= 10 || table.recordsDisplay <= 10){
+            $('#btn-ant').hide();
+            $('#btn-prox').hide();
+        }
+
+        $('#btn-export-excel').click(function () {
+            $('.buttons-excel').trigger('click');
+        })
+        $('#btn-export-pdf').click(function () {
+            $('.buttons-pdf').trigger('click');
+        })
+        $('#btn-ant').click(function () {
+            $('#minhaTabela_previous').trigger('click');
+        })
+        $('#btn-prox').click(function () {
+            $('#minhaTabela_next').trigger('click');
+        })
+    });
+
+    $(document).ready(function () {
+        $("[type='search']").addClass("form-control-white form-control").attr("style", "width: 200px; height: 40px;").attr("placeholder", "Pesquisar");
+        $("[type='search']").appendTo("#container-search");
+        $(".dataTables_info").addClass("std-font-grey");
+
+        // $('#minhaTabela_info').hide();
+        $("[aria-label]").addClass("std-font-purple");
+        $("td").addClass("table-font-grey-md");
+
+        $('#minhaTabela_previous').hide();
+        $('#minhaTabela_next').hide();
+    })
+    $(document).ready(function () {
+        if ($('#scorpion-navbar').width() < 500) {
+            $('#btn-print').hide();
+        }
+        else {
+            $('#btn-print').show();
+        }
+    });
+    $(window).resize(function () {
+        if ($('#scorpion-navbar').width() < 500) {
+            $('#btn-print').hide();
+        }
+        else {
+            $('#btn-print').show();
+        }
+    });
+</script>

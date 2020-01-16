@@ -38,7 +38,7 @@ div.actions {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  //background-color: red;
   display: table; }
 
 #error_explanation {
@@ -46,7 +46,8 @@ div.actions {
   border: 2px solid red;
   padding: 7px 7px 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0; }
+  background-color: #f0f0f0; 
+  display: none;}
 
 #error_explanation h2 {
   text-align: left;
@@ -55,12 +56,14 @@ div.actions {
   font-size: 12px;
   margin: -7px -7px 0;
   background-color: #c00;
-  color: #fff; }
+  color: #fff; 
+  display: none;}
 
 
 #error_explanation ul li {
   font-size: 12px;
-  list-style: square; }
+  list-style: square; 
+  display: none;}
 
 label {
   display: block; }
