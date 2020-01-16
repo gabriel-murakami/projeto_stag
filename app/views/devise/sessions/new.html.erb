@@ -6,7 +6,7 @@
   <div class="field">
     <%= f.label :email, value: "E-mail", :class => "std-font-grey"%>
     <div class="input-group">
-      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control std-form-control", :placeholder => "exemplo@gmail.com" %>
+      <%= f.email_field :email, autofocus: true, :autocomplete => "off", :class => "form-control-yellow form-control", :placeholder => "exemplo@gmail.com", :maxlength => "50"%>
       <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
         style="display: none;">error</i>
     </div>
@@ -14,15 +14,8 @@
   <!--Senha-->
   <div class="field">
     <%= f.label :password, value: "Senha", :class => "std-font-grey "%>
-    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control-yellow form-control"%>
+    <%= f.password_field :password, autocomplete: "current-password", :class => "form-control-yellow form-control", :maxlength => "50"%>
   </div>
-  <!--Manter conectado-->
-  <!-- <% if devise_mapping.rememberable? %>
-  <div class="field" style="margin:20px">
-    <%= f.check_box :remember_me, :class => "form-check-input"%>
-    <%= f.label :remember_me, value: "Mantenha-me conectado", :class => "std-font-grey-sm"%>
-  </div>
-  <% end %> -->
   </br>
   <div class="actions container">
     <div class="row">
@@ -39,6 +32,7 @@
   <% end %>
   <!--Primeiro acesso, Esqueci a senha-->
   <%= render "devise/shared/links" %>
+  
   <!--Mensagem de erro-->
   <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
     <div class="modal-dialog modal-sm" role="document">
@@ -56,8 +50,8 @@
       </div>
     </div>
   </div>
-  <!-- model de senha em branco -->
 
+  <!--Modal senha em branco -->
   <div id="modalSenha" class="modal fade rounded mr-2" tabindex="-1" role="alert">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" style="color: blueviolet;">
@@ -128,7 +122,7 @@
   })
 
   $(document).ready(function () {
-    $('#user_email').change(function () {
+    $('#user_email').keyup(function () {
       var email = $(this).val();
       var emailRegex = new RegExp('^.+@gmail.com$');
       var emailRegex2 = new RegExp('^.+@+$');
@@ -145,8 +139,8 @@
 
   // Validação do campo de senha caso esteja vazio 
   $(document).ready(function () {
-    $('#btn-entrar').click(function (e) {
-      if ($('#user_email').val() != "" && $('#user_email').val() == "") {
+    $('#btn-entrar').click(function () {
+      if ($('#user_email').val() != "" && $('#user_password').val() == "") {
         $('#modalSenha').modal({
           show: true
         })
@@ -170,4 +164,11 @@
       }
     })
   })
+
+  //Logar Apertando Enter
+  $('*').keypress(function(e){
+      if(e.which == 13){
+           $('#btn-entrar').trigger('click');
+       }
+  });
 </script>

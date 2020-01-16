@@ -1,6 +1,19 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Configura o mailer de desenvolvimento da aplicação
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    domain: "gmail.com",
+    port: 587,
+    user_name: ENV["MAILER_USER"],
+    password: ENV["MAILER_PASSWORD"],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+  config.action_mailer.default_url_options = { :host => 'https://scorpion-app.herokuapp.com/' }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -22,6 +35,8 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.serve_static_assets = true
+  config.assets.compile = true
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 

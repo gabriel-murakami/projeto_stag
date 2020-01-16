@@ -1,60 +1,408 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
 <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
+<div style="min-width: 400px">
+<label class="title-font-purple" style="padding:25px; margin-bottom: 25px;">Aqui, você edita o seu cadastro ;)</label>
 
-<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+<!--Editar dados pessoais-->
+<%= render 'personal_data', f: f %>
+
+<!--Editar cadastro senha-->
+<%= render 'edit_password', f: f %>
+
+<!--Confirmar senha atual e botão atualizar-->
+<%= render 'password_confirmation', f: f %>
+
+
 <% end %>
 
-<div class="field">
-  <%= f.label :pf_pj %><br />
-  <%= f.select :pf_pj, pfpj %>
+<!--Deletar conta-->
+<%= render 'delete_account' %>
 </div>
 
-<div class="field">
-  <%= f.label :cpf %><br />
-  <%= f.text_field :cpf, autofocus: true %>
-</div>
 
-<div class="field">
-    <%= f.label :data_emissao %><br />
-    <%= f.date_field :data_emissao, autofocus: true %>
-</div>
+<!--Modal erro-->
+<%= render 'error_modal' %>
 
-<div class="field">
-  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, autocomplete: "new-password" %>
-  <% if @minimum_password_length %>
-  <br />
-  <em><%= @minimum_password_length %> characters minimum</em>
+<!--Modal de exclusão de usuários-->
+<%= render 'delete_user', resource_name: resource_name %>
+
+<!--Mensagem de erro-->
+<%= render 'error_message' do %>
+<% if resource.errors.any? %>
+<div id="error_explanation1">
+  <% resource.errors.full_messages.each do |message| %>
+  <p class="std-font-grey">
+    <% if message == "Current password is invalid"%>
+    Senha atual é inválida
+    <% elsif message == "Current password can't be blank"%>
+    Senha atual não pode estar em branco
+    <% end %>
+  </p>
   <% end %>
 </div>
-
-<div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div>
-
-<div class="field">
-  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password, autocomplete: "current-password" %>
-</div>
-
-<div class="actions">
-  <%= f.submit "Update" %>
-</div>
+<% end %>
 <% end %>
 
-<h3>Cancel my account</h3>
+<script>
 
-<p>Unhappy?
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-</p>
+  $('body').keypress(function(e){
+    if(e.which == 13){
+      $('#btn-intermed').trigger('click');
+    }
+  });
 
-<%= link_to "Back", :back %>
+  $(document).ready(function () {
+
+    //Se houver erros na tela, é mostrado o modal "Há campos com erro"
+    //casa contrário o botão submit é acionado
+    $("#btn-intermed").click(function () {
+      if ($('i').is(":visible") == false) {
+        $('#btn-edit').trigger('click');
+      }
+      else {
+        $('#myModal').modal({ show: true });
+      }
+    })
+  });
+
+  //Click em deletar
+  $("#btnDelete").click(function () {
+    $("#modalDeletar").modal({ show: true });
+  });
+  //Error modal
+  $(document).ready(function () {
+    if ($('#error_explanation').length >= 1) {
+      $('#errorModal').modal({ show: true });
+      $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+    }
+  });
+
+  $('#btn-salvar').click(function () {
+    //validateFields();
+    if ($('i').is(":visible") == false) {
+      if ($('#error_explanation').length >= 1) {
+        $('#errorModal').modal({ show: true });
+        $('#current_password').attr('class', 'current-password-input-error form-control form-control-yellow');
+      }
+    }
+    else {
+      $('#myModal').modal({ show: true });
+    }
+  });
+
+  //Altera cor do link do collapse
+  var collapseOpen1 = false;
+  var collapseOpen2 = false;
+  var collapseOpen3 = false;
+  var collapseOpen4 = false;
+
+  //Collapse 1
+  function changeLinkColor1() {
+    if (collapseOpen1) {
+      $('#atualiza-pessoal').attr('class', 'std-font-grey-md');
+      $('#bg-collapse1').attr('class', 'container bg-light-yellow');
+      collapseOpen1 = false;
+    }
+    else {
+      $('#atualiza-pessoal').attr('class', 'std-font-yellow-md');
+      $('#bg-collapse1').attr('class', 'container bg-light-yellow-static');
+      collapseOpen1 = true;
+    }
+  }
+  //Collapse 2
+  function changeLinkColor2() {
+    if (collapseOpen2) {
+      $('#atualiza-endereco').attr('class', 'std-font-grey-md');
+      $('#bg-collapse2').attr('class', 'container bg-light-yellow');
+      collapseOpen2 = false;
+    }
+    else {
+      $('#atualiza-endereco').attr('class', 'std-font-yellow-md');
+      $('#bg-collapse2').attr('class', 'container bg-light-yellow-static');
+      collapseOpen2 = true;
+    }
+  }
+  //Collapse 3
+  function changeLinkColor3() {
+    if (collapseOpen3) {
+      $('#atualiza-email').attr('class', 'std-font-grey-md');
+      $('#bg-collapse3').attr('class', 'container bg-light-yellow');
+      collapseOpen3 = false;
+    }
+    else {
+      $('#atualiza-email').attr('class', 'std-font-yellow-md');
+      $('#bg-collapse3').attr('class', 'container bg-light-yellow-static');
+      collapseOpen3 = true;
+    }
+  }
+  //Collapse 4
+  function changeLinkColor4() {
+    if (collapseOpen4) {
+      $('#atualiza-senha').attr('class', 'std-font-grey-md');
+      $('#bg-collapse4').attr('class', 'container bg-light-yellow');
+      collapseOpen4 = false;
+    }
+    else {
+      $('#atualiza-senha').attr('class', 'std-font-yellow-md');
+      $('#bg-collapse4').attr('class', 'container bg-light-yellow-static');
+      collapseOpen4 = true;
+    }
+  }
+
+  //Máscara
+  $(document).ready(function () {
+    $('#user_cep').mask('00000-000');
+    $('#user_documento').mask('0#');
+    $('#user_numero').mask('0#');
+  });
+
+  //Campos Nome e Sobrenome aceitando somente letras, acentos e espaços
+  $(document).ready(function () {
+    $("#user_nome").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀ ÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
+    });
+    $("#user_sobrenome").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀ ÃÉÈÍÏÓÔÕÖÚÇÑ\'\˜\^ ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
+    });
+    $("#user_orgao_emissor").on("input", function () {
+      var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/;
+      if (this.value.match(regexp)) {
+        $(this).val(this.value.replace(regexp, ''));
+      }
+    });
+  });
+
+  //Remove datas futuras para data de emissão
+  $(document).ready(function () {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    $("#user_data_emissao").attr("max", today);
+  });
+  $(document).ready(function () {
+    $('select').attr("class", "form-control");
+  });
+
+  //Completar endereço via CEP
+  $(document).ready(function () {
+    function limpa_formulário_cep() {
+      // Limpa valores do formulário de cep.
+      $("#user_logradouro").val("");
+      $("#user_bairro").val("");
+      $("#user_cidade").val("");
+      $("#user_estado").val("");
+    }
+    //Quando o campo cep perde o foco.
+    $("#user_cep").keyup(function () {
+      //Nova variável "cep" somente com dígitos.
+      var cep = $(this).val().replace(/\D/g, '');
+      //Verifica se campo cep possui valor informado.
+      if ($(this).val().replace(/^\s+|\s+$/g, "").length != 0) {
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+        //Valida o formato do CEP.
+        if (validacep.test(cep)) {
+          //Preenche os campos com "..." enquanto consulta webservice.
+          $("#user_logradouro").val("...");
+          $("#user_bairro").val("...");
+          $("#user_cidade").val("...");
+          //Consulta o webservice viacep.com.br/
+          $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+            if (!("erro" in dados)) {
+              //Atualiza os campos com os valores da consulta.
+              $("#user_logradouro").val(dados.logradouro);
+              $("#user_bairro").val(dados.bairro);
+              $("#user_cidade").val(dados.localidade);
+              $("#user_estado").val(dados.uf);
+              $('#alertCEP').hide();
+              $('#user_cep').attr('style', 'border-color: #586871;');
+              $('#alertEst').hide();
+              $('#user_estado').attr('style', 'border-color: #586871;');
+            }
+            else {
+              //CEP pesquisado não foi encontrado.
+              limpa_formulário_cep();
+              $('#alertCEP').show();
+              if ($('#alertCEP').is(":visible"))
+                $('#alertCEP').attr('data-original-title', 'CEP não encontrado').tooltip();
+              else
+                $('#alertCEP').tooltip({ 'trigger': 'hover', 'title': 'CEP não encontrado' });
+
+              $('#alertCEP').css({ 'color': '#f6af42ff' });
+              $('#user_cep').attr('style', 'border-color: #f6af42ff;');
+            }
+          });
+        }
+        else {
+          //cep sem valor, limpa formulário.
+          limpa_formulário_cep();
+        }
+      }
+    });
+  });
+
+  //Verifica se a os campos de e-mail estão iguais
+  function emailMatch() {
+    return $("#email_confirmation").val() === $("#user_email").val();
+  }
+  //Verifica os campos de senha
+  function passwordMatch() {
+    return $("#user_password").val() === $("#user_password_confirmation").val();
+  }
+  function emailIsGmail() {
+    var email = $('#user_email').val();
+
+    var emailRegex = new RegExp('^.+@gmail.com$');
+    return (email !== '' && emailRegex.test(email));
+  }
+
+  //Valida e-mail
+  function validateEmail() {
+    if (emailIsGmail() == false) {
+      $('#alertEmail').show();
+      if ($('#alertEmail').is(":visible"))
+        $('#alertEmail').attr('data-original-title', 'O email deve ser gmail').tooltip();
+      else
+        $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'O email deve ser gmail' });
+    }
+    else {
+      $('#alertEmail').hide();
+      $('#user_email').attr('style', 'border-color: #586871;');
+    }
+  }
+
+  function validateEmailConf() {
+    if (emailMatch() == false) {
+      $('#alertEmailConf').show();
+      if ($('#alertEmailConf').is(":visible"))
+        $('#alertEmailConf').attr('data-original-title', 'Os emails estão diferentes').tooltip();
+      else
+        $('#alertEmailConf').tooltip({ 'trigger': 'hover', 'title': 'Os emails estão diferentes' });
+    }
+    else {
+      $('#alertEmailConf').hide();
+      $('#email_confirmation').attr('style', 'border-color: #586871;');
+    }
+  }
+  function validatePassword() {
+    if ($('#user_password').val().replace(/^\s+|\s+$/g, "").length == 0) {
+      $('#alertPW').show();
+      $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+      $('#user_password').attr('style', 'border-color: #A94342;');
+    }
+    else if ($("#user_password").val().length < 6) {
+      $('#alertPW').show();
+      if ($('#alertPW').is(":visible"))
+        $('#alertPW').attr('data-original-title', 'Senha muito curta').tooltip();
+      else
+        $('#alertPW').tooltip({ 'trigger': 'hover', 'title': 'Senha muito curta' });
+    }
+    else {
+      $('#alertPW').hide();
+      $('#user_password').attr('style', 'border-color: #586871;');
+    }
+  }
+  function validatePasswordConf() {
+    if (passwordMatch() == false) {
+      $('#alertPWConf').show();
+      if ($('#alertPWConf').is(":visible"))
+        $('#alertPWConf').attr('data-original-title', 'As senhas estão diferentes').tooltip();
+      else
+        $('#alertPWConf').tooltip({ 'trigger': 'hover', 'title': 'As senhas estão diferentes' });
+    }
+    else {
+      $('#alertPWConf').hide();
+      $('#user_password_confirmation').attr('style', 'border-color: #586871;');
+    }
+  }
+
+  //Chama os validadores
+  $('#user_email').on('keyup', validateEmail);
+  $('#user_email').on('keyup', validateEmailConf);
+  $("#email_confirmation").on('keyup', validateEmailConf);
+  $("#user_password").on('keyup', validatePassword);
+  $("#user_password").on('keyup', validatePasswordConf);
+  $("#user_password_confirmation").on('keyup', validatePasswordConf);
+
+  //Vai para próximo text-field quando aperta Enter
+  $('input').keypress(function (event) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+      event.preventDefault();
+      var $this = $(event.target);
+      var index = parseFloat($this.attr('dataid'));
+      $('[dataid="' + (index + 1).toString() + '"]').focus();
+    }
+  });
+
+  //Validação de campos
+  $(document).ready(function () {
+    $('input').keyup(function () {
+      validateFields();
+    });
+    $('input').change(function () {
+      validateFields();
+    });
+    $('select').change(function () {
+      validateFields();
+    });
+
+    //Validações
+    function validateFields() {
+      if (document.getElementById("pf")) {
+        checkBlank($('#user_nome'), $('#alertNome'));
+        checkBlank($('#user_sobrenome'), $('#alertSobrenome'));
+        checkBlank($('#user_documento'), $('#alertDoc'));
+        checkBlank($('#user_orgao_emissor'), $('#alertOrgEms'));
+        checkBlank($('#user_estado_emissor'), $('#alertEstEms'));
+        checkBlank($('#user_data_emissao'), $('#alertDatEms'));
+      }
+      else {
+        checkBlank($('#user_nome_fantasia'), $('#alertNomeFan'));
+        checkBlank($('#user_razao_social'), $('#alertRazSoc'));
+        checkBlank($('#user_cnpj'), $('#alertCNPJ'));
+      }
+      checkBlank($('#user_logradouro'), $('#alertLogr'));
+      checkBlank($('#user_numero'), $('#alertNum'));
+      checkBlank($('#user_bairro'), $('#alertBair'));
+      checkBlank($('#user_cidade'), $('#alertCid'));
+      checkBlank($('#user_estado'), $('#alertEst'));
+    }
+    //Checa campos vazios
+    function checkBlank(field, alert) {
+      if (field.val().replace(/^\s+|\s+$/g, "").length == 0) {
+        alert.show();
+        alert.tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+        alert.css({ 'color': '#a94342;' });
+        field.attr('style', 'border-color: #A94342;');
+      }
+      else if (alert.is(":visible")) {
+        alert.hide();
+        field.attr('style', 'border-color: #586871;');
+      }
+    }
+  });
+  //Desabilitar o ctrl-c no campo de confirmação de Email
+  $(document).ready(function () {
+    $('#email_confirmation').bind('cut copy paste', function (e) {
+      e.preventDefault();
+    });
+  });
+</script>

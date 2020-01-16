@@ -1,39 +1,112 @@
 <div class="login-form">
-  <div class="container card-form" style="width: max-content;">
-    <label class="std-font-grey" style="font-size:20px; text-align:center">Problemas para acessar a sua conta?
-    </label></br>
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-      <%= f.label :email, :class => "std-font-grey" %>
-      <%= f.email_field :email, autofocus: true, :class=> "form-control std-form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
-    </div></br>
-    <div class="actions container ">
-      <%= f.submit "Enviar e-mail de verificação", :class => "std-btn"%>
+  <label class="title-font-purple" style="font-size:20px; text-align:center">Problemas para acessar a sua conta?</label>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="field">
+    <%= f.label :email, :class => "std-font-grey" %>
+    <div class="input-group">
+      <%= f.email_field :email, :class=> "form-control-yellow form-control", autocomplete: "email", :placeholder => "Digite seu e-mail"%>
+      <i class="input-group-append input-alert material-icons" id="alertEmail" data-toggle="tooltip"
+        style="display: none;">error</i>
     </div>
   </div>
+  </br>
+  <div class="actions container ">
+    <%= f.button "Enviar e-mail de verificação", :class => "std-btn", :id => "btn-enviar", :type => "button" %>
+  </div>
   <% end %>
+</div>
 
-  <div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" style="color: blueviolet;">
-        <div class="modal-header">
-          <p class="modal-title std-font-grey"><%= alert %></p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+
+<!-- Modais de Erro -->
+<div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Há campos com erro</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<% if alert %>
+<div id="myModal2" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Preencha o campo Email</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
-  $(document).ready(function () {
-    $('#myModal').modal({
-      show: true
-    })
+
+  //Enviar ao apertar Enter
+  $('*').keypress(function (e) {
+    if (e.which == 13) {
+      $('#btn-enviar').trigger('click');
+    }
   });
+
+  //Desabilita Enter para submeter
+  $(document).on("keypress", 'form', function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  //Verifica se há erros, senão submete o formulário
+  $(document).ready(function () {
+    $('#btn-enviar').click(function () {
+      if ($('i').is(":visible") == true) {
+        $('#myModal').modal({ show: true });
+      }
+      else if ($('#user_email').val().replace(/^\s+|\s+$/g, "").length == 0) {
+        $('#myModal2').modal({ show: true });
+      }
+      else {
+        $('#new_user').submit();
+      }
+    });
+  });
+
+  //Verifica se os campo está em branco e se o email está cadastrado
+  $(document).ready(function () {
+    $('#user_email').focus();
+    $('#user_email').keyup(function () {
+      if ($(this).val().replace(/^\s+|\s+$/g, "").length == 0) {
+        $('#alertEmail').show();
+        if ($('#alertEmail').is(":visible"))
+          $('#alertEmail').attr('data-original-title', 'Campo em branco').tooltip();
+        else
+          $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Campo em branco' });
+      } else {
+        $.post('/checkemail?email=' + $("#user_email").val(), function (data) {
+          if (data) {
+            $('#alertEmail').hide();
+            $('#user_email').attr('style', 'border-color: #586871;');
+          }
+          else
+            $('#alertEmail').show();
+          if ($('#alertEmail').is(":visible"))
+            $('#alertEmail').attr('data-original-title', 'Email não encontrado').tooltip();
+          else
+            $('#alertEmail').tooltip({ 'trigger': 'hover', 'title': 'Email não encontrado' });
+        });
+      }
+    })
+  })
 </script>
-<% end %>

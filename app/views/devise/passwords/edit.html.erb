@@ -1,25 +1,127 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="login-form">
+  <label class="title-font-purple" style="font-size:20px; text-align:center">Altere sua senha</label>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.hidden_field :reset_password_token %>
-
+  <!--E-mail-->
   <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.label :password, value: "Nova Senha", :class => "std-font-grey"%>
+    <div class="input-group">
+      <%= f.password_field :password, autofocus: true, :autocomplete => "off", :class => "form-control-yellow form-control" %>
+      <i class="input-group-append input-alert material-icons" id="alertSenha1" data-toggle="tooltip"
+        style="display: none;">error</i>
+    </div>
   </div>
-
+  <!--Senha-->
   <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, value: "Confirmar Nova Senha", :class => "std-font-grey "%>
+    <div class="input-group">
+      <%= f.password_field :password_confirmation, :class => "form-control-yellow form-control"%>
+      <i class="input-group-append input-alert material-icons" id="alertSenha2" data-toggle="tooltip"
+        style="display: none;">error</i>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  </br>
+  <div class="actions container">
+    <div class="row">
+      <div class="col">
+        <!--Cancelar-->
+        <button type="button" id="clear" class="btn btn-link std-link"> Cancelar </button>
+      </div>
+      <div class="col">
+        <!--Entrar-->
+        <%= f.button "Alterar", :id => "btn-alterar", :class => "std-btn", :type => "button" %>
+      </div>
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<!-- Modais de Erros -->
+<div id="myModal" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Há campos com erro</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModal2" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="color: blueviolet;">
+      <div class="row">
+        <div class="col text-center">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title std-font-grey">Preencha todos os campos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  // Verfica se existem erros na tela, senão submete o formulário
+  $(document).ready(function () {
+    $('#btn-alterar').click(function () {
+      if ($('i').is(":visible") == true) {
+        $('#myModal').modal({ show: true });
+      }
+      else if($('#user_password').val() == "" || $('#user_password_confirmation').val() == ""){
+        $('#myModal2').modal({ show: true });
+      }
+      else {
+        $('#new_user').submit();
+      }
+    });
+  })
+
+  // Apaga os campos password e password_confirmation
+  $(document).ready(function () {
+    $('#clear').click(function () {
+      $('#user_password_confirmation').val('');
+      $('#user_password').val('');
+    })
+  })
+
+  //Verifica se os campos password e passwrod_confirmation são iguais
+  $(document).ready(function () {
+    $('#user_password_confirmation').keyup(function () {
+      var confirmacao = $(this).val();
+      if (confirmacao != $('#user_password').val()) {
+        $('#alertSenha2').show()
+        $('#alertSenha2').tooltip({ 'trigger': 'hover', 'title': 'Senhas não coincidem' });
+        $('#user_password_confirmation').attr('style', 'border-bottom-color: #A94342;');
+      } else {
+        $('#alertSenha2').hide();
+        $('#user_password_confirmation').attr('style', 'border-color: #586871');
+      }
+    })
+  })
+
+  //Verifica tamanho do campo password
+  $(document).ready(function () {
+    $('#user_password').keyup(function () {
+      var senha = $(this).val();
+      if (senha.length < 6) {
+        $('#alertSenha1').show()
+        $('#alertSenha1').tooltip({ 'trigger': 'hover', 'title': 'Mínimo 6 caracteres' });
+        $('#user_password').attr('style', 'border-bottom-color: #A94342;');
+      } else {
+        $('#alertSenha1').hide();
+        $('#user_password').attr('style', 'border-color: #586871');
+      }
+    })
+  })
+</script>
