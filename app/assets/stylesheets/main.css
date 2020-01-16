@@ -12,6 +12,12 @@
 	font-size: 20px;
 	margin-top: 5px;
 }
+.std-font-purple{
+	/*font-family: FelbridgeProLight, sans-serif;*/
+	font-family: Futura;
+	color: #623f99ff;
+	font-size: 16px;
+}
 .std-font-grey{
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
@@ -152,6 +158,28 @@ input[type="text"]:focus,
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+/*Form control listar*/
+.form-control-white {
+  background: white;
+  border-color: transparent;
+  color: #f6af42ff;
+  border-radius: 0;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #586871;
+}
+.form-control-white::placeholder {
+  color: #f6af42ff;
+}
+
+input[type="text"]:focus,
+.form-control-white:focus {
+  background: #f7f7f7ff;
+  border-color: #f6af42ff;
+  color: #f6af42ff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 .form-control-edit {
 	background: rgb(250, 241, 221);
 	border-color: transparent;
@@ -229,42 +257,29 @@ input[type="text"]:focus,
   opacity: 0.75;
 }
 /* CSS Para Lista de Usuários */
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-	background-color: rgb(250, 241, 221);
- }
- .table-font-grey-md{
+.table-font-grey-md{
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
-	color:#3f3a3a;
-	font-size: 15px;
- }
+  /*color:#3f3a3a;*/
+  color: #f6af42ff;
+	font-size: 16px;
+}
 
 .table-striped > tbody > tr:nth-child(2n + 1) > td,
 .table-striped > tbody > tr:nth-child(2n + 1) > th {
-  background-color: rgb(250, 241, 221);
+  background-color: rgb(223, 214, 226);
 }
 /* CSS Para Lista de Usuários */
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-	background-color: rgb(250, 241, 221);
+  background-color: rgb(223, 214, 226);
  }
  .table-font-grey-md{
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
 	color:#3f3a3a;
-	font-size: 15px;
+	font-size: 16px;
  }
 
-.table-striped > tbody > tr:nth-child(2n + 1) > td,
-.table-striped > tbody > tr:nth-child(2n + 1) > th {
-  background-color: rgb(250, 241, 221);
-}
-
-.table-font-grey-md {
-  /*font-family: FelbridgeProLight, sans-serif;*/
-  font-family: Futura;
-  color: #3f3a3a;
-  font-size: 15px;
-}
 /* CSS para editar */
 .bg-light-yellow{
 	border: solid;
