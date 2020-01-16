@@ -38,7 +38,6 @@
 </head>
 
 <!-- Navbar da Aplicação -->
-
 <body class="std-bg" style="margin:0px">
   <nav id="scorpion-navbar" class="navbar std-navbar"
     style="height: 60px; position: fixed; top: 0; z-index: 1; width: 100%;">
@@ -64,6 +63,9 @@
             </a>
           </li>
         </div>
+        <% end %>
+        <% if request.fullpath == "/users/edit" or request.fullpath == "/users" or request.fullpath == "/home/list" %>
+        <% if request.fullpath == "/home/list" %>
         <div class="col">
           <li class="nav-item">
             <%= link_to "Editar", edit_user_registration_path, :style => "background-color: transparent; color: white;", :class => "btn btn-link std-link-white" %>
@@ -71,12 +73,12 @@
         </div>
         <% else %>
         <div class="col">
-          <li class="nav-item">
-            <button id="btnVoltar" class="btn btn-link std-link-white" type="link"
-              style="background-color: transparent; color: white;">Voltar
-            </button>
-          </li>
-        </div>
+        <li class="nav-item">
+          <button id="btnVoltar" class="btn btn-link std-link-white" type="link"
+            style="background-color: transparent; color: white;">Voltar
+          </button>
+        </li>
+      </div>
         <% end %>
         <% else %>
         <div class="col">
@@ -160,32 +162,32 @@
   <% end %>
 
   <%= yield %>
-
-  <!-- Modal que confirma o 'voltar' -->
-  <div id="modalVoltar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
-    <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content" style="color: blueviolet;">
-        <div class="row">
-          <div class="col text-center">
-            <div class="modal-body">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <p class="modal-title std-font-grey">Você tem certeza que deseja cancelar?</p>
-            </div>
-            <div class="actions container">
-              <div class="row justify-content-center">
-                <button style="margin-right: 15px; width:100px" type="button" class="btn btn-danger"
-                  data-dismiss="modal"> Não </button>
-                <a href="/" style="margin-left: 15px; width:100px; color: white;" type="button" class="btn btn-success">
-                  Sim </a>
+  
+    <!-- Modal que confirma o 'voltar' -->
+    <div id="modalVoltar" class="modal fade rounded mr-2" tabindex="-1" role="alert">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="color: blueviolet;">
+          <div class="row">
+            <div class="col text-center">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <p class="modal-title std-font-grey">Você tem certeza que deseja cancelar?</p>
               </div>
+              <div class="actions container" >
+                <div class="row justify-content-center">
+                  <button style="margin-right: 15px; width:100px" type="button" class="btn btn-danger" data-dismiss="modal" > Não </button>
+                  <a href="/" style="margin-left: 15px; width:100px; color: white;" type="button" class="btn btn-success" > Sim </a>
+                </div>
+            </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   </div>
 
   <% if request.fullpath == '/users/edit' || request.fullpath == '/users'%>
@@ -193,7 +195,6 @@
     $('body').attr('style', 'background-image: url("/assets/Img_5.jpg"); margin:0px; background-attachment: fixed; background-size: cover; background-position: center center; background-repeat: no-repeat;');
   </script>
   <% end %>
-
   <script>
     $('#btnVoltar').click(function () {
       $('#modalVoltar').modal({ show: true });

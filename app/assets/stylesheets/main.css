@@ -141,9 +141,10 @@
   background-color: transparent;
 }
 .red-link {
+
 	/*font-family: FelbridgeProLight, sans-serif;*/
 	font-family: Futura;
-	color: white;
+	color: #a94342; 
 	text-decoration: underline;
 }
 .red-link:hover {
@@ -315,7 +316,6 @@ input[type="text"]:focus,
 	border-color: #f7d486;
   background-color: rgba(255, 255, 255, 0.8)!important;
 }
-
 .current-password-input-error{
 	border-color: #a94342;
 }
@@ -377,6 +377,16 @@ input[type="text"]:focus,
   margin-bottom: 150px;
   min-width: 1000px;
 }
+@keyframes text-shadow-pop-tl {
+	0% {
+	  text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+	  transform: translateX(0) translateY(0);
+	}
+	100% {
+	  text-shadow: -1px -1px #555555, -2px -2px #555555, -3px -3px #555555, -4px -4px #555555, -5px -5px #555555, -6px -6px #555555, -7px -7px #555555, -8px -8px #555555;
+	  transform: translateX(8px) translateY(8px);
+	}
+  }
 
 html, body {
   margin: 0;
