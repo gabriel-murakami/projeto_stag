@@ -319,7 +319,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <%= f.password_field :password, :class => "validate-class form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "off"%><br />
+              <%= f.password_field :password, :class => "validate-class form-control-yellow form-control", :placeholder => "Senha", :dataid => "3", :autocomplete => "off", :maxlength => "50"%><br />
               <i class="input-group-append input-alert material-icons" id="alertPW" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
@@ -334,7 +334,7 @@
         <div class="col">
           <div class="form-group">
             <div class="input-group">
-              <%= f.password_field :password_confirmation, :class => "validate-class form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "off"%><br />
+              <%= f.password_field :password_confirmation, :class => "validate-class form-control-yellow form-control", :placeholder => "Senha", :dataid => "4", :autocomplete => "off", :maxlength => "50"%><br />
               <i class="input-group-append input-alert material-icons" id="alertPWConf" data-toggle="tooltip"
                 style="display:none">error</i>
             </div>
