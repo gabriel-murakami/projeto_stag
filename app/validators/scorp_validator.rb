@@ -10,7 +10,7 @@ class ScorpValidator < ActiveModel::Validator
             if !(record.sobrenome.match(/[a-zA-Z\u00C0-\u00FF ]+/i) and record.sobrenome.length <= 50 and record.sobrenome.length >= 3)
                 record.errors[:sobrenome] << 'Sobrenome inválido'
             end
-            if (record.documento == "" or record.documento.length != 9)
+            if (record.documento == "" or record.documento.length > 9)
                 record.errors[:documento] << 'Documento inválido'
             end
             if (record.orgao_emissor == "" or record.orgao_emissor.length > 15 or record.orgao_emissor.length < 3)
